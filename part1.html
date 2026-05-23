@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Part I | The Language of Love
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#090807;
+--bg-alt:#120f0d;
+--bg-soft:#181311;
+
+--gold:#d4a44f;
+--gold-soft:#f2d18b;
+
+--text:#f8f2e8;
+--muted:#c8bbab;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#090807;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,215,150,0.14);
+
+border-radius:50%;
+
+animation:float 22s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:12%;
+animation-duration:28s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:20s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:50%;
+animation-duration:34s;
+}
+
+.particle:nth-child(4){
+top:84%;
+left:26%;
+animation-duration:24s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:90%;
+animation-duration:30s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-170px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(9,8,7,0.74);
+
+backdrop-filter:blur(12px);
+
+-webkit-backdrop-filter:blur(12px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.05);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f2d18b;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d7c3a4;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f2d18b;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.part-hero{
+
+position:relative;
+
+min-height:92vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:220px 8% 180px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#090807,
+#171210
+);
+
+}
+
+.part-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.09),
+transparent 45%
+),
+
+radial-gradient(
+circle at bottom left,
+rgba(255,255,255,0.02),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.part-number{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:30px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:35px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2;
+
+color:var(--muted);
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:240px 8%;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#171210,
+#0d0b0a
+);
+
+}
+
+.quote-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 70%
+);
+
+}
+
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.8rem,5vw,5rem);
+
+line-height:1.5;
+
+font-weight:500;
+
+max-width:1100px;
+
+margin:auto;
+
+color:#f2e7d2;
+
+}
+
+/* =========================
+INTRODUCTION
+========================= */
+
+.introduction{
+
+position:relative;
+
+padding:190px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0d0b0a,
+#120f0d
+);
+
+overflow:hidden;
+
+}
+
+.introduction::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 40%
+);
+
+pointer-events:none;
+
+}
+
+.intro-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:950px;
+
+margin:auto;
+
+}
+
+.intro-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:28px;
+
+}
+
+.intro-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.4rem,5vw,4.5rem);
+
+line-height:1.2;
+
+margin-bottom:55px;
+
+color:#f6efe5;
+
+}
+
+.intro-text{
+
+font-size:1.15rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+}
+
+.intro-text p{
+
+margin-bottom:42px;
+
+}
+
+/* =========================
+CHAPTER LINKS
+========================= */
+
+.chapter-section{
+
+position:relative;
+
+padding:180px 8%;
+
+background:
+linear-gradient(
+180deg,
+#120f0d,
+#090807
+);
+
+overflow:hidden;
+
+}
+
+.chapter-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle at center,
+rgba(212,164,79,0.05),
+transparent 70%
+);
+
+pointer-events:none;
+
+}
+
+.chapter-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1300px;
+
+margin:auto;
+
+}
+
+.chapter-heading{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.2rem,5vw,4rem);
+
+margin-bottom:70px;
+
+text-align:center;
+
+}
+
+.chapter-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:30px;
+
+}
+
+.chapter-card{
+
+position:relative;
+
+display:block;
+
+padding:42px 34px;
+
+background:
+rgba(255,255,255,0.03);
+
+border:
+1px solid rgba(255,255,255,0.06);
+
+text-decoration:none;
+
+overflow:hidden;
+
+transition:0.5s ease;
+
+backdrop-filter:blur(8px);
+
+}
+
+.chapter-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+rgba(212,164,79,0.06),
+transparent
+);
+
+opacity:0;
+
+transition:0.5s ease;
+
+}
+
+.chapter-card:hover{
+
+transform:translateY(-10px);
+
+border-color:
+rgba(212,164,79,0.24);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.08);
+
+}
+
+.chapter-card:hover::before{
+
+opacity:1;
+
+}
+
+.chapter-number{
+
+position:relative;
+
+z-index:2;
+
+font-size:11px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#d4a44f;
+
+margin-bottom:18px;
+
+}
+
+.chapter-card h3{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cinzel',serif;
+
+font-size:1.45rem;
+
+line-height:1.5;
+
+margin-bottom:22px;
+
+color:#f4e7d2;
+
+}
+
+.chapter-card p{
+
+position:relative;
+
+z-index:2;
+
+font-size:1rem;
+
+line-height:1.9;
+
+color:#b6ab9d;
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer{
+
+position:relative;
+
+padding:160px 8% 90px;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#090807 0%,
+#120f0d 100%
+);
+
+border-top:
+1px solid rgba(255,255,255,0.05);
+
+}
+
+.footer-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle,
+rgba(212,164,79,0.06),
+transparent 70%
+),
+
+linear-gradient(
+180deg,
+#090807,
+#120f0d
+);
+
+pointer-events:none;
+
+}
+
+.footer-glow{
+
+position:absolute;
+
+top:-250px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:900px;
+height:900px;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 70%
+);
+
+pointer-events:none;
+
+}
+
+.footer-content{
+
+position:relative;
+
+z-index:3;
+
+max-width:1400px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.footer-top h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.4rem,4vw,4.5rem);
+
+line-height:1.1;
+
+margin-bottom:28px;
+
+color:#f6efe5;
+
+letter-spacing:3px;
+
+}
+
+.footer-top p{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.5rem,2vw,2.2rem);
+
+line-height:1.8;
+
+max-width:900px;
+
+margin:auto;
+
+color:#d8c8b1;
+
+}
+
+.footer-divider{
+
+width:240px;
+height:1px;
+
+margin:70px auto;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(212,164,79,0.8),
+transparent
+);
+
+}
+
+.footer-links{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:22px 38px;
+
+margin-bottom:80px;
+
+}
+
+.footer-links a{
+
+text-decoration:none;
+
+color:#bda98d;
+
+font-size:13px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.footer-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-8px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.footer-links a:hover{
+
+color:#f2d18b;
+
+}
+
+.footer-links a:hover::after{
+
+width:100%;
+
+}
+
+.footer-scripture{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.4rem,2vw,2rem);
+
+line-height:1.9;
+
+color:#efe3c8;
+
+margin-bottom:70px;
+
+opacity:0.95;
+
+}
+
+.footer-bottom{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+color:#7e7265;
+
+text-transform:uppercase;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.nav-links a{
+
+font-size:10px;
+
+letter-spacing:2px;
+
+}
+
+.part-hero{
+
+padding:190px 8% 140px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:170px 8%;
+
+}
+
+.introduction{
+
+padding:140px 8%;
+
+}
+
+.chapter-section{
+
+padding:140px 8%;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.3rem;
+
+line-height:1.5;
+
+}
+
+.intro-title{
+
+font-size:2.3rem;
+
+}
+
+.chapter-card{
+
+padding:36px 28px;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ATMOSPHERE -->
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<!-- NAVIGATION -->
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="#chapters">
+Chapters
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="part-hero">
+
+<div class="hero-content">
+
+<div class="part-number">
+
+PART I
+
+</div>
+
+<h1>
+
+The Language of Love
+
+</h1>
+
+<p>
+
+Before theology argued about David and Jonathan, Scripture already preserved covenant, tenderness, grief, loyalty, and emotional devotion within sacred text itself. Part I enters the language beneath interpretation and asks readers to slow down long enough to hear what the words have carried across centuries.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote-section">
+
+<h2>
+
+“Some words survive because love refused to disappear.”
+
+</h2>
+
+</section>
+
+<!-- INTRODUCTION -->
+
+<section class="introduction">
+
+<div class="intro-inner">
+
+<div class="intro-label">
+
+PART INTRODUCTION
+
+</div>
+
+<h2 class="intro-title">
+
+Before fear shaped interpretation, the language already existed.
+
+</h2>
+
+<div class="intro-text">
+
+<p>
+
+Long before theology became divided by denominations, debates, and centuries of interpretation, there were simply words preserved within sacred text waiting to be read carefully by every generation that followed. Those words survived wars, kingdoms, translators, empires, and shifting cultures while carrying the story of David and Jonathan across thousands of years with remarkable emotional depth still intact.
+
+</p>
+
+<p>
+
+Their relationship did not begin inside modern political conversations surrounding sexuality, identity, or masculinity. Their story began within the language of Scripture itself, and that reality matters deeply because language shapes understanding long before doctrine forms around a passage. Entire generations inherit interpretations without realizing how profoundly translation choices, cultural assumptions, theological caution, and emotional discomfort shaped the way certain verses were presented to them.
+
+</p>
+
+<p>
+
+The Hebrew language surrounding David and Jonathan carries extraordinary richness. Covenant imagery, grief poetry, tears, loyalty, embraces, kisses, garments, vows, and the language of souls being knit together all exist within an ancient world modern readers often struggle to fully understand. Words translated simply as “love” in English frequently contain layers of meaning far deeper than contemporary language easily captures.
+
+</p>
+
+<p>
+
+Modern culture also approaches emotional intimacy very differently than the ancient world did. Many readers were taught to associate tenderness between men with suspicion long before they ever encountered these passages honestly for themselves. Ancient biblical literature, however, often expressed loyalty, affection, grief, and covenant devotion with emotional openness modern audiences are not always accustomed to seeing.
+
+</p>
+
+<p>
+
+This section invites readers to slow down and return carefully to the text itself.
+
+</p>
+
+<p>
+
+Together we will explore Hebrew word studies, covenant symbolism, translation history, ancient customs, and the ways fear sometimes shaped interpretation across generations. Some discoveries may challenge familiar assumptions while others may deepen appreciation for the emotional beauty already present within Scripture.
+
+</p>
+
+<p>
+
+The goal is not controversy.
+<br><br>
+The goal is understanding.
+
+</p>
+
+<p>
+
+The story of David and Jonathan has survived because Scripture chose to preserve it. Their covenant crossed centuries. Their grief crossed empires. Their language survived translation.
+
+</p>
+
+<p>
+
+And perhaps, beneath all the noise history added later, love is still speaking through the text exactly as it always has.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHAPTERS -->
+
+<section class="chapter-section" id="chapters">
+
+<div class="chapter-inner">
+
+<h2 class="chapter-heading">
+
+Part I Chapters
+
+</h2>
+
+<div class="chapter-grid">
+
+<a href="chapter1.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 1
+
+</div>
+
+<h3>
+
+The Souls Were Knit Together
+
+</h3>
+
+<p>
+
+The beginning of covenant language and emotional closeness preserved within sacred text.
+
+</p>
+
+</a>
+
+<a href="chapter2.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 2
+
+</div>
+
+<h3>
+
+What the Hebrew Actually Says
+
+</h3>
+
+<p>
+
+Exploring the original language surrounding love, covenant, grief, and devotion.
+
+</p>
+
+</a>
+
+<a href="chapter3.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 3
+
+</div>
+
+<h3>
+
+Love, Covenant, and the Ancient World
+
+</h3>
+
+<p>
+
+How ancient relationships and covenant bonds carried meanings modern readers often miss.
+
+</p>
+
+</a>
+
+<a href="chapter4.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 4
+
+</div>
+
+<h3>
+
+When Translation Becomes Theology
+
+</h3>
+
+<p>
+
+How centuries of interpretation reshaped emotional readings of Scripture.
+
+</p>
+
+</a>
+
+<a href="chapter5.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 5
+
+</div>
+
+<h3>
+
+The Words That Survived History
+
+</h3>
+
+<p>
+
+Why certain emotional truths remained visible despite theological discomfort.
+
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+<div class="footer-overlay"></div>
+
+<div class="footer-glow"></div>
+
+<div class="footer-content">
+
+<div class="footer-top">
+
+<h2>
+
+A LOVE OLDER THAN FEAR
+
+</h2>
+
+<p>
+
+“Some loves survive death.
+Some survive history.
+The rarest loves survive translation.”
+
+</p>
+
+</div>
+
+<div class="footer-divider"></div>
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="part2.html">
+Next Part
+</a>
+
+</div>
+
+<div class="footer-scripture">
+
+“There is no fear in love; but perfect love casteth out fear.”
+<br>
+— 1 John 4:18
+
+</div>
+
+<div class="footer-bottom">
+
+© Bradley Hobbs • A Love Older Than Fear
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
