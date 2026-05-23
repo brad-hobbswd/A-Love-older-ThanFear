@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 10 | A Love Passing the Love of Women
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#060504;
+--bg-alt:#100d0b;
+--bg-soft:#191310;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f8f2e8;
+--muted:#c8bbab;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#060504;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.10);
+
+border-radius:50%;
+
+animation:float 30s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:12%;
+animation-duration:36s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:28s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:50%;
+animation-duration:42s;
+}
+
+.particle:nth-child(4){
+top:84%;
+left:24%;
+animation-duration:32s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:38s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(6,5,4,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d7c3a4;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.chapter-hero{
+
+position:relative;
+
+min-height:85vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:230px 8% 170px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#060504,
+#17110e
+);
+
+}
+
+.chapter-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+);
+
+pointer-events:none;
+
+}
+
+.chapter-hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:980px;
+
+}
+
+.chapter-number{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.chapter-hero h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:40px;
+
+}
+
+.chapter-hero p{
+
+font-size:1.2rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:820px;
+
+margin:auto;
+
+}
+
+/* =========================
+SCRIPTURE
+========================= */
+
+.scripture-section{
+
+padding:130px 8%;
+
+background:
+linear-gradient(
+180deg,
+#17110e,
+#0d0b0a
+);
+
+}
+
+.scripture-box{
+
+max-width:950px;
+
+margin:auto;
+
+padding:70px 60px;
+
+background:
+rgba(255,255,255,0.025);
+
+border-left:
+2px solid rgba(212,164,79,0.65);
+
+backdrop-filter:blur(8px);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.05);
+
+}
+
+.scripture-reference{
+
+font-size:12px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:28px;
+
+}
+
+.scripture-box p{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.9rem,3vw,2.8rem);
+
+line-height:1.8;
+
+color:#f3e8d7;
+
+}
+
+/* =========================
+MANUSCRIPT
+========================= */
+
+.chapter-manuscript{
+
+position:relative;
+
+padding:190px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0d0b0a,
+#120f0d
+);
+
+overflow:hidden;
+
+}
+
+.chapter-manuscript::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 42%
+);
+
+pointer-events:none;
+
+}
+
+.manuscript-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:940px;
+
+margin:auto;
+
+}
+
+.manuscript-inner p{
+
+font-size:1.14rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+margin-bottom:44px;
+
+}
+
+/* =========================
+PULL QUOTE
+========================= */
+
+.pull-quote{
+
+margin:130px auto;
+
+padding:0 30px;
+
+max-width:1050px;
+
+text-align:center;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.3rem,4vw,4.2rem);
+
+line-height:1.6;
+
+color:#f2e7d2;
+
+}
+
+/* =========================
+FOOTNOTES
+========================= */
+
+.footnotes{
+
+padding:170px 8%;
+
+background:
+linear-gradient(
+180deg,
+#120f0d,
+#090807
+);
+
+}
+
+.footnotes-inner{
+
+max-width:920px;
+
+margin:auto;
+
+}
+
+.footnotes h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2rem,4vw,3.6rem);
+
+margin-bottom:60px;
+
+}
+
+.footnote-item{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#bbaea0;
+
+margin-bottom:26px;
+
+padding-left:18px;
+
+border-left:
+1px solid rgba(212,164,79,0.20);
+
+}
+
+/* =========================
+REFLECTION
+========================= */
+
+.chapter-reflection{
+
+position:relative;
+
+padding:190px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#090807,
+#060504
+);
+
+}
+
+.chapter-reflection::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.05),
+transparent 75%
+);
+
+}
+
+.chapter-reflection p{
+
+position:relative;
+
+z-index:2;
+
+max-width:900px;
+
+margin:auto;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2rem,4vw,3.5rem);
+
+line-height:1.7;
+
+color:#f1e4cf;
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+padding:100px 8% 170px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+background:
+linear-gradient(
+180deg,
+#060504,
+#120f0d
+);
+
+}
+
+.chapter-navigation a{
+
+text-decoration:none;
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.chapter-navigation a:hover{
+
+color:#f2d18b;
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer{
+
+padding:130px 8% 90px;
+
+text-align:center;
+
+background:
+#120f0d;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.footer-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2rem,4vw,4rem);
+
+margin-bottom:28px;
+
+}
+
+.footer-scripture{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.5rem;
+
+line-height:1.8;
+
+color:#e8d9c5;
+
+margin-bottom:50px;
+
+}
+
+.footer-bottom{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+color:#7f7367;
+
+text-transform:uppercase;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.chapter-hero{
+
+padding:200px 8% 140px;
+
+min-height:auto;
+
+}
+
+.scripture-box{
+
+padding:50px 36px;
+
+}
+
+.chapter-manuscript{
+
+padding:150px 8%;
+
+}
+
+.footnotes{
+
+padding:140px 8%;
+
+}
+
+.chapter-reflection{
+
+padding:150px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:80px 8% 130px;
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.chapter-hero h1{
+
+font-size:2.8rem;
+
+}
+
+.scripture-box p{
+
+font-size:1.8rem;
+
+line-height:1.7;
+
+}
+
+.pull-quote{
+
+font-size:2rem;
+
+}
+
+.manuscript-inner p{
+
+font-size:1.04rem;
+
+line-height:2.2;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ATMOSPHERE -->
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<!-- NAVIGATION -->
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="part2.html">
+Part II
+</a>
+
+<a href="notes.html">
+Notes
+</a>
+
+<a href="bibliography.html">
+Bibliography
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="chapter-hero">
+
+<div class="chapter-hero-content">
+
+<div class="chapter-number">
+
+CHAPTER 10
+
+</div>
+
+<h1>
+
+A Love Passing the Love of Women
+
+</h1>
+
+<p>
+
+Some verses survive history carrying emotional weight generations still struggle to explain away honestly.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- SCRIPTURE -->
+
+<section class="scripture-section">
+
+<div class="scripture-box">
+
+<div class="scripture-reference">
+
+2 Samuel 1:26
+
+</div>
+
+<p>
+
+“I am distressed for thee, my brother Jonathan: very pleasant hast thou been unto me: thy love to me was wonderful, passing the love of women.”
+
+</p>
+
+</div>
+
+</section>
+
+<!-- MANUSCRIPT -->
+
+<section class="chapter-manuscript">
+
+<div class="manuscript-inner">
+
+<p>
+
+Few verses within the story of David and Jonathan have generated more discomfort, debate, interpretation, and emotional reaction than David’s lament following Jonathan’s death.
+
+</p>
+
+<p>
+
+The line appears during one of the most devastating moments in David’s life. Saul and Jonathan have fallen in battle upon Mount Gilboa. Israel mourns. The kingdom trembles beneath grief and political uncertainty. Yet within the center of national tragedy, Scripture preserves something deeply personal: David’s lament for Jonathan.
+
+</p>
+
+<p>
+
+This lament is not written with emotional restraint. David does not hide grief beneath royal dignity or political caution. Instead, Scripture preserves poetry overflowing with sorrow, tenderness, admiration, and emotional honesty powerful enough to survive thousands of years of interpretation.
+
+</p>
+
+<div class="pull-quote">
+
+“Thy love to me was wonderful,
+passing the love of women.”
+
+</div>
+
+<p>
+
+Many readers approach this verse already carrying assumptions about what the passage must mean before allowing the lament itself room to breathe naturally. Some insist David merely describes friendship. Others believe the language openly reveals romantic love. Still others recognize that ancient covenant relationships sometimes carried emotional dimensions modern categories struggle to contain fully.
+
+</p>
+
+<p>
+
+What remains undeniable, however, is the extraordinary emotional intensity preserved within the biblical text itself.
+
+</p>
+
+<p>
+
+David does not compare Jonathan’s loyalty to military brotherhood alone. He does not praise Jonathan merely as a courageous warrior or faithful political ally. Instead, David speaks about love. The Hebrew language again uses ahavah, language associated throughout Scripture with affection, covenant devotion, relational attachment, and profound emotional connection.
+
+</p>
+
+<p>
+
+The phrase “passing the love of women” has troubled interpreters for centuries precisely because of its emotional directness. Readers often rush to soften the statement before sitting honestly with its implications. Yet the biblical text itself offers no apology for the language David chooses within his grief.
+
+</p>
+
+<p>
+
+That reality deserves careful attention.
+
+</p>
+
+<p>
+
+Ancient lament literature frequently expressed sorrow with emotional openness modern readers are often unprepared to encounter. Grief exposed the depth of love because mourning revealed what loss truly cost the human heart. David’s lament belongs within that ancient poetic tradition while also standing apart through its remarkable personal tenderness.
+
+</p>
+
+<p>
+
+The relationship between David and Jonathan had already been shaped through covenant, loyalty, protection, tears, embraces, separation, and sacrifice long before this lament emerged. David’s grief does not appear suddenly from nowhere. The lament reflects years of emotional and covenantal intimacy Scripture carefully preserved across multiple chapters.
+
+</p>
+
+<p>
+
+Fear often enters interpretation most strongly when readers encounter tenderness impossible to dismiss easily.
+
+</p>
+
+<p>
+
+Throughout history, many interpreters attempted to contain the emotional implications of David’s words because cultures shaped by anxiety surrounding masculinity and same sex tenderness frequently struggle to allow emotional vulnerability between men to exist without suspicion or defensive explanation.
+
+</p>
+
+<p>
+
+Yet David does not sound defensive.
+
+</p>
+
+<p>
+
+The lament speaks openly. Grief speaks openly. Scripture preserves both openly.
+
+</p>
+
+<p>
+
+Perhaps that honesty explains why these verses continue speaking so powerfully across generations. Many readers recognize something profoundly human within David’s mourning because grief reveals the depth of love more honestly than argument ever can.
+
+</p>
+
+<p>
+
+The question is not whether David’s words carry emotional intensity.
+
+</p>
+
+<p>
+
+The question is why generations felt such urgency to explain that intensity away.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTNOTES -->
+
+<section class="footnotes">
+
+<div class="footnotes-inner">
+
+<h2>
+
+Footnotes
+
+</h2>
+
+<div class="footnote-item">
+
+1. Robert Alter, <em>The David Story</em>.
+
+</div>
+
+<div class="footnote-item">
+
+2. Walter Brueggemann, <em>First and Second Samuel</em>.
+
+</div>
+
+<div class="footnote-item">
+
+3. Hebrew אהבה (ahavah) relating to love, affection, and covenant devotion.
+
+</div>
+
+<div class="footnote-item">
+
+4. Ancient Near Eastern lament traditions frequently employed emotionally vivid poetic grief language.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- REFLECTION -->
+
+<section class="chapter-reflection">
+
+<p>
+
+Grief often reveals what fear spent years trying to silence.
+
+</p>
+
+</section>
+
+<!-- NAVIGATION -->
+
+<section class="chapter-navigation">
+
+<a href="chapter9.html">
+
+← Previous Chapter
+
+</a>
+
+<a href="part2.html">
+
+Back to Part II
+
+</a>
+
+<a href="chapter11.html">
+
+Next Chapter →
+
+</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+<div class="footer-title">
+
+A LOVE OLDER THAN FEAR
+
+</div>
+
+<div class="footer-scripture">
+
+“There is no fear in love; but perfect love casteth out fear.”
+<br>
+— 1 John 4:18
+
+</div>
+
+<div class="footer-bottom">
+
+© Bradley Hobbs • A Love Older Than Fear
+
+</div>
+
+</footer>
+
+</body>
+</html>
