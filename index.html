@@ -195,7 +195,7 @@ z-index:999;
 background:
 linear-gradient(
 180deg,
-rgba(0,0,0,0.28),
+rgba(0,0,0,0.42)
 transparent
 );
 
@@ -238,7 +238,7 @@ justify-content:flex-end;
 
 gap:18px;
 
-flex-wrap:nowrap;
+flex-wrap:wrap;
 
 }
 
@@ -322,21 +322,19 @@ justify-content:center;
 
 position:absolute;
 
-top:90px;
-left:0;
+inset:0;
 
 width:100%;
-
-height:calc(100% - 90px);
+height:100%;
 
 object-fit:cover;
 
-object-position:center 20%;
+object-position:center center;
 
 filter:
-brightness(0.72)
-contrast(1.05)
-saturate(1.04);
+brightness(0.78)
+contrast(1.03)
+saturate(1.02);
 
 }
 
@@ -349,9 +347,9 @@ inset:0;
 background:
 linear-gradient(
 180deg,
-rgba(0,0,0,0.82) 0%,
-rgba(0,0,0,0.18) 40%,
-rgba(0,0,0,0.92) 100%
+rgba(0,0,0,0.72) 0%,
+rgba(0,0,0,0.12) 40%,
+rgba(0,0,0,0.88) 100%
 );
 
 z-index:2;
@@ -1000,7 +998,8 @@ background:
 rgba(9,8,7,0.82);
 
 border-bottom:
-1px solid rgba(255,255,255,0.05);
+
+1px solid rgba(255,255,255,0.04);
 
 }
 
