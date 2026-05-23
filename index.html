@@ -181,7 +181,7 @@ left:0;
 
 width:100%;
 
-padding:22px 6%;
+padding:22px 4%;
 
 display:flex;
 
@@ -229,11 +229,11 @@ display:flex;
 
 align-items:center;
 
-gap:28px;
-
-flex-wrap:wrap;
-
 justify-content:flex-end;
+
+gap:22px;
+
+flex-wrap:nowrap;
 
 }
 
@@ -241,9 +241,9 @@ justify-content:flex-end;
 
 text-decoration:none;
 
-font-size:11px;
+font-size:10px;
 
-letter-spacing:3px;
+letter-spacing:2px;
 
 text-transform:uppercase;
 
@@ -323,27 +323,13 @@ height:100%;
 
 object-fit:cover;
 
-object-position:center;
+object-position:center center;
 
 filter:
-brightness(0.58)
-contrast(1.1)
-saturate(1.06);
+brightness(0.72)
+contrast(1.05)
+saturate(1.04);
 
-transform:scale(1.03);
-
-animation:heroZoom 28s ease-in-out infinite alternate;
-
-}
-
-@keyframes heroZoom{
-
-0%{
-transform:scale(1.03);
-}
-
-100%{
-transform:scale(1.08);
 }
 
 }
@@ -1478,9 +1464,6 @@ Their covenant remains visible. Their grief remains visible. Their love remains 
 <!-- FOOTER -->
 
 <div id="footer-container"></div>
-<!-- FOOTER -->
-
-<div id="footer-container"></div>
 
 <script>
 
@@ -1561,8 +1544,6 @@ window.addEventListener(
 const offset =
 window.pageYOffset;
 
-hero.style.objectPosition =
-`center ${offset * 0.02}px`;
 
 });
 
