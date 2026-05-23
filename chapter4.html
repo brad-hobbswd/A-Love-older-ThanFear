@@ -110,38 +110,38 @@ background:rgba(255,215,150,0.14);
 
 border-radius:50%;
 
-animation:float 24s linear infinite;
+animation:float 26s linear infinite;
 
 }
 
 .particle:nth-child(1){
 top:10%;
-left:14%;
-animation-duration:28s;
+left:12%;
+animation-duration:30s;
 }
 
 .particle:nth-child(2){
-top:74%;
-left:82%;
+top:70%;
+left:84%;
 animation-duration:22s;
 }
 
 .particle:nth-child(3){
-top:42%;
-left:50%;
+top:44%;
+left:52%;
 animation-duration:36s;
 }
 
 .particle:nth-child(4){
 top:86%;
 left:24%;
-animation-duration:26s;
+animation-duration:28s;
 }
 
 .particle:nth-child(5){
 top:18%;
 left:92%;
-animation-duration:32s;
+animation-duration:34s;
 }
 
 @keyframes float{
@@ -190,7 +190,7 @@ align-items:center;
 z-index:999;
 
 background:
-rgba(8,7,6,0.76);
+rgba(8,7,6,0.78);
 
 backdrop-filter:blur(14px);
 
@@ -315,8 +315,8 @@ background:
 
 radial-gradient(
 circle at top,
-rgba(212,164,79,0.09),
-transparent 45%
+rgba(212,164,79,0.08),
+transparent 44%
 );
 
 pointer-events:none;
@@ -355,7 +355,7 @@ font-size:clamp(3rem,7vw,6rem);
 
 line-height:1.1;
 
-margin-bottom:40px;
+margin-bottom:42px;
 
 }
 
@@ -399,10 +399,10 @@ margin:auto;
 padding:70px 60px;
 
 background:
-rgba(255,255,255,0.025);
+rgba(255,255,255,0.03);
 
 border-left:
-2px solid rgba(212,164,79,0.60);
+2px solid rgba(212,164,79,0.55);
 
 backdrop-filter:blur(8px);
 
@@ -499,6 +499,10 @@ margin-bottom:48px;
 
 }
 
+/* =========================
+PULL QUOTE
+========================= */
+
 .pull-quote{
 
 margin:140px auto;
@@ -511,11 +515,11 @@ text-align:center;
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:clamp(2.4rem,4vw,4.5rem);
+font-size:clamp(2.4rem,4vw,4.4rem);
 
 line-height:1.7;
 
-color:#f1e4d2;
+color:#f0e2ce;
 
 }
 
@@ -524,8 +528,6 @@ REFERENCES
 ========================= */
 
 .references{
-
-position:relative;
 
 padding:180px 8%;
 
@@ -540,10 +542,6 @@ linear-gradient(
 
 .references-inner{
 
-position:relative;
-
-z-index:2;
-
 max-width:1000px;
 
 margin:auto;
@@ -556,7 +554,7 @@ font-family:'Cinzel',serif;
 
 font-size:clamp(2.2rem,4vw,4rem);
 
-margin-bottom:60px;
+margin-bottom:70px;
 
 text-align:center;
 
@@ -564,9 +562,9 @@ text-align:center;
 
 .reference-item{
 
-margin-bottom:36px;
+padding-bottom:34px;
 
-padding-bottom:36px;
+margin-bottom:34px;
 
 border-bottom:
 1px solid rgba(255,255,255,0.05);
@@ -589,8 +587,6 @@ REFLECTION
 
 .chapter-reflection{
 
-position:relative;
-
 padding:190px 8%;
 
 text-align:center;
@@ -604,30 +600,9 @@ linear-gradient(
 
 }
 
-.chapter-reflection::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-radial-gradient(
-circle,
-rgba(212,164,79,0.05),
-transparent 75%
-);
-
-}
-
 .chapter-reflection p{
 
-position:relative;
-
-z-index:2;
-
-max-width:920px;
+max-width:980px;
 
 margin:auto;
 
@@ -647,7 +622,7 @@ NAVIGATION
 
 .chapter-navigation{
 
-padding:100px 8% 170px;
+padding:90px 8% 160px;
 
 display:flex;
 
@@ -700,11 +675,10 @@ padding:130px 8% 90px;
 
 text-align:center;
 
-background:
-#090807;
+background:#090807;
 
 border-top:
-1px solid rgba(255,255,255,0.04);
+1px solid rgba(255,255,255,0.05);
 
 }
 
@@ -714,7 +688,7 @@ font-family:'Cinzel',serif;
 
 font-size:clamp(2rem,4vw,4rem);
 
-margin-bottom:28px;
+margin-bottom:30px;
 
 }
 
@@ -726,7 +700,7 @@ font-size:1.5rem;
 
 line-height:1.9;
 
-color:#e8d9c5;
+color:#eadcc8;
 
 margin-bottom:50px;
 
@@ -743,6 +717,10 @@ color:#786d62;
 text-transform:uppercase;
 
 }
+
+/* =========================
+RESPONSIVE
+========================= */
 
 @media(max-width:768px){
 
@@ -774,7 +752,7 @@ min-height:auto;
 
 .scripture-box{
 
-padding:50px 36px;
+padding:50px 34px;
 
 }
 
@@ -818,7 +796,7 @@ font-size:2.7rem;
 
 .scripture-box p{
 
-font-size:1.8rem;
+font-size:1.7rem;
 
 line-height:1.7;
 
@@ -835,6 +813,14 @@ line-height:2.2;
 .pull-quote{
 
 font-size:2rem;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
 
 }
 
@@ -903,7 +889,7 @@ When Translation Becomes Theology
 
 <p>
 
-Translation never exists in a vacuum. Every translator carries language, assumptions, theology, culture, fear, and historical context into the choices made upon the page.
+Translation carries more than language alone. Every generation brings assumptions, fears, traditions, and emotional boundaries into the way sacred text is understood.
 
 </p>
 
@@ -917,13 +903,13 @@ Translation never exists in a vacuum. Every translator carries language, assumpt
 
 <div class="scripture-reference">
 
-1 Samuel 18:1
+2 Samuel 1:26
 
 </div>
 
 <p>
 
-“And the soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul.”
+“Thy love to me was wonderful, passing the love of women.”
 
 </p>
 
@@ -937,289 +923,197 @@ Translation never exists in a vacuum. Every translator carries language, assumpt
 
 <p>
 
-Most readers never encounter Scripture in Hebrew.
+Most believers grow up trusting the Bible in the language handed to them. That trust is understandable and, in many ways, beautiful. Scripture was meant to be heard by ordinary people, not hidden only within academic institutions or locked behind languages few can read. Translation allows sacred text to travel across nations, generations, and cultures so that people everywhere can encounter the Word of God within their own tongue.
 
 </p>
 
 <p>
 
-Believers inherit translations already filtered through centuries of interpretation, denominational tradition, theological caution, linguistic philosophy, and cultural assumptions. Many assume translations function as neutral mirrors reflecting the biblical text perfectly into modern language. The reality is far more complicated.
+Yet translation is never as simple as replacing one word with another.
 
 </p>
 
 <p>
 
-Translation always involves interpretation.
+Every translation carries decisions.
+<br><br>
+Every decision carries interpretation.
+<br><br>
+Every interpretation carries theology, culture, fear, assumptions, and human limitation.
 
 </p>
 
 <p>
 
-Ancient Hebrew contains emotional, poetic, covenantal, and relational layers difficult to reproduce fully inside modern English. Words often carry broad semantic ranges rather than single precise meanings. Cultural context shapes nuance. Syntax carries implication. Poetry compresses emotion into language modern readers frequently flatten unintentionally.
+Sometimes those influences remain subtle enough that readers never notice them at all.
 
 </p>
 
 <p>
 
-The story of David and Jonathan exists directly inside that tension.
+The story of David and Jonathan exists directly inside that reality.
+
+</p>
+
+<p>
+
+Many people assume the Bible arrives in English untouched by interpretation, as though translators simply copied Hebrew words mechanically from one language into another. In truth, translation requires constant judgment calls. Translators must decide how emotionally strong a phrase should sound, which meanings receive emphasis, which meanings become softened, and how cultural assumptions shape the final wording readers eventually encounter.
+
+</p>
+
+<p>
+
+A single Hebrew word may contain layers English struggles to hold together fully. Emotional nuance, covenant significance, poetic rhythm, and relational depth can all become narrowed during translation because no language transfers perfectly into another without losing some texture along the way.
+
+</p>
+
+<p>
+
+Sometimes what gets lost reveals as much about the translators as it does about the text itself.
+
+</p>
+
+<p>
+
+Throughout history, translators were not emotionless machines operating outside culture or theology. Many worked within religious institutions already carrying assumptions about gender, holiness, sexuality, authority, and acceptable forms of affection. Some lived during periods where emotional tenderness between men was viewed with increasing suspicion socially and theologically. Others translated Scripture within cultures deeply shaped by rigid expectations surrounding masculinity and emotional restraint.
+
+</p>
+
+<p>
+
+Those realities matter because translators are still human beings.
 
 </p>
 
 <div class="pull-quote">
 
-Sometimes translators soften language not because the Hebrew became weaker, but because later readers became more uncomfortable.
+“Human beings often soften language that unsettles them.”
 
 </div>
 
 <p>
 
-The Hebrew word ahav, commonly translated “love,” appears throughout the Old Testament in relationships involving covenant loyalty, family affection, divine love, political allegiance, friendship, desire, and romantic attachment. Hebrew does not divide emotional categories with the same precision modern English often attempts to impose.
+The relationship between David and Jonathan contains several passages where translation choices significantly affect how readers experience the emotional intensity of the text. Certain versions preserve tenderness more openly while others frame the language more cautiously. Some emphasize covenant loyalty strongly while others lean toward political alliance or friendship terminology. Even subtle differences in phrasing can reshape the emotional atmosphere surrounding their relationship over generations.
 
 </p>
 
 <p>
 
-Context shapes meaning.
+One of the clearest examples appears in 2 Samuel 1:26.
+
+</p>
+
+<p>
+
+“Thy love to me was wonderful, passing the love of women.”
+
+</p>
+
+<p>
+
+Many readers encounter this verse already prepared to explain the emotional directness away because the language feels uncomfortable. Yet the Hebrew itself remains strikingly vulnerable. David does not minimize his grief. He does not reduce Jonathan to military loyalty alone. He speaks poetically, intimately, and publicly about love.
+
+</p>
+
+<p>
+
+Translation cannot erase that entirely.
+
+</p>
+
+<p>
+
+Still, generations of interpretation often attempted to control the emotional implications surrounding the passage before readers could sit honestly with its weight. Some commentators rushed toward political explanations. Others emphasized brotherhood language exclusively. Some treated emotional tenderness itself as dangerous territory needing immediate containment.
+
+</p>
+
+<p>
+
+Fear often entered the conversation before careful study did.
+
+</p>
+
+<p>
+
+This pattern appears throughout church history whenever passages involving deep affection between men became difficult for cultures already uncomfortable with emotional vulnerability. Rather than allowing the text to remain emotionally expansive, interpreters sometimes narrowed possibilities quickly in order to protect theological certainty or cultural comfort.
+
+</p>
+
+<p>
+
+Yet Scripture itself frequently resists emotional narrowing.
+
+</p>
+
+<p>
+
+The Bible contains poetry overflowing with longing, grief, desire, covenant devotion, tears, embraces, lamentation, and relational intimacy. Human emotion is not hidden from sacred text. The language of love throughout Scripture often carries extraordinary depth whether describing God’s relationship with humanity, covenant bonds between individuals, familial loyalty, friendship, or marriage.
+
+</p>
+
+<p>
+
+The challenge modern readers face is not merely translation itself. The deeper challenge involves recognizing how thoroughly interpretation can become shaped by fear before readers even realize fear has entered the process.
+
+</p>
+
+<p>
+
+Fear of queerness.
 <br><br>
-
-Relationship shapes meaning.
+Fear of emotional ambiguity.
 <br><br>
-
-Narrative movement shapes meaning.
-
-</p>
-
-<p>
-
-Yet modern readers frequently approach biblical language expecting emotional certainty immediately. Translators therefore often make subtle choices designed to guide interpretation toward what feels culturally acceptable or theologically safe within their historical moment.
-
-</p>
-
-<p>
-
-That process rarely happens maliciously.
-
-</p>
-
-<p>
-
-Many translators genuinely believe they are protecting doctrinal clarity or preventing misunderstanding. Others inherit interpretive traditions already established centuries earlier. Over time, repeated assumptions begin sounding natural simply because generations repeated them consistently enough.
-
-</p>
-
-<p>
-
-The relationship between David and Jonathan became especially vulnerable to interpretive softening because the biblical language surrounding them remains unusually intimate.
-
-</p>
-
-<p>
-
-Readers encounter souls knit together.
+Fear of tenderness between men.
 <br><br>
-
-Covenant language.
+Fear of disrupting inherited theology.
 <br><br>
+Fear of allowing Scripture to sound more emotionally intimate than certain cultures feel comfortable permitting.
 
-Emotional devotion.
+</p>
+
+<p>
+
+Those fears do not necessarily produce dishonest translators. Many translators worked sincerely and faithfully according to their convictions. Yet sincerity does not remove human limitation. Every generation reads Scripture through its own anxieties as well as its own wisdom.
+
+</p>
+
+<p>
+
+This book does not argue that translations are worthless or intentionally corrupt. Rather, this journey invites readers to recognize translation as a deeply human process involving interpretation at every stage. Some meanings survive clearly across languages. Others become softened beneath centuries of theological caution and cultural discomfort.
+
+</p>
+
+<p>
+
+That is why returning to the Hebrew matters.
+
+</p>
+
+<p>
+
+Not because Hebrew magically removes every difficulty or debate, but because the original language often restores emotional texture modern readers never realized had faded over time. Hebrew allows readers to hear the covenant language more fully. Hebrew allows readers to hear the poetry more deeply. Hebrew allows readers to encounter tenderness before later generations rush to explain why tenderness should not sound as intimate as it does.
+
+</p>
+
+<p>
+
+Perhaps one of the most revealing questions readers can ask is not simply what Scripture says, but why certain forms of love within Scripture make later generations nervous enough to soften them in the first place.
+
+</p>
+
+<p>
+
+The story of David and Jonathan survived translation remarkably well considering how much discomfort surrounded their relationship across history. Their covenant survived. Their grief survived. Their emotional language survived.
+
+</p>
+
+<p>
+
+Some loves survive death.
 <br><br>
-
-Public grief.
+Some survive history.
 <br><br>
-
-Tears.
-<br><br>
-
-Kisses.
-<br><br>
-
-Poetry declaring Jonathan’s love “wonderful, passing the love of women.”
-
-</p>
-
-<p>
-
-Those passages continued creating interpretive tension across centuries precisely because the emotional honesty remained difficult to erase completely from the text itself.
-
-</p>
-
-<p>
-
-History reveals that ancient Jewish interpreters, early Christian commentators, medieval theologians, and modern scholars did not always approach David and Jonathan identically. Some emphasized covenant friendship almost exclusively. Others acknowledged extraordinary emotional intensity openly. A few commentators expressed discomfort directly within their writings, revealing anxiety surrounding how readers might interpret the relationship.
-
-</p>
-
-<p>
-
-That anxiety matters historically because fear often influences interpretation quietly long before doctrine becomes formalized publicly.
-
-</p>
-
-<p>
-
-Language choices sometimes reflect those fears.
-
-</p>
-
-<p>
-
-Certain translations emphasize loyalty while minimizing affection.
-<br><br>
-
-Others frame emotional devotion primarily through political alliance.
-<br><br>
-
-Some commentaries redirect attention away from tenderness altogether and toward military or dynastic themes instead.
-
-</p>
-
-<p>
-
-None of those themes are absent from the narrative.
-<br><br>
-
-The problem emerges when emotional language becomes consistently diminished in order to preserve theological comfort rather than textual honesty.
-
-</p>
-
-<p>
-
-The Hebrew phrase describing Jonathan’s soul being “knit” to David comes from the root qashar, carrying meanings connected to binding, tying, joining, or fastening together. The same root appears elsewhere in contexts involving conspiracy, alliance, and binding commitments. Within 1 Samuel 18, however, the language carries emotional and relational intimacy immediately joined with ahav, love.
-
-</p>
-
-<p>
-
-The narrative intentionally places emotional devotion beside covenant commitment from the beginning.
-
-</p>
-
-<p>
-
-That literary choice becomes important because biblical Hebrew often communicates through parallelism and thematic reinforcement rather than modern systematic explanation. Ancient writers expected readers to notice repeated emotional patterns unfolding across scenes and relationships.
-
-</p>
-
-<p>
-
-David and Jonathan’s story repeatedly returns to those patterns.
-
-</p>
-
-<p>
-
-The narrative slows around their encounters.
-<br><br>
-
-The text preserves emotional detail carefully.
-<br><br>
-
-Covenant language reappears repeatedly.
-<br><br>
-
-Grief intensifies rather than fades.
-
-</p>
-
-<p>
-
-Translation alone cannot erase those narrative realities completely.
-
-</p>
-
-<p>
-
-Yet theology still shapes how readers emotionally frame what survives on the page.
-
-</p>
-
-<p>
-
-Masculinity also influenced interpretation historically.
-
-</p>
-
-<p>
-
-As Western culture increasingly defined masculinity through emotional restraint, suspicion toward tenderness between men grew stronger. By later historical periods, many readers no longer approached David and Jonathan through ancient covenant frameworks but through modern anxieties surrounding gender, vulnerability, and sexuality instead.
-
-</p>
-
-<p>
-
-Those anxieties affected translation philosophy indirectly.
-
-</p>
-
-<p>
-
-Commentators became cautious.
-<br><br>
-
-Preachers became defensive.
-<br><br>
-
-Readers inherited interpretations already filtered through discomfort.
-
-</p>
-
-<p>
-
-Eventually many believers learned conclusions before they ever encountered the passages honestly for themselves.
-
-</p>
-
-<p>
-
-That pattern still continues today.
-
-</p>
-
-<p>
-
-Some readers enter the story already convinced emotional intimacy must immediately be limited, explained away, or carefully controlled before discussion even begins. Others approach the passages searching exclusively for modern romantic categories the ancient world itself may not have recognized in identical ways.
-
-</p>
-
-<p>
-
-Both approaches risk forcing the text into frameworks narrower than the narrative itself allows.
-
-</p>
-
-<p>
-
-Honest interpretation requires humility.
-
-</p>
-
-<p>
-
-The goal is not manipulating Scripture to satisfy modern political arguments from any direction. The goal is allowing the Hebrew text, ancient world, literary structure, covenant imagery, and emotional language to speak with their full complexity intact before fear rushes toward simplification.
-
-</p>
-
-<p>
-
-Because once readers begin noticing how translation and theology influence one another, another realization slowly emerges as well:
-
-</p>
-
-<p>
-
-Many people were never actually taught the text alone.
-<br><br>
-
-Many were taught centuries of anxiety layered over the text first.
-
-</p>
-
-<p>
-
-That realization does not require abandoning faith.
-<br><br>
-
-It requires returning carefully to Scripture itself with honesty strong enough to ask difficult questions without fear deciding the answers beforehand.
+The rarest loves survive translation.
 
 </p>
 
@@ -1233,7 +1127,7 @@ It requires returning carefully to Scripture itself with honesty strong enough t
 
 <h2>
 
-Historical & Linguistic References
+Selected References
 
 </h2>
 
@@ -1241,8 +1135,7 @@ Historical & Linguistic References
 
 <p>
 
-Brown, Driver, Briggs Hebrew Lexicon:
-The Hebrew root “qashar” carries meanings involving binding, joining, fastening, or conspiracy depending upon context. Usage within 1 Samuel 18 emphasizes connection and relational attachment.
+Brown, Driver, Briggs Hebrew and English Lexicon regarding covenant language, relational terminology, and Hebrew lexical structure.
 
 </p>
 
@@ -1252,7 +1145,7 @@ The Hebrew root “qashar” carries meanings involving binding, joining, fasten
 
 <p>
 
-The Hebrew word “ahav” appears widely throughout the Old Testament describing covenant love, divine love, familial affection, loyalty, friendship, and relational devotion. Context determines nuance rather than rigid emotional categories alone.
+Robert Alter’s literary work on Hebrew narrative and emotional repetition within biblical storytelling.
 
 </p>
 
@@ -1262,7 +1155,7 @@ The Hebrew word “ahav” appears widely throughout the Old Testament describin
 
 <p>
 
-Ancient Near Eastern covenant structures frequently involved relational obligations extending beyond legal agreement into kinship, loyalty, protection, inheritance expectations, and enduring communal identity.
+Susan Ackerman’s scholarship regarding gender, covenant, and relational expression within the Hebrew Bible.
 
 </p>
 
@@ -1272,7 +1165,7 @@ Ancient Near Eastern covenant structures frequently involved relational obligati
 
 <p>
 
-David M. Halperin, “The First Homosexual?” explores interpretive history surrounding David and Jonathan while examining how later readers shaped theological conclusions around the narrative.
+Walter Brueggemann’s writings concerning Davidic narrative, grief, covenant, and political theology.
 
 </p>
 
@@ -1282,7 +1175,7 @@ David M. Halperin, “The First Homosexual?” explores interpretive history sur
 
 <p>
 
-Susan Ackerman’s scholarship regarding gender, covenant, and emotional expression within the Hebrew Bible highlights the complexity surrounding modern assumptions projected backward onto ancient texts.
+David Halperin’s historical analysis surrounding interpretive traditions connected to David and Jonathan.
 
 </p>
 
@@ -1292,7 +1185,7 @@ Susan Ackerman’s scholarship regarding gender, covenant, and emotional express
 
 <p>
 
-Robert Alter’s work on biblical narrative emphasizes how Hebrew storytelling techniques preserve emotional repetition, thematic development, and relational tension through literary structure rather than modern systematic exposition.
+Everett Fox’s translation philosophy emphasizing preservation of Hebrew rhythm and literary texture.
 
 </p>
 
@@ -1306,7 +1199,9 @@ Robert Alter’s work on biblical narrative emphasizes how Hebrew storytelling t
 
 <p>
 
-Translation can illuminate Scripture beautifully, yet translation can also reveal the fears every generation quietly carries into the text.
+Some loves survive death.
+Some survive history.
+The rarest loves survive translation.
 
 </p>
 
