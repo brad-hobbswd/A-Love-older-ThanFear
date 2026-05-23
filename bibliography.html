@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Bibliography | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#070605;
+--bg-alt:#120f0d;
+--bg-soft:#1a1411;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f7f1e7;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#070605;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.10);
+
+border-radius:50%;
+
+animation:float 32s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:12%;
+animation-duration:38s;
+}
+
+.particle:nth-child(2){
+top:76%;
+left:82%;
+animation-duration:28s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:52%;
+animation-duration:44s;
+}
+
+.particle:nth-child(4){
+top:88%;
+left:24%;
+animation-duration:34s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:40s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-190px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(7,6,5,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+position:relative;
+
+min-height:88vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 180px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#18120f
+);
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.015),
+transparent 60%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.hero-label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3.2rem,7vw,6.2rem);
+
+line-height:1.1;
+
+margin-bottom:44px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+max-width:850px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:260px 8%;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0a0908
+);
+
+}
+
+.quote-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 72%
+);
+
+}
+
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.8rem,5vw,5.2rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1100px;
+
+margin:auto;
+
+color:#f3e8d7;
+
+}
+
+/* =========================
+BIBLIOGRAPHY
+========================= */
+
+.library{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0a0908,
+#140f0d
+);
+
+overflow:hidden;
+
+}
+
+.library::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.library-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+.source-group{
+
+margin-bottom:140px;
+
+}
+
+.source-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:24px;
+
+}
+
+.source-group h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.1rem,4vw,3.8rem);
+
+line-height:1.2;
+
+margin-bottom:50px;
+
+color:#f7f1e7;
+
+}
+
+.source-description{
+
+font-size:1.08rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:900px;
+
+margin-bottom:70px;
+
+}
+
+.source-list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:26px;
+
+}
+
+.source-item{
+
+padding:34px 36px;
+
+background:
+rgba(255,255,255,0.025);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+backdrop-filter:blur(8px);
+
+transition:0.4s ease;
+
+}
+
+.source-item:hover{
+
+transform:translateY(-4px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.source-item h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.55rem;
+
+line-height:1.5;
+
+margin-bottom:14px;
+
+font-weight:600;
+
+}
+
+/* LINKED RESOURCE TITLES */
+
+.source-item h3 a{
+
+color:#f0e3cf;
+
+text-decoration:none;
+
+transition:
+color 0.4s ease,
+border-bottom 0.4s ease,
+text-shadow 0.4s ease;
+
+border-bottom:
+1px solid transparent;
+
+padding-bottom:2px;
+
+}
+
+.source-item h3 a:hover{
+
+color:#f6ddb0;
+
+border-bottom:
+1px solid rgba(212,164,79,0.55);
+
+text-shadow:
+0 0 12px rgba(212,164,79,0.22);
+
+}
+
+.source-item p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#bbaea0;
+
+}
+
+/* =========================
+FINAL REFLECTION
+========================= */
+
+.reflection{
+
+position:relative;
+
+padding:240px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#070605
+);
+
+overflow:hidden;
+
+}
+
+.reflection::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.06),
+transparent 75%
+);
+
+}
+
+.reflection-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.reflection h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+line-height:1.2;
+
+margin-bottom:50px;
+
+}
+
+.reflection p{
+
+font-size:1.15rem;
+
+line-height:2.3;
+
+color:var(--muted);
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer{
+
+position:relative;
+
+padding:180px 8% 100px;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#070605 0%,
+#140f0d 100%
+);
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.footer-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle,
+rgba(212,164,79,0.05),
+transparent 75%
+);
+
+pointer-events:none;
+
+}
+
+.footer-content{
+
+position:relative;
+
+z-index:3;
+
+max-width:1400px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.footer-top h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,4vw,4.8rem);
+
+line-height:1.1;
+
+margin-bottom:36px;
+
+color:#f7f1e7;
+
+letter-spacing:3px;
+
+}
+
+.footer-top p{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.5rem,2vw,2.3rem);
+
+line-height:2;
+
+max-width:900px;
+
+margin:auto;
+
+color:#d8c5ae;
+
+}
+
+.footer-divider{
+
+width:240px;
+height:1px;
+
+margin:90px auto;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(212,164,79,0.75),
+transparent
+);
+
+}
+
+.footer-links{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:22px 38px;
+
+margin-bottom:90px;
+
+}
+
+.footer-links a{
+
+text-decoration:none;
+
+color:#bca78b;
+
+font-size:13px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.footer-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-8px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.footer-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.footer-links a:hover::after{
+
+width:100%;
+
+}
+
+.footer-scripture{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.4rem,2vw,2rem);
+
+line-height:2;
+
+color:#eadbc7;
+
+margin-bottom:80px;
+
+opacity:0.95;
+
+}
+
+.footer-bottom{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+color:#796e62;
+
+text-transform:uppercase;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.nav-links a{
+
+font-size:10px;
+
+letter-spacing:2px;
+
+}
+
+.hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:190px 8%;
+
+}
+
+.library{
+
+padding:170px 8%;
+
+}
+
+.reflection{
+
+padding:170px 8%;
+
+}
+
+.source-group{
+
+margin-bottom:100px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.2rem;
+
+line-height:1.6;
+
+}
+
+.source-group h2{
+
+font-size:2.2rem;
+
+}
+
+.source-item{
+
+padding:30px 26px;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ATMOSPHERE -->
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<!-- NAVIGATION -->
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="about.html">
+About
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-label">
+
+PRESERVED SOURCES
+
+</div>
+
+<h1>
+
+Bibliography
+
+</h1>
+
+<p>
+
+Every archive is shaped by memory, language, history, and the voices preserved before us. These works helped inform the study of covenant, translation, tenderness, grief, theology, and interpretation throughout this project.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote-section">
+
+<h2>
+
+“Some truths survive because generations refused to stop studying them.”
+
+</h2>
+
+</section>
+
+<!-- LIBRARY -->
+
+<section class="library">
+
+<div class="library-inner">
+
+<!-- SECTION -->
+
+<div class="source-group">
+
+<div class="source-label">
+
+HEBREW LANGUAGE
+
+</div>
+
+<h2>
+
+Hebrew Word Studies & Ancient Language
+
+</h2>
+
+<p class="source-description">
+
+Resources focused upon covenant language, Hebrew terminology, emotional expression within Scripture, and linguistic frameworks surrounding David and Jonathan.
+
+</p>
+
+<div class="source-list">
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/hebrewenglishlex00browuoft"
+
+target="_blank">
+
+Brown Driver Briggs Hebrew Lexicon
+
+</a>
+
+</h3>
+
+<p>
+
+Foundational Hebrew lexicon widely used for Old Testament language study and covenant terminology.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/hebrewaramaiclex0001koeh"
+
+target="_blank">
+
+The Hebrew and Aramaic Lexicon of the Old Testament
+
+</a>
+
+</h3>
+
+<p>
+
+Advanced lexical resource examining Hebrew word meanings, semantic ranges, and contextual interpretation.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/theologicalwordb01harr"
+
+target="_blank">
+
+Theological Wordbook of the Old Testament
+
+</a>
+
+</h3>
+
+<p>
+
+Extensive theological analysis of Hebrew vocabulary and biblical language development.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SECTION -->
+
+<div class="source-group">
+
+<div class="source-label">
+
+BIBLICAL SCHOLARSHIP
+
+</div>
+
+<h2>
+
+David, Jonathan, and the Books of Samuel
+
+</h2>
+
+<p class="source-description">
+
+Commentaries and biblical scholarship exploring covenant, kingship, grief, loyalty, and narrative structure within the Davidic account.
+
+</p>
+
+<div class="source-list">
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/firstsecondsamue0000brue"
+
+target="_blank">
+
+First and Second Samuel by Walter Brueggemann
+
+</a>
+
+</h3>
+
+<p>
+
+Influential commentary examining political tension, covenant, grief, and theological themes within Samuel.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/kingdavidreallif00kirs"
+
+target="_blank">
+
+King David by Jonathan Kirsch
+
+</a>
+
+</h3>
+
+<p>
+
+Historical and literary exploration of David’s life, relationships, and royal ascent.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://wwnorton.com/books/The-David-Story"
+
+target="_blank">
+
+The David Story by Robert Alter
+
+</a>
+
+</h3>
+
+<p>
+
+Translation and literary commentary emphasizing narrative artistry and emotional depth within the Hebrew text.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SECTION -->
+
+<div class="source-group">
+
+<div class="source-label">
+
+ANCIENT CULTURE
+
+</div>
+
+<h2>
+
+Ancient Near Eastern Culture & Masculinity
+
+</h2>
+
+<p class="source-description">
+
+Historical resources examining covenant customs, masculinity, grief rituals, royal succession, kinship, and emotional expression within the ancient world.
+
+</p>
+
+<div class="source-list">
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/newmannerscustom0000gowe"
+
+target="_blank">
+
+The New Manners and Customs of Bible Times
+
+</a>
+
+</h3>
+
+<p>
+
+Historical background surrounding ancient customs, covenant relationships, and biblical social structures.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/honorpatronageki0000mali"
+
+target="_blank">
+
+Honor, Patronage, Kinship and Purity
+
+</a>
+
+</h3>
+
+<p>
+
+Cultural framework analysis for understanding social relationships within biblical societies.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/dictionaryofbibl0000unse"
+
+target="_blank">
+
+Dictionary of Biblical Imagery
+
+</a>
+
+</h3>
+
+<p>
+
+Symbolic and literary imagery resource for covenant, grief, kingship, and emotional language.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SECTION -->
+
+<div class="source-group">
+
+<div class="source-label">
+
+THEOLOGY & HISTORY
+
+</div>
+
+<h2>
+
+Interpretation, Translation, and Church History
+
+</h2>
+
+<p class="source-description">
+
+Sources examining biblical interpretation, theological development, translation history, and hermeneutical traditions across generations.
+
+</p>
+
+<div class="source-list">
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/historyofbiblica0001mcke"
+
+target="_blank">
+
+A History of Biblical Interpretation
+
+</a>
+
+</h3>
+
+<p>
+
+Historical overview of interpretive traditions and theological development throughout church history.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/howtoreadbiblefo0000feer"
+
+target="_blank">
+
+How to Read the Bible for All Its Worth
+
+</a>
+
+</h3>
+
+<p>
+
+Hermeneutical study resource exploring historical context, genre, interpretation, and translation.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/journeyfromtexts0000weg"
+
+target="_blank">
+
+The Journey from Texts to Translations
+
+</a>
+
+</h3>
+
+<p>
+
+Study of manuscript transmission, translation philosophy, and biblical textual history.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SECTION -->
+
+<div class="source-group">
+
+<div class="source-label">
+
+HEALING & BELONGING
+
+</div>
+
+<h2>
+
+Spiritual Trauma, Identity, and LGBTQIA+ Faith
+
+</h2>
+
+<p class="source-description">
+
+Resources exploring belonging, spiritual trauma, pastoral care, identity, dignity, and the emotional impact of fear based theology.
+
+</p>
+
+<div class="source-list">
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://nadiabolzweber.com/shameless/"
+
+target="_blank">
+
+Shameless by Nadia Bolz Weber
+
+</a>
+
+</h3>
+
+<p>
+
+Exploration of sexuality, faith, belonging, and grace within Christian experience.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://matthewvines.com/book/"
+
+target="_blank">
+
+God and the Gay Christian by Matthew Vines
+
+</a>
+
+</h3>
+
+<p>
+
+Biblical and theological examination of LGBTQIA+ inclusion and interpretation within Christianity.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+<a
+
+href="https://archive.org/details/walkingbridgeles0000wils"
+
+target="_blank">
+
+Walking the Bridgeless Canyon
+
+</a>
+
+</h3>
+
+<p>
+
+Reflections on spiritual trauma, faith, identity, and emotional survival within religious environments.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- REFLECTION -->
+
+<section class="reflection">
+
+<div class="reflection-content">
+
+<h2>
+
+Preserved Voices
+
+</h2>
+
+<p>
+
+Every source listed here represents generations of readers, scholars, translators, pastors, historians, and wounded believers wrestling honestly with sacred text. Some approached Scripture searching for certainty. Others searched for understanding, healing, or belonging. Together, their work reminds us that honest study has always been part of faith itself.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+<div class="footer-overlay"></div>
+
+<div class="footer-content">
+
+<div class="footer-top">
+
+<h2>
+
+A LOVE OLDER THAN FEAR
+
+</h2>
+
+<p>
+
+“Some loves survive death.
+Some survive history.
+The rarest loves survive translation.”
+
+</p>
+
+</div>
+
+<div class="footer-divider"></div>
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="notes.html">
+Notes
+</a>
+
+</div>
+
+<div class="footer-scripture">
+
+“There is no fear in love; but perfect love casteth out fear.”
+<br>
+— 1 John 4:18
+
+</div>
+
+<div class="footer-bottom">
+
+© Bradley Hobbs • A Love Older Than Fear
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
