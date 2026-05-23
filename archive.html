@@ -622,6 +622,24 @@ border-top:
 
 }
 
+.footer-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle,
+rgba(212,164,79,0.05),
+transparent 75%
+);
+
+pointer-events:none;
+
+}
+
 .footer-content{
 
 position:relative;
@@ -864,6 +882,14 @@ A LOVE OLDER THAN FEAR
 Home
 </a>
 
+<a href="archive.html">
+Archive
+</a>
+
+<a href="chapters.html">
+Chapters
+</a>
+
 <a href="notes.html">
 Notes
 </a>
@@ -901,6 +927,12 @@ Archive
 Every section of this project preserves language, grief, covenant, fear, tenderness, theology, and the emotional honesty surrounding David and Jonathan across centuries of interpretation.
 
 </p>
+
+<a href="chapters.html" class="archive-button">
+
+OPEN MANUSCRIPT MAP
+
+</a>
 
 </div>
 
@@ -1114,67 +1146,22 @@ ENTER PART V
 
 </section>
 
-<footer class="site-footer">
+<div id="footer-container"></div>
+<script>
 
-<div class="footer-content">
+fetch('footer.html')
 
-<div class="footer-top">
+.then(response => response.text())
 
-<h2>
+.then(data => {
 
-A LOVE OLDER THAN FEAR
+document.getElementById(
+'footer-container'
+).innerHTML = data;
 
-</h2>
+});
 
-<p>
-
-“Some loves survive death.
-Some survive history.
-The rarest loves survive translation.”
-
-</p>
-
-</div>
-
-<div class="footer-divider"></div>
-
-<div class="footer-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="notes.html">
-Notes
-</a>
-
-<a href="bibliography.html">
-Bibliography
-</a>
-
-<a href="about.html">
-About
-</a>
-
-</div>
-
-<div class="footer-scripture">
-
-“There is no fear in love; but perfect love casteth out fear.”
-<br>
-— 1 John 4:18
-
-</div>
-
-<div class="footer-bottom">
-
-© Bradley Hobbs • A Love Older Than Fear
-
-</div>
-
-</div>
-
-</footer>
+</script>
 
 </body>
 </html>
