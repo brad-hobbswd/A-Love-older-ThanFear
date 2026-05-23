@@ -387,7 +387,7 @@ QUOTE
 
 position:relative;
 
-padding:340px 8%;
+padding:290px 8%;
 
 text-align:center;
 
@@ -635,6 +635,8 @@ gap:34px;
 
 position:relative;
 
+min-height:290px;
+
 display:block;
 
 padding:48px 38px;
@@ -744,200 +746,7 @@ color:#b9ab9b;
 
 }
 
-/* =========================
-FOOTER
-========================= */
 
-.site-footer{
-
-position:relative;
-
-padding:190px 8% 110px;
-
-overflow:hidden;
-
-background:
-linear-gradient(
-180deg,
-#070605 0%,
-#140f0d 100%
-);
-
-border-top:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.footer-overlay{
-
-position:absolute;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle,
-rgba(212,164,79,0.05),
-transparent 75%
-);
-
-pointer-events:none;
-
-}
-
-.footer-content{
-
-position:relative;
-
-z-index:3;
-
-max-width:1400px;
-
-margin:auto;
-
-text-align:center;
-
-}
-
-.footer-top h2{
-
-font-family:'Cinzel',serif;
-
-font-size:clamp(2.5rem,4vw,4.8rem);
-
-line-height:1.1;
-
-margin-bottom:36px;
-
-color:#f7f1e7;
-
-letter-spacing:3px;
-
-}
-
-.footer-top p{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.5rem,2vw,2.3rem);
-
-line-height:2;
-
-max-width:900px;
-
-margin:auto;
-
-color:#d8c5ae;
-
-}
-
-.footer-divider{
-
-width:240px;
-height:1px;
-
-margin:90px auto;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(212,164,79,0.75),
-transparent
-);
-
-}
-
-.footer-links{
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:22px 38px;
-
-margin-bottom:90px;
-
-}
-
-.footer-links a{
-
-text-decoration:none;
-
-color:#bca78b;
-
-font-size:13px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-transition:0.4s ease;
-
-position:relative;
-
-}
-
-.footer-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-8px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.footer-links a:hover{
-
-color:#f6ddb0;
-
-}
-
-.footer-links a:hover::after{
-
-width:100%;
-
-}
-
-.footer-scripture{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.4rem,2vw,2rem);
-
-line-height:2;
-
-color:#eadbc7;
-
-margin-bottom:80px;
-
-opacity:0.95;
-
-}
-
-.footer-bottom{
-
-font-size:12px;
-
-letter-spacing:2px;
-
-color:#796e62;
-
-text-transform:uppercase;
-
-}
 
 /* =========================
 RESPONSIVE
@@ -1313,73 +1122,23 @@ The difficult conversations many believers continue carrying quietly beneath the
 
 <!-- FOOTER -->
 
-<footer class="site-footer">
+<div id="footer-container"></div>
 
-<div class="footer-overlay"></div>
+<script>
 
-<div class="footer-content">
+fetch('footer.html')
 
-<div class="footer-top">
+.then(response => response.text())
 
-<h2>
+.then(data => {
 
-A LOVE OLDER THAN FEAR
+document.getElementById(
+'footer-container'
+).innerHTML = data;
 
-</h2>
+});
 
-<p>
-
-“Some loves survive death.
-Some survive history.
-The rarest loves survive translation.”
-
-</p>
-
-</div>
-
-<div class="footer-divider"></div>
-
-<div class="footer-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="about.html">
-About
-</a>
-
-<a href="chapters.html">
-Archive
-</a>
-
-<a href="#">
-Notes
-</a>
-
-<a href="#">
-Bibliography
-</a>
-
-</div>
-
-<div class="footer-scripture">
-
-“There is no fear in love; but perfect love casteth out fear.”
-<br>
-— 1 John 4:18
-
-</div>
-
-<div class="footer-bottom">
-
-© Bradley Hobbs • A Love Older Than Fear
-
-</div>
-
-</div>
-
-</footer>
+</script>
 
 </body>
 </html>
