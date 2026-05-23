@@ -752,6 +752,29 @@ pointer-events:none;
 
 }
 
+.footer-glow{
+
+position:absolute;
+
+top:-250px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:900px;
+height:900px;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 70%
+);
+
+pointer-events:none;
+
+}
+
 .footer-content{
 
 position:relative;
@@ -1042,8 +1065,12 @@ A LOVE OLDER THAN FEAR
 Home
 </a>
 
-<a href="chapters.html">
+<a href="archive.html">
 Archive
+</a>
+
+<a href="chapters.html">
+Chapters
 </a>
 
 <a href="about.html">
@@ -1628,69 +1655,22 @@ Every source listed here represents generations of readers, scholars, translator
 
 <!-- FOOTER -->
 
-<footer class="site-footer">
+<div id="footer-container"></div>
+<script>
 
-<div class="footer-overlay"></div>
+fetch('footer.html')
 
-<div class="footer-content">
+.then(response => response.text())
 
-<div class="footer-top">
+.then(data => {
 
-<h2>
+document.getElementById(
+'footer-container'
+).innerHTML = data;
 
-A LOVE OLDER THAN FEAR
+});
 
-</h2>
-
-<p>
-
-“Some loves survive death.
-Some survive history.
-The rarest loves survive translation.”
-
-</p>
-
-</div>
-
-<div class="footer-divider"></div>
-
-<div class="footer-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="chapters.html">
-Archive
-</a>
-
-<a href="about.html">
-About
-</a>
-
-<a href="notes.html">
-Notes
-</a>
-
-</div>
-
-<div class="footer-scripture">
-
-“There is no fear in love; but perfect love casteth out fear.”
-<br>
-— 1 John 4:18
-
-</div>
-
-<div class="footer-bottom">
-
-© Bradley Hobbs • A Love Older Than Fear
-
-</div>
-
-</div>
-
-</footer>
+</script>
 
 </body>
 </html>
