@@ -219,6 +219,10 @@ color:#f2d18b;
 
 white-space:nowrap;
 
+text-decoration:none;
+
+display:block;
+
 text-shadow:
 0 0 12px rgba(212,164,79,0.25);
 
@@ -299,11 +303,11 @@ HERO
 
 position:relative;
 
-height:100vh;
+height:100svh;
+
+min-height:100svh;
 
 padding-top:90px;
-
-min-height:760px;
 
 overflow:hidden;
 
@@ -326,14 +330,12 @@ height:100%;
 
 object-fit:cover;
 
-object-position:center center;
+object-position:center 20%;
 
 filter:
 brightness(0.72)
 contrast(1.05)
 saturate(1.04);
-
-}
 
 }
 
@@ -1534,21 +1536,6 @@ revealOnScroll
 );
 
 revealOnScroll();
-
-// HERO PARALLAX
-
-const hero =
-document.querySelector('.hero-banner');
-
-window.addEventListener(
-'scroll',
-() => {
-
-const offset =
-window.pageYOffset;
-
-
-});
 
 // NAVIGATION FADE
 
