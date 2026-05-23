@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Part IV | Wounded Readers
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#040303;
+--bg-alt:#0b0908;
+--bg-soft:#120e0d;
+
+--gold:#b98a3d;
+--gold-soft:#d9b56d;
+
+--text:#f4eee5;
+--muted:#b7aa9a;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#040303;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:2px;
+height:2px;
+
+background:rgba(255,215,150,0.08);
+
+border-radius:50%;
+
+animation:float 34s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:12%;
+animation-duration:40s;
+}
+
+.particle:nth-child(2){
+top:76%;
+left:84%;
+animation-duration:30s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:50%;
+animation-duration:46s;
+}
+
+.particle:nth-child(4){
+top:86%;
+left:26%;
+animation-duration:36s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:42s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:0.8;
+}
+
+80%{
+opacity:0.8;
+}
+
+100%{
+transform:translateY(-200px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(4,3,3,0.86);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.03);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#d9b56d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#c1af96;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#b98a3d;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f0d8a2;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.part-hero{
+
+position:relative;
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:280px 8% 230px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#040303,
+#0d0a09
+);
+
+}
+
+.part-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(185,138,61,0.06),
+transparent 42%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.01),
+transparent 60%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:980px;
+
+}
+
+.part-number{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3.2rem,7vw,6.2rem);
+
+line-height:1.1;
+
+margin-bottom:44px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:360px 8%;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#0d0a09,
+#050404
+);
+
+}
+
+.quote-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(185,138,61,0.05),
+transparent 75%
+);
+
+}
+
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(3rem,5vw,5.5rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1200px;
+
+margin:auto;
+
+color:#efe2cf;
+
+}
+
+/* =========================
+INTRODUCTION
+========================= */
+
+.introduction{
+
+position:relative;
+
+padding:240px 8%;
+
+background:
+linear-gradient(
+180deg,
+#050404,
+#0c0908
+);
+
+overflow:hidden;
+
+}
+
+.introduction::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(185,138,61,0.03),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.intro-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:980px;
+
+margin:auto;
+
+}
+
+.intro-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.intro-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.6rem,5vw,5rem);
+
+line-height:1.3;
+
+margin-bottom:80px;
+
+color:#f4eee5;
+
+}
+
+.intro-text{
+
+font-size:1.16rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.intro-text p{
+
+margin-bottom:56px;
+
+}
+
+.emphasis-line{
+
+margin-top:100px;
+
+padding-left:34px;
+
+border-left:
+1px solid rgba(185,138,61,0.28);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.8;
+
+color:#eadbc6;
+
+}
+
+/* =========================
+CHAPTERS
+========================= */
+
+.chapter-section{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0c0908,
+#040303
+);
+
+overflow:hidden;
+
+}
+
+.chapter-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle at center,
+rgba(185,138,61,0.04),
+transparent 76%
+);
+
+pointer-events:none;
+
+}
+
+.chapter-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1300px;
+
+margin:auto;
+
+}
+
+.chapter-heading{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.4rem,5vw,4.2rem);
+
+margin-bottom:100px;
+
+text-align:center;
+
+}
+
+.chapter-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:34px;
+
+}
+
+.chapter-card{
+
+position:relative;
+
+display:block;
+
+padding:48px 38px;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.04);
+
+text-decoration:none;
+
+overflow:hidden;
+
+transition:0.5s ease;
+
+backdrop-filter:blur(6px);
+
+}
+
+.chapter-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+rgba(185,138,61,0.05),
+transparent
+);
+
+opacity:0;
+
+transition:0.5s ease;
+
+}
+
+.chapter-card:hover{
+
+transform:translateY(-8px);
+
+border-color:
+rgba(185,138,61,0.18);
+
+box-shadow:
+0 0 40px rgba(185,138,61,0.05);
+
+}
+
+.chapter-card:hover::before{
+
+opacity:1;
+
+}
+
+.chapter-number{
+
+position:relative;
+
+z-index:2;
+
+font-size:11px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#b98a3d;
+
+margin-bottom:18px;
+
+}
+
+.chapter-card h3{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cinzel',serif;
+
+font-size:1.42rem;
+
+line-height:1.6;
+
+margin-bottom:22px;
+
+color:#f0e4d2;
+
+}
+
+.chapter-card p{
+
+position:relative;
+
+z-index:2;
+
+font-size:1rem;
+
+line-height:2;
+
+color:#b3a493;
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer{
+
+position:relative;
+
+padding:180px 8% 100px;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#040303 0%,
+#0c0908 100%
+);
+
+border-top:
+1px solid rgba(255,255,255,0.03);
+
+}
+
+.footer-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle,
+rgba(185,138,61,0.04),
+transparent 75%
+);
+
+pointer-events:none;
+
+}
+
+.footer-content{
+
+position:relative;
+
+z-index:3;
+
+max-width:1400px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.footer-top h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,4vw,4.6rem);
+
+line-height:1.1;
+
+margin-bottom:34px;
+
+color:#f4eee5;
+
+letter-spacing:3px;
+
+}
+
+.footer-top p{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.5rem,2vw,2.2rem);
+
+line-height:2;
+
+max-width:900px;
+
+margin:auto;
+
+color:#cfbda7;
+
+}
+
+.footer-divider{
+
+width:240px;
+height:1px;
+
+margin:85px auto;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(185,138,61,0.65),
+transparent
+);
+
+}
+
+.footer-links{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:22px 38px;
+
+margin-bottom:90px;
+
+}
+
+.footer-links a{
+
+text-decoration:none;
+
+color:#b19d84;
+
+font-size:13px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.footer-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-8px;
+
+width:0%;
+height:1px;
+
+background:#b98a3d;
+
+transition:0.4s ease;
+
+}
+
+.footer-links a:hover{
+
+color:#f0d8a2;
+
+}
+
+.footer-links a:hover::after{
+
+width:100%;
+
+}
+
+.footer-scripture{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.4rem,2vw,2rem);
+
+line-height:2;
+
+color:#e7d8c4;
+
+margin-bottom:80px;
+
+opacity:0.95;
+
+}
+
+.footer-bottom{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+color:#71675d;
+
+text-transform:uppercase;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.nav-links a{
+
+font-size:10px;
+
+letter-spacing:2px;
+
+}
+
+.part-hero{
+
+padding:210px 8% 170px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:220px 8%;
+
+}
+
+.introduction{
+
+padding:170px 8%;
+
+}
+
+.chapter-section{
+
+padding:170px 8%;
+
+}
+
+.emphasis-line{
+
+font-size:1.6rem;
+
+padding-left:24px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.3rem;
+
+line-height:1.6;
+
+}
+
+.intro-title{
+
+font-size:2.3rem;
+
+}
+
+.chapter-card{
+
+padding:38px 30px;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+.emphasis-line{
+
+font-size:1.4rem;
+
+line-height:1.9;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ATMOSPHERE -->
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<!-- NAVIGATION -->
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="#chapters">
+Chapters
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="part-hero">
+
+<div class="hero-content">
+
+<div class="part-number">
+
+PART IV
+
+</div>
+
+<h1>
+
+Wounded Readers
+
+</h1>
+
+<p>
+
+Beyond theology, interpretation, and debate stand real people whose lives were shaped by the fear surrounding tenderness, belonging, identity, and faith. This section turns carefully toward them.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote-section">
+
+<h2>
+
+“Fear based theology rarely wounds abstract people.
+Fear wounds sons, daughters, families, and souls.”
+
+</h2>
+
+</section>
+
+<!-- INTRODUCTION -->
+
+<section class="introduction">
+
+<div class="intro-inner">
+
+<div class="intro-label">
+
+PART INTRODUCTION
+
+</div>
+
+<h2 class="intro-title">
+
+Some wounds remain hidden beneath silence for years.
+
+</h2>
+
+<div class="intro-text">
+
+<p>
+
+Some books are written only for scholars, pastors, or theologians. This book was also written for the people who sat quietly in church pews carrying questions they believed might cost them belonging if spoken aloud.
+
+</p>
+
+<p>
+
+By this point in the journey, the emotional depth surrounding David and Jonathan can no longer be dismissed easily. The covenant remains visible. The tenderness remains visible. The grief remains visible. Yet beyond every historical debate and theological argument stand real human beings whose lives were shaped by the way these passages were interpreted inside church spaces.
+
+</p>
+
+<p>
+
+This section turns toward them.
+
+</p>
+
+<p>
+
+Here we move beyond translation, commentary, and interpretation alone and begin examining the spiritual wounds fear based theology often leaves behind. Many LGBTQIA+ believers grew up loving God deeply while simultaneously learning to fear honesty about themselves. Many learned to separate survival from authenticity because certain questions, emotions, or forms of tenderness immediately created danger within religious environments.
+
+</p>
+
+<p>
+
+Some remained silent for years.
+<br><br>
+Some walked away entirely.
+<br><br>
+Some stayed while grieving quietly inside spaces that preached love yet often struggled to offer safety.
+
+</p>
+
+<p>
+
+This part of the book does not exist to attack the church. The church has also been home, healing, worship, family, and sacred encounter for countless people, including me. Yet honesty requires acknowledging that wounded believers are not theoretical discussions. They are sons, daughters, parents, ministers, worship leaders, teachers, and faithful people who spent years trying to reconcile their love for God with the fear surrounding their existence.
+
+</p>
+
+<p>
+
+Within these chapters, we will explore spiritual trauma, belonging, identity, silence, dignity, and the emotional cost of living beneath fear driven theology. We will also ask difficult questions about what happens when tenderness becomes treated as dangerous before compassion has a chance to speak.
+
+</p>
+
+<p>
+
+The goal is not bitterness.
+<br><br>
+The goal is healing.
+
+</p>
+
+<div class="emphasis-line">
+
+Because behind every theological conversation are human hearts still searching for places where truth and love can exist together without fear demanding one be sacrificed for the other.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CHAPTERS -->
+
+<section class="chapter-section" id="chapters">
+
+<div class="chapter-inner">
+
+<h2 class="chapter-heading">
+
+Part IV Chapters
+
+</h2>
+
+<div class="chapter-grid">
+
+<a href="chapter16.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 16
+
+</div>
+
+<h3>
+
+Queer Readers and the Search for Belonging
+
+</h3>
+
+<p>
+
+The longing for spiritual safety, dignity, honesty, and compassion within communities shaped by fear.
+
+</p>
+
+</a>
+
+<a href="chapter17.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 17
+
+</div>
+
+<h3>
+
+Spiritual Trauma and Sacred Silence
+
+</h3>
+
+<p>
+
+The emotional wounds left behind when silence becomes mistaken for holiness and fear replaces tenderness.
+
+</p>
+
+</a>
+
+<a href="chapter18.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 18
+
+</div>
+
+<h3>
+
+The Cost of Fear Based Theology
+
+</h3>
+
+<p>
+
+The human consequences of doctrine shaped more by fear, control, and exclusion than compassion.
+
+</p>
+
+</a>
+
+<a href="chapter19.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 19
+
+</div>
+
+<h3>
+
+The God Who Never Feared Love
+
+</h3>
+
+<p>
+
+A return to the compassion of Christ and the possibility of faith without fear driven rejection.
+
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+<div class="footer-overlay"></div>
+
+<div class="footer-content">
+
+<div class="footer-top">
+
+<h2>
+
+A LOVE OLDER THAN FEAR
+
+</h2>
+
+<p>
+
+“Some loves survive death.
+Some survive history.
+The rarest loves survive translation.”
+
+</p>
+
+</div>
+
+<div class="footer-divider"></div>
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="part5.html">
+Next Part
+</a>
+
+</div>
+
+<div class="footer-scripture">
+
+“There is no fear in love; but perfect love casteth out fear.”
+<br>
+— 1 John 4:18
+
+</div>
+
+<div class="footer-bottom">
+
+© Bradley Hobbs • A Love Older Than Fear
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
