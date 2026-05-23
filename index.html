@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#090807;
+--bg-alt:#120f0d;
+--bg-soft:#1b1613;
+
+--gold:#d4a44f;
+--gold-soft:#f2d18b;
+
+--text:#f8f2e8;
+--muted:#c8bbab;
+
+--purple:#41284b;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#090807;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* ATMOSPHERE */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,215,150,0.18);
+
+border-radius:50%;
+
+animation:float 18s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:15%;
+animation-duration:24s;
+}
+
+.particle:nth-child(2){
+top:70%;
+left:80%;
+animation-duration:18s;
+}
+
+.particle:nth-child(3){
+top:40%;
+left:55%;
+animation-duration:28s;
+}
+
+.particle:nth-child(4){
+top:80%;
+left:30%;
+animation-duration:22s;
+}
+
+.particle:nth-child(5){
+top:20%;
+left:90%;
+animation-duration:26s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-150px);
+opacity:0;
+}
+
+}
+
+/* HERO */
+
+.hero{
+
+position:relative;
+
+height:100vh;
+
+overflow:hidden;
+
+background:#090807;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+/* HERO IMAGE */
+
+.hero-banner{
+
+position:absolute;
+
+inset:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+object-position:center;
+
+filter:
+brightness(0.52)
+contrast(1.08)
+saturate(1.04);
+
+transform:scale(1.03);
+
+animation:heroZoom 24s ease-in-out infinite alternate;
+
+}
+
+@keyframes heroZoom{
+
+0%{
+transform:scale(1.03);
+}
+
+100%{
+transform:scale(1.08);
+}
+
+}
+
+/* OVERLAYS */
+
+.hero-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,0.88) 0%,
+rgba(0,0,0,0.18) 45%,
+rgba(0,0,0,0.92) 100%
+);
+
+z-index:2;
+
+}
+
+.hero-darkness{
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle at center,
+transparent 0%,
+rgba(0,0,0,0.4) 70%,
+rgba(0,0,0,0.8) 100%
+);
+
+z-index:2;
+
+}
+
+/* FLOATING PARTICLES */
+
+.hero-particles{
+
+position:absolute;
+
+inset:0;
+
+z-index:3;
+
+pointer-events:none;
+
+overflow:hidden;
+
+}
+
+.hero-particles::before,
+.hero-particles::after{
+
+content:"";
+
+position:absolute;
+
+width:200%;
+height:200%;
+
+background-image:
+radial-gradient(
+rgba(255,220,140,0.14) 1px,
+transparent 1px
+);
+
+background-size:120px 120px;
+
+animation:particleFloat 40s linear infinite;
+
+opacity:0.28;
+
+}
+
+.hero-particles::after{
+
+animation-duration:60s;
+
+opacity:0.14;
+
+transform:rotate(12deg);
+
+}
+
+@keyframes particleFloat{
+
+0%{
+transform:translateY(0);
+}
+
+100%{
+transform:translateY(-120px);
+}
+
+}
+
+/* HERO BOTTOM */
+
+.hero-bottom{
+
+position:absolute;
+
+bottom:70px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+z-index:5;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:25px;
+
+animation:fadeIn 2.5s ease;
+
+}
+
+@keyframes fadeIn{
+
+0%{
+opacity:0;
+transform:translateX(-50%) translateY(20px);
+}
+
+100%{
+opacity:1;
+transform:translateX(-50%) translateY(0);
+}
+
+}
+
+/* BUTTON */
+
+.enter-button{
+
+display:inline-flex;
+
+align-items:center;
+justify-content:center;
+
+padding:18px 42px;
+
+border-radius:60px;
+
+border:
+1px solid rgba(212,164,79,0.55);
+
+background:
+rgba(212,164,79,0.08);
+
+backdrop-filter:blur(10px);
+
+color:#f2d18b;
+
+text-decoration:none;
+
+font-family:'Inter',sans-serif;
+
+font-size:12px;
+
+font-weight:600;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+transition:0.5s ease;
+
+}
+
+.enter-button:hover{
+
+background:
+rgba(212,164,79,0.18);
+
+transform:translateY(-4px);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.22);
+
+}
+
+/* SCROLL */
+
+.scroll-indicator{
+
+font-size:10px;
+
+letter-spacing:6px;
+
+color:rgba(255,255,255,0.55);
+
+animation:scrollPulse 2.5s infinite;
+
+}
+
+@keyframes scrollPulse{
+
+0%{
+opacity:0.3;
+transform:translateY(0);
+}
+
+50%{
+opacity:1;
+transform:translateY(8px);
+}
+
+100%{
+opacity:0.3;
+transform:translateY(0);
+}
+
+}
+
+/* SECTION */
+
+.section{
+
+position:relative;
+
+padding:180px 9%;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#120f0d,
+#090807
+);
+
+}
+
+.section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+url('D3AECC48-F808-4944-80AB-2601C20D62AB.jpeg');
+
+background-size:cover;
+background-position:center;
+
+opacity:0.03;
+
+pointer-events:none;
+
+}
+
+.section-content{
+
+position:relative;
+
+z-index:3;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+.section-label{
+
+font-size:13px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:25px;
+
+}
+
+.section h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,5rem);
+
+line-height:1.1;
+
+margin-bottom:35px;
+
+}
+
+.section p{
+
+font-size:1.15rem;
+
+line-height:2;
+
+max-width:950px;
+
+color:var(--muted);
+
+font-weight:300;
+
+}
+
+/* MASSIVE QUOTE */
+
+.massive-quote{
+
+padding:240px 10%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#090807,
+#16110f
+);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.massive-quote::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle at center,
+rgba(212,164,79,0.08),
+transparent 70%
+);
+
+}
+
+.massive-quote h3{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.7rem,5vw,5rem);
+
+line-height:1.4;
+
+font-weight:500;
+
+max-width:1100px;
+
+margin:auto;
+
+color:#f2e7d2;
+
+}
+
+/* CHAPTERS */
+
+.chapters{
+
+padding:180px 8%;
+
+background:#0d0b0a;
+
+}
+
+.chapter-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+max-width:1400px;
+
+margin:auto;
+
+}
+
+.chapter-card{
+
+background:
+rgba(255,255,255,0.03);
+
+border:
+1px solid rgba(255,255,255,0.06);
+
+padding:45px 35px;
+
+backdrop-filter:blur(8px);
+
+transition:0.5s ease;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.chapter-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+rgba(212,164,79,0.05),
+transparent
+);
+
+opacity:0;
+
+transition:0.5s ease;
+
+}
+
+.chapter-card:hover{
+
+transform:translateY(-10px);
+
+border-color:
+rgba(212,164,79,0.25);
+
+}
+
+.chapter-card:hover::before{
+
+opacity:1;
+
+}
+
+.chapter-card h4{
+
+font-family:'Cinzel',serif;
+
+font-size:1.5rem;
+
+margin-bottom:20px;
+
+color:#f4e7d2;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.chapter-card p{
+
+font-size:1rem;
+
+line-height:1.9;
+
+color:#b6ab9d;
+
+position:relative;
+
+z-index:2;
+
+}
+
+/* FINAL */
+
+.final{
+
+padding:240px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#171210,
+#090807
+);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.final::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 75%
+);
+
+}
+
+.final h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+margin-bottom:40px;
+
+}
+
+.final p{
+
+position:relative;
+
+z-index:2;
+
+font-size:1.2rem;
+
+line-height:2;
+
+max-width:900px;
+
+margin:auto;
+
+color:#c8bbab;
+
+}
+
+/* FOOTER */
+
+footer{
+
+padding:70px 20px;
+
+text-align:center;
+
+border-top:
+1px solid rgba(255,255,255,0.06);
+
+background:#090807;
+
+color:#8f8577;
+
+font-size:14px;
+
+letter-spacing:1px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+
+height:100svh;
+
+}
+
+.hero-bottom{
+
+bottom:45px;
+
+gap:18px;
+
+}
+
+.enter-button{
+
+padding:16px 30px;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+}
+
+.scroll-indicator{
+
+font-size:9px;
+
+letter-spacing:4px;
+
+}
+
+.section{
+padding:120px 8%;
+}
+
+.massive-quote{
+padding:160px 8%;
+}
+
+.final{
+padding:170px 8%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ATMOSPHERE -->
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<img
+src="F8EEAECA-8E19-4571-8295-E5D1BF1D60A8.png"
+class="hero-banner"
+alt="A Love Older Than Fear">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-darkness"></div>
+
+<div class="hero-particles"></div>
+
+<div class="hero-bottom">
+
+<a href="#archive" class="enter-button">
+
+ENTER THE ARCHIVE
+
+</a>
+
+<div class="scroll-indicator">
+
+SCROLL
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SECTION -->
+
+<section class="section" id="archive">
+
+<div class="section-content">
+
+<div class="section-label">
+
+THE COVENANT
+
+</div>
+
+<h2>
+
+Scripture remembered their tenderness.
+
+</h2>
+
+<p>
+
+The relationship between David and Jonathan survived kingdoms, translators, empires, theology, and centuries of interpretation while still carrying extraordinary emotional honesty within sacred text itself. Their covenant endured because Scripture preserved grief, loyalty, devotion, and love with remarkable tenderness instead of distance.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- MASSIVE QUOTE -->
+
+<section class="massive-quote">
+
+<h3>
+
+“A love the world feared to name—
+Scripture refused to erase.”
+
+</h3>
+
+</section>
+
+<!-- SECTION -->
+
+<section class="section">
+
+<div class="section-content">
+
+<div class="section-label">
+
+THE LANGUAGE
+
+</div>
+
+<h2>
+
+Fear arrived later.
+
+</h2>
+
+<p>
+
+The Hebrew language surrounding David and Jonathan speaks with covenant depth, emotional vulnerability, and poetic intensity many readers were never taught to examine carefully. Long before fear shaped interpretation, Scripture already preserved souls knit together, tears shared openly, and love described with extraordinary tenderness.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- CHAPTERS -->
+
+<section class="chapters">
+
+<div class="chapter-grid">
+
+<div class="chapter-card">
+
+<h4>
+The Language of Love
+</h4>
+
+<p>
+
+Hebrew words, covenant imagery, emotional poetry, and the translation layers surrounding David and Jonathan.
+
+</p>
+
+</div>
+
+<div class="chapter-card">
+
+<h4>
+Fear and Interpretation
+</h4>
+
+<p>
+
+How theology, culture, and history shaped generations of biblical interpretation through fear and silence.
+
+</p>
+
+</div>
+
+<div class="chapter-card">
+
+<h4>
+Wounded Readers
+</h4>
+
+<p>
+
+The spiritual cost of fear based theology and the search for belonging among LGBTQIA+ believers.
+
+</p>
+
+</div>
+
+<div class="chapter-card">
+
+<h4>
+What Remains
+</h4>
+
+<p>
+
+The enduring emotional power of covenant, grief, memory, and love surviving translation itself.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="final">
+
+<h2>
+
+What Remains
+
+</h2>
+
+<p>
+
+Their covenant remains visible. Their grief remains visible. Their love remains visible. Across centuries of debate and interpretation, the story of David and Jonathan still waits within Scripture exactly where generations before us left it, inviting readers to listen beyond fear and encounter the emotional honesty sacred text refused to silence.
+
+</p>
+
+</section>
+
+<footer>
+
+A Love Older Than Fear © Bradley Hobbs
+
+</footer>
+
+</body>
+</html>
