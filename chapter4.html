@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 4 | When Translation Becomes Theology
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#080706;
+--bg-alt:#120f0d;
+--bg-soft:#1a1411;
+
+--gold:#d4a44f;
+--gold-soft:#f2d18b;
+
+--text:#f8f2e8;
+--muted:#c8bbab;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#080706;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,215,150,0.14);
+
+border-radius:50%;
+
+animation:float 24s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:14%;
+animation-duration:28s;
+}
+
+.particle:nth-child(2){
+top:74%;
+left:82%;
+animation-duration:22s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:50%;
+animation-duration:36s;
+}
+
+.particle:nth-child(4){
+top:86%;
+left:24%;
+animation-duration:26s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:32s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(8,7,6,0.76);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.05);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f2d18b;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d7c3a4;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f2d18b;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.chapter-hero{
+
+position:relative;
+
+min-height:90vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 190px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#080706,
+#171210
+);
+
+}
+
+.chapter-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.09),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:980px;
+
+}
+
+.chapter-number{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:40px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+/* =========================
+SCRIPTURE
+========================= */
+
+.scripture-section{
+
+padding:140px 8%;
+
+background:
+linear-gradient(
+180deg,
+#171210,
+#0d0b0a
+);
+
+}
+
+.scripture-box{
+
+max-width:980px;
+
+margin:auto;
+
+padding:70px 60px;
+
+background:
+rgba(255,255,255,0.025);
+
+border-left:
+2px solid rgba(212,164,79,0.60);
+
+backdrop-filter:blur(8px);
+
+}
+
+.scripture-reference{
+
+font-size:12px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:28px;
+
+}
+
+.scripture-box p{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.9rem,3vw,2.8rem);
+
+line-height:1.8;
+
+color:#f2e7d2;
+
+}
+
+/* =========================
+MANUSCRIPT
+========================= */
+
+.chapter-manuscript{
+
+position:relative;
+
+padding:210px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0d0b0a,
+#120f0d
+);
+
+overflow:hidden;
+
+}
+
+.chapter-manuscript::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 42%
+);
+
+pointer-events:none;
+
+}
+
+.manuscript-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:960px;
+
+margin:auto;
+
+}
+
+.manuscript-inner p{
+
+font-size:1.15rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+margin-bottom:48px;
+
+}
+
+.pull-quote{
+
+margin:140px auto;
+
+max-width:1100px;
+
+padding:0 30px;
+
+text-align:center;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.4rem,4vw,4.5rem);
+
+line-height:1.7;
+
+color:#f1e4d2;
+
+}
+
+/* =========================
+REFERENCES
+========================= */
+
+.references{
+
+position:relative;
+
+padding:180px 8%;
+
+background:
+linear-gradient(
+180deg,
+#120f0d,
+#090807
+);
+
+}
+
+.references-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.references h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.2rem,4vw,4rem);
+
+margin-bottom:60px;
+
+text-align:center;
+
+}
+
+.reference-item{
+
+margin-bottom:36px;
+
+padding-bottom:36px;
+
+border-bottom:
+1px solid rgba(255,255,255,0.05);
+
+}
+
+.reference-item p{
+
+font-size:1.05rem;
+
+line-height:2;
+
+color:#c8bbab;
+
+}
+
+/* =========================
+REFLECTION
+========================= */
+
+.chapter-reflection{
+
+position:relative;
+
+padding:190px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#090807,
+#120f0d
+);
+
+}
+
+.chapter-reflection::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.05),
+transparent 75%
+);
+
+}
+
+.chapter-reflection p{
+
+position:relative;
+
+z-index:2;
+
+max-width:920px;
+
+margin:auto;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2rem,4vw,3.6rem);
+
+line-height:1.8;
+
+color:#eadcc8;
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+padding:100px 8% 170px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+background:
+linear-gradient(
+180deg,
+#120f0d,
+#090807
+);
+
+}
+
+.chapter-navigation a{
+
+text-decoration:none;
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.chapter-navigation a:hover{
+
+color:#f2d18b;
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer{
+
+padding:130px 8% 90px;
+
+text-align:center;
+
+background:
+#090807;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.footer-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2rem,4vw,4rem);
+
+margin-bottom:28px;
+
+}
+
+.footer-scripture{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.5rem;
+
+line-height:1.9;
+
+color:#e8d9c5;
+
+margin-bottom:50px;
+
+}
+
+.footer-bottom{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+color:#786d62;
+
+text-transform:uppercase;
+
+}
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.chapter-hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.scripture-box{
+
+padding:50px 36px;
+
+}
+
+.chapter-manuscript{
+
+padding:150px 8%;
+
+}
+
+.references{
+
+padding:140px 8%;
+
+}
+
+.chapter-reflection{
+
+padding:150px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:80px 8% 130px;
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.7rem;
+
+}
+
+.scripture-box p{
+
+font-size:1.8rem;
+
+line-height:1.7;
+
+}
+
+.manuscript-inner p{
+
+font-size:1.04rem;
+
+line-height:2.2;
+
+}
+
+.pull-quote{
+
+font-size:2rem;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="part1.html">
+Part I
+</a>
+
+<a href="notes.html">
+Notes
+</a>
+
+<a href="bibliography.html">
+Bibliography
+</a>
+
+</div>
+
+</nav>
+
+<section class="chapter-hero">
+
+<div class="hero-content">
+
+<div class="chapter-number">
+
+CHAPTER 4
+
+</div>
+
+<h1>
+
+When Translation Becomes Theology
+
+</h1>
+
+<p>
+
+Translation never exists in a vacuum. Every translator carries language, assumptions, theology, culture, fear, and historical context into the choices made upon the page.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="scripture-section">
+
+<div class="scripture-box">
+
+<div class="scripture-reference">
+
+1 Samuel 18:1
+
+</div>
+
+<p>
+
+“And the soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul.”
+
+</p>
+
+</div>
+
+</section>
+
+<section class="chapter-manuscript">
+
+<div class="manuscript-inner">
+
+<p>
+
+Most readers never encounter Scripture in Hebrew.
+
+</p>
+
+<p>
+
+Believers inherit translations already filtered through centuries of interpretation, denominational tradition, theological caution, linguistic philosophy, and cultural assumptions. Many assume translations function as neutral mirrors reflecting the biblical text perfectly into modern language. The reality is far more complicated.
+
+</p>
+
+<p>
+
+Translation always involves interpretation.
+
+</p>
+
+<p>
+
+Ancient Hebrew contains emotional, poetic, covenantal, and relational layers difficult to reproduce fully inside modern English. Words often carry broad semantic ranges rather than single precise meanings. Cultural context shapes nuance. Syntax carries implication. Poetry compresses emotion into language modern readers frequently flatten unintentionally.
+
+</p>
+
+<p>
+
+The story of David and Jonathan exists directly inside that tension.
+
+</p>
+
+<div class="pull-quote">
+
+Sometimes translators soften language not because the Hebrew became weaker, but because later readers became more uncomfortable.
+
+</div>
+
+<p>
+
+The Hebrew word ahav, commonly translated “love,” appears throughout the Old Testament in relationships involving covenant loyalty, family affection, divine love, political allegiance, friendship, desire, and romantic attachment. Hebrew does not divide emotional categories with the same precision modern English often attempts to impose.
+
+</p>
+
+<p>
+
+Context shapes meaning.
+<br><br>
+
+Relationship shapes meaning.
+<br><br>
+
+Narrative movement shapes meaning.
+
+</p>
+
+<p>
+
+Yet modern readers frequently approach biblical language expecting emotional certainty immediately. Translators therefore often make subtle choices designed to guide interpretation toward what feels culturally acceptable or theologically safe within their historical moment.
+
+</p>
+
+<p>
+
+That process rarely happens maliciously.
+
+</p>
+
+<p>
+
+Many translators genuinely believe they are protecting doctrinal clarity or preventing misunderstanding. Others inherit interpretive traditions already established centuries earlier. Over time, repeated assumptions begin sounding natural simply because generations repeated them consistently enough.
+
+</p>
+
+<p>
+
+The relationship between David and Jonathan became especially vulnerable to interpretive softening because the biblical language surrounding them remains unusually intimate.
+
+</p>
+
+<p>
+
+Readers encounter souls knit together.
+<br><br>
+
+Covenant language.
+<br><br>
+
+Emotional devotion.
+<br><br>
+
+Public grief.
+<br><br>
+
+Tears.
+<br><br>
+
+Kisses.
+<br><br>
+
+Poetry declaring Jonathan’s love “wonderful, passing the love of women.”
+
+</p>
+
+<p>
+
+Those passages continued creating interpretive tension across centuries precisely because the emotional honesty remained difficult to erase completely from the text itself.
+
+</p>
+
+<p>
+
+History reveals that ancient Jewish interpreters, early Christian commentators, medieval theologians, and modern scholars did not always approach David and Jonathan identically. Some emphasized covenant friendship almost exclusively. Others acknowledged extraordinary emotional intensity openly. A few commentators expressed discomfort directly within their writings, revealing anxiety surrounding how readers might interpret the relationship.
+
+</p>
+
+<p>
+
+That anxiety matters historically because fear often influences interpretation quietly long before doctrine becomes formalized publicly.
+
+</p>
+
+<p>
+
+Language choices sometimes reflect those fears.
+
+</p>
+
+<p>
+
+Certain translations emphasize loyalty while minimizing affection.
+<br><br>
+
+Others frame emotional devotion primarily through political alliance.
+<br><br>
+
+Some commentaries redirect attention away from tenderness altogether and toward military or dynastic themes instead.
+
+</p>
+
+<p>
+
+None of those themes are absent from the narrative.
+<br><br>
+
+The problem emerges when emotional language becomes consistently diminished in order to preserve theological comfort rather than textual honesty.
+
+</p>
+
+<p>
+
+The Hebrew phrase describing Jonathan’s soul being “knit” to David comes from the root qashar, carrying meanings connected to binding, tying, joining, or fastening together. The same root appears elsewhere in contexts involving conspiracy, alliance, and binding commitments. Within 1 Samuel 18, however, the language carries emotional and relational intimacy immediately joined with ahav, love.
+
+</p>
+
+<p>
+
+The narrative intentionally places emotional devotion beside covenant commitment from the beginning.
+
+</p>
+
+<p>
+
+That literary choice becomes important because biblical Hebrew often communicates through parallelism and thematic reinforcement rather than modern systematic explanation. Ancient writers expected readers to notice repeated emotional patterns unfolding across scenes and relationships.
+
+</p>
+
+<p>
+
+David and Jonathan’s story repeatedly returns to those patterns.
+
+</p>
+
+<p>
+
+The narrative slows around their encounters.
+<br><br>
+
+The text preserves emotional detail carefully.
+<br><br>
+
+Covenant language reappears repeatedly.
+<br><br>
+
+Grief intensifies rather than fades.
+
+</p>
+
+<p>
+
+Translation alone cannot erase those narrative realities completely.
+
+</p>
+
+<p>
+
+Yet theology still shapes how readers emotionally frame what survives on the page.
+
+</p>
+
+<p>
+
+Masculinity also influenced interpretation historically.
+
+</p>
+
+<p>
+
+As Western culture increasingly defined masculinity through emotional restraint, suspicion toward tenderness between men grew stronger. By later historical periods, many readers no longer approached David and Jonathan through ancient covenant frameworks but through modern anxieties surrounding gender, vulnerability, and sexuality instead.
+
+</p>
+
+<p>
+
+Those anxieties affected translation philosophy indirectly.
+
+</p>
+
+<p>
+
+Commentators became cautious.
+<br><br>
+
+Preachers became defensive.
+<br><br>
+
+Readers inherited interpretations already filtered through discomfort.
+
+</p>
+
+<p>
+
+Eventually many believers learned conclusions before they ever encountered the passages honestly for themselves.
+
+</p>
+
+<p>
+
+That pattern still continues today.
+
+</p>
+
+<p>
+
+Some readers enter the story already convinced emotional intimacy must immediately be limited, explained away, or carefully controlled before discussion even begins. Others approach the passages searching exclusively for modern romantic categories the ancient world itself may not have recognized in identical ways.
+
+</p>
+
+<p>
+
+Both approaches risk forcing the text into frameworks narrower than the narrative itself allows.
+
+</p>
+
+<p>
+
+Honest interpretation requires humility.
+
+</p>
+
+<p>
+
+The goal is not manipulating Scripture to satisfy modern political arguments from any direction. The goal is allowing the Hebrew text, ancient world, literary structure, covenant imagery, and emotional language to speak with their full complexity intact before fear rushes toward simplification.
+
+</p>
+
+<p>
+
+Because once readers begin noticing how translation and theology influence one another, another realization slowly emerges as well:
+
+</p>
+
+<p>
+
+Many people were never actually taught the text alone.
+<br><br>
+
+Many were taught centuries of anxiety layered over the text first.
+
+</p>
+
+<p>
+
+That realization does not require abandoning faith.
+<br><br>
+
+It requires returning carefully to Scripture itself with honesty strong enough to ask difficult questions without fear deciding the answers beforehand.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="references">
+
+<div class="references-inner">
+
+<h2>
+
+Historical & Linguistic References
+
+</h2>
+
+<div class="reference-item">
+
+<p>
+
+Brown, Driver, Briggs Hebrew Lexicon:
+The Hebrew root “qashar” carries meanings involving binding, joining, fastening, or conspiracy depending upon context. Usage within 1 Samuel 18 emphasizes connection and relational attachment.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+The Hebrew word “ahav” appears widely throughout the Old Testament describing covenant love, divine love, familial affection, loyalty, friendship, and relational devotion. Context determines nuance rather than rigid emotional categories alone.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Ancient Near Eastern covenant structures frequently involved relational obligations extending beyond legal agreement into kinship, loyalty, protection, inheritance expectations, and enduring communal identity.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+David M. Halperin, “The First Homosexual?” explores interpretive history surrounding David and Jonathan while examining how later readers shaped theological conclusions around the narrative.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Susan Ackerman’s scholarship regarding gender, covenant, and emotional expression within the Hebrew Bible highlights the complexity surrounding modern assumptions projected backward onto ancient texts.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Robert Alter’s work on biblical narrative emphasizes how Hebrew storytelling techniques preserve emotional repetition, thematic development, and relational tension through literary structure rather than modern systematic exposition.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="chapter-reflection">
+
+<p>
+
+Translation can illuminate Scripture beautifully, yet translation can also reveal the fears every generation quietly carries into the text.
+
+</p>
+
+</section>
+
+<section class="chapter-navigation">
+
+<a href="chapter3.html">
+
+← Previous Chapter
+
+</a>
+
+<a href="part1.html">
+
+Back to Part I
+
+</a>
+
+<a href="chapter5.html">
+
+Next Chapter →
+
+</a>
+
+</section>
+
+<footer class="site-footer">
+
+<div class="footer-title">
+
+A LOVE OLDER THAN FEAR
+
+</div>
+
+<div class="footer-scripture">
+
+“There is no fear in love; but perfect love casteth out fear.”
+<br>
+— 1 John 4:18
+
+</div>
+
+<div class="footer-bottom">
+
+© Bradley Hobbs • A Love Older Than Fear
+
+</div>
+
+</footer>
+
+</body>
+</html>
