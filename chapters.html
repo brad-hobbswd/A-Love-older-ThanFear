@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+The Archive | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#090807;
+--bg-alt:#120f0d;
+--bg-soft:#181311;
+
+--gold:#d4a44f;
+--gold-soft:#f2d18b;
+
+--text:#f8f2e8;
+--muted:#c8bbab;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#090807;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,215,150,0.16);
+
+border-radius:50%;
+
+animation:float 20s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:20%;
+animation-duration:26s;
+}
+
+.particle:nth-child(2){
+top:65%;
+left:78%;
+animation-duration:18s;
+}
+
+.particle:nth-child(3){
+top:40%;
+left:52%;
+animation-duration:30s;
+}
+
+.particle:nth-child(4){
+top:82%;
+left:30%;
+animation-duration:22s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:88%;
+animation-duration:28s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-160px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(9,8,7,0.72);
+
+backdrop-filter:blur(12px);
+
+-webkit-backdrop-filter:blur(12px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.05);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f2d18b;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d7c3a4;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f2d18b;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.archive-hero{
+
+position:relative;
+
+min-height:85vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:220px 8% 160px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#090807,
+#171210
+);
+
+}
+
+.archive-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.08),
+transparent 45%
+),
+
+radial-gradient(
+circle at bottom left,
+rgba(255,255,255,0.02),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.hero-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:30px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:40px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2;
+
+color:var(--muted);
+
+max-width:850px;
+
+margin:auto;
+
+}
+
+/* =========================
+PART SECTIONS
+========================= */
+
+.part-section{
+
+position:relative;
+
+padding:180px 8%;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#171210,
+#0d0b0a
+);
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.part-section:nth-child(even){
+
+background:
+linear-gradient(
+180deg,
+#120f0d,
+#090807
+);
+
+}
+
+.part-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 40%
+);
+
+pointer-events:none;
+
+}
+
+.part-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1300px;
+
+margin:auto;
+
+}
+
+.part-number{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:25px;
+
+}
+
+.part-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.8rem,5vw,5rem);
+
+line-height:1.1;
+
+margin-bottom:30px;
+
+}
+
+.part-description{
+
+font-size:1.15rem;
+
+line-height:2;
+
+color:var(--muted);
+
+max-width:900px;
+
+margin-bottom:90px;
+
+}
+
+/* =========================
+CHAPTER GRID
+========================= */
+
+.chapter-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+}
+
+.chapter-card{
+
+position:relative;
+
+display:block;
+
+padding:42px 34px;
+
+background:
+rgba(255,255,255,0.03);
+
+border:
+1px solid rgba(255,255,255,0.06);
+
+text-decoration:none;
+
+overflow:hidden;
+
+transition:0.5s ease;
+
+backdrop-filter:blur(8px);
+
+min-height:260px;
+
+}
+
+.chapter-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+rgba(212,164,79,0.06),
+transparent
+);
+
+opacity:0;
+
+transition:0.5s ease;
+
+}
+
+.chapter-card:hover{
+
+transform:translateY(-10px);
+
+border-color:
+rgba(212,164,79,0.24);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.08);
+
+}
+
+.chapter-card:hover::before{
+
+opacity:1;
+
+}
+
+.chapter-number{
+
+position:relative;
+
+z-index:2;
+
+font-size:11px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#d4a44f;
+
+margin-bottom:20px;
+
+}
+
+.chapter-card h3{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cinzel',serif;
+
+font-size:1.55rem;
+
+line-height:1.4;
+
+margin-bottom:22px;
+
+color:#f4e7d2;
+
+}
+
+.chapter-card p{
+
+position:relative;
+
+z-index:2;
+
+font-size:1rem;
+
+line-height:1.9;
+
+color:#b6ab9d;
+
+}
+
+/* =========================
+QUOTE DIVIDER
+========================= */
+
+.quote-divider{
+
+padding:220px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#090807,
+#16110f
+);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.quote-divider::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 70%
+);
+
+}
+
+.quote-divider h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.8rem,5vw,5rem);
+
+line-height:1.5;
+
+font-weight:500;
+
+max-width:1100px;
+
+margin:auto;
+
+color:#f2e7d2;
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer{
+
+position:relative;
+
+padding:160px 8% 90px;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#090807 0%,
+#120f0d 100%
+);
+
+border-top:
+1px solid rgba(255,255,255,0.05);
+
+}
+
+.footer-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle,
+rgba(212,164,79,0.06),
+transparent 70%
+),
+
+linear-gradient(
+180deg,
+#090807,
+#120f0d
+);
+
+pointer-events:none;
+
+}
+
+.footer-glow{
+
+position:absolute;
+
+top:-250px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:900px;
+height:900px;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 70%
+);
+
+pointer-events:none;
+
+}
+
+.footer-content{
+
+position:relative;
+
+z-index:3;
+
+max-width:1400px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.footer-top h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.4rem,4vw,4.5rem);
+
+line-height:1.1;
+
+margin-bottom:28px;
+
+color:#f6efe5;
+
+letter-spacing:3px;
+
+}
+
+.footer-top p{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.5rem,2vw,2.2rem);
+
+line-height:1.8;
+
+max-width:900px;
+
+margin:auto;
+
+color:#d8c8b1;
+
+}
+
+.footer-divider{
+
+width:240px;
+height:1px;
+
+margin:70px auto;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(212,164,79,0.8),
+transparent
+);
+
+}
+
+.footer-links{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:22px 38px;
+
+margin-bottom:80px;
+
+}
+
+.footer-links a{
+
+text-decoration:none;
+
+color:#bda98d;
+
+font-size:13px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.footer-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-8px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.footer-links a:hover{
+
+color:#f2d18b;
+
+}
+
+.footer-links a:hover::after{
+
+width:100%;
+
+}
+
+.footer-scripture{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.4rem,2vw,2rem);
+
+line-height:1.9;
+
+color:#efe3c8;
+
+margin-bottom:70px;
+
+opacity:0.95;
+
+}
+
+.footer-bottom{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+color:#7e7265;
+
+text-transform:uppercase;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.nav-links a{
+
+font-size:10px;
+
+letter-spacing:2px;
+
+}
+
+.archive-hero{
+
+padding:180px 8% 130px;
+
+min-height:auto;
+
+}
+
+.part-section{
+
+padding:130px 8%;
+
+}
+
+.quote-divider{
+
+padding:170px 8%;
+
+}
+
+.chapter-card{
+
+min-height:auto;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.7rem;
+
+}
+
+.part-title{
+
+font-size:2.3rem;
+
+}
+
+.quote-divider h2{
+
+font-size:2.2rem;
+
+line-height:1.5;
+
+}
+
+.chapter-card{
+
+padding:36px 28px;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ATMOSPHERE -->
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<!-- NAVIGATION -->
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="#archive">
+Archive
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="archive-hero" id="archive">
+
+<div class="hero-content">
+
+<div class="hero-label">
+
+THE ARCHIVE
+
+</div>
+
+<h1>
+
+Fragments preserved through fear, grief, covenant, and memory.
+
+</h1>
+
+<p>
+
+Every part of this work moves deeper into language, tenderness, interpretation, woundedness, and remembrance. The archive was built slowly through Scripture, history, compassion, and the emotional weight carried by generations of readers searching for honesty within sacred text.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- PART I -->
+
+<section class="part-section">
+
+<div class="part-inner">
+
+<div class="part-number">
+
+PART I
+
+</div>
+
+<h2 class="part-title">
+
+The Language of Love
+
+</h2>
+
+<p class="part-description">
+
+Where covenant, language, emotional tenderness, and ancient expressions of devotion begin emerging from Scripture itself.
+
+</p>
+
+<div class="chapter-grid">
+
+<a href="chapter1.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 1
+
+</div>
+
+<h3>
+
+The Souls Were Knit Together
+
+</h3>
+
+<p>
+
+The beginning of covenant language and emotional closeness preserved within sacred text.
+
+</p>
+
+</a>
+
+<a href="chapter2.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 2
+
+</div>
+
+<h3>
+
+What the Hebrew Actually Says
+
+</h3>
+
+<p>
+
+Exploring the original language surrounding love, covenant, grief, and devotion.
+
+</p>
+
+</a>
+
+<a href="chapter3.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 3
+
+</div>
+
+<h3>
+
+Love, Covenant, and the Ancient World
+
+</h3>
+
+<p>
+
+How ancient relationships and covenant bonds carried meanings modern readers often miss.
+
+</p>
+
+</a>
+
+<a href="chapter4.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 4
+
+</div>
+
+<h3>
+
+When Translation Becomes Theology
+
+</h3>
+
+<p>
+
+How centuries of interpretation reshaped emotional readings of Scripture.
+
+</p>
+
+</a>
+
+<a href="chapter5.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 5
+
+</div>
+
+<h3>
+
+The Words That Survived History
+
+</h3>
+
+<p>
+
+Why certain emotional truths remained visible despite theological discomfort.
+
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote-divider">
+
+<h2>
+
+“Fear survived theology.
+Love survived Scripture.”
+
+</h2>
+
+</section>
+
+<!-- PART II -->
+
+<section class="part-section">
+
+<div class="part-inner">
+
+<div class="part-number">
+
+PART II
+
+</div>
+
+<h2 class="part-title">
+
+David and Jonathan
+
+</h2>
+
+<p class="part-description">
+
+The relationship Scripture preserved through loyalty, grief, covenant, tears, devotion, and extraordinary tenderness.
+
+</p>
+
+<div class="chapter-grid">
+
+<a href="chapter6.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 6
+
+</div>
+
+<h3>
+
+The Prince and the Shepherd
+
+</h3>
+
+<p>
+
+Two lives from different worlds drawn together through loyalty, courage, and covenant before a watching kingdom.
+
+</p>
+
+</a>
+
+<a href="chapter7.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 7
+
+</div>
+
+<h3>
+
+The Covenant of the Robe and Bow
+
+</h3>
+
+<p>
+
+Ancient symbols of identity, inheritance, and devotion exchanged through covenantal trust and extraordinary affection.
+
+</p>
+
+</a>
+
+<a href="chapter8.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 8
+
+</div>
+
+<h3>
+
+Kisses, Tears, and Ancient Masculinity
+
+</h3>
+
+<p>
+
+Emotional expression, physical tenderness, and grief examined through the realities of the ancient world.
+
+</p>
+
+</a>
+
+<a href="chapter9.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 9
+
+</div>
+
+<h3>
+
+The Field Between Them
+
+</h3>
+
+<p>
+
+A secret meeting shaped by danger, sorrow, loyalty, and the unbearable weight of separation.
+
+</p>
+
+</a>
+
+<a href="chapter10.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 10
+
+</div>
+
+<h3>
+
+A Love Passing the Love of Women
+
+</h3>
+
+<p>
+
+One of Scripture’s most emotionally debated statements explored through grief, covenant, and remembrance.
+
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PART III -->
+
+<section class="part-section">
+
+<div class="part-inner">
+
+<div class="part-number">
+
+PART III
+
+</div>
+
+<h2 class="part-title">
+
+Fear and Interpretation
+
+</h2>
+
+<p class="part-description">
+
+How theology, translation, fear, and history reshaped generations of biblical interpretation.
+
+</p>
+
+<div class="chapter-grid">
+
+<a href="chapter11.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 11
+
+</div>
+
+<h3>
+
+The Church and the Fear of Tenderness
+
+</h3>
+
+<p>
+
+How emotional vulnerability became increasingly feared within many religious traditions and interpretations.
+
+</p>
+
+</a>
+
+<a href="chapter12.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 12
+
+</div>
+
+<h3>
+
+What Commentators Embraced and Avoided
+
+</h3>
+
+<p>
+
+The tension between honest interpretation and theological discomfort across generations of biblical scholarship.
+
+</p>
+
+</a>
+
+<a href="chapter13.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 13
+
+</div>
+
+<h3>
+
+Translation Shifts Across Centuries
+
+</h3>
+
+<p>
+
+How subtle linguistic decisions gradually reshaped emotional readings of covenant and love.
+
+</p>
+
+</a>
+
+<a href="chapter14.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 14
+
+</div>
+
+<h3>
+
+The Politics of Biblical Interpretation
+
+</h3>
+
+<p>
+
+The influence of institutions, power, fear, and cultural pressure upon theological interpretation.
+
+</p>
+
+</a>
+
+<a href="chapter15.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 15
+
+</div>
+
+<h3>
+
+When Readers Bring Fear to Scripture
+
+</h3>
+
+<p>
+
+How assumptions, anxieties, and inherited discomfort can shape what readers believe Scripture permits them to see.
+
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PART IV -->
+
+<section class="part-section">
+
+<div class="part-inner">
+
+<div class="part-number">
+
+PART IV
+
+</div>
+
+<h2 class="part-title">
+
+Wounded Readers
+
+</h2>
+
+<p class="part-description">
+
+The spiritual wounds carried by believers searching for belonging, honesty, compassion, and safety within faith communities.
+
+</p>
+
+<div class="chapter-grid">
+
+<a href="chapter16.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 16
+
+</div>
+
+<h3>
+
+Queer Readers and the Search for Belonging
+
+</h3>
+
+<p>
+
+The longing for spiritual safety, dignity, honesty, and compassion within communities shaped by fear.
+
+</p>
+
+</a>
+
+<a href="chapter17.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 17
+
+</div>
+
+<h3>
+
+Spiritual Trauma and Sacred Silence
+
+</h3>
+
+<p>
+
+The emotional wounds left behind when silence becomes mistaken for holiness and fear replaces tenderness.
+
+</p>
+
+</a>
+
+<a href="chapter18.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 18
+
+</div>
+
+<h3>
+
+The Cost of Fear Based Theology
+
+</h3>
+
+<p>
+
+The human consequences of doctrine shaped more by fear, control, and exclusion than compassion.
+
+</p>
+
+</a>
+
+<a href="chapter19.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 19
+
+</div>
+
+<h3>
+
+The God Who Never Feared Love
+
+</h3>
+
+<p>
+
+A return to the compassion of Christ and the possibility of faith without fear driven rejection.
+
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PART V -->
+
+<section class="part-section">
+
+<div class="part-inner">
+
+<div class="part-number">
+
+PART V
+
+</div>
+
+<h2 class="part-title">
+
+What Remains
+
+</h2>
+
+<p class="part-description">
+
+What survives after fear, grief, silence, translation, history, and interpretation finally pass away.
+
+</p>
+
+<div class="chapter-grid">
+
+<a href="chapter20.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 20
+
+</div>
+
+<h3>
+
+Why Scripture Preserved Their Story
+
+</h3>
+
+<p>
+
+Why covenant, grief, loyalty, and emotional honesty remained visible within sacred text across centuries.
+
+</p>
+
+</a>
+
+<a href="chapter21.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 21
+
+</div>
+
+<h3>
+
+Love Older Than Fear
+
+</h3>
+
+<p>
+
+The enduring power of compassion, honesty, and covenant surviving generations shaped by fear.
+
+</p>
+
+</a>
+
+<a href="chapter22.html" class="chapter-card">
+
+<div class="chapter-number">
+
+Chapter 22
+
+</div>
+
+<h3>
+
+Questions the Church Still Avoids
+
+</h3>
+
+<p>
+
+The difficult conversations many believers continue carrying quietly beneath theology and tradition.
+
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+<div class="footer-overlay"></div>
+
+<div class="footer-glow"></div>
+
+<div class="footer-content">
+
+<div class="footer-top">
+
+<h2>
+
+A LOVE OLDER THAN FEAR
+
+</h2>
+
+<p>
+
+“Some loves survive death.
+Some survive history.
+The rarest loves survive translation.”
+
+</p>
+
+</div>
+
+<div class="footer-divider"></div>
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="#">
+Notes
+</a>
+
+<a href="#">
+Bibliography
+</a>
+
+</div>
+
+<div class="footer-scripture">
+
+“There is no fear in love; but perfect love casteth out fear.”
+<br>
+— 1 John 4:18
+
+</div>
+
+<div class="footer-bottom">
+
+© Bradley Hobbs • A Love Older Than Fear
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
