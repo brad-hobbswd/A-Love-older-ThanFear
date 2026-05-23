@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 1 | The Souls Were Knit Together
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#070605;
+--bg-alt:#120f0d;
+--bg-soft:#191411;
+
+--gold:#d4a44f;
+--gold-soft:#f2d18b;
+
+--text:#f8f2e8;
+--muted:#c8bbab;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#070605;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.10);
+
+border-radius:50%;
+
+animation:float 28s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:14%;
+animation-duration:36s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:26s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:50%;
+animation-duration:40s;
+}
+
+.particle:nth-child(4){
+top:84%;
+left:24%;
+animation-duration:32s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:38s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(7,6,5,0.80);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f2d18b;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d7c3a4;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f2d18b;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.chapter-hero{
+
+position:relative;
+
+min-height:80vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:220px 8% 150px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#15110f
+);
+
+}
+
+.chapter-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.chapter-hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:900px;
+
+}
+
+.chapter-number{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.chapter-hero h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,5.8rem);
+
+line-height:1.1;
+
+margin-bottom:38px;
+
+}
+
+.chapter-hero p{
+
+font-size:1.18rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:760px;
+
+margin:auto;
+
+}
+
+/* =========================
+SCRIPTURE
+========================= */
+
+.scripture-section{
+
+position:relative;
+
+padding:120px 8%;
+
+background:
+linear-gradient(
+180deg,
+#15110f,
+#0d0b0a
+);
+
+}
+
+.scripture-box{
+
+max-width:900px;
+
+margin:auto;
+
+padding:70px 60px;
+
+background:
+rgba(255,255,255,0.025);
+
+border-left:
+2px solid rgba(212,164,79,0.65);
+
+backdrop-filter:blur(8px);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.04);
+
+}
+
+.scripture-reference{
+
+font-size:12px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:28px;
+
+}
+
+.scripture-box p{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.8rem,3vw,2.6rem);
+
+line-height:1.8;
+
+color:#f3e8d7;
+
+}
+
+/* =========================
+MANUSCRIPT
+========================= */
+
+.chapter-manuscript{
+
+position:relative;
+
+padding:180px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0d0b0a,
+#120f0d
+);
+
+overflow:hidden;
+
+}
+
+.chapter-manuscript::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 42%
+);
+
+pointer-events:none;
+
+}
+
+.manuscript-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:920px;
+
+margin:auto;
+
+}
+
+.manuscript-inner p{
+
+font-size:1.12rem;
+
+line-height:2.3;
+
+color:var(--muted);
+
+margin-bottom:42px;
+
+}
+
+/* =========================
+PULL QUOTE
+========================= */
+
+.pull-quote{
+
+margin:120px auto;
+
+padding:0 30px;
+
+max-width:1000px;
+
+text-align:center;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.2rem,4vw,4rem);
+
+line-height:1.6;
+
+color:#f2e7d2;
+
+}
+
+/* =========================
+FOOTNOTES
+========================= */
+
+.footnotes{
+
+position:relative;
+
+padding:160px 8%;
+
+background:
+linear-gradient(
+180deg,
+#120f0d,
+#0a0908
+);
+
+}
+
+.footnotes-inner{
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+.footnotes h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2rem,4vw,3.5rem);
+
+margin-bottom:60px;
+
+}
+
+.footnote-item{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#bbaea0;
+
+margin-bottom:26px;
+
+padding-left:18px;
+
+border-left:
+1px solid rgba(212,164,79,0.20);
+
+}
+
+/* =========================
+REFLECTION
+========================= */
+
+.chapter-reflection{
+
+position:relative;
+
+padding:180px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#0a0908,
+#070605
+);
+
+}
+
+.chapter-reflection::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.05),
+transparent 75%
+);
+
+}
+
+.chapter-reflection p{
+
+position:relative;
+
+z-index:2;
+
+max-width:900px;
+
+margin:auto;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2rem,4vw,3.4rem);
+
+line-height:1.7;
+
+color:#f1e4cf;
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+padding:100px 8% 160px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#120f0d
+);
+
+}
+
+.chapter-navigation a{
+
+text-decoration:none;
+
+font-size:12px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.chapter-navigation a:hover{
+
+color:#f2d18b;
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer{
+
+padding:120px 8% 80px;
+
+text-align:center;
+
+background:
+#120f0d;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.footer-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2rem,4vw,4rem);
+
+margin-bottom:28px;
+
+}
+
+.footer-scripture{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.5rem;
+
+line-height:1.8;
+
+color:#e8d9c5;
+
+margin-bottom:50px;
+
+}
+
+.footer-bottom{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+color:#7f7367;
+
+text-transform:uppercase;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.chapter-hero{
+
+padding:190px 8% 130px;
+
+min-height:auto;
+
+}
+
+.scripture-box{
+
+padding:50px 36px;
+
+}
+
+.chapter-manuscript{
+
+padding:140px 8%;
+
+}
+
+.footnotes{
+
+padding:130px 8%;
+
+}
+
+.chapter-reflection{
+
+padding:140px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:80px 8% 120px;
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.chapter-hero h1{
+
+font-size:2.8rem;
+
+}
+
+.scripture-box p{
+
+font-size:1.8rem;
+
+line-height:1.7;
+
+}
+
+.pull-quote{
+
+font-size:2rem;
+
+}
+
+.manuscript-inner p{
+
+font-size:1.04rem;
+
+line-height:2.2;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ATMOSPHERE -->
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<!-- NAVIGATION -->
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="part1.html">
+Part I
+</a>
+
+<a href="notes.html">
+Notes
+</a>
+
+<a href="bibliography.html">
+Bibliography
+</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="chapter-hero">
+
+<div class="chapter-hero-content">
+
+<div class="chapter-number">
+
+CHAPTER 1
+
+</div>
+
+<h1>
+
+The Souls Were Knit Together
+
+</h1>
+
+<p>
+
+The story begins not with explanation, but with extraordinary language Scripture never attempted to hide.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- SCRIPTURE -->
+
+<section class="scripture-section">
+
+<div class="scripture-box">
+
+<div class="scripture-reference">
+
+1 Samuel 18:1
+
+</div>
+
+<p>
+
+“And it came to pass, when he had made an end of speaking unto Saul, that the soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul.”
+
+</p>
+
+</div>
+
+</section>
+
+<!-- MANUSCRIPT -->
+
+<section class="chapter-manuscript">
+
+<div class="manuscript-inner">
+
+<p>
+
+Some passages in Scripture are so familiar that readers stop hearing how extraordinary they truly are.
+
+</p>
+
+<p>
+
+The story of David and Jonathan often suffers from that kind of familiarity. Many believers grow up hearing their names mentioned briefly in sermons about friendship, loyalty, or courage without ever slowing down long enough to consider how unusually intimate the biblical language surrounding them actually becomes.
+
+</p>
+
+<div class="pull-quote">
+
+“The question is not whether the language is there.
+The question is why so many readers were taught not to notice it.”
+
+</div>
+
+<p>
+
+The Hebrew phrase translated as “knit with” comes from the verb qashar, language carrying the sense of binding together, fastening, or being joined closely. The imagery suggests something woven tightly enough that separation becomes painful.
+
+</p>
+
+<p>
+
+The verse continues by stating that Jonathan loved David “as his own soul.” The Hebrew word ahav appears throughout the Old Testament in relationships involving covenant devotion, affection, loyalty, familial love, and profound emotional attachment.
+
+</p>
+
+<p>
+
+Fear changes the way people read tenderness.
+
+</p>
+
+<p>
+
+Once fear enters interpretation, readers often begin explaining emotional language away before allowing the text to exist naturally on its own terms.
+
+</p>
+
+<p>
+
+Yet Scripture itself does not appear defensive about David and Jonathan.
+
+</p>
+
+<p>
+
+The text slows down around them repeatedly. Covenant language surrounds them. Emotional intensity follows them through multiple chapters. Their relationship becomes one of the most developed interpersonal bonds found anywhere within the historical books of the Old Testament.
+
+</p>
+
+<p>
+
+History would expect rivalry between them.
+
+</p>
+
+<p>
+
+Instead, Scripture gives readers covenant and love.
+
+</p>
+
+<p>
+
+Jonathan is the son of Saul, heir to the throne, prince of Israel, and the one expected to inherit the kingdom after his father. David’s rise threatens Jonathan’s future directly, yet Scripture consistently portrays Jonathan choosing loyalty over jealousy and covenant over ambition.
+
+</p>
+
+<p>
+
+The emotional intensity is not inserted later by interpreters searching for hidden meanings. The intensity already exists plainly within the biblical narrative itself.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- FOOTNOTES -->
+
+<section class="footnotes">
+
+<div class="footnotes-inner">
+
+<h2>
+
+Footnotes
+
+</h2>
+
+<div class="footnote-item">
+
+1. Robert Alter, <em>The David Story</em>.
+
+</div>
+
+<div class="footnote-item">
+
+2. Brown Driver Briggs Hebrew Lexicon, entry for אהב (ahav).
+
+</div>
+
+<div class="footnote-item">
+
+3. Walter Brueggemann, <em>First and Second Samuel</em>.
+
+</div>
+
+<div class="footnote-item">
+
+4. Hebrew verb qashar relating to binding or fastening closely together.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- REFLECTION -->
+
+<section class="chapter-reflection">
+
+<p>
+
+The story begins with souls knit together long before history learned to fear tenderness.
+
+</p>
+
+</section>
+
+<!-- NAVIGATION -->
+
+<section class="chapter-navigation">
+
+<a href="part1.html">
+
+← Back to Part I
+
+</a>
+
+<a href="chapter2.html">
+
+Next Chapter →
+
+</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+<div class="footer-title">
+
+A LOVE OLDER THAN FEAR
+
+</div>
+
+<div class="footer-scripture">
+
+“There is no fear in love; but perfect love casteth out fear.”
+<br>
+— 1 John 4:18
+
+</div>
+
+<div class="footer-bottom">
+
+© Bradley Hobbs • A Love Older Than Fear
+
+</div>
+
+</footer>
+
+</body>
+</html>
