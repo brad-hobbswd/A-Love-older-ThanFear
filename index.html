@@ -32,6 +32,10 @@ rel="stylesheet">
 RESET
 ========================= */
 
+/* =========================
+RESET
+========================= */
+
 *{
 margin:0;
 padding:0;
@@ -195,7 +199,7 @@ z-index:999;
 background:
 linear-gradient(
 180deg,
-rgba(0,0,0,0.42)
+rgba(0,0,0,0.42),
 transparent
 );
 
@@ -303,31 +307,23 @@ HERO
 
 position:relative;
 
-height:100svh;
-
-min-height:100svh;
-
-
 overflow:hidden;
 
 background:#090807;
 
-display:flex;
-align-items:center;
-justify-content:center;
+padding-top:110px;
 
 }
 
 .hero-banner{
 
-position:absolute;
-
-inset:0;
+display:block;
 
 width:100%;
-height:100%;
 
-object-fit:cover;
+height:auto;
+
+object-fit:contain;
 
 object-position:center center;
 
@@ -338,11 +334,24 @@ saturate(1.02);
 
 }
 
-.hero-overlay{
+.hero-overlay,
+.hero-darkness,
+.hero-particles{
 
 position:absolute;
 
-inset:0;
+top:110px;
+left:0;
+
+width:100%;
+
+height:calc(100% - 110px);
+
+pointer-events:none;
+
+}
+
+.hero-overlay{
 
 background:
 linear-gradient(
@@ -358,10 +367,6 @@ z-index:2;
 
 .hero-darkness{
 
-position:absolute;
-
-inset:0;
-
 background:
 radial-gradient(
 circle at center,
@@ -376,13 +381,7 @@ z-index:2;
 
 .hero-particles{
 
-position:absolute;
-
-inset:0;
-
 z-index:3;
-
-pointer-events:none;
 
 overflow:hidden;
 
@@ -827,6 +826,7 @@ transition:0.5s ease;
 transform:translateY(-10px);
 
 cursor:pointer;
+
 box-shadow:
 0 0 45px rgba(212,164,79,0.12);
 
@@ -870,8 +870,6 @@ position:relative;
 z-index:2;
 
 }
-
-/* PART CARDS LINKS */
 
 .chapter-card{
 
@@ -961,8 +959,6 @@ color:#c8bbab;
 
 }
 
-
-
 /* =========================
 RESPONSIVE
 ========================= */
@@ -998,7 +994,6 @@ background:
 rgba(9,8,7,0.82);
 
 border-bottom:
-
 1px solid rgba(255,255,255,0.04);
 
 }
@@ -1031,9 +1026,17 @@ letter-spacing:2px;
 
 .hero{
 
-height:100svh;
+padding-top:120px;
 
-min-height:700px;
+}
+
+.hero-overlay,
+.hero-darkness,
+.hero-particles{
+
+top:120px;
+
+height:calc(100% - 120px);
 
 }
 
@@ -1079,12 +1082,6 @@ padding:180px 8%;
 
 }
 
-.site-footer{
-
-padding:110px 8% 60px;
-
-}
-
 }
 
 @media(max-width:540px){
@@ -1118,6 +1115,22 @@ gap:12px;
 font-size:9px;
 
 letter-spacing:1.5px;
+
+}
+
+.hero{
+
+padding-top:130px;
+
+}
+
+.hero-overlay,
+.hero-darkness,
+.hero-particles{
+
+top:130px;
+
+height:calc(100% - 130px);
 
 }
 
@@ -1166,7 +1179,6 @@ letter-spacing:1px;
 }
 
 }
-
 </style>
 </head>
 
