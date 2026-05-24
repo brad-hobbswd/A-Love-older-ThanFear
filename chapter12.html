@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 12 | What Commentators Embraced and Avoided
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#080706;
+--bg-alt:#120f0d;
+--bg-soft:#1a1512;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f8f2e8;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#080706;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.12);
+
+border-radius:50%;
+
+animation:float 30s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:14%;
+animation-duration:34s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:26s;
+}
+
+.particle:nth-child(3){
+top:44%;
+left:50%;
+animation-duration:40s;
+}
+
+.particle:nth-child(4){
+top:86%;
+left:26%;
+animation-duration:32s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:38s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(8,7,6,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.chapter-hero{
+
+position:relative;
+
+min-height:90vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 190px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#080706,
+#18120f
+);
+
+}
+
+.chapter-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.015),
+transparent 60%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.chapter-number{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:42px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:280px 8%;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0b0908
+);
+
+}
+
+.quote-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 72%
+);
+
+}
+
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(3rem,5vw,5.2rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1200px;
+
+margin:auto;
+
+color:#f3e8d7;
+
+}
+
+/* =========================
+MANUSCRIPT
+========================= */
+
+.manuscript{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0b0908,
+#140f0d
+);
+
+overflow:hidden;
+
+}
+
+.manuscript::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.manuscript-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:920px;
+
+margin:auto;
+
+}
+
+.manuscript-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.manuscript-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+line-height:1.3;
+
+margin-bottom:80px;
+
+color:#f7f1e7;
+
+}
+
+.manuscript-text{
+
+font-size:1.16rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.manuscript-text p{
+
+margin-bottom:56px;
+
+}
+
+.scripture-block{
+
+margin:70px 0;
+
+padding:40px;
+
+border:
+1px solid rgba(212,164,79,0.18);
+
+background:
+rgba(255,255,255,0.02);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.8rem;
+
+line-height:1.8;
+
+color:#f0e1cb;
+
+}
+
+.emphasis-line{
+
+margin-top:100px;
+
+padding-left:34px;
+
+border-left:
+1px solid rgba(212,164,79,0.34);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.9;
+
+color:#f0e1cb;
+
+}
+
+/* =========================
+REFERENCES
+========================= */
+
+.references{
+
+position:relative;
+
+padding:180px 8%;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.references-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.references h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.2rem,4vw,4rem);
+
+margin-bottom:70px;
+
+text-align:center;
+
+}
+
+.reference-item{
+
+padding:34px 34px;
+
+margin-bottom:24px;
+
+background:
+rgba(255,255,255,0.025);
+
+border-left:
+1px solid rgba(212,164,79,0.25);
+
+}
+
+.reference-item p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#cbbcab;
+
+}
+
+/* =========================
+CHAPTER NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:40px;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.chapter-navigation::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top left,
+rgba(212,164,79,0.05),
+transparent 40%
+),
+
+radial-gradient(
+circle at bottom right,
+rgba(255,255,255,0.02),
+transparent 50%
+);
+
+pointer-events:none;
+
+}
+
+.chapter-nav-card{
+
+position:relative;
+
+z-index:2;
+
+padding:60px 50px;
+
+text-decoration:none;
+
+background:
+rgba(255,255,255,0.025);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+backdrop-filter:blur(10px);
+
+-webkit-backdrop-filter:blur(10px);
+
+transition:0.5s ease;
+
+overflow:hidden;
+
+}
+
+.chapter-nav-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+rgba(212,164,79,0.06),
+transparent
+);
+
+opacity:0;
+
+transition:0.5s ease;
+
+pointer-events:none;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-8px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.10);
+
+}
+
+.chapter-nav-card:hover::before{
+
+opacity:1;
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:22px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.chapter-nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(1.8rem,3vw,3rem);
+
+line-height:1.3;
+
+margin-bottom:24px;
+
+color:#f5ead9;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1.05rem;
+
+line-height:2;
+
+color:#c8bbab;
+
+position:relative;
+
+z-index:2;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.chapter-hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:200px 8%;
+
+}
+
+.manuscript{
+
+padding:160px 8%;
+
+}
+
+.references{
+
+padding:150px 8%;
+
+}
+
+.scripture-block{
+
+font-size:1.45rem;
+
+padding:30px;
+
+}
+
+.emphasis-line{
+
+font-size:1.6rem;
+
+padding-left:24px;
+
+}
+
+.chapter-navigation{
+
+padding:100px 8%;
+
+gap:28px;
+
+}
+
+.chapter-nav-card{
+
+padding:45px 35px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.3rem;
+
+line-height:1.6;
+
+}
+
+.manuscript-title{
+
+font-size:2.3rem;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+.scripture-block{
+
+font-size:1.2rem;
+
+line-height:1.9;
+
+padding:24px;
+
+}
+
+.emphasis-line{
+
+font-size:1.4rem;
+
+line-height:1.9;
+
+}
+
+.chapter-nav-card{
+
+padding:40px 28px;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:1.9;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="part2.html">
+Part II
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="chapter11.html">
+Previous
+</a>
+
+</div>
+
+</nav>
+
+<section class="chapter-hero">
+
+<div class="hero-content">
+
+<div class="chapter-number">
+
+CHAPTER 12
+
+</div>
+
+<h1>
+
+What Commentators Embraced and Avoided
+
+</h1>
+
+<p>
+
+Every generation reads Scripture through the lens of its own fears, assumptions, and cultural boundaries. Commentary often reveals as much about the interpreter’s world as the biblical text itself.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“The commentators changed across centuries.
+The text remained.”
+
+</h2>
+
+</section>
+
+<section class="manuscript">
+
+<div class="manuscript-inner">
+
+<div class="manuscript-label">
+
+CHAPTER TWELVE
+
+</div>
+
+<h2 class="manuscript-title">
+
+Interpretation often reveals what cultures feared long before readers realize fear entered the conversation.
+
+</h2>
+
+<div class="manuscript-text">
+
+<p>
+
+Every generation reads Scripture through the lens of its own fears, assumptions, and cultural boundaries.
+
+</p>
+
+<p>
+
+Commentators may believe they are approaching the Bible objectively, yet interpretation is always shaped by the world surrounding the interpreter.
+
+</p>
+
+<p>
+
+Questions of masculinity, sexuality, emotional expression, holiness, and acceptable forms of love have influenced biblical commentary for centuries whether openly acknowledged or not.
+
+</p>
+
+<p>
+
+The story of David and Jonathan reveals this clearly.
+
+</p>
+
+<p>
+
+Few relationships in Scripture have received such careful emotional restraint from later interpreters.
+
+</p>
+
+<p>
+
+Many commentators praised the loyalty between David and Jonathan while simultaneously avoiding the intensity of the language surrounding them.
+
+</p>
+
+<p>
+
+Covenant became emphasized.
+<br><br>
+
+Political alliance became emphasized.
+<br><br>
+
+Brotherhood became emphasized.
+
+</p>
+
+<p>
+
+Yet the emotional tenderness preserved plainly within the text was often treated cautiously once readers approached passages involving kisses, tears, souls knit together, and David’s lament describing Jonathan’s love as surpassing the love of women.
+
+</p>
+
+<p>
+
+This pattern becomes especially noticeable in later church history as cultural discomfort surrounding emotional intimacy between men increased.
+
+</p>
+
+<p>
+
+Earlier ancient cultures often allowed greater emotional openness between men without immediate panic.
+
+</p>
+
+<p>
+
+Over time, however, many societies developed stricter expectations surrounding masculinity and affection.
+
+</p>
+
+<p>
+
+Emotional vulnerability became increasingly restricted, and biblical interpretation often reflected those cultural shifts.
+
+</p>
+
+<p>
+
+Commentators did not necessarily erase the tenderness completely because the text itself would not allow that easily.
+
+</p>
+
+<p>
+
+David’s grief remained too visible.
+<br><br>
+
+Jonathan’s devotion remained too central.
+<br><br>
+
+The covenant language remained too consistent throughout their story.
+
+</p>
+
+<p>
+
+Instead, many interpreters minimized emotional possibilities carefully enough to keep the relationship inside boundaries their culture considered safe.
+
+</p>
+
+<div class="scripture-block">
+
+Some described the relationship almost exclusively through political loyalty.
+<br><br>
+
+Others emphasized spiritual brotherhood while avoiding emotional complexity altogether.
+<br><br>
+
+Some acknowledged the unusual intensity of the language but quickly reassured readers that no interpretation beyond friendship should ever be considered.
+
+</div>
+
+<p>
+
+Fear often reveals itself most clearly through what people rush to deny before anyone has even fully asked the question.
+
+</p>
+
+<p>
+
+This does not mean every commentator acted with hostility or dishonesty.
+
+</p>
+
+<p>
+
+Many worked sincerely within the theological and cultural frameworks available to them. Most loved Scripture deeply. Many genuinely believed they were protecting biblical truth from misunderstanding.
+
+</p>
+
+<p>
+
+Yet sincerity alone does not remove cultural influence from interpretation.
+
+</p>
+
+<p>
+
+Every generation carries blind spots.
+
+</p>
+
+<p>
+
+Some commentators seemed more uncomfortable with tenderness itself than with the actual words preserved in Scripture.
+
+</p>
+
+<p>
+
+The possibility that love between men could contain profound emotional intimacy often created anxiety long before careful textual analysis even began.
+
+</p>
+
+<p>
+
+Modern readers inherited many of those anxieties without realizing how deeply cultural fear shaped the interpretive traditions handed down to them.
+
+</p>
+
+<p>
+
+At the same time, not all scholarship moved in the same direction.
+
+</p>
+
+<p>
+
+Some Jewish interpreters throughout history acknowledged the extraordinary emotional closeness between David and Jonathan without reacting defensively.
+
+</p>
+
+<p>
+
+Certain modern scholars have explored romantic interpretations openly while others continue defending covenant friendship as the most historically faithful understanding.
+
+</p>
+
+<p>
+
+Still others argue the relationship exists beyond categories modern readers attempt to impose upon it.
+
+</p>
+
+<p>
+
+The disagreement itself matters less than the honesty surrounding it.
+
+</p>
+
+<p>
+
+This book does not ask readers to pretend consensus exists where it clearly does not.
+
+</p>
+
+<p>
+
+Honest scholarship includes multiple perspectives, tensions, and unresolved questions.
+
+</p>
+
+<p>
+
+What becomes problematic is not disagreement itself, but the way fear sometimes prevented certain possibilities from even being discussed openly within church spaces.
+
+</p>
+
+<p>
+
+Many LGBTQIA+ believers experienced that silence personally.
+
+</p>
+
+<p>
+
+Some grew up hearing David and Jonathan mentioned briefly only to watch pastors become visibly uncomfortable the moment emotional intimacy within the story was noticed too closely.
+
+</p>
+
+<p>
+
+Some learned that curiosity itself could make church communities suspicious.
+
+</p>
+
+<p>
+
+Others quietly recognized parts of their own longing, tenderness, grief, or devotion within these passages while simultaneously being taught that such recognition must remain hidden.
+
+</p>
+
+<p>
+
+Silence became survival.
+
+</p>
+
+<p>
+
+That silence carried consequences because questions pushed underground rarely disappear.
+
+</p>
+
+<p>
+
+Instead, they grow heavier beneath shame, isolation, and spiritual fear.
+
+</p>
+
+<p>
+
+Entire generations learned to disconnect emotional honesty from faithfulness because they believed church spaces could not hold both at the same time.
+
+</p>
+
+<p>
+
+Yet Scripture itself continues holding the story openly.
+
+</p>
+
+<p>
+
+The commentators changed across centuries.
+<br><br>
+
+The cultures changed across centuries.
+<br><br>
+
+The fears changed across centuries.
+
+</p>
+
+<p>
+
+Still, David and Jonathan remained within the text exactly where they had always been.
+
+</p>
+
+<p>
+
+Their covenant remained visible.
+<br><br>
+
+Their grief remained visible.
+<br><br>
+
+Their tenderness remained visible.
+
+</p>
+
+<p>
+
+Perhaps one of the most revealing questions readers can ask is not simply what commentators concluded, but what made certain conclusions feel necessary to defend so urgently in the first place.
+
+</p>
+
+<p>
+
+Fear often works hardest wherever tenderness threatens the boundaries people built to protect themselves from emotional complexity.
+
+</p>
+
+<p>
+
+And perhaps that is why the relationship between David and Jonathan still feels alive enough to provoke conversation generations later.
+
+</p>
+
+<p>
+
+The story survived commentary because Scripture preserved something emotionally honest within it that history never fully succeeded in silencing.
+
+</p>
+
+<div class="emphasis-line">
+
+The interpretations shifted.
+The tenderness remained.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="references">
+
+<div class="references-inner">
+
+<h2>
+
+References
+
+</h2>
+
+<div class="reference-item">
+
+<p>
+
+Alter, Robert. <em>The David Story: A Translation with Commentary of 1 and 2 Samuel.</em> W.W. Norton & Company, 1999.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Brueggemann, Walter. <em>First and Second Samuel.</em> Interpretation Commentary Series. Westminster John Knox Press, 1990.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Ackerman, Susan. <em>When Heroes Love: The Ambiguity of Eros in the Stories of Gilgamesh and David.</em>
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Olyan, Saul M. <em>Friendship in the Hebrew Bible.</em> Yale University Press.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Boswell, John. <em>Christianity, Social Tolerance, and Homosexuality.</em> University of Chicago Press, 1980.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+The Holy Bible, King James Version. 1 Samuel 18–20; 2 Samuel 1.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="chapter-navigation">
+
+<a
+href="chapter11.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+PREVIOUS
+</div>
+
+<h3>
+Chapter 11
+</h3>
+
+<p>
+Return to the previous chapter exploring fear, tenderness, masculinity, vulnerability, and emotional honesty within church culture.
+</p>
+
+</a>
+
+<a
+href="part2.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+ARCHIVE
+</div>
+
+<h3>
+Back to Part II
+</h3>
+
+<p>
+Return to the manuscript archive exploring covenant, grief, love, fear, interpretation, and the emotional language preserved within Scripture.
+</p>
+
+</a>
+
+<a
+href="chapter13.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+CONTINUE
+</div>
+
+<h3>
+Chapter 13
+</h3>
+
+<p>
+Continue into the next chapter exploring memory, interpretation, survival, and the lasting spiritual questions carried through history.
+</p>
+
+</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+});
+
+</script>
+
+</body>
+</html>
