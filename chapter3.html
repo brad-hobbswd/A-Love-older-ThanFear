@@ -636,15 +636,55 @@ FOOTER
 
 .site-footer{
 
-padding:130px 8% 90px;
+position:relative;
 
-text-align:center;
+padding:120px 8% 70px;
 
 background:
-#120f0d;
+linear-gradient(
+180deg,
+#090807,
+#050404
+);
 
 border-top:
-1px solid rgba(255,255,255,0.04);
+1px solid rgba(212,164,79,0.08);
+
+overflow:hidden;
+
+}
+
+.site-footer::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top center,
+rgba(212,164,79,0.06),
+transparent 50%
+);
+
+pointer-events:none;
+
+}
+
+.footer-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1200px;
+
+margin:auto;
+
+text-align:center;
 
 }
 
@@ -652,9 +692,66 @@ border-top:
 
 font-family:'Cinzel',serif;
 
-font-size:clamp(2rem,4vw,4rem);
+font-size:clamp(2rem,4vw,3.5rem);
 
-margin-bottom:28px;
+letter-spacing:2px;
+
+margin-bottom:20px;
+
+color:#f4e7d2;
+
+}
+
+.footer-quote{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.5rem;
+
+line-height:1.7;
+
+color:#d8c7ad;
+
+margin-bottom:35px;
+
+}
+
+.footer-links{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:24px;
+
+margin-bottom:40px;
+
+}
+
+.footer-links a{
+
+text-decoration:none;
+
+font-size:12px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.footer-links a:hover{
+
+color:#f2d18b;
+
+text-shadow:
+0 0 12px rgba(212,164,79,0.35);
 
 }
 
@@ -662,25 +759,23 @@ margin-bottom:28px;
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:1.5rem;
+font-size:1.3rem;
 
-line-height:1.9;
+line-height:1.8;
 
-color:#e8d9c5;
+color:#c8bbab;
 
-margin-bottom:50px;
+margin-bottom:30px;
 
 }
 
-.footer-bottom{
+.footer-copy{
 
-font-size:12px;
+font-size:0.95rem;
 
-letter-spacing:2px;
+letter-spacing:1px;
 
-color:#786d62;
-
-text-transform:uppercase;
+color:#8f8374;
 
 }
 
@@ -1179,30 +1274,31 @@ Next Chapter →
 </section>
 
 <!-- FOOTER -->
+<!-- FOOTER -->
 
-<footer class="site-footer">
+<div id="footer-container"></div>
 
-<div class="footer-title">
+<script>
 
-A LOVE OLDER THAN FEAR
+fetch('footer.html')
+.then(response => response.text())
+.then(data => {
 
-</div>
+document.getElementById(
+'footer-container'
+).innerHTML = data;
 
-<div class="footer-scripture">
+})
+.catch(error => {
 
-“There is no fear in love; but perfect love casteth out fear.”
-<br>
-— 1 John 4:18
+console.error(
+'Footer failed to load:',
+error
+);
 
-</div>
+});
 
-<div class="footer-bottom">
-
-© Bradley Hobbs • A Love Older Than Fear
-
-</div>
-
-</footer>
+</script>
 
 </body>
 </html>
