@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Page Not Found | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:40px;
+
+background:
+radial-gradient(
+circle at center,
+#1a1411 0%,
+#090807 75%
+);
+
+font-family:'Inter',sans-serif;
+
+color:#f4e7d2;
+
+overflow:hidden;
+
+text-align:center;
+
+}
+
+.page-wrap{
+
+max-width:900px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.page-code{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(5rem,12vw,10rem);
+
+letter-spacing:8px;
+
+color:#d4a44f;
+
+margin-bottom:20px;
+
+text-shadow:
+0 0 30px rgba(212,164,79,0.18);
+
+}
+
+.page-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2rem,5vw,4rem);
+
+line-height:1.2;
+
+margin-bottom:30px;
+
+}
+
+.page-text{
+
+font-size:1.15rem;
+
+line-height:2;
+
+color:#c8bbab;
+
+max-width:700px;
+
+margin:auto auto 50px;
+
+}
+
+.home-button{
+
+display:inline-flex;
+
+align-items:center;
+justify-content:center;
+
+padding:18px 42px;
+
+border-radius:60px;
+
+border:
+1px solid rgba(212,164,79,0.55);
+
+background:
+rgba(212,164,79,0.08);
+
+backdrop-filter:blur(12px);
+
+-webkit-backdrop-filter:blur(12px);
+
+color:#f2d18b;
+
+text-decoration:none;
+
+font-size:12px;
+
+font-weight:600;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+transition:0.5s ease;
+
+box-shadow:
+0 0 30px rgba(212,164,79,0.08);
+
+}
+
+.home-button:hover{
+
+background:
+rgba(212,164,79,0.18);
+
+transform:translateY(-4px);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.24);
+
+}
+
+.glow{
+
+position:absolute;
+
+width:700px;
+height:700px;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 70%
+);
+
+border-radius:50%;
+
+z-index:1;
+
+}
+
+.glow.one{
+top:-200px;
+left:-200px;
+}
+
+.glow.two{
+bottom:-250px;
+right:-250px;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer{
+
+margin-top:120px;
+
+padding:100px 8% 70px;
+
+border-top:
+1px solid rgba(212,164,79,0.08);
+
+background:
+linear-gradient(
+180deg,
+transparent,
+rgba(0,0,0,0.45)
+);
+
+}
+
+.footer-content{
+
+max-width:1100px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.footer-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2rem,4vw,3.5rem);
+
+letter-spacing:2px;
+
+margin-bottom:22px;
+
+color:#f4e7d2;
+
+}
+
+.footer-quote{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.4rem;
+
+line-height:1.8;
+
+color:#d8c7ad;
+
+margin-bottom:35px;
+
+}
+
+.footer-links{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:24px;
+
+margin-bottom:35px;
+
+}
+
+.footer-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.footer-links a:hover{
+
+color:#f2d18b;
+
+}
+
+.footer-scripture{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.25rem;
+
+line-height:1.9;
+
+color:#c8bbab;
+
+margin-bottom:30px;
+
+}
+
+.footer-copy{
+
+font-size:0.95rem;
+
+color:#8f8374;
+
+letter-spacing:1px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="glow one"></div>
+
+<div class="glow two"></div>
+
+<div class="page-wrap">
+
+<div class="page-code">
+404
+</div>
+
+<h1 class="page-title">
+
+This page vanished into history.
+
+</h1>
+
+<p class="page-text">
+
+Some archives survive centuries.
+Some pages disappear along the way.
+
+The chapter or document you were searching for could not be found.
+
+</p>
+
+<a
+href="index.html"
+class="home-button">
+
+RETURN TO THE ARCHIVE
+
+</a>
+
+</div>
+<!-- FOOTER -->
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+.then(response => response.text())
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+})
+.catch(error => {
+
+console.error(
+'Footer failed to load:',
+error
+);
+
+});
+
+</script>
+</body>
+
+</html>
