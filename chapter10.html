@@ -637,108 +637,177 @@ color:#f1e4cf;
 }
 
 /* =========================
-NAVIGATION
+CHAPTER NAVIGATION
 ========================= */
 
 .chapter-navigation{
 
-padding:100px 8% 170px;
+position:relative;
 
-display:flex;
+padding:140px 8%;
 
-justify-content:space-between;
+display:grid;
 
-align-items:center;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
-gap:30px;
-
-flex-wrap:wrap;
+gap:40px;
 
 background:
 linear-gradient(
 180deg,
-#060504,
-#120f0d
+#140f0d,
+#080706
 );
 
-}
-
-.chapter-navigation a{
-
-text-decoration:none;
-
-font-size:12px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-color:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.chapter-navigation a:hover{
-
-color:#f2d18b;
-
-}
-
-/* =========================
-FOOTER
-========================= */
-
-.site-footer{
-
-padding:130px 8% 90px;
-
-text-align:center;
-
-background:
-#120f0d;
+overflow:hidden;
 
 border-top:
 1px solid rgba(255,255,255,0.04);
 
 }
 
-.footer-title{
+.chapter-navigation::before{
 
-font-family:'Cinzel',serif;
+content:"";
 
-font-size:clamp(2rem,4vw,4rem);
+position:absolute;
 
-margin-bottom:28px;
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top left,
+rgba(212,164,79,0.05),
+transparent 40%
+),
+
+radial-gradient(
+circle at bottom right,
+rgba(255,255,255,0.02),
+transparent 50%
+);
+
+pointer-events:none;
 
 }
 
-.footer-scripture{
+.chapter-nav-card{
 
-font-family:'Cormorant Garamond',serif;
+position:relative;
 
-font-size:1.5rem;
+z-index:2;
 
-line-height:1.8;
+padding:60px 50px;
 
-color:#e8d9c5;
+text-decoration:none;
 
-margin-bottom:50px;
+background:
+rgba(255,255,255,0.025);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+backdrop-filter:blur(10px);
+
+-webkit-backdrop-filter:blur(10px);
+
+transition:0.5s ease;
+
+overflow:hidden;
 
 }
 
-.footer-bottom{
+.chapter-nav-card::before{
 
-font-size:12px;
+content:"";
 
-letter-spacing:2px;
+position:absolute;
 
-color:#7f7367;
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+rgba(212,164,79,0.06),
+transparent
+);
+
+opacity:0;
+
+transition:0.5s ease;
+
+pointer-events:none;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-8px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.10);
+
+}
+
+.chapter-nav-card:hover::before{
+
+opacity:1;
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
 
 text-transform:uppercase;
 
+color:var(--gold);
+
+margin-bottom:22px;
+
+position:relative;
+
+z-index:2;
+
 }
 
+.chapter-nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(1.8rem,3vw,3rem);
+
+line-height:1.3;
+
+margin-bottom:24px;
+
+color:#f5ead9;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1.05rem;
+
+line-height:2;
+
+color:#c8bbab;
+
+position:relative;
+
+z-index:2;
+
+}
 /* =========================
 RESPONSIVE
 ========================= */
@@ -797,11 +866,15 @@ padding:150px 8%;
 
 .chapter-navigation{
 
-padding:80px 8% 130px;
+padding:100px 8%;
 
-flex-direction:column;
+gap:28px;
 
-text-align:center;
+}
+
+.chapter-nav-card{
+
+padding:45px 35px;
 
 }
 
@@ -826,6 +899,20 @@ line-height:1.7;
 .pull-quote{
 
 font-size:2rem;
+
+}
+
+.chapter-nav-card{
+
+padding:40px 28px;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:1.9;
 
 }
 
@@ -1113,21 +1200,63 @@ Grief often reveals what fear spent years trying to silence.
 
 <section class="chapter-navigation">
 
-<a href="chapter9.html">
+<a
+href="chapter9.html"
+class="chapter-nav-card">
 
-← Previous Chapter
+<div class="chapter-nav-label">
+PREVIOUS
+</div>
+
+<h3>
+Chapter 9
+</h3>
+
+<p>
+
+Return to the field between David and Jonathan where covenant, grief, tears, and farewell stood together beneath the shadow of Saul’s fear.
+
+</p>
 
 </a>
 
-<a href="part2.html">
+<a
+href="part2.html"
+class="chapter-nav-card">
 
+<div class="chapter-nav-label">
+ARCHIVE
+</div>
+
+<h3>
 Back to Part II
+</h3>
+
+<p>
+
+Return to the manuscript archive exploring covenant, tenderness, grief, masculinity, translation, fear, and emotional honesty within Scripture.
+
+</p>
 
 </a>
 
-<a href="chapter11.html">
+<a
+href="chapter11.html"
+class="chapter-nav-card">
 
-Next Chapter →
+<div class="chapter-nav-label">
+CONTINUE
+</div>
+
+<h3>
+Chapter 11
+</h3>
+
+<p>
+
+Continue into the next chapter exploring the church, masculinity, emotional restraint, and the fear of tenderness within modern theology.
+
+</p>
 
 </a>
 
@@ -1135,29 +1264,23 @@ Next Chapter →
 
 <!-- FOOTER -->
 
-<footer class="site-footer">
+<div id="footer-container"></div>
 
-<div class="footer-title">
+<script>
 
-A LOVE OLDER THAN FEAR
+fetch('footer.html')
 
-</div>
+.then(response => response.text())
 
-<div class="footer-scripture">
+.then(data => {
 
-“There is no fear in love; but perfect love casteth out fear.”
-<br>
-— 1 John 4:18
+document.getElementById(
+'footer-container'
+).innerHTML = data;
 
-</div>
+});
 
-<div class="footer-bottom">
-
-© Bradley Hobbs • A Love Older Than Fear
-
-</div>
-
-</footer>
+</script>
 
 </body>
 </html>
