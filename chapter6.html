@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 6 | The Prince and the Shepherd
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#080706;
+--bg-alt:#120f0d;
+--bg-soft:#1a1512;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f8f2e8;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#080706;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.12);
+
+border-radius:50%;
+
+animation:float 30s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:14%;
+animation-duration:34s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:26s;
+}
+
+.particle:nth-child(3){
+top:44%;
+left:50%;
+animation-duration:40s;
+}
+
+.particle:nth-child(4){
+top:86%;
+left:26%;
+animation-duration:32s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:38s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(8,7,6,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.chapter-hero{
+
+position:relative;
+
+min-height:90vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 190px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#080706,
+#18120f
+);
+
+}
+
+.chapter-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.015),
+transparent 60%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.chapter-number{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:42px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:280px 8%;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0b0908
+);
+
+}
+
+.quote-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 72%
+);
+
+}
+
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(3rem,5vw,5.4rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1200px;
+
+margin:auto;
+
+color:#f3e8d7;
+
+}
+
+/* =========================
+MANUSCRIPT
+========================= */
+
+.manuscript{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0b0908,
+#140f0d
+);
+
+overflow:hidden;
+
+}
+
+.manuscript::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.manuscript-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:920px;
+
+margin:auto;
+
+}
+
+.manuscript-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.manuscript-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+line-height:1.3;
+
+margin-bottom:80px;
+
+color:#f7f1e7;
+
+}
+
+.manuscript-text{
+
+font-size:1.16rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.manuscript-text p{
+
+margin-bottom:56px;
+
+}
+
+.emphasis-line{
+
+margin-top:100px;
+
+padding-left:34px;
+
+border-left:
+1px solid rgba(212,164,79,0.34);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.9;
+
+color:#f0e1cb;
+
+}
+
+/* =========================
+REFERENCES
+========================= */
+
+.references{
+
+position:relative;
+
+padding:180px 8%;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.references-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.references h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.2rem,4vw,4rem);
+
+margin-bottom:70px;
+
+text-align:center;
+
+}
+
+.reference-item{
+
+padding:34px 34px;
+
+margin-bottom:24px;
+
+background:
+rgba(255,255,255,0.025);
+
+border-left:
+1px solid rgba(212,164,79,0.25);
+
+}
+
+.reference-item p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#cbbcab;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.chapter-hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:200px 8%;
+
+}
+
+.manuscript{
+
+padding:160px 8%;
+
+}
+
+.references{
+
+padding:150px 8%;
+
+}
+
+.emphasis-line{
+
+font-size:1.6rem;
+
+padding-left:24px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.3rem;
+
+line-height:1.6;
+
+}
+
+.manuscript-title{
+
+font-size:2.3rem;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+.emphasis-line{
+
+font-size:1.4rem;
+
+line-height:1.9;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="part1.html">
+Part I
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="chapter5.html">
+Previous
+</a>
+
+</div>
+
+</nav>
+
+<section class="chapter-hero">
+
+<div class="hero-content">
+
+<div class="chapter-number">
+
+Chapter 6
+
+</div>
+
+<h1>
+
+The Prince and the Shepherd
+
+</h1>
+
+<p>
+
+One stood within the royal bloodline of Israel.
+The other arrived carrying sheep dust and faith.
+Scripture says their souls became knit together anyway.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“Before politics surrounded them,
+Scripture introduced them through love.”
+
+</h2>
+
+</section>
+
+<section class="manuscript">
+
+<div class="manuscript-inner">
+
+<div class="manuscript-label">
+
+CHAPTER SIX
+
+</div>
+
+<h2 class="manuscript-title">
+
+Some relationships begin quietly.
+Some arrive carrying the weight of destiny itself.
+
+</h2>
+
+<div class="manuscript-text">
+
+<p>
+
+Every relationship carries a beginning, but some beginnings feel almost impossible once the full story is known. Looking back across the pages of Scripture, the relationship between David and Jonathan feels marked by that kind of inevitability, as though the narrative itself understood from the very first encounter that these two lives would become permanently bound together long before either man fully understood the cost.
+
+</p>
+
+<p>
+
+David entered Saul’s world as a shepherd carrying very little the kingdom considered valuable. He was young, overlooked, unfamiliar with royal life, and easily dismissed by those who measured worth through appearance, status, inheritance, or military reputation. Jonathan, by contrast, stood at the center of Israel’s future. He was the king’s son, a warrior, a prince, and the rightful heir to Saul’s throne. Their worlds should never have intersected with such emotional force.
+
+</p>
+
+<p>
+
+Yet Scripture places them together immediately after David’s victory over Goliath, almost as though the battle itself opened the doorway into something far larger than political history alone.
+
+</p>
+
+<p>
+
+David stood before Saul still carrying the aftermath of battle while Israel struggled to comprehend what had just happened. A shepherd had defeated the giant no soldier in Saul’s army dared face. Fear had ruled the battlefield until David walked into it with faith stronger than the terror surrounding him. Jonathan witnessed all of this. He saw the courage. He saw the devotion to God. He saw the young shepherd standing calmly where trained warriors had trembled.
+
+</p>
+
+<p>
+
+Then Scripture says something extraordinary happened between them.
+
+</p>
+
+<p>
+
+1 Samuel 18:1 declares:
+
+</p>
+
+<p>
+
+“The soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul.”
+
+</p>
+
+<p>
+
+The text does not build slowly toward emotional closeness. Scripture introduces their relationship with immediate intensity. Before readers receive political analysis, military strategy, or court intrigue, they receive the language of souls bound together through love.
+
+</p>
+
+<p>
+
+That introduction matters because the narrative could have framed Jonathan’s response very differently. The writer could have emphasized admiration between warriors or respect between future leaders. Instead, Scripture speaks emotionally and relationally from the very beginning.
+
+</p>
+
+<p>
+
+Jonathan recognized something within David that reached deeper than politics.
+
+</p>
+
+<p>
+
+Perhaps that recognition becomes even more powerful because Jonathan had every worldly reason to fear David instead. David’s growing influence threatened Jonathan’s inheritance directly. Every victory David achieved moved him closer to the throne Jonathan was expected to receive by birthright.
+
+</p>
+
+<p>
+
+Ancient kingdoms were not gentle places when succession became uncertain. Rivalries destroyed families. Thrones were protected through violence. Sons defended inheritance fiercely because survival often depended upon power remaining within bloodlines.
+
+</p>
+
+<p>
+
+Yet Jonathan consistently moves toward David rather than away from him.
+
+</p>
+
+<p>
+
+That choice reveals something beautiful within Jonathan’s character. Scripture presents him not as a prince consumed by ambition, but as a man capable of loving beyond personal advantage. He sees the hand of God upon David’s life and responds not with jealousy, but with covenant loyalty strong enough to place another person’s future above his own claim to power.
+
+</p>
+
+<p>
+
+Their relationship grows within the shadow of Saul’s unraveling kingdom, which only deepens the emotional intensity surrounding them. Fear increasingly consumes Saul. Suspicion grows. Violence begins pressing inward around David from every direction. Jonathan repeatedly finds himself standing between the father he loves and the man his soul has become bound to through covenant.
+
+</p>
+
+<p>
+
+The emotional tension within that reality cannot be ignored.
+
+</p>
+
+<p>
+
+Jonathan was not choosing between strangers. He was choosing between competing forms of loyalty, between bloodline and covenant, between royal inheritance and the person Scripture says he loved as his own soul.
+
+</p>
+
+<p>
+
+Many readers approach David and Jonathan searching immediately for certainty about classification while missing the humanity unfolding before them. Before theological arguments ever emerged surrounding their relationship, two real people stood inside this story carrying devotion, grief, danger, tenderness, and sacrifice within a kingdom increasingly ruled by fear.
+
+</p>
+
+<p>
+
+That humanity matters.
+
+</p>
+
+<p>
+
+The relationship between David and Jonathan cannot honestly be reduced to emotional emptiness because Scripture itself refuses to treat them with emotional distance. The narrative lingers around their encounters repeatedly. Covenant follows them. Tears follow them. Love follows them. Grief follows them.
+
+</p>
+
+<p>
+
+The story slows down whenever they stand together, as though Scripture wants readers to feel the weight of what exists between them rather than rushing carelessly past it.
+
+</p>
+
+<p>
+
+The prince and the shepherd should have become enemies according to every expectation history placed upon them.
+
+</p>
+
+<p>
+
+Instead, they became one of the most emotionally enduring relationships preserved anywhere within sacred Scripture.
+
+</p>
+
+<div class="emphasis-line">
+
+Some souls meet history.
+Some souls change history.
+Some souls become inseparable within memory itself.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="references">
+
+<div class="references-inner">
+
+<h2>
+
+References
+
+</h2>
+
+<div class="reference-item">
+
+<p>
+
+Alter, Robert. <em>The David Story: A Translation with Commentary of 1 and 2 Samuel.</em> W.W. Norton & Company, 1999.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Brueggemann, Walter. <em>First and Second Samuel.</em> Interpretation Commentary Series. Westminster John Knox Press, 1990.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Fox, Everett. <em>The Early Prophets: Joshua, Judges, Samuel, and Kings.</em> Schocken Books, 1995.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+The Holy Bible, King James Version. 1 Samuel 18:1–4.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+});
+
+</script>
+
+</body>
+</html>
