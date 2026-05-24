@@ -1212,70 +1212,31 @@ The Holy Bible, King James Version. 1 Samuel 18–20; 2 Samuel 1.
 </div>
 
 </div>
+<!-- FOOTER -->
 
-</section>
+<div id="footer-container"></div>
 
-<footer class="site-footer">
+<script>
 
-<div class="footer-content">
+fetch('footer.html')
+.then(response => response.text())
+.then(data => {
 
-<div class="footer-top">
+document.getElementById(
+'footer-container'
+).innerHTML = data;
 
-<h2>
+})
+.catch(error => {
 
-A LOVE OLDER THAN FEAR
+console.error(
+'Footer failed to load:',
+error
+);
 
-</h2>
+});
 
-<p>
-
-“Some loves survive death.
-Some survive history.
-The rarest loves survive translation.”
-
-</p>
-
-</div>
-
-<div class="footer-divider"></div>
-
-<div class="footer-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="part1.html">
-Part I
-</a>
-
-<a href="chapter4.html">
-Previous Chapter
-</a>
-
-<a href="part2.html">
-Next Part
-</a>
-
-</div>
-
-<div class="footer-scripture">
-
-“There is no fear in love; but perfect love casteth out fear.”
-<br>
-— 1 John 4:18
-
-</div>
-
-<div class="footer-bottom">
-
-© Bradley Hobbs • A Love Older Than Fear
-
-</div>
-
-</div>
-
-</footer>
+</script>
 
 </body>
 </html>
