@@ -652,6 +652,108 @@ color:#cbbcab;
 
 }
 
+  /* =========================
+CHAPTER NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+position:relative;
+
+padding:120px 8%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.chapter-nav-button{
+
+display:inline-flex;
+
+align-items:center;
+justify-content:center;
+
+padding:18px 34px;
+
+border-radius:60px;
+
+border:
+1px solid rgba(212,164,79,0.24);
+
+background:
+rgba(255,255,255,0.02);
+
+text-decoration:none;
+
+color:#f0cf8d;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+transition:0.4s ease;
+
+backdrop-filter:blur(10px);
+
+-webkit-backdrop-filter:blur(10px);
+
+}
+
+.chapter-nav-button:hover{
+
+transform:translateY(-4px);
+
+background:
+rgba(212,164,79,0.10);
+
+border-color:
+rgba(212,164,79,0.45);
+
+box-shadow:
+0 0 30px rgba(212,164,79,0.12);
+
+}
+
+@media(max-width:768px){
+
+.chapter-navigation{
+
+padding:90px 8%;
+
+gap:18px;
+
+}
+
+.chapter-nav-button{
+
+width:100%;
+
+max-width:320px;
+
+}
+
+}
+
 /* =========================
 RESPONSIVE
 ========================= */
@@ -1125,6 +1227,36 @@ The Holy Bible, King James Version. 1 Samuel 18:4.
 </div>
 
 </div>
+
+</section>
+
+<!-- CHAPTER NAVIGATION -->
+
+<section class="chapter-navigation">
+
+<a
+href="chapter6.html"
+class="chapter-nav-button">
+
+← Previous Chapter
+
+</a>
+
+<a
+href="part2.html"
+class="chapter-nav-button">
+
+Return to Part II
+
+</a>
+
+<a
+href="chapter8.html"
+class="chapter-nav-button">
+
+Next Chapter →
+
+</a>
 
 </section>
 
