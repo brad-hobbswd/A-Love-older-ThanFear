@@ -641,51 +641,175 @@ color:#f1e4cf;
 }
 
 /* =========================
-NAVIGATION
+CHAPTER NAVIGATION
 ========================= */
 
 .chapter-navigation{
 
-padding:100px 8% 170px;
+position:relative;
 
-display:flex;
+padding:140px 8%;
 
-justify-content:space-between;
+display:grid;
 
-align-items:center;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
-gap:30px;
-
-flex-wrap:wrap;
+gap:40px;
 
 background:
 linear-gradient(
 180deg,
-#070605,
-#120f0d
+#140f0d,
+#080706
 );
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
 
 }
 
-.chapter-navigation a{
+.chapter-navigation::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top left,
+rgba(212,164,79,0.05),
+transparent 40%
+),
+
+radial-gradient(
+circle at bottom right,
+rgba(255,255,255,0.02),
+transparent 50%
+);
+
+pointer-events:none;
+
+}
+
+.chapter-nav-card{
+
+position:relative;
+
+z-index:2;
+
+padding:60px 50px;
 
 text-decoration:none;
 
-font-size:12px;
+background:
+rgba(255,255,255,0.025);
 
-letter-spacing:3px;
+border:
+1px solid rgba(255,255,255,0.05);
 
-text-transform:uppercase;
+backdrop-filter:blur(10px);
 
-color:#d4a44f;
+-webkit-backdrop-filter:blur(10px);
 
-transition:0.4s ease;
+transition:0.5s ease;
+
+overflow:hidden;
 
 }
 
-.chapter-navigation a:hover{
+.chapter-nav-card::before{
 
-color:#f2d18b;
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+rgba(212,164,79,0.06),
+transparent
+);
+
+opacity:0;
+
+transition:0.5s ease;
+
+pointer-events:none;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-8px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.10);
+
+}
+
+.chapter-nav-card:hover::before{
+
+opacity:1;
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:22px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.chapter-nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(1.8rem,3vw,3rem);
+
+line-height:1.3;
+
+margin-bottom:24px;
+
+color:#f5ead9;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1.05rem;
+
+line-height:2;
+
+color:#c8bbab;
+
+position:relative;
+
+z-index:2;
 
 }
 
@@ -702,6 +826,20 @@ flex-direction:column;
 gap:18px;
 
 padding:18px 5%;
+
+}
+
+  .chapter-navigation{
+
+padding:100px 8%;
+
+gap:28px;
+
+}
+
+.chapter-nav-card{
+
+padding:45px 35px;
 
 }
 
@@ -762,6 +900,20 @@ text-align:center;
 .hero-content h1{
 
 font-size:2.8rem;
+
+}
+
+  .chapter-nav-card{
+
+padding:40px 28px;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:1.9;
 
 }
 
@@ -1209,23 +1361,29 @@ Love risks honesty.
 
 </section>
 
-<!-- NAVIGATION -->
+<!-- CHAPTER NAVIGATION -->
 
 <section class="chapter-navigation">
 
-<a href="chapter13.html">
+<a
+href="chapter13.html"
+class="chapter-nav-button">
 
 ← Previous Chapter
 
 </a>
 
-<a href="part3.html">
+<a
+href="part3.html"
+class="chapter-nav-button">
 
 Back to Part III
 
 </a>
 
-<a href="chapter15.html">
+<a
+href="chapter15.html"
+class="chapter-nav-button">
 
 Next Chapter →
 
