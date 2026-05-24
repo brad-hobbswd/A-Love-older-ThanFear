@@ -82,6 +82,91 @@ border-radius:20px;
 }
 
 /* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,215,150,0.14);
+
+border-radius:50%;
+
+animation:float 24s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:14%;
+animation-duration:30s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:22s;
+}
+
+.particle:nth-child(3){
+top:44%;
+left:50%;
+animation-duration:36s;
+}
+
+.particle:nth-child(4){
+top:86%;
+left:26%;
+animation-duration:28s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:34s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
 NAVIGATION
 ========================= */
 
@@ -94,7 +179,7 @@ left:0;
 
 width:100%;
 
-padding:22px 6%;
+padding:22px 4%;
 
 display:flex;
 
@@ -105,14 +190,17 @@ align-items:center;
 z-index:999;
 
 background:
-rgba(9,8,7,0.72);
+linear-gradient(
+180deg,
+rgba(0,0,0,0.42),
+transparent
+);
 
 backdrop-filter:blur(12px);
 
 -webkit-backdrop-filter:blur(12px);
 
-border-bottom:
-1px solid rgba(255,255,255,0.05);
+transition:0.5s ease;
 
 }
 
@@ -120,13 +208,20 @@ border-bottom:
 
 font-family:'Cinzel',serif;
 
-font-size:1rem;
+font-size:0.92rem;
 
 letter-spacing:3px;
 
 color:#f2d18b;
 
+white-space:nowrap;
+
 text-decoration:none;
+
+display:block;
+
+text-shadow:
+0 0 12px rgba(212,164,79,0.25);
 
 }
 
@@ -134,7 +229,11 @@ text-decoration:none;
 
 display:flex;
 
-gap:28px;
+align-items:center;
+
+justify-content:flex-end;
+
+gap:18px;
 
 flex-wrap:wrap;
 
@@ -144,9 +243,9 @@ flex-wrap:wrap;
 
 text-decoration:none;
 
-font-size:11px;
+font-size:10px;
 
-letter-spacing:3px;
+letter-spacing:2px;
 
 text-transform:uppercase;
 
@@ -155,6 +254,8 @@ color:#d7c3a4;
 transition:0.4s ease;
 
 position:relative;
+
+white-space:nowrap;
 
 }
 
@@ -180,6 +281,9 @@ transition:0.4s ease;
 
 color:#f2d18b;
 
+text-shadow:
+0 0 12px rgba(212,164,79,0.35);
+
 }
 
 .nav-links a:hover::after{
@@ -196,22 +300,23 @@ HERO
 
 position:relative;
 
-min-height:85vh;
+min-height:100vh;
 
 display:flex;
 
 align-items:center;
 justify-content:center;
 
-padding:180px 8% 120px;
+padding:260px 8% 200px;
 
 overflow:hidden;
 
 background:
 linear-gradient(
 180deg,
-#0d0b0a,
-#16110f
+#060504 0%,
+#120e0c 45%,
+#17110e 100%
 );
 
 }
@@ -227,15 +332,35 @@ inset:0;
 background:
 
 radial-gradient(
-circle at top,
+circle at top center,
 rgba(212,164,79,0.08),
-transparent 45%
+transparent 42%
 ),
 
 radial-gradient(
 circle at bottom left,
 rgba(255,255,255,0.02),
-transparent 45%
+transparent 50%
+);
+
+pointer-events:none;
+
+}
+
+.about-hero::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,0.52),
+rgba(0,0,0,0.12) 40%,
+rgba(0,0,0,0.72)
 );
 
 pointer-events:none;
@@ -246,17 +371,21 @@ pointer-events:none;
 
 position:relative;
 
-z-index:2;
+z-index:5;
 
-max-width:1000px;
+max-width:1100px;
+
+margin:auto;
 
 text-align:center;
+
+animation:heroFade 2s ease;
 
 }
 
 .hero-label{
 
-font-size:12px;
+font-size:13px;
 
 letter-spacing:6px;
 
@@ -264,7 +393,7 @@ text-transform:uppercase;
 
 color:var(--gold);
 
-margin-bottom:30px;
+margin-bottom:35px;
 
 }
 
@@ -272,11 +401,13 @@ margin-bottom:30px;
 
 font-family:'Cinzel',serif;
 
-font-size:clamp(3rem,7vw,6rem);
+font-size:clamp(3rem,7vw,6.5rem);
 
-line-height:1.1;
+line-height:1.08;
 
 margin-bottom:35px;
+
+color:#f6ead7;
 
 }
 
@@ -286,11 +417,27 @@ font-size:1.2rem;
 
 line-height:2;
 
-color:var(--muted);
-
-max-width:850px;
+max-width:900px;
 
 margin:auto;
+
+color:#c8bbab;
+
+font-weight:300;
+
+}
+
+@keyframes heroFade{
+
+0%{
+opacity:0;
+transform:translateY(30px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
 
 }
 
@@ -302,14 +449,14 @@ CONTENT SECTIONS
 
 position:relative;
 
-padding:160px 8%;
+padding:180px 8%;
 
 overflow:hidden;
 
 background:
 linear-gradient(
 180deg,
-#16110f,
+#17110e,
 #090807
 );
 
@@ -394,7 +541,7 @@ QUOTE BLOCK
 
 .quote-block{
 
-padding:220px 8%;
+padding:240px 8%;
 
 text-align:center;
 
@@ -451,231 +598,6 @@ color:#f2e7d2;
 }
 
 /* =========================
-FOOTER
-========================= */
-
-.site-footer{
-
-position:relative;
-
-padding:180px 8% 100px;
-
-overflow:hidden;
-
-background:
-linear-gradient(
-180deg,
-#0a0807 0%,
-#130f0d 100%
-);
-
-border-top:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.footer-overlay{
-
-position:absolute;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle,
-rgba(212,164,79,0.05),
-transparent 75%
-);
-
-pointer-events:none;
-
-}
-
-.footer-content{
-
-position:relative;
-
-z-index:3;
-
-max-width:1400px;
-
-margin:auto;
-
-text-align:center;
-
-}
-
-/* =========================
-EXPANDED FOOTER CONTENT
-========================= */
-
-.footer-glow{
-
-position:absolute;
-
-top:-250px;
-left:50%;
-
-transform:translateX(-50%);
-
-width:900px;
-height:900px;
-
-background:
-radial-gradient(
-circle,
-rgba(212,164,79,0.08),
-transparent 70%
-);
-
-pointer-events:none;
-
-}
-
-.footer-top h2{
-
-font-family:'Cinzel',serif;
-
-font-size:clamp(2.4rem,4vw,4.5rem);
-
-line-height:1.1;
-
-margin-bottom:28px;
-
-color:#f6efe5;
-
-letter-spacing:3px;
-
-}
-
-.footer-top p{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.5rem,2vw,2.2rem);
-
-line-height:1.8;
-
-max-width:900px;
-
-margin:auto;
-
-color:#d8c8b1;
-
-}
-
-.footer-divider{
-
-width:240px;
-height:1px;
-
-margin:70px auto;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(212,164,79,0.8),
-transparent
-);
-
-}
-
-.footer-links{
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:22px 38px;
-
-margin-bottom:80px;
-
-}
-
-.footer-links a{
-
-text-decoration:none;
-
-color:#bda98d;
-
-font-size:13px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-transition:0.4s ease;
-
-position:relative;
-
-}
-
-.footer-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-8px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.footer-links a:hover{
-
-color:#f2d18b;
-
-text-shadow:
-0 0 12px rgba(212,164,79,0.25);
-
-}
-
-.footer-links a:hover::after{
-
-width:100%;
-
-}
-
-.footer-scripture{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.4rem,2vw,2rem);
-
-line-height:1.9;
-
-color:#efe3c8;
-
-margin-bottom:70px;
-
-opacity:0.95;
-
-}
-
-.footer-bottom{
-
-font-size:12px;
-
-letter-spacing:2px;
-
-color:#7e7265;
-
-text-transform:uppercase;
-
-}
-
-/* =========================
 RESPONSIVE
 ========================= */
 
@@ -688,6 +610,22 @@ flex-direction:column;
 gap:18px;
 
 padding:18px 5%;
+
+background:
+rgba(9,8,7,0.82);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-size:0.9rem;
+
+letter-spacing:2px;
+
+text-align:center;
 
 }
 
@@ -709,7 +647,7 @@ letter-spacing:2px;
 
 .about-hero{
 
-padding:170px 8% 110px;
+padding:220px 8% 170px;
 
 min-height:auto;
 
@@ -717,13 +655,13 @@ min-height:auto;
 
 .about-section{
 
-padding:120px 8%;
+padding:140px 8%;
 
 }
 
 .quote-block{
 
-padding:170px 8%;
+padding:180px 8%;
 
 }
 
@@ -742,6 +680,8 @@ line-height:2;
 .hero-content h1{
 
 font-size:2.7rem;
+
+line-height:1.15;
 
 }
 
@@ -767,12 +707,43 @@ letter-spacing:1.5px;
 
 }
 
+.about-hero{
+
+padding:200px 7% 150px;
+
+}
+
+.about-section{
+
+padding:120px 7%;
+
+}
+
+.quote-block{
+
+padding:150px 7%;
+
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
+
+<!-- ATMOSPHERE -->
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
 
 <!-- NAVIGATION -->
 
@@ -807,6 +778,8 @@ Bibliography
 </a>
 
 </div>
+
+</nav>
 
 <!-- HERO -->
 
@@ -972,6 +945,50 @@ fetch('footer.html')
 document.getElementById(
 'footer-container'
 ).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(
+'Footer failed to load:',
+error
+);
+
+});
+
+</script>
+
+<script>
+
+const nav =
+document.querySelector(
+'.floating-nav'
+);
+
+window.addEventListener(
+'scroll',
+() => {
+
+if(window.scrollY > 100){
+
+nav.style.background =
+'rgba(9,8,7,0.82)';
+
+nav.style.borderBottom =
+'1px solid rgba(255,255,255,0.05)';
+
+}
+
+else{
+
+nav.style.background =
+'linear-gradient(180deg, rgba(0,0,0,0.42), transparent)';
+
+nav.style.borderBottom =
+'none';
+
+}
 
 });
 
