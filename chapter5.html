@@ -1212,14 +1212,30 @@ The Holy Bible, King James Version. 1 Samuel 18–20; 2 Samuel 1.
 </div>
 
 </div>
+</section>
+
 <!-- FOOTER -->
 
 <div id="footer-container"></div>
 
 <script>
 
-fetch('footer.html')
-.then(response => response.text())
+fetch('./footer.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Footer failed to load'
+);
+
+}
+
+return response.text();
+
+})
+
 .then(data => {
 
 document.getElementById(
@@ -1227,6 +1243,7 @@ document.getElementById(
 ).innerHTML = data;
 
 })
+
 .catch(error => {
 
 console.error(
@@ -1237,6 +1254,9 @@ error
 });
 
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
