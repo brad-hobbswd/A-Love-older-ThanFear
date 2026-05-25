@@ -1,64 +1,1327 @@
-Prologue
+<!DOCTYPE html>
 
-The Field Between Them
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Prologue | The Field Between Them
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#070605;
+--bg-alt:#120f0d;
+--bg-soft:#1a1512;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f8f2e8;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#070605;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.10);
+
+border-radius:50%;
+
+animation:float 34s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:12%;
+animation-duration:38s;
+}
+
+.particle:nth-child(2){
+top:70%;
+left:84%;
+animation-duration:30s;
+}
+
+.particle:nth-child(3){
+top:44%;
+left:52%;
+animation-duration:42s;
+}
+
+.particle:nth-child(4){
+top:86%;
+left:24%;
+animation-duration:36s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:40s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(7,6,5,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.page-hero{
+
+position:relative;
+
+min-height:92vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:250px 8% 200px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#18120f
+);
+
+}
+
+.page-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.015),
+transparent 60%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.page-label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:42px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:280px 8%;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0b0908
+);
+
+}
+
+.quote-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 72%
+);
+
+}
+
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(3rem,5vw,5.4rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1200px;
+
+margin:auto;
+
+color:#f3e8d7;
+
+}
+
+/* =========================
+PROLOGUE
+========================= */
+
+.prologue{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0b0908,
+#140f0d
+);
+
+overflow:hidden;
+
+}
+
+.prologue::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.prologue-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:940px;
+
+margin:auto;
+
+}
+
+.prologue-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.prologue-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+line-height:1.3;
+
+margin-bottom:80px;
+
+color:#f7f1e7;
+
+}
+
+.prologue-text{
+
+font-size:1.16rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.prologue-text p{
+
+margin-bottom:56px;
+
+}
+
+.emphasis-line{
+
+margin-top:100px;
+
+padding-left:34px;
+
+border-left:
+1px solid rgba(212,164,79,0.34);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.9;
+
+color:#f0e1cb;
+
+}
+
+/* =========================
+FOOTNOTES
+========================= */
+
+.footnotes{
+
+position:relative;
+
+padding:180px 8%;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.footnotes-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:960px;
+
+margin:auto;
+
+}
+
+.footnotes h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.2rem,4vw,4rem);
+
+margin-bottom:70px;
+
+text-align:center;
+
+}
+
+.footnote-item{
+
+padding:34px 34px;
+
+margin-bottom:24px;
+
+background:
+rgba(255,255,255,0.025);
+
+border-left:
+1px solid rgba(212,164,79,0.25);
+
+}
+
+.footnote-item p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#cbbcab;
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.page-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:40px;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-card{
+
+position:relative;
+
+padding:60px 50px;
+
+text-decoration:none;
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.01)
+);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.5s ease;
+
+overflow:hidden;
+
+}
+
+.nav-card:hover{
+
+transform:translateY(-8px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.10);
+
+}
+
+.nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:22px;
+
+}
+
+.nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(1.8rem,3vw,3rem);
+
+line-height:1.3;
+
+margin-bottom:24px;
+
+color:#f5ead9;
+
+}
+
+.nav-card p{
+
+font-size:1.05rem;
+
+line-height:2;
+
+color:#c8bbab;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.page-hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:200px 8%;
+
+}
+
+.prologue{
+
+padding:160px 8%;
+
+}
+
+.footnotes{
+
+padding:150px 8%;
+
+}
+
+.page-navigation{
+
+padding:100px 8%;
+
+gap:28px;
+
+}
+
+.nav-card{
+
+padding:45px 35px;
+
+}
+
+.emphasis-line{
+
+font-size:1.6rem;
+
+padding-left:24px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.3rem;
+
+line-height:1.6;
+
+}
+
+.prologue-title{
+
+font-size:2.3rem;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+.emphasis-line{
+
+font-size:1.4rem;
+
+line-height:1.9;
+
+}
+
+.nav-card{
+
+padding:40px 28px;
+
+}
+
+.nav-card p{
+
+font-size:1rem;
+
+line-height:1.9;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="preface.html">
+Preface
+</a>
+
+<a href="introduction.html">
+Introduction
+</a>
+
+<a href="chapter1.html">
+Begin
+</a>
+
+</div>
+
+</nav>
+
+<section class="page-hero">
+
+<div class="hero-content">
+
+<div class="page-label">
+
+PROLOGUE
+
+</div>
+
+<h1>
+
+The Field
+Between Them
+
+</h1>
+
+<p>
+
+Some fields became holy not because temples stood there, but because fear and love stood facing one another beneath the night sky.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“Fear demanded silence.
+Scripture preserved tenderness anyway.”
+
+</h2>
+
+</section>
+
+<section class="prologue">
+
+<div class="prologue-inner">
+
+<div class="prologue-label">
+
+OPENING NARRATIVE
+
+</div>
+
+<h2 class="prologue-title">
+
+Some stories survived because sacred text refused to look away from human tenderness.
+
+</h2>
+
+<div class="prologue-text">
+
+<p>
 
 Night settled quietly across the fields outside Gibeah while the kingdom of Saul trembled beneath secrets no one dared speak aloud in the open courts of the palace. Torches flickered against stone walls in the distance. Wind moved softly through the grass. Somewhere beyond the hills, soldiers slept beside their weapons while fear moved through the kingdom far more restlessly than any army.
 
+</p>
+
+<p>
+
 David waited alone.
+
+</p>
+
+<p>
 
 The shepherd who once stood before giants now stood before something far more difficult to understand: the slow unraveling of a king, the danger hidden inside loyalty, and the grief of loving someone while the world around them tightened with suspicion and violence.
 
+</p>
+
+<p>
+
 Jonathan came quietly into the field.
+
+</p>
+
+<p>
 
 Scripture does not rush this moment. The text lingers there with unusual tenderness, almost as though the silence between them mattered as much as the words themselves. Two men standing between covenant and catastrophe. Two souls bound together while a kingdom threatened to tear everything apart around them.
 
+</p>
+
+<p>
+
 Jonathan already knew the truth neither politics nor bloodline could change. David would become king. Saul’s throne would not pass to his own son. Every earthly reason existed for jealousy, resentment, rivalry, and betrayal. Ancient kingdoms were built upon sons protecting inheritance at all costs. History expected Jonathan to hate David.
+
+</p>
+
+<p>
 
 Yet Scripture tells another story.
 
+</p>
+
+<p>
+
 Instead of rivalry, there was covenant.
+<br><br>
 Instead of betrayal, there was loyalty.
+<br><br>
 Instead of fear, there was love.
+
+</p>
+
+<p>
 
 The son of the king loved the shepherd destined to inherit the crown meant for himself.
 
+</p>
+
+<p>
+
 That truth stands inside the Bible with astonishing boldness.
+
+</p>
+
+<p>
 
 Jonathan had already stripped himself of his royal robe and placed it upon David. Armor, sword, bow, and girdle followed in covenant exchange rich with political and emotional symbolism. In another story, such gestures might have marked surrender, alliance, or dynastic transition alone. Yet the language surrounding David and Jonathan refuses to remain emotionally distant. Their souls are described as knit together. Their covenant is described through love. Their grief later becomes immortalized through poetry so intimate generations of readers still struggle to decide what exactly they are witnessing.
 
+</p>
+
+<p>
+
 Perhaps that struggle says as much about us as it does about them.
+
+</p>
+
+<p>
 
 The field where David and Jonathan met became more than geography. That field became the space between love and fear. Between honesty and silence. Between what Scripture preserved openly and what later generations often attempted to contain carefully within safer explanations.
 
+</p>
+
+<p>
+
 So much of human history lives inside that same field.
+
+</p>
+
+<p>
 
 Entire generations have stood there wondering whether tenderness can survive inside worlds shaped by power, expectation, religion, masculinity, politics, and fear. Entire communities have wrestled with the tension between what people genuinely feel and what they are permitted to name publicly. Entire lives have been shaped by the exhausting burden of hiding emotional truth beneath language considered acceptable enough to survive.
 
+</p>
+
+<p>
+
 Many LGBTQIA+ believers know that field intimately.
+
+</p>
+
+<p>
 
 Many grew up learning how to monitor every gesture, every word, every affection, every silence, every prayer, and every relationship beneath the watchful eyes of religious environments already prepared to misunderstand them before they even spoke. Many learned how to survive church spaces while carrying internal loneliness too sacred and too frightening to reveal aloud. Some eventually abandoned faith altogether. Others remained while quietly grieving versions of themselves they believed God required them to bury forever.
 
+</p>
+
+<p>
+
 Fear has always demanded silence from love long before love ever threatened fear.
+
+</p>
+
+<p>
 
 That tension echoes powerfully through the story of David and Jonathan because Scripture itself never treats their relationship casually. The text slows down around them. Covenant language deepens around them. Emotion intensifies around them. David’s lament after Jonathan’s death rises from the pages of Scripture with grief so raw that centuries later readers still lower their voices when discussing it.
 
+</p>
+
+<p>
+
 Perhaps people sense something sacred there they do not fully know how to hold.
+
+</p>
+
+<p>
 
 This book exists within that tension.
 
+</p>
+
+<p>
+
 Not to erase Scripture.
+<br><br>
 Not to mock faith.
+<br><br>
 Not to manipulate ancient text into modern ideology.
+
+</p>
+
+<p>
 
 This journey exists because sacred stories deserve honest listening.
 
+</p>
+
+<p>
+
 The field between David and Jonathan still stretches across history even now. Readers continue stepping into that space carrying theology, tradition, fear, longing, questions, wounds, and hope. Some arrive defensive. Some arrive exhausted. Some arrive desperately searching for proof that God does not recoil from tenderness as quickly as people often do.
+
+</p>
+
+<p>
 
 Every reader enters that field differently.
 
+</p>
+
+<p>
+
 Yet the story remains waiting there all the same.
+
+</p>
+
+<p>
 
 Two men beneath the night sky.
 A covenant between them.
 A kingdom trembling with fear.
 Love standing quietly in the middle of it all.
+
+</p>
+
+<div class="emphasis-line">
+
+Some stories survived because sacred text refused to silence tenderness.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="footnotes">
+
+<div class="footnotes-inner">
+
+<h2>
+
+Selected Notes & References
+
+</h2>
+
+<div class="footnote-item">
+
+<p>
+
+The Holy Bible, King James Version. 1 Samuel 18–20; 2 Samuel 1.
+
+</p>
+
+</div>
+
+<div class="footnote-item">
+
+<p>
+
+Robert Alter, <em>The David Story: A Translation with Commentary of 1 and 2 Samuel.</em> W.W. Norton & Company, 1999.
+
+</p>
+
+</div>
+
+<div class="footnote-item">
+
+<p>
+
+Walter Brueggemann, <em>First and Second Samuel.</em> Interpretation Commentary Series. Westminster John Knox Press, 1990.
+
+</p>
+
+</div>
+
+<div class="footnote-item">
+
+<p>
+
+Ancient Near Eastern covenant traditions frequently used symbolic exchanges of garments, weapons, vows, and kinship language to express loyalty, inheritance, and relational devotion.
+
+</p>
+
+</div>
+
+<div class="footnote-item">
+
+<p>
+
+Scholarly discussions surrounding David and Jonathan continue exploring covenant theology, emotional intimacy, masculinity, grief traditions, and translation history across Jewish and Christian interpretation.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="page-navigation">
+
+<a
+href="preface.html"
+class="nav-card">
+
+<div class="nav-label">
+
+PREVIOUS
+
+</div>
+
+<h3>
+
+Preface
+
+</h3>
+
+<p>
+
+Return to the reflections surrounding fear, sacred questions, theological honesty, and the origins of this journey.
+
+</p>
+
+</a>
+
+<a
+href="introduction.html"
+class="nav-card">
+
+<div class="nav-label">
+
+CONTINUE
+
+</div>
+
+<h3>
+
+Introduction
+
+</h3>
+
+<p>
+
+Continue into the introduction and begin exploring covenant, translation, history, tenderness, and interpretation.
+
+</p>
+
+</a>
+
+<a
+href="chapter1.html"
+class="nav-card">
+
+<div class="nav-label">
+
+BEGIN
+
+</div>
+
+<h3>
+
+Chapter One
+
+</h3>
+
+<p>
+
+Step into the opening chapter and begin the larger journey through Scripture, grief, covenant, fear, and love.
+
+</p>
+
+</a>
+
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Footer failed to load'
+);
+
+}
+
+return response.text();
+
+})
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(
+'Footer failed to load:',
+error
+);
+
+});
+
+</script>
+
+</body>
+</html>
