@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Covenant | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#070605;
+--bg-alt:#120f0d;
+--bg-soft:#1a1411;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f7f1e7;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#070605;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.10);
+
+border-radius:50%;
+
+animation:float 32s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:12%;
+animation-duration:38s;
+}
+
+.particle:nth-child(2){
+top:76%;
+left:82%;
+animation-duration:28s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:52%;
+animation-duration:44s;
+}
+
+.particle:nth-child(4){
+top:88%;
+left:24%;
+animation-duration:34s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:40s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-190px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(7,6,5,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+position:relative;
+
+min-height:88vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 180px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#18120f
+);
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.hero-label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3.2rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:44px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+max-width:850px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:240px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0b0908
+);
+
+}
+
+.quote-section h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.7rem,5vw,5rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1100px;
+
+margin:auto;
+
+color:#f2e6d3;
+
+}
+
+/* =========================
+MANUSCRIPT
+========================= */
+
+.manuscript{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0b0908,
+#140f0d
+);
+
+}
+
+.manuscript-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:920px;
+
+margin:auto;
+
+}
+
+.manuscript-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:30px;
+
+}
+
+.manuscript-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+line-height:1.3;
+
+margin-bottom:80px;
+
+}
+
+.manuscript-text{
+
+font-size:1.12rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.manuscript-text p{
+
+margin-bottom:54px;
+
+}
+
+.emphasis-line{
+
+margin-top:90px;
+
+padding-left:30px;
+
+border-left:
+1px solid rgba(212,164,79,0.34);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.9;
+
+color:#f0e1cb;
+
+}
+
+/* =========================
+REFLECTION
+========================= */
+
+.reflection{
+
+position:relative;
+
+padding:220px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#070605
+);
+
+}
+
+.reflection-content{
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.reflection h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+margin-bottom:50px;
+
+}
+
+.reflection p{
+
+font-size:1.15rem;
+
+line-height:2.3;
+
+color:var(--muted);
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:36px;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#120f0d
+);
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.chapter-nav-card{
+
+padding:55px 45px;
+
+text-decoration:none;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.chapter-nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:22px;
+
+color:#f4e7d4;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c7b9a8;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:180px 8%;
+
+}
+
+.manuscript{
+
+padding:170px 8%;
+
+}
+
+.reflection{
+
+padding:170px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:100px 8%;
+
+}
+
+.chapter-nav-card{
+
+padding:42px 32px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.2rem;
+
+line-height:1.6;
+
+}
+
+.manuscript-title{
+
+font-size:2.2rem;
+
+}
+
+.emphasis-line{
+
+font-size:1.5rem;
+
+line-height:1.8;
+
+}
+
+.chapter-nav-card h3{
+
+font-size:1.8rem;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="resources.html">
+Resources
+</a>
+
+<a href="study-guide.html">
+Study Guide
+</a>
+
+<a href="about.html">
+About
+</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-label">
+
+PERSONAL REFLECTIONS
+
+</div>
+
+<h1>
+
+Covenant
+
+</h1>
+
+<p>
+
+Thoughts gathered throughout the writing journey surrounding covenant, tenderness, fear, faith, Scripture, grief, translation, and the emotional honesty preserved within the story of David and Jonathan.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“Some truths are discovered slowly enough to change the person studying them.”
+
+</h2>
+
+</section>
+
+<section class="manuscript">
+
+<div class="manuscript-inner">
+
+<div class="manuscript-label">
+
+REFLECTIONS
+
+</div>
+
+<h2 class="manuscript-title">
+
+The deeper this journey moved into Scripture, the harder fear became to ignore.
+
+</h2>
+
+<div class="manuscript-text">
+
+<p>
+
+At the beginning of this project, I believed the journey would remain primarily academic. I expected language studies, historical context, covenant analysis, translation history, and theological comparison. Those things certainly mattered and still matter deeply. Yet somewhere along the way, the research became more personal than I expected.
+
+</p>
+
+<p>
+
+The deeper I studied David and Jonathan, the more I noticed how often fear quietly surrounded the conversation itself. Fear appeared long before conclusions ever formed. Fear shaped tone. Fear shaped interpretation. Fear shaped silence. Fear shaped the emotional boundaries many readers inherited before ever opening the text carefully for themselves.
+
+</p>
+
+<p>
+
+That realization stayed with me.
+
+</p>
+
+<p>
+
+I began noticing how quickly tenderness between men became something many communities felt required explanation. Emotional vulnerability often felt safe only within narrowly controlled limits. Entire church cultures sometimes seemed more comfortable discussing violence than discussing affection honestly.
+
+</p>
+
+<p>
+
+Yet Scripture repeatedly preserves tenderness anyway.
+
+</p>
+
+<p>
+
+David weeps openly.
+Jonathan loves David as his own soul.
+Covenants are spoken aloud.
+Grief is preserved poetically.
+Love survives inside the language itself.
+
+</p>
+
+<p>
+
+The Bible did not erase those moments. History preserved them. Translation preserved them. Readers preserved them. Something inside the story continued surviving despite generations attempting to simplify what remained emotionally difficult.
+
+</p>
+
+<p>
+
+As both a believer and a gay man, that reality affected me more deeply than I expected.
+
+</p>
+
+<p>
+
+I know what fear feels like inside church environments. I know what happens when people learn to monitor themselves carefully before speaking honestly. I know the exhaustion of hearing conversations about love, holiness, identity, masculinity, and belonging while silently wondering whether honesty about yourself would cost safety, ministry, friendship, or spiritual belonging.
+
+</p>
+
+<p>
+
+Many LGBTQIA+ believers carry that exhaustion quietly.
+
+</p>
+
+<p>
+
+Some remain deeply faithful while carrying wounds few communities fully acknowledge. Some continue loving Jesus while struggling to believe church spaces still have room for their full humanity. Some learned to survive spiritually through silence because honesty felt dangerous.
+
+</p>
+
+<p>
+
+That grief matters.
+
+</p>
+
+<p>
+
+This project slowly became less about forcing answers and more about creating honest space for questions many people were taught never to ask aloud. Not every reader will leave agreeing about David and Jonathan. Honest readers still wrestle sincerely with Scripture from different perspectives.
+
+</p>
+
+<p>
+
+Yet I increasingly believe fear itself deserves examination just as much as theology does.
+
+</p>
+
+<p>
+
+Fear narrows compassion.
+Fear rushes interpretation.
+Fear teaches communities to panic before listening carefully.
+Fear often protects systems more quickly than people.
+
+</p>
+
+<p>
+
+Yet the God revealed through Jesus continually moved toward wounded people rather than away from them.
+
+</p>
+
+<p>
+
+That truth became impossible for me to ignore while writing this book.
+
+</p>
+
+<p>
+
+Perhaps the most sacred moments of this journey were not discovering new arguments, but rediscovering compassion. Rediscovering that honest questions do not threaten God. Rediscovering that tenderness itself is not automatically dangerous. Rediscovering that many wounded people were never searching for rebellion nearly as much as they were searching for belonging.
+
+</p>
+
+<p>
+
+And perhaps that longing for belonging has always existed at the center of covenant itself.
+
+</p>
+
+<div class="emphasis-line">
+
+Some covenants survive history because human hearts continue recognizing themselves inside them.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="reflection">
+
+<div class="reflection-content">
+
+<h2>
+
+What Remains
+
+</h2>
+
+<p>
+
+After all the research, translation studies, theological arguments, and historical analysis, one reality continues remaining quietly present beneath the entire journey: wounded people still long to know whether love and faith can exist together without fear standing between them.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="chapter-navigation">
+
+<a
+href="study-guide.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+STUDY GUIDE
+
+</div>
+
+<h3>
+
+Reading & Reflection
+
+</h3>
+
+<p>
+
+Explore discussion prompts, guided reflection, and theological questions connected to the manuscript.
+
+</p>
+
+</a>
+
+<a
+href="resources.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+RESOURCES
+
+</div>
+
+<h3>
+
+Research Archive
+
+</h3>
+
+<p>
+
+Explore the historical, linguistic, theological, and pastoral sources connected to this project.
+
+</p>
+
+</a>
+
+<a
+href="index.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+HOME
+
+</div>
+
+<h3>
+
+Return Home
+
+</h3>
+
+<p>
+
+Return to the main archive and continue exploring A Love Older Than Fear.
+
+</p>
+
+</a>
+
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+});
+
+</script>
+
+</body>
+</html>
