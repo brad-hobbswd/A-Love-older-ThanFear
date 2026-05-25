@@ -27,6 +27,7 @@ href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&famil
 rel="stylesheet">
 
 <style>
+
 /* =========================
 RESET
 ========================= */
@@ -170,132 +171,6 @@ opacity:0;
 }
 
 /* =========================
-NAVIGATION
-========================= */
-
-.floating-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:22px 4%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-z-index:999;
-
-background:
-linear-gradient(
-180deg,
-rgba(0,0,0,0.42),
-transparent
-);
-
-backdrop-filter:blur(10px);
-
--webkit-backdrop-filter:blur(10px);
-
-transition:0.5s ease;
-
-}
-
-.nav-logo{
-
-font-family:'Cinzel',serif;
-
-font-size:0.92rem;
-
-letter-spacing:3px;
-
-color:#f2d18b;
-
-white-space:nowrap;
-
-text-decoration:none;
-
-display:block;
-
-text-shadow:
-0 0 12px rgba(212,164,79,0.25);
-
-}
-
-.nav-links{
-
-display:flex;
-
-align-items:center;
-
-justify-content:flex-end;
-
-gap:18px;
-
-flex-wrap:wrap;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-font-size:10px;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-color:#d7c3a4;
-
-transition:0.4s ease;
-
-position:relative;
-
-white-space:nowrap;
-
-}
-
-.nav-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.nav-links a:hover{
-
-color:#f2d18b;
-
-text-shadow:
-0 0 12px rgba(212,164,79,0.35);
-
-}
-
-.nav-links a:hover::after{
-
-width:100%;
-
-}
-
-/* =========================
 404 HERO
 ========================= */
 
@@ -399,6 +274,22 @@ margin:auto;
 
 text-align:center;
 
+animation:fadeUp 1.6s ease;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(30px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 
 .page-code{
@@ -448,6 +339,19 @@ font-weight:300;
 
 }
 
+.button-group{
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+gap:22px;
+
+flex-wrap:wrap;
+
+}
+
 .home-button{
 
 display:inline-flex;
@@ -486,6 +390,40 @@ transition:0.5s ease;
 box-shadow:
 0 0 30px rgba(212,164,79,0.08);
 
+position:relative;
+
+overflow:hidden;
+
+}
+
+.home-button::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:100%;
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.18),
+transparent
+);
+
+transition:0.8s ease;
+
+}
+
+.home-button:hover::before{
+
+left:120%;
+
 }
 
 .home-button:hover{
@@ -504,66 +442,7 @@ box-shadow:
 RESPONSIVE
 ========================= */
 
-@media(max-width:1024px){
-
-.floating-nav{
-padding:20px 5%;
-}
-
-.nav-links{
-gap:20px;
-}
-
-.nav-links a{
-font-size:10px;
-letter-spacing:2px;
-}
-
-}
-
 @media(max-width:768px){
-
-.floating-nav{
-
-flex-direction:column;
-
-gap:18px;
-
-padding:18px 5%;
-
-background:
-rgba(9,8,7,0.82);
-
-border-bottom:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.nav-logo{
-
-font-size:0.9rem;
-
-letter-spacing:2px;
-
-text-align:center;
-
-}
-
-.nav-links{
-
-justify-content:center;
-
-gap:16px;
-
-}
-
-.nav-links a{
-
-font-size:10px;
-
-letter-spacing:2px;
-
-}
 
 .error-hero{
 
@@ -588,41 +467,17 @@ letter-spacing:3px;
 
 }
 
+.button-group{
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
 }
 
 @media(max-width:540px){
-
-.floating-nav{
-
-padding:16px 20px;
-
-gap:14px;
-
-}
-
-.nav-logo{
-
-font-size:0.75rem;
-
-letter-spacing:1.5px;
-
-line-height:1.5;
-
-}
-
-.nav-links{
-
-gap:12px;
-
-}
-
-.nav-links a{
-
-font-size:9px;
-
-letter-spacing:1.5px;
-
-}
 
 .page-title{
 
@@ -638,21 +493,9 @@ line-height:1.9;
 
 }
 
-}
+.page-code{
 
-@media(max-width:390px){
-
-.nav-links{
-
-gap:10px;
-
-}
-
-.nav-links a{
-
-font-size:8px;
-
-letter-spacing:1px;
+letter-spacing:4px;
 
 }
 
@@ -662,7 +505,7 @@ letter-spacing:1px;
 
 </head>
 
-<body>
+<body data-page="404">
 
 <!-- ATMOSPHERE -->
 
@@ -676,45 +519,9 @@ letter-spacing:1px;
 
 </div>
 
-<!-- NAVIGATION -->
+<!-- UNIVERSAL HEADER -->
 
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="archive.html">
-Archive
-</a>
-
-<a href="chapters.html">
-Chapters
-</a>
-
-<a href="bibliography.html">
-Bibliography
-</a>
-
-<a href="about.html">
-About
-</a>
-
-<a href="notes.html">
-Notes
-</a>
-
-</div>
-
-</nav>
+<div id="header-container"></div>
 
 <!-- 404 HERO -->
 
@@ -743,17 +550,33 @@ This page vanished into history.
 Some archives survive centuries.
 Some pages disappear along the way.
 
-The chapter or document you were searching for could not be found.
+The chapter, document, or reflection you were searching for could not be found.
+
+Perhaps the path changed.
+Perhaps the archive moved.
+Perhaps this page simply faded quietly into memory.
 
 </p>
+
+<div class="button-group">
 
 <a
 href="index.html"
 class="home-button">
 
-RETURN TO THE ARCHIVE
+RETURN HOME
 
 </a>
+
+<a
+href="chapters.html"
+class="home-button">
+
+EXPLORE CHAPTERS
+
+</a>
+
+</div>
 
 </div>
 
@@ -762,6 +585,24 @@ RETURN TO THE ARCHIVE
 <!-- FOOTER -->
 
 <div id="footer-container"></div>
+
+<script>
+
+fetch('header.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'header-container'
+).innerHTML = data;
+
+initializeHeader();
+
+});
+
+</script>
 
 <script>
 
@@ -783,47 +624,6 @@ console.error(
 'Footer failed to load:',
 error
 );
-
-});
-
-</script>
-
-<script>
-
-// NAVIGATION FADE
-
-const nav =
-document.querySelector(
-'.floating-nav'
-);
-
-window.addEventListener(
-'scroll',
-() => {
-
-if(window.innerWidth > 768){
-
-if(window.scrollY > 100){
-
-nav.style.background =
-'rgba(9,8,7,0.82)';
-
-nav.style.borderBottom =
-'1px solid rgba(255,255,255,0.05)';
-
-}
-
-else{
-
-nav.style.background =
-'linear-gradient(180deg, rgba(0,0,0,0.45), transparent)';
-
-nav.style.borderBottom =
-'none';
-
-}
-
-}
 
 });
 
