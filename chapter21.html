@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 
@@ -9,7 +10,7 @@ name="viewport"
 content="width=device-width, initial-scale=1.0">
 
 <title>
-Chapter 21 | Love Older Than Fear
+Chapter 21 | A Love Older Than Fear
 </title>
 
 <link
@@ -40,14 +41,14 @@ scroll-behavior:smooth;
 
 :root{
 
---bg-main:#070605;
+--bg-main:#080706;
 --bg-alt:#120f0d;
---bg-soft:#1a1411;
+--bg-soft:#1a1512;
 
 --gold:#d4a44f;
 --gold-soft:#f0cf8d;
 
---text:#f7f1e7;
+--text:#f8f2e8;
 --muted:#c7b9a8;
 
 }
@@ -73,7 +74,7 @@ width:10px;
 }
 
 ::-webkit-scrollbar-track{
-background:#070605;
+background:#080706;
 }
 
 ::-webkit-scrollbar-thumb{
@@ -115,21 +116,21 @@ animation:float 30s linear infinite;
 }
 
 .particle:nth-child(1){
-top:12%;
-left:12%;
-animation-duration:36s;
+top:10%;
+left:14%;
+animation-duration:34s;
 }
 
 .particle:nth-child(2){
-top:74%;
+top:72%;
 left:84%;
-animation-duration:28s;
+animation-duration:26s;
 }
 
 .particle:nth-child(3){
 top:44%;
 left:50%;
-animation-duration:42s;
+animation-duration:40s;
 }
 
 .particle:nth-child(4){
@@ -190,7 +191,7 @@ align-items:center;
 z-index:999;
 
 background:
-rgba(7,6,5,0.78);
+rgba(8,7,6,0.82);
 
 backdrop-filter:blur(14px);
 
@@ -288,7 +289,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 
-padding:240px 8% 180px;
+padding:240px 8% 190px;
 
 text-align:center;
 
@@ -297,7 +298,7 @@ overflow:hidden;
 background:
 linear-gradient(
 180deg,
-#070605,
+#080706,
 #18120f
 );
 
@@ -317,6 +318,12 @@ radial-gradient(
 circle at top,
 rgba(212,164,79,0.10),
 transparent 44%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.015),
+transparent 60%
 );
 
 pointer-events:none;
@@ -329,7 +336,7 @@ position:relative;
 
 z-index:2;
 
-max-width:980px;
+max-width:1000px;
 
 }
 
@@ -355,7 +362,7 @@ font-size:clamp(3rem,7vw,6rem);
 
 line-height:1.1;
 
-margin-bottom:40px;
+margin-bottom:42px;
 
 }
 
@@ -363,72 +370,73 @@ margin-bottom:40px;
 
 font-size:1.2rem;
 
-line-height:2.2;
+line-height:2.1;
 
 color:var(--muted);
 
-max-width:850px;
+max-width:860px;
 
 margin:auto;
 
 }
 
 /* =========================
-SCRIPTURE
+QUOTE
 ========================= */
 
-.scripture-section{
+.quote-section{
 
-padding:140px 8%;
+position:relative;
+
+padding:280px 8%;
+
+text-align:center;
+
+overflow:hidden;
 
 background:
 linear-gradient(
 180deg,
 #18120f,
-#0a0908
+#0b0908
 );
 
 }
 
-.scripture-box{
+.quote-section::before{
 
-max-width:980px;
+content:"";
 
-margin:auto;
+position:absolute;
 
-padding:75px 60px;
+inset:0;
 
 background:
-rgba(255,255,255,0.025);
-
-border-left:
-2px solid rgba(212,164,79,0.60);
-
-backdrop-filter:blur(8px);
-
-}
-
-.scripture-reference{
-
-font-size:12px;
-
-letter-spacing:5px;
-
-text-transform:uppercase;
-
-color:var(--gold);
-
-margin-bottom:28px;
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 72%
+);
 
 }
 
-.scripture-box p{
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:clamp(2rem,3vw,2.8rem);
+font-size:clamp(3rem,5vw,5.4rem);
 
-line-height:1.8;
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1200px;
+
+margin:auto;
 
 color:#f3e8d7;
 
@@ -438,7 +446,7 @@ color:#f3e8d7;
 MANUSCRIPT
 ========================= */
 
-.chapter-manuscript{
+.manuscript{
 
 position:relative;
 
@@ -447,7 +455,7 @@ padding:220px 8%;
 background:
 linear-gradient(
 180deg,
-#0a0908,
+#0b0908,
 #140f0d
 );
 
@@ -455,7 +463,7 @@ overflow:hidden;
 
 }
 
-.chapter-manuscript::before{
+.manuscript::before{
 
 content:"";
 
@@ -481,45 +489,170 @@ position:relative;
 
 z-index:2;
 
-max-width:960px;
+max-width:920px;
 
 margin:auto;
 
 }
 
-.manuscript-inner p{
+.manuscript-label{
 
-font-size:1.16rem;
+font-size:12px;
 
-line-height:2.4;
+letter-spacing:6px;
 
-color:var(--muted);
+text-transform:uppercase;
 
-margin-bottom:52px;
+color:var(--gold);
+
+margin-bottom:34px;
 
 }
 
-/* =========================
-PULL QUOTE
-========================= */
+.manuscript-title{
 
-.pull-quote{
+font-family:'Cinzel',serif;
 
-margin:140px auto;
+font-size:clamp(2.5rem,5vw,4.8rem);
 
-max-width:1100px;
+line-height:1.3;
 
-padding:0 30px;
+margin-bottom:80px;
 
-text-align:center;
+color:#f7f1e7;
+
+}
+
+.manuscript-text{
+
+font-size:1.16rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.manuscript-text p{
+
+margin-bottom:56px;
+
+}
+
+.scripture-block{
+
+margin:80px 0;
+
+padding:45px;
+
+border:
+1px solid rgba(212,164,79,0.18);
+
+background:
+rgba(255,255,255,0.02);
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:clamp(2.4rem,4vw,4.6rem);
+font-size:1.9rem;
 
 line-height:1.8;
 
 color:#f0e1cb;
+
+}
+
+.emphasis-line{
+
+margin-top:100px;
+
+padding-left:34px;
+
+border-left:
+1px solid rgba(212,164,79,0.34);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.9;
+
+color:#f0e1cb;
+
+}
+
+/* =========================
+REFERENCES
+========================= */
+
+.references{
+
+position:relative;
+
+padding:180px 8%;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.references-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.references h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.2rem,4vw,4rem);
+
+margin-bottom:70px;
+
+text-align:center;
+
+}
+
+.reference-item{
+
+padding:34px 34px;
+
+margin-bottom:24px;
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.01)
+);
+
+border-left:
+1px solid rgba(212,164,79,0.25);
+
+}
+
+.reference-item p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#cbbcab;
 
 }
 
@@ -531,53 +664,32 @@ REFLECTION
 
 position:relative;
 
-padding:210px 8%;
+padding:190px 8%;
 
 text-align:center;
 
 background:
 linear-gradient(
 180deg,
-#140f0d,
-#070605
-);
-
-}
-
-.chapter-reflection::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-radial-gradient(
-circle,
-rgba(212,164,79,0.05),
-transparent 75%
+#080706,
+#120f0d
 );
 
 }
 
 .chapter-reflection p{
 
-position:relative;
-
-z-index:2;
-
-max-width:940px;
+max-width:980px;
 
 margin:auto;
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:clamp(2rem,4vw,3.8rem);
+font-size:clamp(2rem,4vw,3.6rem);
 
-line-height:1.9;
+line-height:1.8;
 
-color:#eadbc7;
+color:#eadcc8;
 
 }
 
@@ -587,100 +699,101 @@ CHAPTER NAVIGATION
 
 .chapter-navigation{
 
-padding:100px 8% 170px;
+position:relative;
 
-display:flex;
+padding:140px 8%;
 
-justify-content:space-between;
+display:grid;
 
-align-items:center;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
-gap:30px;
-
-flex-wrap:wrap;
+gap:40px;
 
 background:
 linear-gradient(
 180deg,
-#070605,
-#140f0d
+#140f0d,
+#080706
 );
 
-}
-
-.chapter-navigation a{
-
-text-decoration:none;
-
-font-size:12px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-color:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.chapter-navigation a:hover{
-
-color:#f6ddb0;
-
-}
-
-/* =========================
-FOOTER
-========================= */
-
-.site-footer{
-
-padding:150px 8% 100px;
-
-text-align:center;
-
-background:
-#140f0d;
+overflow:hidden;
 
 border-top:
 1px solid rgba(255,255,255,0.04);
 
 }
 
-.footer-title{
+.chapter-nav-card{
+
+position:relative;
+
+padding:60px 50px;
+
+text-decoration:none;
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.01)
+);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.5s ease;
+
+overflow:hidden;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-8px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.10);
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:22px;
+
+}
+
+.chapter-nav-card h3{
 
 font-family:'Cinzel',serif;
 
-font-size:clamp(2rem,4vw,4rem);
+font-size:clamp(1.8rem,3vw,3rem);
 
-margin-bottom:30px;
+line-height:1.3;
+
+margin-bottom:24px;
+
+color:#f5ead9;
 
 }
 
-.footer-scripture{
+.chapter-nav-card p{
 
-font-family:'Cormorant Garamond',serif;
-
-font-size:1.5rem;
+font-size:1.05rem;
 
 line-height:2;
 
-color:#eadbc7;
-
-margin-bottom:55px;
-
-}
-
-.footer-bottom{
-
-font-size:12px;
-
-letter-spacing:2px;
-
-color:#796e62;
-
-text-transform:uppercase;
+color:#c8bbab;
 
 }
 
@@ -716,31 +829,57 @@ min-height:auto;
 
 }
 
-.scripture-box{
+.quote-section{
 
-padding:55px 38px;
+padding:200px 8%;
 
 }
 
-.chapter-manuscript{
+.manuscript{
 
-padding:170px 8%;
+padding:160px 8%;
+
+}
+
+.references{
+
+padding:150px 8%;
 
 }
 
 .chapter-reflection{
 
-padding:170px 8%;
+padding:150px 8%;
 
 }
 
 .chapter-navigation{
 
-padding:80px 8% 130px;
+padding:100px 8%;
 
-flex-direction:column;
+gap:28px;
 
-text-align:center;
+}
+
+.chapter-nav-card{
+
+padding:45px 35px;
+
+}
+
+.scripture-block{
+
+font-size:1.5rem;
+
+padding:34px;
+
+}
+
+.emphasis-line{
+
+font-size:1.6rem;
+
+padding-left:24px;
 
 }
 
@@ -750,31 +889,61 @@ text-align:center;
 
 .hero-content h1{
 
-font-size:2.7rem;
+font-size:2.8rem;
 
 }
 
-.scripture-box p{
+.quote-section h2{
 
-font-size:1.8rem;
+font-size:2.3rem;
 
-line-height:1.7;
-
-}
-
-.manuscript-inner p{
-
-font-size:1.05rem;
-
-line-height:2.25;
+line-height:1.6;
 
 }
 
-.pull-quote{
+.manuscript-title{
 
-font-size:2rem;
+font-size:2.3rem;
 
-line-height:1.7;
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+.scripture-block{
+
+font-size:1.25rem;
+
+line-height:1.9;
+
+padding:26px;
+
+}
+
+.emphasis-line{
+
+font-size:1.4rem;
+
+line-height:1.9;
+
+}
+
+.chapter-nav-card{
+
+padding:40px 28px;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:1.9;
 
 }
 
@@ -784,8 +953,6 @@ line-height:1.7;
 </head>
 
 <body>
-
-<!-- ATMOSPHERE -->
 
 <div class="atmosphere">
 
@@ -797,8 +964,6 @@ line-height:1.7;
 
 </div>
 
-<!-- NAVIGATION -->
-
 <nav class="floating-nav">
 
 <a href="index.html" class="nav-logo">
@@ -809,27 +974,21 @@ A LOVE OLDER THAN FEAR
 
 <div class="nav-links">
 
-<a href="index.html">
-Home
+<a href="part3.html">
+Part III
 </a>
 
-<a href="part5.html">
-Part V
+<a href="chapters.html">
+Archive
 </a>
 
-<a href="notes.html">
-Notes
-</a>
-
-<a href="bibliography.html">
-Bibliography
+<a href="chapter20.html">
+Previous
 </a>
 
 </div>
 
 </nav>
-
-<!-- HERO -->
 
 <section class="chapter-hero">
 
@@ -837,19 +996,19 @@ Bibliography
 
 <div class="chapter-number">
 
-CHAPTER 21
+Chapter 21
 
 </div>
 
 <h1>
 
-Love Older Than Fear
+A Love Older Than Fear
 
 </h1>
 
 <p>
 
-Fear shaped generations of interpretation, yet fear never managed to erase the tenderness Scripture continued preserving openly across centuries.
+Some stories survived because emotional truth remained stronger than every attempt to silence tenderness across history.
 
 </p>
 
@@ -857,349 +1016,373 @@ Fear shaped generations of interpretation, yet fear never managed to erase the t
 
 </section>
 
-<!-- SCRIPTURE -->
+<section class="quote-section">
 
-<section class="scripture-section">
+<h2>
 
-<div class="scripture-box">
+“Love appeared first in the story.
+Fear entered later.”
 
-<div class="scripture-reference">
-
-1 John 4:18
-
-</div>
-
-<p>
-
-“There is no fear in love; but perfect love casteth out fear.”
-
-</p>
-
-</div>
+</h2>
 
 </section>
 
-<!-- MANUSCRIPT -->
-
-<section class="chapter-manuscript">
+<section class="manuscript">
 
 <div class="manuscript-inner">
 
+<div class="manuscript-label">
+
+CHAPTER TWENTY ONE
+
+</div>
+
+<h2 class="manuscript-title">
+
+The tenderness survived because Scripture preserved something fear never fully managed to erase.
+
+</h2>
+
+<div class="manuscript-text">
+
 <p>
 
-Fear is powerful.
+Some stories survive because history protects them carefully. Other stories survive because something within them refuses to disappear no matter how many centuries attempt to soften, contain, debate, or reinterpret their meaning. The story of David and Jonathan has endured for thousands of years because the emotional truth within their relationship continued speaking long after kingdoms collapsed, translators passed away, and generations of readers struggled to decide exactly what they were witnessing.
 
 </p>
 
 <p>
 
-Fear shapes cultures. Fear shapes theology. Fear shapes politics, families, churches, traditions, sermons, and entire generations of interpretation. Fear teaches people where not to look and which conversations feel dangerous long before those conversations ever begin honestly.
+Their story survived because the love within it proved older than fear.
 
 </p>
 
 <p>
 
-Fear also teaches silence.
+Fear entered later through interpretation, discomfort, theology, and cultural anxiety surrounding tenderness between men. Fear taught generations to grow nervous around emotional vulnerability. Fear convinced many believers that certain questions should remain unasked. Fear shaped sermons, commentary, silence, and theological caution. Yet before fear ever surrounded the story, Scripture had already preserved two souls knit together through covenant love and loyalty powerful enough to survive danger, grief, separation, and death itself.
 
 </p>
 
 <p>
 
-Many believers spent years learning how to survive spiritually by hiding questions they were never certain churches would welcome openly. Some learned to silence tenderness within themselves. Others learned to separate authenticity from belonging because honesty appeared too costly inside communities shaped more deeply by fear than compassion.
+That order matters deeply.
 
 </p>
 
 <p>
 
-Yet despite all of that, some truths continued surviving anyway.
+Love appears first in the story.
+Fear comes afterward.
 
 </p>
 
 <p>
 
-That survival stands at the center of David and Jonathan’s story.
+Jonathan loved David as his own soul before Saul’s fear consumed the kingdom. Covenant existed before suspicion entered the narrative. Tears existed before defensiveness entered interpretation. The tenderness preserved within Scripture was never hidden by the biblical text itself. The hiding began later when generations struggled to understand emotional intimacy without fear controlling the conversation.
 
 </p>
 
 <p>
 
-Across centuries of interpretation, translation, theological caution, discomfort, and debate, Scripture still preserved their covenant openly. The language remained. The grief remained. The tenderness remained. Readers continued encountering souls knit together, tears shared openly, vows exchanged, garments surrendered, kisses recorded, and a lament powerful enough to echo across generations without disappearing from sacred text.
+Still, the story survived.
 
 </p>
 
 <p>
 
-Something about their story proved stronger than fear’s ability to erase it fully.
+David’s lament survived.
+The covenant survived.
+The grief survived.
+The emotional honesty survived.
 
 </p>
 
-<div class="pull-quote">
+<p>
 
-Fear tried to contain the story.
-Scripture continued preserving the love.
+Even after centuries of theological debate, readers continue returning to these passages because something within them still feels alive. Some readers encounter sacred friendship within the relationship. Others recognize romantic dimensions impossible for them to ignore. Some find themselves standing somewhere between categories, aware that ancient relationships sometimes carried emotional complexity modern language struggles to define completely.
+
+</p>
+
+<p>
+
+Yet beneath every interpretation remains the same undeniable truth: Scripture preserved their love with extraordinary tenderness.
+
+</p>
+
+<p>
+
+Perhaps that is why the story continues reaching wounded readers so deeply. Many people know what it feels like to live beneath fear while still longing for love strong enough to remain honest. Many LGBTQIA+ believers especially understand the ache of carrying tenderness inside environments already prepared to interpret certain forms of affection defensively. Many know what it means to search Scripture hoping to discover whether fear truly speaks louder than love within the heart of God.
+
+</p>
+
+<p>
+
+The story of David and Jonathan answers that fear quietly but powerfully simply by continuing to exist.
+
+</p>
+
+<p>
+
+Their relationship was never erased from Scripture.
+Their tenderness was never removed.
+Their covenant was never rewritten into emotional distance.
+
+</p>
+
+<p>
+
+Generation after generation inherited the same story and found themselves wrestling with the same emotional weight preserved within it. That persistence reveals something important not only about David and Jonathan, but about human hearts themselves. People continue returning to stories where love remains faithful because faithful love speaks to something sacred within humanity. Covenant, grief, devotion, sacrifice, longing, and tenderness all remain deeply recognizable no matter how much time passes around them.
+
+</p>
+
+<p>
+
+Fear rarely creates stories people carry for thousands of years.
+Love does.
+
+</p>
+
+<p>
+
+Perhaps that is why this journey ultimately reaches beyond the question of whether David and Jonathan fit perfectly inside modern categories. The deeper question may involve what readers themselves believe about love, vulnerability, tenderness, and the character of God. Fear narrows interpretation quickly because fear seeks control. Love listens longer. Love remains patient enough to sit inside complexity without immediately demanding certainty before compassion.
+
+</p>
+
+<div class="scripture-block">
+
+“There is no fear in love; but perfect love casteth out fear.”
+
+<br><br>
+
+— 1 John 4:18
 
 </div>
 
 <p>
 
-That reality matters deeply because fear often depends upon silence in order to survive comfortably. Fear thrives when tenderness remains hidden. Fear grows strongest when people become too afraid to ask difficult questions honestly. Fear prefers emotional distance because distance protects inherited certainty from vulnerability.
+Those words echo through the entire story of David and Jonathan. Fear surrounded kingdoms, politics, inheritance, and interpretation, yet the covenant between them continued standing within the text long after fear lost its power over history. Love remained visible. Love remained remembered. Love remained mourned.
 
 </p>
 
 <p>
 
-Love moves differently.
+A love older than fear.
 
 </p>
 
 <p>
 
-Love risks honesty. Love moves toward covenant. Love remains present through grief. Love protects. Love sacrifices. Love listens carefully instead of rushing immediately toward defensiveness. Love makes room for humanity rather than demanding emotional numbness in exchange for belonging.
+Perhaps that is why readers still feel the weight of their story centuries later. Somewhere beneath every argument, every commentary, every sermon, and every debate, two men still stand within Scripture bound together through covenant while the Bible itself refuses to look away from their tenderness.
 
 </p>
 
 <p>
 
-The story of David and Jonathan continues speaking because Scripture preserved precisely those kinds of qualities between them.
+And perhaps sacred love has always survived most powerfully wherever fear failed to silence it completely.
 
 </p>
 
-<p>
+<div class="emphasis-line">
 
-Some readers will continue debating the exact nature of their relationship. Those conversations will likely continue for generations because the emotional and covenantal depth surrounding them remains extraordinarily difficult to reduce into categories simple enough to satisfy every reader equally.
+Some loves survive because they were permitted.
+Some survive because truth refused to disappear beneath fear.
 
-</p>
+</div>
 
-<p>
-
-Yet beneath all debate, one truth remains unmistakable:
-
-</p>
-
-<p>
-
-The biblical narrative treats their bond with extraordinary seriousness, tenderness, and emotional weight.
-
-</p>
-
-<p>
-
-That alone challenges many inherited assumptions surrounding masculinity, vulnerability, affection, and the ways faith communities often respond to emotional intimacy between men.
-
-</p>
-
-<p>
-
-Fear taught many believers to become suspicious of tenderness long before they ever encountered Scripture honestly for themselves. Entire generations inherited emotional boundaries shaped more heavily by cultural anxiety than by the openness often found within the ancient biblical world itself.
-
-</p>
-
-<p>
-
-This book has never argued that readers must erase discernment, theology, or careful interpretation in order to acknowledge the emotional power surrounding David and Jonathan. Honest study requires humility and seriousness.
-
-</p>
-
-<p>
-
-What this journey has asked repeatedly instead is far simpler:
-
-</p>
-
-<p>
-
-What happens when readers finally allow the text to speak before fear interrupts the conversation?
-
-</p>
-
-<p>
-
-That question matters beyond David and Jonathan alone.
-
-</p>
-
-<p>
-
-Many LGBTQIA+ believers spent years wondering whether faith communities feared their honesty more than they valued their humanity. Some searched Scripture desperately hoping to discover whether God Himself viewed tenderness, love, covenant, loyalty, and emotional vulnerability with the same suspicion they encountered from religious culture around them.
-
-</p>
-
-<p>
-
-Many carried wounds created not merely by disagreement, but by fear driven shame that taught them their existence itself must remain hidden in order to preserve acceptance.
-
-</p>
-
-<p>
-
-Those wounds are real.
-
-</p>
-
-<p>
-
-The church cannot heal pain honestly without first acknowledging the fear that often helped create it.
-
-</p>
-
-<p>
-
-That acknowledgment does not require abandoning Scripture. Quite the opposite. Honest healing begins by returning carefully to Scripture itself and recognizing how often sacred text preserves compassion, grief, tenderness, covenant, loyalty, and emotional honesty more openly than later generations sometimes allowed themselves to do.
-
-</p>
-
-<p>
-
-David and Jonathan’s story survived because Scripture refused to erase them.
-
-</p>
-
-<p>
-
-Perhaps that endurance carries its own quiet testimony.
-
-</p>
-
-<p>
-
-Perhaps some truths survive history precisely because they continue speaking to wounded people searching for belonging beyond fear. Perhaps covenant leaves echoes stronger than shame. Perhaps tenderness carries holiness many communities learned to distrust unnecessarily. Perhaps the persistence of this story across centuries reveals something profoundly human readers continue recognizing within it no matter how carefully fear attempts to narrow interpretation around safer emotional boundaries.
-
-</p>
-
-<p>
-
-Love older than fear does not mean love untouched by pain.
-
-</p>
-
-<p>
-
-David and Jonathan’s story contains grief, danger, separation, political tension, sacrifice, and eventual loss. Their covenant existed inside a fearful world shaped by violence, power, and uncertainty.
-
-</p>
-
-<p>
-
-Yet even there, tenderness survived.
-
-</p>
-
-<p>
-
-Even there, loyalty survived.
-
-</p>
-
-<p>
-
-Even there, love remained visible enough for Scripture to preserve permanently.
-
-</p>
-
-<p>
-
-That visibility still matters now.
-
-</p>
-
-<p>
-
-Because after all the centuries of debate, theology, discomfort, commentary, and fear, readers still return to this story asking many of the same questions humanity has always carried:
-
-</p>
-
-<p>
-
-Can tenderness exist without shame?
-<br><br>
-
-Can covenant survive fear?
-<br><br>
-
-Can truth and compassion remain together?
-<br><br>
-
-Can love endure even when history becomes uncomfortable with its presence?
-
-</p>
-
-<p>
-
-Scripture does not erase those questions.
-
-</p>
-
-<p>
-
-Instead, Scripture preserves a story where love remained visible long after fear tried teaching generations how not to see it.
-
-</p>
+</div>
 
 </div>
 
 </section>
 
-<!-- REFLECTION -->
+<section class="references">
+
+<div class="references-inner">
+
+<h2>
+
+References
+
+</h2>
+
+<div class="reference-item">
+
+<p>
+
+The Holy Bible, King James Version. 1 Samuel 18–20; 2 Samuel 1; 1 John 4:18.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Robert Alter. <em>The David Story: A Translation with Commentary of 1 and 2 Samuel.</em>
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Walter Brueggemann. <em>First and Second Samuel.</em>
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+James Alison. <em>Faith Beyond Resentment.</em>
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Chapter manuscript provided by the author. :contentReference[oaicite:0]{index=0}
+
+</p>
+
+</div>
+
+</div>
+
+</section>
 
 <section class="chapter-reflection">
 
 <p>
 
-Some stories survive history because the truths inside them continue reaching wounded hearts long after fear expected silence.
+Love remained visible long after fear exhausted itself trying to silence tenderness.
 
 </p>
 
 </section>
 
-<!-- NAVIGATION -->
-
 <section class="chapter-navigation">
 
-<a href="chapter20.html">
+<a
+href="chapter20.html"
+class="chapter-nav-card">
 
-← Previous Chapter
+<div class="chapter-nav-label">
+
+PREVIOUS
+
+</div>
+
+<h3>
+
+Chapter 20
+
+</h3>
+
+<p>
+
+Return to the previous chapter and continue exploring remembrance, covenant, grief, tenderness, and sacred emotional truth.
+
+</p>
 
 </a>
 
-<a href="part5.html">
+<a
+href="part3.html"
+class="chapter-nav-card">
 
-Back to Part V
+<div class="chapter-nav-label">
+
+ARCHIVE
+
+</div>
+
+<h3>
+
+Back to Part III
+
+</h3>
+
+<p>
+
+Return to Part III and continue the journey through fear, love, interpretation, healing, belonging, and spiritual honesty.
+
+</p>
 
 </a>
 
-<a href="chapter22.html">
+<a
+href="chapter22.html"
+class="chapter-nav-card">
 
-Next Chapter →
+<div class="chapter-nav-label">
+
+CONTINUE
+
+</div>
+
+<h3>
+
+Chapter 22
+
+</h3>
+
+<p>
+
+Continue into the next chapter as the journey moves deeper into reflection, restoration, mercy, and the enduring witness of sacred love.
+
+</p>
 
 </a>
 
 </section>
 
-<!-- FOOTER -->
+<div id="footer-container"></div>
 
-<footer class="site-footer">
+<script>
 
-<div class="footer-title">
+fetch('footer.html')
 
-A LOVE OLDER THAN FEAR
+.then(response => {
 
-</div>
+if(!response.ok){
 
-<div class="footer-scripture">
+throw new Error(
+'Footer failed to load'
+);
 
-“There is no fear in love; but perfect love casteth out fear.”
-<br>
-— 1 John 4:18
+}
 
-</div>
+return response.text();
 
-<div class="footer-bottom">
+})
 
-© Bradley Hobbs • A Love Older Than Fear
+.then(data => {
 
-</div>
+document.getElementById(
+'footer-container'
+).innerHTML = data;
 
-</footer>
+})
+
+.catch(error => {
+
+console.error(
+'Footer failed to load:',
+error
+);
+
+});
+
+</script>
 
 </body>
 </html>
