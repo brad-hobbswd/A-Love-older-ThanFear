@@ -679,229 +679,7 @@ color:#f2e7d2;
 
 }
 
-/* =========================
-FOOTER
-========================= */
 
-.site-footer{
-
-position:relative;
-
-padding:160px 8% 90px;
-
-overflow:hidden;
-
-background:
-linear-gradient(
-180deg,
-#090807 0%,
-#120f0d 100%
-);
-
-border-top:
-1px solid rgba(255,255,255,0.05);
-
-}
-
-.footer-overlay{
-
-position:absolute;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle,
-rgba(212,164,79,0.06),
-transparent 70%
-),
-
-linear-gradient(
-180deg,
-#090807,
-#120f0d
-);
-
-pointer-events:none;
-
-}
-
-.footer-glow{
-
-position:absolute;
-
-top:-250px;
-left:50%;
-
-transform:translateX(-50%);
-
-width:900px;
-height:900px;
-
-background:
-radial-gradient(
-circle,
-rgba(212,164,79,0.08),
-transparent 70%
-);
-
-pointer-events:none;
-
-}
-
-.footer-content{
-
-position:relative;
-
-z-index:3;
-
-max-width:1400px;
-
-margin:auto;
-
-text-align:center;
-
-}
-
-.footer-top h2{
-
-font-family:'Cinzel',serif;
-
-font-size:clamp(2.4rem,4vw,4.5rem);
-
-line-height:1.1;
-
-margin-bottom:28px;
-
-color:#f6efe5;
-
-letter-spacing:3px;
-
-}
-
-.footer-top p{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.5rem,2vw,2.2rem);
-
-line-height:1.8;
-
-max-width:900px;
-
-margin:auto;
-
-color:#d8c8b1;
-
-}
-
-.footer-divider{
-
-width:240px;
-height:1px;
-
-margin:70px auto;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(212,164,79,0.8),
-transparent
-);
-
-}
-
-.footer-links{
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:22px 38px;
-
-margin-bottom:80px;
-
-}
-
-.footer-links a{
-
-text-decoration:none;
-
-color:#bda98d;
-
-font-size:13px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-transition:0.4s ease;
-
-position:relative;
-
-}
-
-.footer-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-8px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.footer-links a:hover{
-
-color:#f2d18b;
-
-}
-
-.footer-links a:hover::after{
-
-width:100%;
-
-}
-
-.footer-scripture{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.4rem,2vw,2rem);
-
-line-height:1.9;
-
-color:#efe3c8;
-
-margin-bottom:70px;
-
-opacity:0.95;
-
-}
-
-.footer-bottom{
-
-font-size:12px;
-
-letter-spacing:2px;
-
-color:#7e7265;
-
-text-transform:uppercase;
-
-}
 
 /* =========================
 RESPONSIVE
@@ -1034,16 +812,26 @@ A LOVE OLDER THAN FEAR
 Home
 </a>
 
-<a href="archive.html">
-Archive
+<a href="reading-paths.html">
+Reading Paths
 </a>
 
-<a href="chapters.html">
+<a href="chapters.html" style="
+color:#f2d18b;
+">
 Chapters
 </a>
 
-<a href="bibliography.html">
-Bibliography
+<a href="resources.html">
+Resources
+</a>
+
+<a href="study-guide.html">
+Study Guide
+</a>
+
+<a href="prayer-room.html">
+Prayer Room
 </a>
 
 <a href="about.html">
