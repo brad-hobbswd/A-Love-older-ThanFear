@@ -675,24 +675,51 @@ CHAPTER NAVIGATION
 
 position:relative;
 
-padding:120px 8%;
+padding:140px 8%;
 
 display:grid;
 
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
-gap:28px;
+gap:40px;
 
 background:
 linear-gradient(
 180deg,
-#120f0d,
+#140f0d,
 #080706
 );
 
+overflow:hidden;
+
 border-top:
 1px solid rgba(255,255,255,0.04);
+
+}
+
+.chapter-navigation::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top left,
+rgba(212,164,79,0.05),
+transparent 40%
+),
+
+radial-gradient(
+circle at bottom right,
+rgba(255,255,255,0.02),
+transparent 50%
+);
+
+pointer-events:none;
 
 }
 
@@ -700,17 +727,23 @@ border-top:
 
 position:relative;
 
-padding:50px 40px;
+z-index:2;
 
-border:
-1px solid rgba(212,164,79,0.16);
-
-background:
-rgba(255,255,255,0.02);
+padding:60px 50px;
 
 text-decoration:none;
 
-transition:0.45s ease;
+background:
+rgba(255,255,255,0.025);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+backdrop-filter:blur(10px);
+
+-webkit-backdrop-filter:blur(10px);
+
+transition:0.5s ease;
 
 overflow:hidden;
 
@@ -726,23 +759,28 @@ inset:0;
 
 background:
 linear-gradient(
-135deg,
+180deg,
 rgba(212,164,79,0.06),
-transparent 60%
+transparent
 );
 
 opacity:0;
 
-transition:0.45s ease;
+transition:0.5s ease;
+
+pointer-events:none;
 
 }
 
 .chapter-nav-card:hover{
 
-transform:translateY(-6px);
+transform:translateY(-8px);
 
 border-color:
-rgba(212,164,79,0.35);
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.10);
 
 }
 
@@ -754,202 +792,51 @@ opacity:1;
 
 .chapter-nav-label{
 
-position:relative;
-
-z-index:2;
-
 font-size:11px;
 
-letter-spacing:3px;
+letter-spacing:5px;
 
 text-transform:uppercase;
 
-color:#d4a44f;
+color:var(--gold);
 
-margin-bottom:18px;
+margin-bottom:22px;
+
+position:relative;
+
+z-index:2;
 
 }
 
 .chapter-nav-card h3{
 
+font-family:'Cinzel',serif;
+
+font-size:clamp(1.8rem,3vw,3rem);
+
+line-height:1.3;
+
+margin-bottom:24px;
+
+color:#f5ead9;
+
 position:relative;
 
 z-index:2;
-
-font-family:'Cinzel',serif;
-
-font-size:1.5rem;
-
-line-height:1.5;
-
-color:#f3e8d7;
-
-margin-bottom:16px;
 
 }
 
 .chapter-nav-card p{
 
-position:relative;
-
-z-index:2;
-
 font-size:1.05rem;
 
 line-height:2;
 
-color:#bcae9f;
-
-}
-
-/* =========================
-FOOTER
-========================= */
-
-.site-footer{
+color:#c8bbab;
 
 position:relative;
 
-padding:180px 8% 100px;
-
-overflow:hidden;
-
-background:
-linear-gradient(
-180deg,
-#080706 0%,
-#140f0d 100%
-);
-
-border-top:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.footer-content{
-
-position:relative;
-
-z-index:3;
-
-max-width:1400px;
-
-margin:auto;
-
-text-align:center;
-
-}
-
-.footer-top h2{
-
-font-family:'Cinzel',serif;
-
-font-size:clamp(2.5rem,4vw,4.8rem);
-
-line-height:1.1;
-
-margin-bottom:36px;
-
-color:#f7f1e7;
-
-letter-spacing:3px;
-
-}
-
-.footer-top p{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.5rem,2vw,2.3rem);
-
-line-height:2;
-
-max-width:900px;
-
-margin:auto;
-
-color:#d8c5ae;
-
-}
-
-.footer-divider{
-
-width:240px;
-height:1px;
-
-margin:90px auto;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(212,164,79,0.75),
-transparent
-);
-
-}
-
-.footer-links{
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:22px 38px;
-
-margin-bottom:90px;
-
-}
-
-.footer-links a{
-
-text-decoration:none;
-
-color:#bca78b;
-
-font-size:13px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-transition:0.4s ease;
-
-}
-
-.footer-links a:hover{
-
-color:#f6ddb0;
-
-}
-
-.footer-scripture{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.4rem,2vw,2rem);
-
-line-height:2;
-
-color:#eadbc7;
-
-margin-bottom:80px;
-
-opacity:0.95;
-
-}
-
-.footer-bottom{
-
-font-size:12px;
-
-letter-spacing:2px;
-
-color:#796e62;
-
-text-transform:uppercase;
+z-index:2;
 
 }
 
@@ -1082,8 +969,6 @@ padding:40px 28px;
 font-size:1rem;
 
 line-height:1.9;
-
-}
 
 }
 
@@ -1425,8 +1310,6 @@ Many searched hoping God still wanted them near Him.
 
 </p>
 
-</section>
-
 <section class="chapter-navigation">
 
 <a
@@ -1435,7 +1318,7 @@ class="chapter-nav-card">
 
 <div class="chapter-nav-label">
 
-Previous Chapter
+PREVIOUS
 
 </div>
 
@@ -1447,7 +1330,7 @@ Chapter 15
 
 <p>
 
-Return to the previous chapter and continue the unfolding journey through covenant, fear, tenderness, and sacred memory.
+Return to the previous chapter and continue the journey through fear, tenderness, interpretation, and sacred honesty.
 
 </p>
 
@@ -1459,19 +1342,19 @@ class="chapter-nav-card">
 
 <div class="chapter-nav-label">
 
-Return to Part III
+ARCHIVE
 
 </div>
 
 <h3>
 
-Part III
+Back to Part III
 
 </h3>
 
 <p>
 
-Explore the broader collection of chapters examining interpretation, history, longing, and belonging.
+Return to Part III and continue exploring covenant, belonging, grief, tenderness, theology, and emotional truth within Scripture.
 
 </p>
 
@@ -1483,7 +1366,7 @@ class="chapter-nav-card">
 
 <div class="chapter-nav-label">
 
-Next Chapter
+CONTINUE
 
 </div>
 
@@ -1495,7 +1378,7 @@ Chapter 17
 
 <p>
 
-Continue forward into the next chapter as the journey moves deeper into faith, tenderness, and spiritual honesty.
+Continue into the next chapter as the journey moves deeper into memory, survival, faith, love, and spiritual belonging.
 
 </p>
 
@@ -1503,27 +1386,6 @@ Continue forward into the next chapter as the journey moves deeper into faith, t
 
 </section>
   
-<div class="footer-divider"></div>
-
-<div class="footer-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="part3.html">
-Part III
-</a>
-
-<a href="chapters.html">
-Archive
-</a>
-
-<a href="bibliography.html">
-Bibliography
-</a>
-
-</div>
 
 <div id="footer-container"></div>
 
