@@ -65,6 +65,8 @@ color:var(--text);
 
 overflow-x:hidden;
 
+position:relative;
+
 }
 
 /* =========================
@@ -170,128 +172,14 @@ opacity:0;
 }
 
 /* =========================
-NAVIGATION
+HEADER CONTAINER
 ========================= */
 
-.floating-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:22px 4%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-z-index:999;
-
-background:
-linear-gradient(
-180deg,
-rgba(0,0,0,0.42),
-transparent
-);
-
-backdrop-filter:blur(10px);
-
--webkit-backdrop-filter:blur(10px);
-
-transition:0.5s ease;
-
-}
-
-.nav-logo{
-
-font-family:'Cinzel',serif;
-
-font-size:0.92rem;
-
-letter-spacing:3px;
-
-color:#f2d18b;
-
-white-space:nowrap;
-
-text-decoration:none;
-
-display:block;
-
-text-shadow:
-0 0 12px rgba(212,164,79,0.25);
-
-}
-
-.nav-links{
-
-display:flex;
-
-align-items:center;
-
-justify-content:flex-end;
-
-gap:18px;
-
-flex-wrap:wrap;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-font-size:10px;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-color:#d7c3a4;
-
-transition:0.4s ease;
+#header-container{
 
 position:relative;
 
-white-space:nowrap;
-
-}
-
-.nav-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.nav-links a:hover{
-
-color:#f2d18b;
-
-text-shadow:
-0 0 12px rgba(212,164,79,0.35);
-
-}
-
-.nav-links a:hover::after{
-
-width:100%;
+z-index:9999;
 
 }
 
@@ -303,7 +191,7 @@ HERO
 
 position:relative;
 
-min-height:115vh;
+min-height:100vh;
 
 display:flex;
 
@@ -433,21 +321,13 @@ font-weight:300;
 @keyframes heroFade{
 
 0%{
-
 opacity:0;
-
-transform:
-translateY(30px);
-
+transform:translateY(30px);
 }
 
 100%{
-
 opacity:1;
-
-transform:
-translateY(0);
-
+transform:translateY(0);
 }
 
 }
@@ -597,7 +477,7 @@ font-family:'Cinzel',serif;
 
 font-size:9rem;
 
-opacity:0.03;
+opacity:0.05;
 
 color:#f0cf8d;
 
@@ -698,6 +578,22 @@ position:relative;
 
 z-index:2;
 
+overflow:hidden;
+
+}
+
+.archive-button::before{
+
+content:"➜";
+
+margin-right:12px;
+
+transition:0.5s ease;
+
+display:inline-block;
+
+color:#f2d18b;
+
 }
 
 .archive-button:hover{
@@ -709,6 +605,12 @@ transform:translateY(-4px);
 
 box-shadow:
 0 0 35px rgba(212,164,79,0.18);
+
+}
+
+.archive-button:hover::before{
+
+transform:translateX(5px);
 
 }
 
@@ -731,21 +633,13 @@ ANIMATION
 @keyframes fadeRise{
 
 0%{
-
 opacity:0;
-
-transform:
-translateY(30px);
-
+transform:translateY(30px);
 }
 
 100%{
-
 opacity:1;
-
-transform:
-translateY(0);
-
+transform:translateY(0);
 }
 
 }
@@ -784,40 +678,6 @@ font-size:6rem;
 
 @media(max-width:768px){
 
-.floating-nav{
-
-flex-direction:column;
-
-gap:18px;
-
-padding:18px 5%;
-
-background:
-rgba(9,8,7,0.82);
-
-border-bottom:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.nav-logo{
-
-font-size:0.9rem;
-
-letter-spacing:2px;
-
-text-align:center;
-
-}
-
-.nav-links{
-
-justify-content:center;
-
-gap:16px;
-
-}
-
 .hero{
 
 padding:220px 7% 160px;
@@ -849,14 +709,6 @@ right:20px;
 }
 
 @media(max-width:540px){
-
-.nav-links a{
-
-font-size:9px;
-
-letter-spacing:1.5px;
-
-}
 
 .hero{
 
@@ -915,6 +767,10 @@ font-size:10px;
 
 letter-spacing:3px;
 
+width:100%;
+
+justify-content:center;
+
 }
 
 }
@@ -924,6 +780,10 @@ letter-spacing:3px;
 </head>
 
 <body>
+
+<!-- HEADER -->
+
+<div id="header-container"></div>
 
 <!-- ATMOSPHERE -->
 
@@ -936,46 +796,6 @@ letter-spacing:3px;
 <div class="particle"></div>
 
 </div>
-
-<!-- NAVIGATION -->
-
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="archive.html">
-Archive
-</a>
-
-<a href="chapters.html">
-Chapters
-</a>
-
-<a href="bibliography.html">
-Bibliography
-</a>
-
-<a href="about.html">
-About
-</a>
-
-<a href="notes.html">
-Notes
-</a>
-
-</div>
-
-</nav>
 
 <!-- HERO -->
 
@@ -1019,27 +839,27 @@ I
 
 <div class="archive-label">
 
-PART I
+FOREWORD
 
 </div>
 
 <h2>
 
-The Language of Love
+Before the Questions Began
 
 </h2>
 
 <p>
 
-Ancient words carried emotional weight far deeper than modern readers were often taught to recognize. Covenant language, devotion, loyalty, and affection survived translation after translation while retaining remarkable tenderness.
+Every journey into sacred text begins somewhere. Some begin academically. Some begin emotionally. Some begin through grief, silence, tenderness, or longing difficult to explain aloud.
 
 </p>
 
 <a
-href="part1.html"
+href="foreword.html"
 class="archive-button">
 
-ENTER PART I
+ENTER FOREWORD
 
 </a>
 
@@ -1053,27 +873,27 @@ II
 
 <div class="archive-label">
 
-PART II
+MANUSCRIPT
 
 </div>
 
 <h2>
 
-David and Jonathan
+The Language of Love
 
 </h2>
 
 <p>
 
-Scripture preserved grief, tears, covenant, vulnerability, and extraordinary devotion between two souls whose bond survived kingdoms, war, fear, and centuries of interpretation.
+Ancient words carried emotional depth many readers were never taught to notice carefully. Covenant language, devotion, affection, grief, and loyalty survived translation after translation while preserving remarkable tenderness.
 
 </p>
 
 <a
-href="part2.html"
+href="manuscript.html"
 class="archive-button">
 
-ENTER PART II
+ENTER MANUSCRIPT
 
 </a>
 
@@ -1087,27 +907,27 @@ III
 
 <div class="archive-label">
 
-PART III
+REFLECTIONS
 
 </div>
 
 <h2>
 
-Fear and Interpretation
+Covenant
 
 </h2>
 
 <p>
 
-Translation choices, theology, empire, and cultural pressure reshaped how generations approached sacred text. Fear slowly replaced tenderness within many interpretations.
+Personal reflections gathered throughout the writing journey surrounding tenderness, faith, Scripture, fear, translation, belonging, and the emotional honesty preserved within David and Jonathan.
 
 </p>
 
 <a
-href="part3.html"
+href="covenant.html"
 class="archive-button">
 
-ENTER PART III
+ENTER REFLECTIONS
 
 </a>
 
@@ -1121,27 +941,27 @@ IV
 
 <div class="archive-label">
 
-PART IV
+STUDY
 
 </div>
 
 <h2>
 
-Wounded Readers
+Reading & Reflection
 
 </h2>
 
 <p>
 
-Many believers carried spiritual wounds created by rejection, silence, shame, and fear. Faith communities often became places where tenderness was hidden instead of protected.
+Guided questions, theological reflection, historical exploration, and emotional examination created for readers, classrooms, churches, and small group discussion.
 
 </p>
 
 <a
-href="part4.html"
+href="study-guide.html"
 class="archive-button">
 
-ENTER PART IV
+OPEN STUDY GUIDE
 
 </a>
 
@@ -1155,27 +975,27 @@ V
 
 <div class="archive-label">
 
-PART V
+RESEARCH
 
 </div>
 
 <h2>
 
-What Remains
+Resources & Sources
 
 </h2>
 
 <p>
 
-After centuries of argument and fear, certain truths still remain visible within Scripture itself. Love survived. Grief survived. Covenant survived. Memory survived.
+Historical archives, linguistic studies, translation notes, theological resources, and research materials connected to the broader journey behind this project.
 
 </p>
 
 <a
-href="part5.html"
+href="resources.html"
 class="archive-button">
 
-ENTER PART V
+EXPLORE RESOURCES
 
 </a>
 
@@ -1191,9 +1011,62 @@ ENTER PART V
 
 <script>
 
-fetch('footer.html')
+/* =========================
+HEADER FETCH
+========================= */
 
-.then(response => response.text())
+fetch('./header.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Header failed to load'
+);
+
+}
+
+return response.text();
+
+})
+
+.then(data => {
+
+document.getElementById(
+'header-container'
+).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(
+'Header failed to load:',
+error
+);
+
+});
+
+/* =========================
+FOOTER FETCH
+========================= */
+
+fetch('./footer.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Footer failed to load'
+);
+
+}
+
+return response.text();
+
+})
 
 .then(data => {
 
@@ -1201,40 +1074,14 @@ document.getElementById(
 'footer-container'
 ).innerHTML = data;
 
-});
+})
 
-</script>
+.catch(error => {
 
-<script>
-
-const nav =
-document.querySelector(
-'.floating-nav'
+console.error(
+'Footer failed to load:',
+error
 );
-
-window.addEventListener(
-'scroll',
-() => {
-
-if(window.scrollY > 100){
-
-nav.style.background =
-'rgba(9,8,7,0.82)';
-
-nav.style.borderBottom =
-'1px solid rgba(255,255,255,0.05)';
-
-}
-
-else{
-
-nav.style.background =
-'linear-gradient(180deg, rgba(0,0,0,0.42), transparent)';
-
-nav.style.borderBottom =
-'none';
-
-}
 
 });
 
