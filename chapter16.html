@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 16 | Queer Readers and the Search for Belonging
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#080706;
+--bg-alt:#120f0d;
+--bg-soft:#1a1512;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f8f2e8;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#080706;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.12);
+
+border-radius:50%;
+
+animation:float 30s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:14%;
+animation-duration:34s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:26s;
+}
+
+.particle:nth-child(3){
+top:44%;
+left:50%;
+animation-duration:40s;
+}
+
+.particle:nth-child(4){
+top:86%;
+left:26%;
+animation-duration:32s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:38s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(8,7,6,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.chapter-hero{
+
+position:relative;
+
+min-height:90vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 190px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#080706,
+#18120f
+);
+
+}
+
+.chapter-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.015),
+transparent 60%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.chapter-number{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:42px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:280px 8%;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0b0908
+);
+
+}
+
+.quote-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 72%
+);
+
+}
+
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(3rem,5vw,5.4rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1200px;
+
+margin:auto;
+
+color:#f3e8d7;
+
+}
+
+/* =========================
+MANUSCRIPT
+========================= */
+
+.manuscript{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0b0908,
+#140f0d
+);
+
+overflow:hidden;
+
+}
+
+.manuscript::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.manuscript-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:920px;
+
+margin:auto;
+
+}
+
+.manuscript-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.manuscript-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+line-height:1.3;
+
+margin-bottom:80px;
+
+color:#f7f1e7;
+
+}
+
+.manuscript-text{
+
+font-size:1.16rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.manuscript-text p{
+
+margin-bottom:56px;
+
+}
+
+.emphasis-line{
+
+margin-top:100px;
+
+padding-left:34px;
+
+border-left:
+1px solid rgba(212,164,79,0.34);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.9;
+
+color:#f0e1cb;
+
+}
+
+/* =========================
+REFERENCES
+========================= */
+
+.references{
+
+position:relative;
+
+padding:180px 8%;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.references-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.references h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.2rem,4vw,4rem);
+
+margin-bottom:70px;
+
+text-align:center;
+
+}
+
+.reference-item{
+
+padding:34px 34px;
+
+margin-bottom:24px;
+
+background:
+rgba(255,255,255,0.025);
+
+border-left:
+1px solid rgba(212,164,79,0.25);
+
+}
+
+.reference-item p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#cbbcab;
+
+}
+
+/* =========================
+REFLECTION
+========================= */
+
+.chapter-reflection{
+
+position:relative;
+
+padding:190px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#080706,
+#120f0d
+);
+
+}
+
+.chapter-reflection p{
+
+max-width:980px;
+
+margin:auto;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2rem,4vw,3.6rem);
+
+line-height:1.8;
+
+color:#eadcc8;
+
+}
+
+/* =========================
+CHAPTER NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+position:relative;
+
+padding:120px 8%;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:28px;
+
+background:
+linear-gradient(
+180deg,
+#120f0d,
+#080706
+);
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.chapter-nav-card{
+
+position:relative;
+
+padding:50px 40px;
+
+border:
+1px solid rgba(212,164,79,0.16);
+
+background:
+rgba(255,255,255,0.02);
+
+text-decoration:none;
+
+transition:0.45s ease;
+
+overflow:hidden;
+
+}
+
+.chapter-nav-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+rgba(212,164,79,0.06),
+transparent 60%
+);
+
+opacity:0;
+
+transition:0.45s ease;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.35);
+
+}
+
+.chapter-nav-card:hover::before{
+
+opacity:1;
+
+}
+
+.chapter-nav-label{
+
+position:relative;
+
+z-index:2;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d4a44f;
+
+margin-bottom:18px;
+
+}
+
+.chapter-nav-card h3{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cinzel',serif;
+
+font-size:1.5rem;
+
+line-height:1.5;
+
+color:#f3e8d7;
+
+margin-bottom:16px;
+
+}
+
+.chapter-nav-card p{
+
+position:relative;
+
+z-index:2;
+
+font-size:1.05rem;
+
+line-height:2;
+
+color:#bcae9f;
+
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer{
+
+position:relative;
+
+padding:180px 8% 100px;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#080706 0%,
+#140f0d 100%
+);
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.footer-content{
+
+position:relative;
+
+z-index:3;
+
+max-width:1400px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.footer-top h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,4vw,4.8rem);
+
+line-height:1.1;
+
+margin-bottom:36px;
+
+color:#f7f1e7;
+
+letter-spacing:3px;
+
+}
+
+.footer-top p{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.5rem,2vw,2.3rem);
+
+line-height:2;
+
+max-width:900px;
+
+margin:auto;
+
+color:#d8c5ae;
+
+}
+
+.footer-divider{
+
+width:240px;
+height:1px;
+
+margin:90px auto;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(212,164,79,0.75),
+transparent
+);
+
+}
+
+.footer-links{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:22px 38px;
+
+margin-bottom:90px;
+
+}
+
+.footer-links a{
+
+text-decoration:none;
+
+color:#bca78b;
+
+font-size:13px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+transition:0.4s ease;
+
+}
+
+.footer-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.footer-scripture{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(1.4rem,2vw,2rem);
+
+line-height:2;
+
+color:#eadbc7;
+
+margin-bottom:80px;
+
+opacity:0.95;
+
+}
+
+.footer-bottom{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+color:#796e62;
+
+text-transform:uppercase;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.chapter-hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:200px 8%;
+
+}
+
+.manuscript{
+
+padding:160px 8%;
+
+}
+
+.references{
+
+padding:150px 8%;
+
+}
+
+.chapter-reflection{
+
+padding:150px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:100px 8%;
+
+gap:28px;
+
+}
+
+.chapter-nav-card{
+
+padding:45px 35px;
+
+}
+
+.emphasis-line{
+
+font-size:1.6rem;
+
+padding-left:24px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.3rem;
+
+line-height:1.6;
+
+}
+
+.manuscript-title{
+
+font-size:2.3rem;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+.emphasis-line{
+
+font-size:1.4rem;
+
+line-height:1.9;
+
+}
+
+.chapter-nav-card{
+
+padding:40px 28px;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:1.9;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="part3.html">
+Part III
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="chapter15.html">
+Previous
+</a>
+
+</div>
+
+</nav>
+
+<section class="chapter-hero">
+
+<div class="hero-content">
+
+<div class="chapter-number">
+
+Chapter 16
+
+</div>
+
+<h1>
+
+Queer Readers and the Search for Belonging
+
+</h1>
+
+<p>
+
+Some readers searched Scripture not to escape God, but to discover whether God still made room for them within the story.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“Some people searched Scripture for arguments.
+Others searched Scripture for permission to keep breathing.”
+
+</h2>
+
+</section>
+
+<section class="manuscript">
+
+<div class="manuscript-inner">
+
+<div class="manuscript-label">
+
+CHAPTER SIXTEEN
+
+</div>
+
+<h2 class="manuscript-title">
+
+Recognition often becomes sacred when people spent years being told they should not exist honestly.
+
+</h2>
+
+<div class="manuscript-text">
+
+<p>
+
+Long before many LGBTQIA+ believers ever learned the language to describe themselves, many already understood what fear felt like inside church.
+
+</p>
+
+<p>
+
+Some learned through silence.
+Some learned through sermons.
+Some learned through jokes followed by nervous laughter from congregations.
+Some learned by watching tenderness become suspicious the moment certain people expressed it openly.
+
+</p>
+
+<p>
+
+For many, the fear arrived before understanding ever had the chance to form.
+
+</p>
+
+<p>
+
+This chapter is not merely about theology. This chapter is about people who loved God while quietly wondering whether honesty about themselves would cost them belonging, safety, ministry, family, friendship, or dignity. It is about believers who opened Scripture searching not for rebellion against faith, but for proof that God still had room for them inside the story.
+
+</p>
+
+<p>
+
+Many found David and Jonathan there.
+
+</p>
+
+<p>
+
+Not always because they immediately concluded the relationship was romantic, but because the emotional honesty between them felt strangely familiar. The tenderness felt recognizable. The covenant felt recognizable. The grief felt recognizable. Readers who spent years hiding parts of themselves often recognized something deeply human in the way David and Jonathan loved one another openly within a world increasingly ruled by fear.
+
+</p>
+
+<p>
+
+That recognition mattered.
+
+</p>
+
+<p>
+
+For generations, many LGBTQIA+ believers were taught to distrust their own emotional responses to Scripture. Some became afraid even to notice tenderness within biblical passages because church environments often treated curiosity itself as dangerous. Others learned to read defensively, already preparing themselves to be corrected before they could fully process what the text made them feel.
+
+</p>
+
+<p>
+
+Fear shaped the reading experience before the reading even began.
+
+</p>
+
+<p>
+
+Some readers therefore approached David’s lament almost secretly, returning privately to words they rarely heard discussed honestly in church:
+
+</p>
+
+<p>
+
+“Thy love to me was wonderful, passing the love of women.”
+
+</p>
+
+<p>
+
+Those words carried emotional weight because many queer readers understood what it meant to love while feeling history, religion, or society standing nervously nearby demanding explanation. Many knew the ache of relationships being examined more harshly than others. Many knew what it felt like when tenderness itself became controversial once certain people were involved.
+
+</p>
+
+<p>
+
+The story of David and Jonathan became meaningful for many wounded readers because Scripture preserved emotional intimacy without shame attached to the language itself. The biblical text never pauses to apologize for their affection. The covenant is not hidden. The grief is not hidden. The tears are not hidden.
+
+</p>
+
+<p>
+
+That honesty felt sacred to people who spent years being told honesty about themselves was dangerous.
+
+</p>
+
+<p>
+
+This chapter does not claim that every LGBTQIA+ believer interprets David and Jonathan identically. Some see romantic love within the relationship clearly. Others connect more deeply with the themes of covenant loyalty, emotional intimacy, or chosen family. Some simply find comfort in seeing tenderness between men preserved openly within Scripture at all.
+
+</p>
+
+<p>
+
+What unites many queer readers is not uniform interpretation, but recognition.
+
+</p>
+
+<p>
+
+Recognition of longing.
+Recognition of fear.
+Recognition of grief.
+Recognition of what it feels like to search sacred text hoping love and faith do not have to become enemies.
+
+</p>
+
+<p>
+
+Many LGBTQIA+ believers remained faithful while carrying enormous spiritual loneliness. Some prayed desperately for God to remove parts of themselves they believed made them unacceptable. Some stayed in churches where every sermon about love carried an unspoken condition attached to it. Others walked away from faith entirely, not because they stopped longing for God, but because fear filled the spaces where belonging should have existed.
+
+</p>
+
+<p>
+
+The tragedy is not that queer believers asked difficult questions.
+The tragedy is how often those questions were met without tenderness.
+
+</p>
+
+<p>
+
+Jesus consistently moved toward wounded people throughout Scripture. He moved toward those pushed to the margins of religious society. He moved toward those carrying shame others placed upon them. Fearful religion often created distance while compassion moved closer.
+
+</p>
+
+<p>
+
+That contrast matters deeply here.
+
+</p>
+
+<p>
+
+Queer readers do not approach Scripture as abstract theological problems. They approach Scripture as human beings longing for truth, safety, dignity, and the assurance that God’s love remains larger than fear driven interpretations handed down through generations.
+
+</p>
+
+<p>
+
+Some still sit quietly in church pews carrying that longing even now.
+
+</p>
+
+<p>
+
+Some still open the Bible hoping not merely to survive faith, but to encounter mercy within it.
+
+</p>
+
+<p>
+
+Perhaps that is why the story of David and Jonathan continues speaking so powerfully across centuries. Their relationship survived kingdoms, translators, theologians, and debates while still preserving tenderness visible enough for wounded readers to recognize themselves somewhere within the emotional honesty of the text.
+
+</p>
+
+<div class="emphasis-line">
+
+And sometimes recognition becomes the beginning of healing.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="references">
+
+<div class="references-inner">
+
+<h2>
+
+References
+
+</h2>
+
+<div class="reference-item">
+
+<p>
+
+Justin Lee. <em>Torn: Rescuing the Gospel from the Gays-vs.-Christians Debate.</em>
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Matthew Vines. <em>God and the Gay Christian.</em>
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+James Alison. <em>Faith Beyond Resentment.</em>
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Henri Nouwen’s writings regarding belonging, loneliness, and spiritual tenderness within Christian community.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+The Holy Bible, King James Version. 1 Samuel 18–20; 2 Samuel 1.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="chapter-reflection">
+
+<p>
+
+Many people did not search Scripture hoping to argue with God.
+Many searched hoping God still wanted them near Him.
+
+</p>
+
+</section>
+
+<section class="chapter-navigation">
+
+<a
+href="chapter15.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+Previous Chapter
+
+</div>
+
+<h3>
+
+Chapter 15
+
+</h3>
+
+<p>
+
+Return to the previous chapter and continue the unfolding journey through covenant, fear, tenderness, and sacred memory.
+
+</p>
+
+</a>
+
+<a
+href="part3.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+Return to Part III
+
+</div>
+
+<h3>
+
+Part III
+
+</h3>
+
+<p>
+
+Explore the broader collection of chapters examining interpretation, history, longing, and belonging.
+
+</p>
+
+</a>
+
+<a
+href="chapter17.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+Next Chapter
+
+</div>
+
+<h3>
+
+Chapter 17
+
+</h3>
+
+<p>
+
+Continue forward into the next chapter as the journey moves deeper into faith, tenderness, and spiritual honesty.
+
+</p>
+
+</a>
+
+</section>
+
+<footer class="site-footer">
+
+<div class="footer-content">
+
+<div class="footer-top">
+
+<h2>
+
+A LOVE OLDER THAN FEAR
+
+</h2>
+
+<p>
+
+Some stories survive because people refuse to let tenderness disappear from memory.
+
+</p>
+
+</div>
+
+<div class="footer-divider"></div>
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="part3.html">
+Part III
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="bibliography.html">
+Bibliography
+</a>
+
+</div>
+
+<div class="footer-scripture">
+
+“There is no fear in love; but perfect love casteth out fear.”
+<br>
+— 1 John 4:18
+
+</div>
+
+<div class="footer-bottom">
+
+© Bradley Hobbs • A Love Older Than Fear
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
