@@ -1,23 +1,1070 @@
-Acknowledgments
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Acknowledgments | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#080706;
+--bg-alt:#120f0d;
+--bg-soft:#1a1512;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f8f2e8;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#080706;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.12);
+
+border-radius:50%;
+
+animation:float 30s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:14%;
+animation-duration:34s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:26s;
+}
+
+.particle:nth-child(3){
+top:44%;
+left:50%;
+animation-duration:40s;
+}
+
+.particle:nth-child(4){
+top:86%;
+left:26%;
+animation-duration:32s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:38s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(8,7,6,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.page-hero{
+
+position:relative;
+
+min-height:80vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 180px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#080706,
+#18120f
+);
+
+}
+
+.page-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.015),
+transparent 60%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.page-label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:42px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:260px 8%;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0b0908
+);
+
+}
+
+.quote-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 72%
+);
+
+}
+
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(3rem,5vw,5.2rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1200px;
+
+margin:auto;
+
+color:#f3e8d7;
+
+}
+
+/* =========================
+ACKNOWLEDGMENTS
+========================= */
+
+.acknowledgments{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0b0908,
+#140f0d
+);
+
+overflow:hidden;
+
+}
+
+.acknowledgments::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.acknowledgments-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:940px;
+
+margin:auto;
+
+}
+
+.acknowledgments-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.acknowledgments-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+line-height:1.3;
+
+margin-bottom:80px;
+
+color:#f7f1e7;
+
+}
+
+.acknowledgments-text{
+
+font-size:1.16rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.acknowledgments-text p{
+
+margin-bottom:56px;
+
+}
+
+.emphasis-line{
+
+margin-top:100px;
+
+padding-left:34px;
+
+border-left:
+1px solid rgba(212,164,79,0.34);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.9;
+
+color:#f0e1cb;
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.page-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:40px;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-card{
+
+position:relative;
+
+padding:60px 50px;
+
+text-decoration:none;
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.01)
+);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.5s ease;
+
+overflow:hidden;
+
+}
+
+.nav-card:hover{
+
+transform:translateY(-8px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.10);
+
+}
+
+.nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:22px;
+
+}
+
+.nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(1.8rem,3vw,3rem);
+
+line-height:1.3;
+
+margin-bottom:24px;
+
+color:#f5ead9;
+
+}
+
+.nav-card p{
+
+font-size:1.05rem;
+
+line-height:2;
+
+color:#c8bbab;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.page-hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:200px 8%;
+
+}
+
+.acknowledgments{
+
+padding:160px 8%;
+
+}
+
+.page-navigation{
+
+padding:100px 8%;
+
+gap:28px;
+
+}
+
+.nav-card{
+
+padding:45px 35px;
+
+}
+
+.emphasis-line{
+
+font-size:1.6rem;
+
+padding-left:24px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.3rem;
+
+line-height:1.6;
+
+}
+
+.acknowledgments-title{
+
+font-size:2.3rem;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+.emphasis-line{
+
+font-size:1.4rem;
+
+line-height:1.9;
+
+}
+
+.nav-card{
+
+padding:40px 28px;
+
+}
+
+.nav-card p{
+
+font-size:1rem;
+
+line-height:1.9;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="bibliography.html">
+Bibliography
+</a>
+
+<a href="index.html">
+Home
+</a>
+
+</div>
+
+</nav>
+
+<section class="page-hero">
+
+<div class="hero-content">
+
+<div class="page-label">
+
+ACKNOWLEDGMENTS
+
+</div>
+
+<h1>
+
+For Every Heart
+That Carried Questions
+
+</h1>
+
+<p>
+
+Some books are written with ink alone.
+Others are written through grief, prayer, endurance, tenderness, and the people who helped love survive fear along the way.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“Some loves survive death.
+Some survive history.
+The rarest loves survive translation.”
+
+</h2>
+
+</section>
+
+<section class="acknowledgments">
+
+<div class="acknowledgments-inner">
+
+<div class="acknowledgments-label">
+
+WITH GRATITUDE
+
+</div>
+
+<h2 class="acknowledgments-title">
+
+Every honest journey carries the fingerprints of those who helped hold the weight of the questions.
+
+</h2>
+
+<div class="acknowledgments-text">
+
+<p>
 
 No book is written alone, even when many of the pages are shaped in quiet rooms long after midnight. Every journey of faith, study, grief, healing, and truth carries the fingerprints of people who helped hold the weight of the questions along the way.
 
+</p>
+
+<p>
+
 First, I give honor to Jesus, whose mercy carried me through seasons where fear often spoke louder than peace. Through every difficult question, every moment of uncertainty, every wound left behind by religion without compassion, His presence remained steady. My faith has never survived because every answer came easily. My faith survived because the love of God continued reaching toward me even inside the questions.
+
+</p>
+
+<p>
 
 To my son, thank you for giving my life a deeper understanding of tenderness, responsibility, and legacy. Fatherhood reshaped the way I think about truth, compassion, safety, and the kind of world faith communities should become for future generations. Your life reminds me daily that love should never have to earn permission to be gentle.
 
+</p>
+
+<p>
+
 To Justin, thank you for your love, patience, encouragement, and steadfast presence throughout this journey. Thank you for standing beside me while these pages slowly took shape. Thank you for understanding the emotional weight carried within this project and for continuing to believe in both my voice and my heart when exhaustion sometimes made both difficult to hold onto.
+
+</p>
+
+<p>
 
 To every teacher, pastor, minister, scholar, translator, historian, and believer whose work helped preserve Scripture through generations, thank you. Even where disagreement exists, careful study matters. Honest engagement matters. Language matters. History matters. The willingness to wrestle deeply with sacred text matters.
 
+</p>
+
+<p>
+
 To educators everywhere, thank you for teaching people not merely what to think, but how to think carefully, compassionately, and honestly. Curiosity is not the enemy of faith. Thoughtful questions are not rebellion. Some of the most sacred moments in spiritual life begin when fear finally loosens its grip long enough for honesty to breathe.
+
+</p>
+
+<p>
 
 To LGBTQIA+ believers who remained faithful while carrying wounds many communities refused to acknowledge, this book carries your presence within every chapter. Some of you stayed in church while hearing yourselves discussed as problems instead of people. Some lost families, ministries, friendships, opportunities, or peace simply for being honest about who you were. Some walked away from faith entirely because survival demanded distance from spaces that confused cruelty with holiness. Your stories matter. Your dignity matters. Your lives matter deeply.
 
+</p>
+
+<p>
+
 To readers who approach this work with caution, curiosity, disagreement, grief, hope, or exhaustion, thank you for being willing to enter the conversation at all. Honest dialogue requires courage from everyone involved. My prayer is not that every reader leaves with identical conclusions, but that every reader leaves more willing to approach Scripture, history, and one another with greater compassion and less fear.
 
+</p>
+
+<p>
+
 Finally, to David and Jonathan, whose story survived kingdoms, wars, empires, translators, theologians, arguments, discomfort, and centuries of human interpretation while still remaining preserved inside sacred text, thank you for reminding generations of readers that some forms of love leave echoes history cannot fully erase.
+
+</p>
+
+<div class="emphasis-line">
 
 Some loves survive death.
 Some survive history.
 The rarest loves survive translation.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="page-navigation">
+
+<a
+href="chapter22.html"
+class="nav-card">
+
+<div class="nav-label">
+
+PREVIOUS
+
+</div>
+
+<h3>
+
+Chapter 22
+
+</h3>
+
+<p>
+
+Return to the previous chapter and continue exploring honesty, interpretation, tenderness, fear, healing, and sacred conversation.
+
+</p>
+
+</a>
+
+<a
+href="bibliography.html"
+class="nav-card">
+
+<div class="nav-label">
+
+RESEARCH
+
+</div>
+
+<h3>
+
+Bibliography
+
+</h3>
+
+<p>
+
+Explore the scholars, translators, historians, theologians, and biblical sources that helped shape this journey.
+
+</p>
+
+</a>
+
+<a
+href="index.html"
+class="nav-card">
+
+<div class="nav-label">
+
+HOME
+
+</div>
+
+<h3>
+
+Return Home
+
+</h3>
+
+<p>
+
+Return to the beginning of A Love Older Than Fear and continue the journey through covenant, grief, tenderness, faith, and belonging.
+
+</p>
+
+</a>
+
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Footer failed to load'
+);
+
+}
+
+return response.text();
+
+})
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(
+'Footer failed to load:',
+error
+);
+
+});
+
+</script>
+
+</body>
+</html>
