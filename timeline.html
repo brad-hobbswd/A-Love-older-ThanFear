@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Timeline | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#070605;
+--bg-alt:#120f0d;
+--bg-soft:#1a1411;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f7f1e7;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#070605;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.10);
+
+border-radius:50%;
+
+animation:float 32s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:12%;
+animation-duration:38s;
+}
+
+.particle:nth-child(2){
+top:76%;
+left:82%;
+animation-duration:28s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:52%;
+animation-duration:44s;
+}
+
+.particle:nth-child(4){
+top:88%;
+left:24%;
+animation-duration:34s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:40s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-190px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(7,6,5,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+position:relative;
+
+min-height:90vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 180px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#18120f
+);
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.hero-label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:44px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:240px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0a0908
+);
+
+}
+
+.quote-section h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.7rem,5vw,5rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1100px;
+
+margin:auto;
+
+color:#f2e6d3;
+
+}
+
+/* =========================
+TIMELINE
+========================= */
+
+.timeline{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0a0908,
+#140f0d
+);
+
+overflow:hidden;
+
+}
+
+.timeline::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+bottom:0;
+left:50%;
+
+width:1px;
+
+background:
+linear-gradient(
+180deg,
+transparent,
+rgba(212,164,79,0.5),
+transparent
+);
+
+transform:translateX(-50%);
+
+}
+
+.timeline-inner{
+
+position:relative;
+
+max-width:1400px;
+
+margin:auto;
+
+z-index:2;
+
+}
+
+.timeline-item{
+
+position:relative;
+
+width:50%;
+
+padding:0 70px 120px;
+
+}
+
+.timeline-item.left{
+
+left:0;
+
+text-align:right;
+
+}
+
+.timeline-item.right{
+
+left:50%;
+
+}
+
+.timeline-dot{
+
+position:absolute;
+
+top:12px;
+
+width:18px;
+height:18px;
+
+background:var(--gold);
+
+border-radius:50%;
+
+box-shadow:
+0 0 20px rgba(212,164,79,0.5);
+
+z-index:3;
+
+}
+
+.timeline-item.left .timeline-dot{
+
+right:-9px;
+
+}
+
+.timeline-item.right .timeline-dot{
+
+left:-9px;
+
+}
+
+.timeline-card{
+
+padding:45px 40px;
+
+background:
+rgba(255,255,255,0.025);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.timeline-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.timeline-date{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.timeline-card h2{
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:26px;
+
+color:#f4e7d4;
+
+}
+
+.timeline-card p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c7b9a8;
+
+}
+
+/* =========================
+REFLECTION
+========================= */
+
+.reflection{
+
+position:relative;
+
+padding:240px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#070605
+);
+
+}
+
+.reflection-content{
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.reflection h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+margin-bottom:50px;
+
+}
+
+.reflection p{
+
+font-size:1.15rem;
+
+line-height:2.3;
+
+color:var(--muted);
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:36px;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#120f0d
+);
+
+}
+
+.chapter-nav-card{
+
+padding:55px 45px;
+
+text-decoration:none;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.chapter-nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:22px;
+
+color:#f4e7d4;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c7b9a8;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+.timeline::before{
+
+left:24px;
+
+}
+
+.timeline-item{
+
+width:100%;
+
+padding-left:70px;
+padding-right:0;
+
+text-align:left !important;
+
+left:0 !important;
+
+}
+
+.timeline-dot{
+
+left:15px !important;
+right:auto !important;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.timeline{
+
+padding:170px 8%;
+
+}
+
+.reflection{
+
+padding:170px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:100px 8%;
+
+}
+
+.chapter-nav-card{
+
+padding:42px 32px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.2rem;
+
+line-height:1.6;
+
+}
+
+.timeline-card{
+
+padding:34px 28px;
+
+}
+
+.timeline-card h2{
+
+font-size:1.7rem;
+
+}
+
+.chapter-nav-card h3{
+
+font-size:1.8rem;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="chapters.html">
+Chapters
+</a>
+
+<a href="resources.html">
+Resources
+</a>
+
+<a href="about.html">
+About
+</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-label">
+
+HISTORICAL TIMELINE
+
+</div>
+
+<h1>
+
+The Long Journey of Covenant, Fear, and Interpretation
+
+</h1>
+
+<p>
+
+A historical timeline tracing David and Jonathan, translation history, theology, tenderness, manuscript preservation, and the evolving conversation surrounding sacred love across generations.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“The story survived kingdoms, translation, theology, fear, and history itself.”
+
+</h2>
+
+</section>
+
+<section class="timeline">
+
+<div class="timeline-inner">
+
+<div class="timeline-item left">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-date">
+
+c. 1000 BCE
+
+</div>
+
+<h2>
+
+Ancient Israel
+
+</h2>
+
+<p>
+
+Saul reigns as king while David rises within Israel. Jonathan and David form covenant together. Their loyalty, grief, tenderness, and devotion become preserved within 1 Samuel 18 through 20 and David’s lament within 2 Samuel 1.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item right">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-date">
+
+500 BCE to 100 CE
+
+</div>
+
+<h2>
+
+Hebrew Manuscript Preservation
+
+</h2>
+
+<p>
+
+Hebrew scribes preserve the books of Samuel across generations. Covenant language, emotional intensity, and poetic grief survive manuscript transmission with remarkable consistency.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item left">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-date">
+
+c. 300 BCE
+
+</div>
+
+<h2>
+
+Septuagint Translation
+
+</h2>
+
+<p>
+
+Hebrew Scriptures enter the Greek speaking world through the Septuagint. The story of David and Jonathan survives translation into another language and culture while preserving emotional and covenant language.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item right">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-date">
+
+100 to 500 CE
+
+</div>
+
+<h2>
+
+Early Church Era
+
+</h2>
+
+<p>
+
+Church fathers explore themes of covenant loyalty, sacred friendship, devotion, grief, and brotherhood. Ancient views of masculinity and affection remain different from many modern expectations.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item left">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-date">
+
+500 to 1500 CE
+
+</div>
+
+<h2>
+
+Medieval Christianity
+
+</h2>
+
+<p>
+
+Spiritual friendship traditions expand throughout monastic communities and theological writing. Emotional intimacy becomes connected to devotion, covenant, loyalty, and sacred companionship.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item right">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-date">
+
+1500 to 1700 CE
+
+</div>
+
+<h2>
+
+Reformation & Translation Era
+
+</h2>
+
+<p>
+
+The King James Version preserves David’s lament in English. Translation traditions diversify while Protestant theology reshapes biblical interpretation throughout Europe and beyond.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item left">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-date">
+
+1800 to Present
+
+</div>
+
+<h2>
+
+Modern Biblical Scholarship
+
+</h2>
+
+<p>
+
+Historical critical scholarship, Hebrew word studies, archaeology, literary analysis, gender studies, and translation history deepen modern conversations surrounding David and Jonathan.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="timeline-item right">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-date">
+
+Today
+
+</div>
+
+<h2>
+
+Present Day Readers
+
+</h2>
+
+<p>
+
+Wounded believers, scholars, ministers, LGBTQIA+ Christians, historians, and thoughtful readers continue returning to the story searching for honesty, belonging, covenant, tenderness, and truth beyond fear.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="reflection">
+
+<div class="reflection-content">
+
+<h2>
+
+The Story Still Remains
+
+</h2>
+
+<p>
+
+Their covenant survived kingdoms.
+Their grief survived history.
+Their tenderness survived translation.
+
+Thousands of years later, readers still return to David and Jonathan searching for truth, belonging, honesty, healing, and the possibility that sacred love was never meant to disappear beneath fear.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="chapter-navigation">
+
+<a
+href="study-guide.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+STUDY GUIDE
+
+</div>
+
+<h3>
+
+Reading & Reflection
+
+</h3>
+
+<p>
+
+Continue exploring questions, discussion prompts, historical reflection, and guided study.
+
+</p>
+
+</a>
+
+<a
+href="resources.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+RESOURCES
+
+</div>
+
+<h3>
+
+Research Archive
+
+</h3>
+
+<p>
+
+Explore linguistic, historical, theological, and manuscript resources connected to this project.
+
+</p>
+
+</a>
+
+<a
+href="covenant.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+COVENANT
+
+</div>
+
+<h3>
+
+Personal Reflections
+
+</h3>
+
+<p>
+
+Read emotional reflections, discoveries, and spiritual observations gathered throughout this journey.
+
+</p>
+
+</a>
+
+<a
+href="index.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+HOME
+
+</div>
+
+<h3>
+
+Return Home
+
+</h3>
+
+<p>
+
+Return to the main archive and continue exploring A Love Older Than Fear.
+
+</p>
+
+</a>
+
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+});
+
+</script>
+
+</body>
+</html>
