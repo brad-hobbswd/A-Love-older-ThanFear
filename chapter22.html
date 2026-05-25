@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 22 | Questions the Church Still Avoids
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#080706;
+--bg-alt:#120f0d;
+--bg-soft:#1a1512;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f8f2e8;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#080706;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.12);
+
+border-radius:50%;
+
+animation:float 30s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:14%;
+animation-duration:34s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:26s;
+}
+
+.particle:nth-child(3){
+top:44%;
+left:50%;
+animation-duration:40s;
+}
+
+.particle:nth-child(4){
+top:86%;
+left:26%;
+animation-duration:32s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:38s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(8,7,6,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.chapter-hero{
+
+position:relative;
+
+min-height:90vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 190px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#080706,
+#18120f
+);
+
+}
+
+.chapter-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.015),
+transparent 60%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.chapter-number{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:42px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:280px 8%;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0b0908
+);
+
+}
+
+.quote-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 72%
+);
+
+}
+
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(3rem,5vw,5.4rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1200px;
+
+margin:auto;
+
+color:#f3e8d7;
+
+}
+
+/* =========================
+MANUSCRIPT
+========================= */
+
+.manuscript{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0b0908,
+#140f0d
+);
+
+overflow:hidden;
+
+}
+
+.manuscript::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.manuscript-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:920px;
+
+margin:auto;
+
+}
+
+.manuscript-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.manuscript-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+line-height:1.3;
+
+margin-bottom:80px;
+
+color:#f7f1e7;
+
+}
+
+.manuscript-text{
+
+font-size:1.16rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.manuscript-text p{
+
+margin-bottom:56px;
+
+}
+
+.emphasis-line{
+
+margin-top:100px;
+
+padding-left:34px;
+
+border-left:
+1px solid rgba(212,164,79,0.34);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.9;
+
+color:#f0e1cb;
+
+}
+
+/* =========================
+REFERENCES
+========================= */
+
+.references{
+
+position:relative;
+
+padding:180px 8%;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.references-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.references h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.2rem,4vw,4rem);
+
+margin-bottom:70px;
+
+text-align:center;
+
+}
+
+.reference-item{
+
+padding:34px 34px;
+
+margin-bottom:24px;
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.01)
+);
+
+border-left:
+1px solid rgba(212,164,79,0.25);
+
+}
+
+.reference-item p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#cbbcab;
+
+}
+
+/* =========================
+REFLECTION
+========================= */
+
+.chapter-reflection{
+
+position:relative;
+
+padding:190px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#080706,
+#120f0d
+);
+
+}
+
+.chapter-reflection p{
+
+max-width:980px;
+
+margin:auto;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2rem,4vw,3.6rem);
+
+line-height:1.8;
+
+color:#eadcc8;
+
+}
+
+/* =========================
+CHAPTER NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:40px;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.chapter-nav-card{
+
+position:relative;
+
+padding:60px 50px;
+
+text-decoration:none;
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.01)
+);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.5s ease;
+
+overflow:hidden;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-8px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.10);
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:22px;
+
+}
+
+.chapter-nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(1.8rem,3vw,3rem);
+
+line-height:1.3;
+
+margin-bottom:24px;
+
+color:#f5ead9;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1.05rem;
+
+line-height:2;
+
+color:#c8bbab;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.chapter-hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:200px 8%;
+
+}
+
+.manuscript{
+
+padding:160px 8%;
+
+}
+
+.references{
+
+padding:150px 8%;
+
+}
+
+.chapter-reflection{
+
+padding:150px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:100px 8%;
+
+gap:28px;
+
+}
+
+.chapter-nav-card{
+
+padding:45px 35px;
+
+}
+
+.emphasis-line{
+
+font-size:1.6rem;
+
+padding-left:24px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.3rem;
+
+line-height:1.6;
+
+}
+
+.manuscript-title{
+
+font-size:2.3rem;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+.emphasis-line{
+
+font-size:1.4rem;
+
+line-height:1.9;
+
+}
+
+.chapter-nav-card{
+
+padding:40px 28px;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:1.9;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="part3.html">
+Part III
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="chapter21.html">
+Previous
+</a>
+
+</div>
+
+</nav>
+
+<section class="chapter-hero">
+
+<div class="hero-content">
+
+<div class="chapter-number">
+
+Chapter 22
+
+</div>
+
+<h1>
+
+Questions the Church Still Avoids
+
+</h1>
+
+<p>
+
+Some questions remain difficult not because Scripture refuses to speak, but because fear still shapes what many communities feel safe discussing honestly.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“Healthy faith does not fear honest examination.
+Truth does not collapse beneath sincere questions.”
+
+</h2>
+
+</section>
+
+<section class="manuscript">
+
+<div class="manuscript-inner">
+
+<div class="manuscript-label">
+
+CHAPTER TWENTY TWO
+
+</div>
+
+<h2 class="manuscript-title">
+
+Avoided questions rarely disappear.
+They simply continue waiting beneath silence.
+
+</h2>
+
+<div class="manuscript-text">
+
+<p>
+
+Some questions remain difficult not because Scripture refuses to speak, but because people fear where honest conversation might lead once silence no longer controls the room.
+
+</p>
+
+<p>
+
+The church has always carried certain questions more comfortably than others. Some theological discussions unfold openly across pulpits, classrooms, conferences, and Bible studies without creating alarm. Other questions immediately change the atmosphere the moment they are spoken aloud. Voices become cautious. Defensiveness rises. Curiosity itself begins sounding dangerous before the conversation has even fully begun.
+
+</p>
+
+<p>
+
+The story of David and Jonathan has often existed inside that uneasy silence.
+
+</p>
+
+<p>
+
+For generations, many believers learned how to discuss their loyalty safely while carefully avoiding the emotional intensity Scripture openly preserves between them. Covenant could be mentioned briefly. Friendship could be celebrated carefully. Yet the deeper tenderness within the text often remained untouched, as though lingering too long beside their grief, affection, or emotional vulnerability might create questions some communities were never prepared to face honestly.
+
+</p>
+
+<p>
+
+Still, the questions remained.
+
+</p>
+
+<p>
+
+Why does Scripture describe their souls as knit together?
+Why does covenant language surround their relationship so consistently?
+Why does David speak of Jonathan’s love as wonderful and surpassing the love of women?
+Why does emotional tenderness between men make so many modern readers uncomfortable when ancient Scripture preserves such moments openly?
+Why have generations felt the need to soften certain passages before allowing readers to experience the emotional force already present within the text itself?
+
+</p>
+
+<p>
+
+These questions survived because fear never fully answered them.
+
+</p>
+
+<p>
+
+Many churches avoided such conversations not necessarily out of cruelty, but out of anxiety surrounding what emotional complexity might disrupt. Questions about masculinity, sexuality, vulnerability, and love often became entangled with larger fears involving doctrine, authority, tradition, and social change. Once fear enters interpretation, communities frequently begin protecting certainty more aggressively than they pursue understanding.
+
+</p>
+
+<p>
+
+Yet avoided questions rarely disappear.
+They simply move underground.
+
+</p>
+
+<p>
+
+Many LGBTQIA+ believers know that reality intimately. Some grew up carrying sincere questions about Scripture while quickly learning which conversations felt unwelcome inside church spaces. Others recognized tenderness within passages like David and Jonathan’s story yet understood immediately that speaking too openly about what they noticed might cost them safety, belonging, leadership opportunities, or relationships within faith communities.
+
+</p>
+
+<p>
+
+Silence became survival for many people.
+
+</p>
+
+<p>
+
+That silence carried spiritual consequences because human hearts were never created to thrive beneath constant fear. Questions left unspoken often become wounds. Curiosity treated as rebellion often creates shame. Over time, many believers learned to disconnect honesty from faithfulness because honesty no longer felt spiritually safe.
+
+</p>
+
+<p>
+
+This chapter is not written to condemn the church. The church has also been a place of worship, healing, family, prayer, compassion, and encounter with God for countless people throughout history, including many who carry wounds from it. Yet love for the church should never require pretending fear has not shaped certain conversations deeply.
+
+</p>
+
+<p>
+
+Healthy faith does not fear honest examination.
+Truth does not collapse beneath sincere questions.
+
+</p>
+
+<p>
+
+Throughout Scripture, God repeatedly met people inside uncertainty, wrestling, grief, and longing. Jacob wrestled through the night. David poured anguish into the Psalms. Thomas questioned openly after resurrection. Honest faith has always contained room for difficult questions because genuine relationship with God involves more than rehearsing certainty without reflection.
+
+</p>
+
+<p>
+
+Perhaps one of the questions the church still avoids most carefully is this: what if fear shaped more of our interpretation than we realized?
+
+</p>
+
+<p>
+
+That question reaches far beyond David and Jonathan alone. The history of the church reveals many moments where cultural fear influenced theology surrounding race, women, mental health, suffering, power, and belonging. Communities often defended certain assumptions passionately before later generations recognized how deeply social anxiety shaped the readings once considered unquestionable.
+
+</p>
+
+<p>
+
+The possibility of fear influencing interpretation should not threaten faith.
+Rather, humility should deepen faith.
+
+</p>
+
+<p>
+
+The story of David and Jonathan continues inviting readers into that humility because their relationship still resists emotional simplification after thousands of years. Their covenant remains visible. Their grief remains visible. Their tenderness remains visible. Readers continue wrestling with their story because Scripture itself preserved something emotionally powerful enough that fear never fully succeeded in silencing it.
+
+</p>
+
+<p>
+
+Perhaps avoided questions continue returning because human hearts recognize when something sacred still waits beneath the silence.
+
+</p>
+
+<p>
+
+And perhaps the church’s greatest moments of healing have always begun when fear finally loosened its grip long enough for honesty to speak.
+
+</p>
+
+<div class="emphasis-line">
+
+Questions pushed into silence rarely disappear.
+They wait patiently for honesty to become safe again.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="references">
+
+<div class="references-inner">
+
+<h2>
+
+References
+
+</h2>
+
+<div class="reference-item">
+
+<p>
+
+The Holy Bible, King James Version. 1 Samuel 18–20; 2 Samuel 1; Genesis 32; John 20; Psalms.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Walter Brueggemann. <em>First and Second Samuel.</em>
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+James Alison. <em>Faith Beyond Resentment.</em>
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Henri Nouwen. Writings on vulnerability, spiritual belonging, and compassionate faith.
+
+</p>
+
+</div>
+
+<div class="reference-item">
+
+<p>
+
+Chapter manuscript provided by the author. :contentReference[oaicite:0]{index=0}
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="chapter-reflection">
+
+<p>
+
+Perhaps healing begins wherever fear finally loosens enough for honesty to breathe again.
+
+</p>
+
+</section>
+
+<section class="chapter-navigation">
+
+<a
+href="chapter21.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+PREVIOUS
+
+</div>
+
+<h3>
+
+Chapter 21
+
+</h3>
+
+<p>
+
+Return to the previous chapter and continue exploring covenant, tenderness, fear, and the enduring witness of sacred love.
+
+</p>
+
+</a>
+
+<a
+href="part3.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+ARCHIVE
+
+</div>
+
+<h3>
+
+Back to Part III
+
+</h3>
+
+<p>
+
+Return to Part III and continue the journey through interpretation, belonging, grief, healing, compassion, and spiritual honesty.
+
+</p>
+
+</a>
+
+<a
+href="chapter23.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+CONTINUE
+
+</div>
+
+<h3>
+
+Chapter 23
+
+</h3>
+
+<p>
+
+Continue into the next chapter as the journey moves deeper into restoration, mercy, remembrance, and sacred human dignity.
+
+</p>
+
+</a>
+
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Footer failed to load'
+);
+
+}
+
+return response.text();
+
+})
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(
+'Footer failed to load:',
+error
+);
+
+});
+
+</script>
+
+</body>
+</html>
