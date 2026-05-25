@@ -1,59 +1,1216 @@
-Introduction
+<!DOCTYPE html>
 
-A Love Older Than Fear
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Introduction | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#080706;
+--bg-alt:#120f0d;
+--bg-soft:#1a1512;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f8f2e8;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#080706;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.12);
+
+border-radius:50%;
+
+animation:float 30s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:14%;
+animation-duration:34s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:26s;
+}
+
+.particle:nth-child(3){
+top:44%;
+left:50%;
+animation-duration:40s;
+}
+
+.particle:nth-child(4){
+top:86%;
+left:26%;
+animation-duration:32s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:38s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-180px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(8,7,6,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.page-hero{
+
+position:relative;
+
+min-height:88vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 190px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#080706,
+#18120f
+);
+
+}
+
+.page-hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.015),
+transparent 60%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.page-label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:42px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.1;
+
+color:var(--muted);
+
+max-width:860px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:260px 8%;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0b0908
+);
+
+}
+
+.quote-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+radial-gradient(
+circle,
+rgba(212,164,79,0.08),
+transparent 72%
+);
+
+}
+
+.quote-section h2{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(3rem,5vw,5.2rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1200px;
+
+margin:auto;
+
+color:#f3e8d7;
+
+}
+
+/* =========================
+INTRODUCTION
+========================= */
+
+.introduction{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0b0908,
+#140f0d
+);
+
+overflow:hidden;
+
+}
+
+.introduction::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top right,
+rgba(212,164,79,0.05),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.introduction-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:940px;
+
+margin:auto;
+
+}
+
+.introduction-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.introduction-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+line-height:1.3;
+
+margin-bottom:80px;
+
+color:#f7f1e7;
+
+}
+
+.introduction-text{
+
+font-size:1.16rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.introduction-text p{
+
+margin-bottom:56px;
+
+}
+
+.scripture-block{
+
+margin:80px 0;
+
+padding:44px;
+
+border:
+1px solid rgba(212,164,79,0.18);
+
+background:
+rgba(255,255,255,0.02);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.9rem;
+
+line-height:1.8;
+
+color:#f0e1cb;
+
+}
+
+.emphasis-line{
+
+margin-top:100px;
+
+padding-left:34px;
+
+border-left:
+1px solid rgba(212,164,79,0.34);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.9;
+
+color:#f0e1cb;
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.page-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:40px;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#080706
+);
+
+overflow:hidden;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-card{
+
+position:relative;
+
+padding:60px 50px;
+
+text-decoration:none;
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,0.02),
+rgba(255,255,255,0.01)
+);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.5s ease;
+
+overflow:hidden;
+
+}
+
+.nav-card:hover{
+
+transform:translateY(-8px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.10);
+
+}
+
+.nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:22px;
+
+}
+
+.nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(1.8rem,3vw,3rem);
+
+line-height:1.3;
+
+margin-bottom:24px;
+
+color:#f5ead9;
+
+}
+
+.nav-card p{
+
+font-size:1.05rem;
+
+line-height:2;
+
+color:#c8bbab;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.page-hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:200px 8%;
+
+}
+
+.introduction{
+
+padding:160px 8%;
+
+}
+
+.page-navigation{
+
+padding:100px 8%;
+
+gap:28px;
+
+}
+
+.nav-card{
+
+padding:45px 35px;
+
+}
+
+.scripture-block{
+
+font-size:1.45rem;
+
+padding:30px;
+
+}
+
+.emphasis-line{
+
+font-size:1.6rem;
+
+padding-left:24px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.3rem;
+
+line-height:1.6;
+
+}
+
+.introduction-title{
+
+font-size:2.3rem;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+.scripture-block{
+
+font-size:1.2rem;
+
+line-height:1.9;
+
+padding:24px;
+
+}
+
+.emphasis-line{
+
+font-size:1.4rem;
+
+line-height:1.9;
+
+}
+
+.nav-card{
+
+padding:40px 28px;
+
+}
+
+.nav-card p{
+
+font-size:1rem;
+
+line-height:1.9;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="foreword.html">
+Foreword
+</a>
+
+<a href="chapters.html">
+Archive
+</a>
+
+<a href="chapter1.html">
+Begin
+</a>
+
+</div>
+
+</nav>
+
+<section class="page-hero">
+
+<div class="hero-content">
+
+<div class="page-label">
+
+INTRODUCTION
+
+</div>
+
+<h1>
+
+A Love Older
+Than Fear
+
+</h1>
+
+<p>
+
+Some stories survived Scripture not because history felt comfortable with them, but because sacred text refused to erase them.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“Fear shaped interpretation.
+Love survived anyway.”
+
+</h2>
+
+</section>
+
+<section class="introduction">
+
+<div class="introduction-inner">
+
+<div class="introduction-label">
+
+OPENING REFLECTION
+
+</div>
+
+<h2 class="introduction-title">
+
+Some conversations were avoided for centuries.
+Some stories refused to disappear.
+
+</h2>
+
+<div class="introduction-text">
+
+<p>
 
 Every generation inherits certain stories already interpreted for them.
 
+</p>
+
+<p>
+
 Some interpretations arrive through sermons. Others arrive through silence. Some are shaped by tradition passed carefully from pulpit to pew over centuries, while others are shaped by discomfort so deep that entire communities learn how to avoid difficult passages without ever admitting avoidance is happening at all.
+
+</p>
+
+<p>
 
 The story of David and Jonathan lives inside that tension.
 
+</p>
+
+<p>
+
 For thousands of years, their relationship has remained preserved within the pages of Scripture with remarkable emotional intensity. Their souls are described as being knit together. They enter covenant together. They weep together. They protect one another at great personal cost. Jonathan removes his royal robe and places it upon David along with his armor, sword, bow, and girdle in an act layered with covenant symbolism and political significance. David later mourns Jonathan publicly with words so vulnerable and intimate that readers still wrestle with them generations later:
 
-“Thy love to me was wonderful, passing the love of women.”
+</p>
+
+<div class="scripture-block">
+
+“Thy love to me was wonderful,
+passing the love of women.”
+
+</div>
+
+<p>
 
 Those words have survived kingdoms, empires, translation movements, theological debates, denominational divisions, cultural revolutions, and centuries of interpretation. Scripture preserved them all the same.
 
+</p>
+
+<p>
+
 That preservation matters.
+
+</p>
+
+<p>
 
 The Bible often contains far more emotional honesty than modern readers feel comfortable allowing. Throughout Scripture, human relationships are described with tears, longing, embrace, covenant devotion, lamentation, grief, affection, loyalty, and love expressed with startling openness. Yet modern religious culture, especially within certain traditions, frequently approaches emotional intimacy with suspicion long before the text itself invites suspicion.
 
+</p>
+
+<p>
+
 That reality becomes especially visible in conversations surrounding David and Jonathan.
+
+</p>
+
+<p>
 
 For some readers, their relationship represents a model of sacred covenant friendship rooted in brotherhood, loyalty, and political alliance. For others, the language between them carries emotional and romantic dimensions impossible to ignore honestly. Some believe the relationship exists beyond modern categories altogether, reflecting forms of covenant intimacy ancient cultures understood differently than contemporary readers do today.
 
+</p>
+
+<p>
+
 This book does not exist to force a single conclusion onto every reader.
+
+</p>
+
+<p>
 
 This book exists because the conversation itself deserves honesty.
 
+</p>
+
+<p>
+
 As an educator, I believe people deserve access to thoughtful study without shame controlling the discussion before the discussion even begins. As a minister, I believe Scripture deserves reverence deep enough to examine difficult passages carefully instead of rushing past them in fear. As a gay man, I understand personally how theological conversations surrounding love, identity, belonging, and holiness often unfold while people carrying deep spiritual wounds sit silently nearby listening. As a believer, I hold firmly that truth does not fear investigation and God is not threatened by honest questions.
+
+</p>
+
+<p>
 
 Many people reading this book may already carry complicated histories with church spaces. Some were raised within communities where love was spoken about constantly while tenderness itself was treated with suspicion. Some learned that certain questions could cost them acceptance, leadership, family relationships, ministry opportunities, or safety. Some encountered faith environments where emotional vulnerability between men was discouraged unless framed within carefully controlled boundaries. Others grew up hearing LGBTQIA+ people discussed more as theological problems than as human beings created in the image of God.
 
+</p>
+
+<p>
+
 Fear shaped many of those environments more than people realized.
+
+</p>
+
+<p>
 
 Fear has always possessed enormous power within religious interpretation. Fear can narrow language. Fear can soften translation. Fear can turn tenderness into threat. Fear can make communities defensive before conversations even begin. Fear can convince believers that difficult questions dishonor God rather than trusting that truth remains capable of enduring examination.
 
+</p>
+
+<p>
+
 Yet throughout Scripture, fear and love continually stand opposite one another.
+
+</p>
+
+<p>
 
 The title of this book emerged from that tension.
 
+</p>
+
+<p>
+
 A Love Older Than Fear.
+
+</p>
+
+<p>
 
 Before doctrines divided communities, before modern political battles shaped interpretation, before contemporary arguments hardened hearts on every side of the conversation, the story of David and Jonathan already existed. Their covenant already existed. Their grief already existed. Their language already existed. Scripture preserved their story long before modern readers arrived carrying present day assumptions about masculinity, sexuality, affection, and holiness.
 
+</p>
+
+<p>
+
 This book invites readers to slow down long enough to encounter the text again.
+
+</p>
+
+<p>
 
 Together, we will explore Hebrew language and word studies, ancient covenant customs, translation history, church interpretation, emotional themes within biblical poetry, and the cultural frameworks modern readers often unknowingly project back onto ancient Scripture. We will examine passages many communities discuss cautiously and questions many believers were taught never to ask aloud. We will also examine the real human cost that fear based theology has carried for countless LGBTQIA+ believers attempting to reconcile faith, Scripture, identity, and belonging.
 
+</p>
+
+<p>
+
 Some readers may ultimately disagree with parts of this journey. Honest study allows room for disagreement. My hope is not uniformity. My hope is integrity. My hope is that readers learn to approach Scripture with greater patience, greater compassion, deeper historical awareness, and less fear controlling the outcome before the study has even begun.
+
+</p>
+
+<p>
 
 Most of all, my hope is that wounded people recognize they are worthy of thoughtful engagement rather than dismissal.
 
+</p>
+
+<p>
+
 The story of David and Jonathan has survived because Scripture chose to preserve it. Their covenant survived kingdoms. Their language survived translation. Their grief survived history itself.
+
+</p>
+
+<p>
 
 Perhaps truth survives honest examination too.
 
+</p>
+
+<p>
+
 Perhaps sacred love was never the enemy many feared.
 
+</p>
+
+<div class="emphasis-line">
+
 And perhaps some loves truly are older than fear.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="page-navigation">
+
+<a
+href="foreword.html"
+class="nav-card">
+
+<div class="nav-label">
+
+PREVIOUS
+
+</div>
+
+<h3>
+
+Foreword
+
+</h3>
+
+<p>
+
+Return to the opening reflections and continue exploring the heart behind this journey through Scripture and history.
+
+</p>
+
+</a>
+
+<a
+href="chapter1.html"
+class="nav-card">
+
+<div class="nav-label">
+
+BEGIN
+
+</div>
+
+<h3>
+
+Chapter One
+
+</h3>
+
+<p>
+
+Begin the journey into covenant, tenderness, fear, interpretation, grief, and the enduring story of David and Jonathan.
+
+</p>
+
+</a>
+
+<a
+href="chapters.html"
+class="nav-card">
+
+<div class="nav-label">
+
+ARCHIVE
+
+</div>
+
+<h3>
+
+Browse Chapters
+
+</h3>
+
+<p>
+
+Explore the complete collection of chapters and reflections within A Love Older Than Fear.
+
+</p>
+
+</a>
+
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Footer failed to load'
+);
+
+}
+
+return response.text();
+
+})
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(
+'Footer failed to load:',
+error
+);
+
+});
+
+</script>
+
+</body>
+</html>
