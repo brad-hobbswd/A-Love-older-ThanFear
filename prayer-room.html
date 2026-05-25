@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Prayer Room | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#060504;
+--bg-alt:#110e0c;
+--bg-soft:#1a1411;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f7f1e7;
+--muted:#c8bbab;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#060504;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.10);
+
+border-radius:50%;
+
+animation:float 34s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:10%;
+animation-duration:42s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:84%;
+animation-duration:30s;
+}
+
+.particle:nth-child(3){
+top:40%;
+left:50%;
+animation-duration:46s;
+}
+
+.particle:nth-child(4){
+top:88%;
+left:24%;
+animation-duration:36s;
+}
+
+.particle:nth-child(5){
+top:20%;
+left:90%;
+animation-duration:40s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-200px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(6,5,4,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+position:relative;
+
+min-height:95vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 180px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#060504,
+#17120f
+);
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.hero-label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:44px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:220px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#17120f,
+#0a0908
+);
+
+}
+
+.quote-section h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.8rem,5vw,5rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1100px;
+
+margin:auto;
+
+color:#f3e7d6;
+
+}
+
+/* =========================
+PRAYER FORM
+========================= */
+
+.prayer-form-section{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0a0908,
+#140f0d
+);
+
+}
+
+.prayer-form-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.section-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:24px;
+
+}
+
+.prayer-form-inner h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.3rem,4vw,4.4rem);
+
+line-height:1.3;
+
+margin-bottom:40px;
+
+}
+
+.prayer-form-inner p{
+
+font-size:1.08rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+margin-bottom:60px;
+
+}
+
+.prayer-form{
+
+display:flex;
+
+flex-direction:column;
+
+gap:28px;
+
+}
+
+.prayer-form input,
+.prayer-form textarea,
+.prayer-form select{
+
+width:100%;
+
+padding:22px 24px;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.06);
+
+font-family:'Inter',sans-serif;
+
+font-size:1rem;
+
+color:var(--text);
+
+outline:none;
+
+transition:0.4s ease;
+
+}
+
+.prayer-form textarea{
+
+min-height:240px;
+
+resize:vertical;
+
+line-height:2;
+
+}
+
+.prayer-form input:focus,
+.prayer-form textarea:focus,
+.prayer-form select:focus{
+
+border-color:
+rgba(212,164,79,0.35);
+
+box-shadow:
+0 0 25px rgba(212,164,79,0.08);
+
+}
+
+.prayer-form button{
+
+padding:20px 34px;
+
+background:
+rgba(212,164,79,0.08);
+
+border:
+1px solid rgba(212,164,79,0.3);
+
+color:#f5e7d3;
+
+font-size:12px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+cursor:pointer;
+
+transition:0.4s ease;
+
+}
+
+.prayer-form button:hover{
+
+background:
+rgba(212,164,79,0.16);
+
+border-color:
+rgba(212,164,79,0.55);
+
+}
+
+/* =========================
+PRAYER WALL
+========================= */
+
+.prayer-wall{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#0a0908
+);
+
+}
+
+.prayer-wall-intro{
+
+max-width:900px;
+
+margin:auto auto 100px;
+
+text-align:center;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.prayer-wall-intro h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.4rem,5vw,4.6rem);
+
+line-height:1.2;
+
+margin-bottom:40px;
+
+color:#f4e7d4;
+
+}
+
+.prayer-wall-intro p{
+
+font-size:1.08rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+}
+
+.prayer-wall-inner{
+
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:36px;
+
+}
+
+.prayer-card{
+
+padding:44px 38px;
+
+background:
+rgba(255,255,255,0.025);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.prayer-card:hover{
+
+transform:translateY(-5px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.prayer-category{
+
+display:inline-block;
+
+margin-bottom:22px;
+
+padding:8px 16px;
+
+font-size:10px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#f0cf8d;
+
+border:
+1px solid rgba(212,164,79,0.24);
+
+background:
+rgba(212,164,79,0.05);
+
+}
+
+.prayer-card h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.9rem;
+
+line-height:1.4;
+
+margin-bottom:22px;
+
+color:#f0e2cf;
+
+}
+
+.prayer-card p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c5b7a8;
+
+}
+
+/* =========================
+REFLECTION
+========================= */
+
+.reflection{
+
+position:relative;
+
+padding:240px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#0a0908,
+#060504
+);
+
+}
+
+.reflection-content{
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.reflection h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+margin-bottom:50px;
+
+}
+
+.reflection p{
+
+font-size:1.15rem;
+
+line-height:2.3;
+
+color:var(--muted);
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:36px;
+
+background:
+linear-gradient(
+180deg,
+#060504,
+#120f0d
+);
+
+}
+
+.chapter-nav-card{
+
+padding:55px 45px;
+
+text-decoration:none;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.chapter-nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:22px;
+
+color:#f4e7d4;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c7b9a8;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:180px 8%;
+
+}
+
+.prayer-form-section{
+
+padding:170px 8%;
+
+}
+
+.prayer-wall{
+
+padding:170px 8%;
+
+}
+
+.reflection{
+
+padding:170px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:100px 8%;
+
+}
+
+.chapter-nav-card{
+
+padding:42px 32px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.7rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.2rem;
+
+line-height:1.6;
+
+}
+
+.prayer-card{
+
+padding:34px 28px;
+
+}
+
+.chapter-nav-card h3{
+
+font-size:1.8rem;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="reading-path.html">
+Reading Paths
+</a>
+
+<a href="study-guide.html">
+Study Guide
+</a>
+
+<a href="about.html">
+About
+</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-label">
+
+SACRED QUIETNESS
+
+</div>
+
+<h1>
+
+Prayer Room
+
+</h1>
+
+<p>
+
+Some people arrive here carrying grief.
+Some arrive exhausted from fear.
+Some arrive hopeful.
+Some arrive barely holding themselves together.
+
+Every prayer placed here matters.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“Perfect love casteth out fear.”
+
+</h2>
+
+</section>
+
+<section class="prayer-form-section">
+
+<div class="prayer-form-inner">
+
+<div class="section-label">
+
+PRAYER REQUEST
+
+</div>
+
+<h2>
+
+Leave a Prayer Request
+
+</h2>
+
+<p>
+
+Prayer requests may be shared publicly within the prayer wall unless privacy is requested below. Requests asking to remain private will never be posted publicly. Every request is reviewed carefully before being added to the prayer wall.
+
+</p>
+
+<form
+class="prayer-form"
+action="YOUR-GOOGLE-FORM-LINK"
+method="POST"
+target="_blank">
+
+<input
+type="text"
+placeholder="Name or Anonymous">
+
+<input
+type="email"
+placeholder="Email (Optional)">
+
+<select>
+
+<option>
+Share Publicly
+</option>
+
+<option>
+Keep Private
+</option>
+
+<option>
+Share As Anonymous
+</option>
+
+</select>
+
+<select>
+
+<option>
+Healing
+</option>
+
+<option>
+Family
+</option>
+
+<option>
+Peace
+</option>
+
+<option>
+Church Hurt
+</option>
+
+<option>
+Grief
+</option>
+
+<option>
+Faith
+</option>
+
+<option>
+Relationships
+</option>
+
+<option>
+Guidance
+</option>
+
+<option>
+Identity
+</option>
+
+</select>
+
+<textarea
+placeholder="Write your prayer request here..."></textarea>
+
+<button type="submit">
+
+Submit Prayer Request
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<section class="prayer-wall">
+
+<div class="prayer-wall-intro">
+
+<div class="section-label">
+
+RECENTLY LIFTED IN PRAYER
+
+</div>
+
+<h2>
+
+Shared Prayer Requests
+
+</h2>
+
+<p>
+
+These requests were shared by readers seeking healing, peace, courage, belonging, mercy, comfort, guidance, and restoration. Some requests are shared publicly by name. Others remain anonymous. Private requests are prayed over quietly and are never posted publicly.
+
+</p>
+
+</div>
+
+<div class="prayer-wall-inner">
+
+<div class="prayer-card">
+
+<div class="prayer-category">
+
+Healing
+
+</div>
+
+<h3>
+
+Anonymous
+
+</h3>
+
+<p>
+
+Please pray for healing after years of spiritual fear and exhaustion. I want to trust God again without constantly feeling afraid.
+
+</p>
+
+</div>
+
+<div class="prayer-card">
+
+<div class="prayer-category">
+
+Family
+
+</div>
+
+<h3>
+
+Michael
+
+</h3>
+
+<p>
+
+Please pray for peace inside my family and for wisdom as we rebuild relationships that have been hurting for a long time.
+
+</p>
+
+</div>
+
+<div class="prayer-card">
+
+<div class="prayer-category">
+
+Belonging
+
+</div>
+
+<h3>
+
+Anonymous
+
+</h3>
+
+<p>
+
+Please pray that I would stop feeling invisible inside church spaces and remember that Jesus still sees me with compassion.
+
+</p>
+
+</div>
+
+<div class="prayer-card">
+
+<div class="prayer-category">
+
+Guidance
+
+</div>
+
+<h3>
+
+Rachel
+
+</h3>
+
+<p>
+
+Praying for clarity, courage, and direction during a season filled with uncertainty and difficult decisions.
+
+</p>
+
+</div>
+
+<div class="prayer-card">
+
+<div class="prayer-category">
+
+Church Hurt
+
+</div>
+
+<h3>
+
+Anonymous
+
+</h3>
+
+<p>
+
+Please pray for everyone trying to heal from religious environments where fear became louder than love.
+
+</p>
+
+</div>
+
+<div class="prayer-card">
+
+<div class="prayer-category">
+
+Peace
+
+</div>
+
+<h3>
+
+Jordan
+
+</h3>
+
+<p>
+
+Please pray for rest from anxiety and exhaustion. I want to feel emotionally safe again.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="reflection">
+
+<div class="reflection-content">
+
+<h2>
+
+No Fear Before God
+
+</h2>
+
+<p>
+
+Prayer has never belonged only to the strong, the certain, the unafraid, or the spiritually polished.
+
+Prayer belongs to grieving people.
+Prayer belongs to exhausted people.
+Prayer belongs to wounded people.
+Prayer belongs to people searching for breath beneath the weight of fear.
+
+God has never feared honesty.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="chapter-navigation">
+
+<a
+href="faq.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+FAQ
+
+</div>
+
+<h3>
+
+Questions & Answers
+
+</h3>
+
+<p>
+
+Explore thoughtful responses to common questions surrounding theology, interpretation, belonging, and the purpose of this project.
+
+</p>
+
+</a>
+
+<a
+href="study-guide.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+STUDY GUIDE
+
+</div>
+
+<h3>
+
+Reading & Reflection
+
+</h3>
+
+<p>
+
+Continue deeper into guided discussion, reflection questions, and theological exploration.
+
+</p>
+
+</a>
+
+<a
+href="resources.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+RESOURCES
+
+</div>
+
+<h3>
+
+Research Archive
+
+</h3>
+
+<p>
+
+Explore historical, theological, linguistic, pastoral, and scholarly resources connected to this journey.
+
+</p>
+
+</a>
+
+<a
+href="index.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+HOME
+
+</div>
+
+<h3>
+
+Return Home
+
+</h3>
+
+<p>
+
+Return to the main archive and continue exploring A Love Older Than Fear.
+
+</p>
+
+</a>
+
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+});
+
+</script>
+
+</body>
+</html>
