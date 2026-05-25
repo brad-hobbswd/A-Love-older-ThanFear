@@ -9,7 +9,7 @@ name="viewport"
 content="width=device-width, initial-scale=1.0">
 
 <title>
-Bibliography | A Love Older Than Fear
+Resources | A Love Older Than Fear
 </title>
 
 <link
@@ -442,7 +442,7 @@ color:#f3e8d7;
 }
 
 /* =========================
-BIBLIOGRAPHY
+RESOURCES
 ========================= */
 
 .library{
@@ -562,8 +562,6 @@ rgba(255,255,255,0.025);
 border:
 1px solid rgba(255,255,255,0.05);
 
-backdrop-filter:blur(8px);
-
 transition:0.4s ease;
 
 }
@@ -593,8 +591,6 @@ margin-bottom:14px;
 font-weight:600;
 
 }
-
-/* LINKED RESOURCE TITLES */
 
 .source-item h3 a{
 
@@ -637,7 +633,7 @@ color:#bbaea0;
 }
 
 /* =========================
-FINAL REFLECTION
+REFLECTION
 ========================= */
 
 .reflection{
@@ -711,220 +707,93 @@ color:var(--muted);
 }
 
 /* =========================
-FOOTER
+NAVIGATION CARDS
 ========================= */
 
-.site-footer{
+.chapter-navigation{
 
 position:relative;
 
-padding:180px 8% 100px;
+padding:140px 8%;
 
-overflow:hidden;
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:36px;
 
 background:
 linear-gradient(
 180deg,
-#070605 0%,
-#140f0d 100%
-);
-
-border-top:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.footer-overlay{
-
-position:absolute;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle,
-rgba(212,164,79,0.05),
-transparent 75%
-);
-
-pointer-events:none;
-
-}
-
-.footer-glow{
-
-position:absolute;
-
-top:-250px;
-left:50%;
-
-transform:translateX(-50%);
-
-width:900px;
-height:900px;
-
-background:
-radial-gradient(
-circle,
-rgba(212,164,79,0.08),
-transparent 70%
-);
-
-pointer-events:none;
-
-}
-
-.footer-content{
-
-position:relative;
-
-z-index:3;
-
-max-width:1400px;
-
-margin:auto;
-
-text-align:center;
-
-}
-
-.footer-top h2{
-
-font-family:'Cinzel',serif;
-
-font-size:clamp(2.5rem,4vw,4.8rem);
-
-line-height:1.1;
-
-margin-bottom:36px;
-
-color:#f7f1e7;
-
-letter-spacing:3px;
-
-}
-
-.footer-top p{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.5rem,2vw,2.3rem);
-
-line-height:2;
-
-max-width:900px;
-
-margin:auto;
-
-color:#d8c5ae;
-
-}
-
-.footer-divider{
-
-width:240px;
-height:1px;
-
-margin:90px auto;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(212,164,79,0.75),
-transparent
+#070605,
+#120f0d
 );
 
 }
 
-.footer-links{
+.chapter-nav-card{
 
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:22px 38px;
-
-margin-bottom:90px;
-
-}
-
-.footer-links a{
+padding:55px 45px;
 
 text-decoration:none;
 
-color:#bca78b;
+background:
+rgba(255,255,255,0.02);
 
-font-size:13px;
+border:
+1px solid rgba(255,255,255,0.05);
 
-letter-spacing:3px;
+transition:0.4s ease;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
 
 text-transform:uppercase;
 
-transition:0.4s ease;
+color:var(--gold);
 
-position:relative;
-
-}
-
-.footer-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-8px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
+margin-bottom:20px;
 
 }
 
-.footer-links a:hover{
+.chapter-nav-card h3{
 
-color:#f6ddb0;
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:22px;
+
+color:#f4e7d4;
 
 }
 
-.footer-links a:hover::after{
+.chapter-nav-card p{
 
-width:100%;
-
-}
-
-.footer-scripture{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.4rem,2vw,2rem);
+font-size:1rem;
 
 line-height:2;
 
-color:#eadbc7;
-
-margin-bottom:80px;
-
-opacity:0.95;
-
-}
-
-.footer-bottom{
-
-font-size:12px;
-
-letter-spacing:2px;
-
-color:#796e62;
-
-text-transform:uppercase;
+color:#c7b9a8;
 
 }
 
@@ -949,14 +818,6 @@ padding:18px 5%;
 justify-content:center;
 
 gap:16px;
-
-}
-
-.nav-links a{
-
-font-size:10px;
-
-letter-spacing:2px;
 
 }
 
@@ -989,6 +850,18 @@ padding:170px 8%;
 .source-group{
 
 margin-bottom:100px;
+
+}
+
+.chapter-navigation{
+
+padding:100px 8%;
+
+}
+
+.chapter-nav-card{
+
+padding:42px 32px;
 
 }
 
@@ -1030,14 +903,18 @@ letter-spacing:1.5px;
 
 }
 
+.chapter-nav-card h3{
+
+font-size:1.8rem;
+
+}
+
 }
 
 </style>
 </head>
 
 <body>
-
-<!-- ATMOSPHERE -->
 
 <div class="atmosphere">
 
@@ -1048,8 +925,6 @@ letter-spacing:1.5px;
 <div class="particle"></div>
 
 </div>
-
-<!-- NAVIGATION -->
 
 <nav class="floating-nav">
 
@@ -1065,12 +940,12 @@ A LOVE OLDER THAN FEAR
 Home
 </a>
 
-<a href="archive.html">
-Archive
-</a>
-
 <a href="chapters.html">
 Chapters
+</a>
+
+<a href="notes.html">
+Notes
 </a>
 
 <a href="about.html">
@@ -1080,8 +955,6 @@ About
 </div>
 
 </nav>
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -1095,21 +968,19 @@ PRESERVED SOURCES
 
 <h1>
 
-Bibliography
+Resources
 
 </h1>
 
 <p>
 
-Every archive is shaped by memory, language, history, and the voices preserved before us. These works helped inform the study of covenant, translation, tenderness, grief, theology, and interpretation throughout this project.
+Every archive is shaped by memory, language, history, theology, grief, tenderness, and the voices preserved before us. These works helped inform the study of covenant, translation, masculinity, interpretation, belonging, and emotional honesty throughout this project.
 
 </p>
 
 </div>
 
 </section>
-
-<!-- QUOTE -->
 
 <section class="quote-section">
 
@@ -1121,13 +992,11 @@ Every archive is shaped by memory, language, history, and the voices preserved b
 
 </section>
 
-<!-- LIBRARY -->
-
 <section class="library">
 
 <div class="library-inner">
 
-<!-- SECTION -->
+<!-- HEBREW -->
 
 <div class="source-group">
 
@@ -1155,15 +1024,7 @@ Resources focused upon covenant language, Hebrew terminology, emotional expressi
 
 <h3>
 
-<a
-
-href="https://hebrewcollege.edu/wp-content/uploads/2018/10/BDB.pdf"
-
-target="_blank">
-
 Brown Driver Briggs Hebrew Lexicon
-
-</a>
 
 </h3>
 
@@ -1179,15 +1040,7 @@ Foundational Hebrew lexicon widely used for Old Testament language study and cov
 
 <h3>
 
-<a
-
-href="https://yausha.com.br/wp-content/uploads/2024/02/The-Hebrew-and-Aramaic-lexicon-of-the-Old-Testament-study-edition-volume-1.pdf"
-
-target="_blank">
-
 The Hebrew and Aramaic Lexicon of the Old Testament
-
-</a>
 
 </h3>
 
@@ -1203,15 +1056,7 @@ Advanced lexical resource examining Hebrew word meanings, semantic ranges, and c
 
 <h3>
 
-<a
-
-href="https://irp.cdn-website.com/3198740d/files/uploaded/503478995-Theological-Wordbook-of-the-Old-Testament-PDFDrive.pdf"
-
-target="_blank">
-
 Theological Wordbook of the Old Testament
-
-</a>
 
 </h3>
 
@@ -1227,7 +1072,83 @@ Extensive theological analysis of Hebrew vocabulary and biblical language develo
 
 </div>
 
-<!-- SECTION -->
+<!-- SCRIPTURE -->
+
+<div class="source-group">
+
+<div class="source-label">
+
+SCRIPTURE & TRANSLATION
+
+</div>
+
+<h2>
+
+Bible Translation & Manuscript Traditions
+
+</h2>
+
+<p class="source-description">
+
+Resources examining translation philosophy, manuscript preservation, Septuagint studies, textual transmission, and the movement of Scripture across centuries.
+
+</p>
+
+<div class="source-list">
+
+<div class="source-item">
+
+<h3>
+
+The Text of the New Testament by Bruce Metzger
+
+</h3>
+
+<p>
+
+Foundational study of manuscript history, textual criticism, and biblical preservation across generations.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+The Septuagint Translation
+
+</h3>
+
+<p>
+
+Historical Greek translation of the Hebrew Scriptures preserving ancient interpretive traditions and linguistic continuity.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+Introduction to the Masoretic Text
+
+</h3>
+
+<p>
+
+Study of Hebrew textual preservation, scribal traditions, and the transmission of the Old Testament.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SCHOLARSHIP -->
 
 <div class="source-group">
 
@@ -1255,22 +1176,13 @@ Commentaries and biblical scholarship exploring covenant, kingship, grief, loyal
 
 <h3>
 
-<a
-
-href="https://archive.org/details/firstsecondsamue0000brue"
-
-target="_blank">
-
-First and Second Samuel by Walter Brueggemann 
-
-</a>
+First and Second Samuel by Walter Brueggemann
 
 </h3>
 
 <p>
 
-Influential commentary examining political tension, covenant, grief, and theological themes within Samuel. (No Present PDF)<BR>
-  2 Samuel by Dr. Thomas L. Constable - 2026 Edition
+Influential commentary examining political tension, covenant, grief, and theological themes within Samuel.
 
 </p>
 
@@ -1279,40 +1191,8 @@ Influential commentary examining political tension, covenant, grief, and theolog
 <div class="source-item">
 
 <h3>
-
-<a
-
-href="https://epistle.us/hbarticles/jondavealovestory.pdf"
-
-target="_blank">
-
-King David by Jonathan Kirsch
-
-</a>
-
-</h3>
-
-<p>
-
-Historical and literary exploration of David’s life, relationships, and royal ascent.
-
-</p>
-
-</div>
-
-<div class="source-item">
-
-<h3>
-
-<a
-
-href="https://assets-us-01.kc-usercontent.com/c7bb3f89-eb78-007e-971a-d5864cf7a236/31111a04-e614-4ded-93f8-37122e2ba841/Week-6---Jackson-GB-101-2014-Readings.pdf"
-
-target="_blank">
 
 The David Story by Robert Alter
-
-</a>
 
 </h3>
 
@@ -1324,11 +1204,27 @@ Translation and literary commentary emphasizing narrative artistry and emotional
 
 </div>
 
+<div class="source-item">
+
+<h3>
+
+King David by Jonathan Kirsch
+
+</h3>
+
+<p>
+
+Historical and literary exploration of David’s life, relationships, and royal ascent.
+
+</p>
+
+</div>
+
 </div>
 
 </div>
 
-<!-- SECTION -->
+<!-- CULTURE -->
 
 <div class="source-group">
 
@@ -1356,15 +1252,7 @@ Historical resources examining covenant customs, masculinity, grief rituals, roy
 
 <h3>
 
-<a
-
-href="https://www.visiblechurchgb.com/uploads/2/5/0/4/25049317/manners_and_customs_of_the_bible_-_j.m._freeman_-_23559.pdf"
-
-target="_blank">
-
 The New Manners and Customs of Bible Times
-
-</a>
 
 </h3>
 
@@ -1380,15 +1268,7 @@ Historical background surrounding ancient customs, covenant relationships, and b
 
 <h3>
 
-<a
-
-href="https://www.ivpress.com/Media/Default/Downloads/Excerpts-and-Samples/A0385-excerpt.pdf?srsltid=AfmBOor08AMaVIYwq42r-WBk0hTUXAZO46A214eS4P_CQul4rEHzdNrx"
-
-target="_blank">
-
 Honor, Patronage, Kinship and Purity
-
-</a>
 
 </h3>
 
@@ -1404,22 +1284,13 @@ Cultural framework analysis for understanding social relationships within biblic
 
 <h3>
 
-<a
-
-href="https://www.cur.ac.rw/mis/main/library/documents/book_file/digital-67ebf303201639.31580023.pdf"
-
-target="_blank">
-
 Dictionary of Biblical Imagery
-</a>
 
 </h3>
 
 <p>
 
-Symbolic and literary imagery resource for covenant, grief, kingship, and emotional language.<br>
-  Large File, Dictionary of 3291 pages
-
+Symbolic and literary imagery resource for covenant, grief, kingship, and emotional language.
 
 </p>
 
@@ -1429,107 +1300,7 @@ Symbolic and literary imagery resource for covenant, grief, kingship, and emotio
 
 </div>
 
-<!-- SECTION -->
-
-<div class="source-group">
-
-<div class="source-label">
-
-THEOLOGY & HISTORY
-
-</div>
-
-<h2>
-
-Interpretation, Translation, and Church History
-
-</h2>
-
-<p class="source-description">
-
-Sources examining biblical interpretation, theological development, translation history, and hermeneutical traditions across generations.
-
-</p>
-
-<div class="source-list">
-
-<div class="source-item">
-
-<h3>
-
-<a
-
-href="https://www.danielakin.com/wp-content/uploads/old/Resource_538/Book%202%2C%20Sec%2016.pdf"
-
-target="_blank">
-
-A History of Biblical Interpretation
-
-</a>
-
-</h3>
-
-<p>
-
-Historical overview of interpretive traditions and theological development throughout church history.
-
-</p>
-
-</div>
-
-<div class="source-item">
-
-<h3>
-
-<a
-
-href="https://www.bethanyipcmm.org/wp-content/uploads/2020/10/How-to-Read-the-Bible-for-All-Its-Worth.pdf"
-
-target="_blank">
-
-How to Read the Bible for All Its Worth
-
-</a>
-
-</h3>
-
-<p>
-
-Hermeneutical study resource exploring historical context, genre, interpretation, and translation.
-
-</p>
-
-</div>
-
-<div class="source-item">
-
-<h3>
-
-<a
-
-href="https://bethesdapentecostal-my.sharepoint.com/:b:/g/personal/brad_hobbs_mercyforyou_org/IQAI7eagO6mmSoKx1ZpXR8ZQAQ7GC2BEZUOSzOoyEgPL9fM?e=hWrK8a"
-
-target="_blank">
-
-The Journey from Texts to Translations
-
-</a>
-
-</h3>
-
-<p>
-
-Study of manuscript transmission, translation philosophy, and biblical textual history.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- SECTION -->
+<!-- HEALING -->
 
 <div class="source-group">
 
@@ -1557,15 +1328,7 @@ Resources exploring belonging, spiritual trauma, pastoral care, identity, dignit
 
 <h3>
 
-<a
-
-href="https://cdn.bookey.app/files/pdf/book/en/shameless-by-nadia-bolz-weber.pdf"
-
-target="_blank">
-
 Shameless by Nadia Bolz Weber
-
-</a>
 
 </h3>
 
@@ -1581,15 +1344,7 @@ Exploration of sexuality, faith, belonging, and grace within Christian experienc
 
 <h3>
 
-<a
-
-href="https://hisbridgemedia.com/docs/GGC-Book.pdf"
-
-target="_blank">
-
 God and the Gay Christian by Matthew Vines
-
-</a>
 
 </h3>
 
@@ -1605,15 +1360,7 @@ Biblical and theological examination of LGBTQIA+ inclusion and interpretation wi
 
 <h3>
 
-<a
-
-href="https://canyonwalkerconnections.com/walking-the-bridgeless-canyon-hub/"
-
-target="_blank">
-
 Walking the Bridgeless Canyon
-
-</a>
 
 </h3>
 
@@ -1629,11 +1376,85 @@ Reflections on spiritual trauma, faith, identity, and emotional survival within 
 
 </div>
 
+<!-- CONTINUING STUDY -->
+
+<div class="source-group">
+
+<div class="source-label">
+
+CONTINUING STUDY
+
+</div>
+
+<h2>
+
+Further Reading & Ongoing Exploration
+
+</h2>
+
+<p class="source-description">
+
+Questions surrounding covenant, tenderness, masculinity, translation, theology, and belonging continue far beyond a single book.
+
+</p>
+
+<div class="source-list">
+
+<div class="source-item">
+
+<h3>
+
+The Bible Project
+
+</h3>
+
+<p>
+
+Visual and literary exploration of biblical themes, covenant language, narrative structure, and ancient context.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+Hebrew Poetry & Biblical Lament Studies
+
+</h3>
+
+<p>
+
+Research focused upon emotional expression, grief language, covenant poetry, and relational symbolism within Hebrew Scripture.
+
+</p>
+
+</div>
+
+<div class="source-item">
+
+<h3>
+
+Ancient Faith and Modern Questions
+
+</h3>
+
+<p>
+
+Resources encouraging thoughtful engagement between historic Christianity, emotional honesty, and theological discussion.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </section>
-
-<!-- REFLECTION -->
 
 <section class="reflection">
 
@@ -1641,13 +1462,19 @@ Reflections on spiritual trauma, faith, identity, and emotional survival within 
 
 <h2>
 
-Preserved Voices
+Why These Voices Matter
 
 </h2>
 
 <p>
 
-Every source listed here represents generations of readers, scholars, translators, pastors, historians, and wounded believers wrestling honestly with sacred text. Some approached Scripture searching for certainty. Others searched for understanding, healing, or belonging. Together, their work reminds us that honest study has always been part of faith itself.
+No single voice shaped this journey alone.
+
+Some sources approached Scripture through language and history. Others approached through theology, translation, archaeology, pastoral care, grief, identity, or lived experience inside wounded faith communities. Together, these voices reveal something important: honest study has never been the enemy of faith.
+
+The history of Scripture is the history of people wrestling carefully with sacred text across generations. Questions survived. Translation survived. Covenant survived. Tenderness survived. The conversation surrounding David and Jonathan survived because readers continued returning to the emotional honesty preserved within their story.
+
+These resources helped shape that journey.
 
 </p>
 
@@ -1655,9 +1482,108 @@ Every source listed here represents generations of readers, scholars, translator
 
 </section>
 
-<!-- FOOTER -->
+<section class="chapter-navigation">
+
+<a
+href="about.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+ABOUT
+
+</div>
+
+<h3>
+
+About the Author
+
+</h3>
+
+<p>
+
+Learn more about the heart, purpose, theology, and journey behind A Love Older Than Fear.
+
+</p>
+
+</a>
+
+<a
+href="study-guide.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+STUDY GUIDE
+
+</div>
+
+<h3>
+
+Reading & Reflection
+
+</h3>
+
+<p>
+
+Explore questions, discussion prompts, group study material, and guided reflection throughout the manuscript.
+
+</p>
+
+</a>
+
+<a
+href="covenant.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+COVENANT
+
+</div>
+
+<h3>
+
+Personal Reflections
+
+</h3>
+
+<p>
+
+Read personal thoughts, discoveries, emotional reflections, and spiritual observations gathered throughout this journey.
+
+</p>
+
+</a>
+
+<a
+href="index.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+HOME
+
+</div>
+
+<h3>
+
+Return Home
+
+</h3>
+
+<p>
+
+Return to the main archive and continue exploring the world of A Love Older Than Fear.
+
+</p>
+
+</a>
+
+</section>
 
 <div id="footer-container"></div>
+
 <script>
 
 fetch('footer.html')
