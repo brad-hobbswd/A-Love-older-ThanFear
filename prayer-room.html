@@ -537,6 +537,8 @@ transition:0.4s ease;
 
 appearance:none;
 
+cursor:pointer;
+
 }
 
 .prayer-form input::placeholder,
@@ -1140,7 +1142,8 @@ Prayer requests may be shared publicly within the prayer wall unless privacy is 
 class="prayer-form"
 action="https://docs.google.com/forms/d/e/1FAIpQLSfmb_jHm70XHghymkzeKVAZnxinKPjSs8mDeUUeqp7t3aRQ3w/formResponse"
 method="POST"
-target="_blank">
+target="hidden_iframe"
+onsubmit="submitted=true;">
 
 <input
 type="text"
@@ -1156,7 +1159,7 @@ placeholder="Email (Optional)">
 name="entry.1395945411"
 required>
 
-<option value="">
+<option value="" disabled selected>
 Privacy Preference
 </option>
 
@@ -1178,7 +1181,7 @@ Share As Anonymous
 name="entry.1132740109"
 required>
 
-<option value="">
+<option value="" disabled selected>
 Prayer Category
 </option>
 
@@ -1242,6 +1245,10 @@ Every request is received prayerfully and reviewed with care.
 </div>
 
 </section>
+
+<iframe
+name="hidden_iframe"
+style="display:none;"></iframe>
 
 <section class="prayer-wall">
 
@@ -1545,6 +1552,27 @@ fetch('footer.html')
 document.getElementById(
 'footer-container'
 ).innerHTML = data;
+
+});
+
+</script>
+
+<script>
+
+let submitted = false;
+
+document.querySelector(
+'iframe[name="hidden_iframe"]'
+).addEventListener(
+'load',
+function(){
+
+if(submitted){
+
+window.location.href =
+'thanks.html';
+
+}
 
 });
 
