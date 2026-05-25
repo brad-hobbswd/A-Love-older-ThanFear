@@ -1,35 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Foreword | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#070605;
+--bg-alt:#120f0d;
+--bg-soft:#1a1411;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f7f1e7;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#070605;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.10);
+
+border-radius:50%;
+
+animation:float 32s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:12%;
+animation-duration:38s;
+}
+
+.particle:nth-child(2){
+top:76%;
+left:82%;
+animation-duration:28s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:52%;
+animation-duration:44s;
+}
+
+.particle:nth-child(4){
+top:88%;
+left:24%;
+animation-duration:34s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:40s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-190px);
+opacity:0;
+}
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+position:relative;
+
+min-height:78vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 160px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#18120f
+);
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+animation:fadeUp 1.4s ease;
+
+}
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(30px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.hero-label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3.2rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:44px;
+
+}
+
+.hero-content p{
+
+font-size:1.18rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+max-width:880px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:220px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0b0908
+);
+
+}
+
+.quote-section h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.7rem,5vw,5rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1100px;
+
+margin:auto;
+
+color:#f2e6d3;
+
+}
+
+/* =========================
+MANUSCRIPT
+========================= */
+
+.manuscript{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0b0908,
+#140f0d
+);
+
+}
+
+.manuscript-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:940px;
+
+margin:auto;
+
+}
+
+.manuscript-label{
+
+font-size:12px;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:30px;
+
+}
+
+.manuscript-title{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.4rem,5vw,4.6rem);
+
+line-height:1.3;
+
+margin-bottom:80px;
+
+}
+
+.manuscript-text{
+
+font-size:1.12rem;
+
+line-height:2.35;
+
+color:var(--muted);
+
+}
+
+.manuscript-text p{
+
+margin-bottom:54px;
+
+}
+
+.emphasis-line{
+
+margin-top:90px;
+
+padding-left:30px;
+
+border-left:
+1px solid rgba(212,164,79,0.34);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.9;
+
+color:#f0e1cb;
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:36px;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#120f0d
+);
+
+border-top:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.chapter-nav-card{
+
+padding:55px 45px;
+
+text-decoration:none;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.chapter-nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:22px;
+
+color:#f4e7d4;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c7b9a8;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.hero{
+
+padding:220px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:180px 8%;
+
+}
+
+.manuscript{
+
+padding:170px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:100px 8%;
+
+}
+
+.chapter-nav-card{
+
+padding:42px 32px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.2rem;
+
+line-height:1.6;
+
+}
+
+.manuscript-title{
+
+font-size:2.2rem;
+
+}
+
+.emphasis-line{
+
+font-size:1.5rem;
+
+line-height:1.8;
+
+}
+
+.chapter-nav-card h3{
+
+font-size:1.8rem;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ATMOSPHERE -->
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<!-- UNIVERSAL HEADER -->
+
+<div id="header-container"></div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-label">
+
+OPENING WORDS
+
+</div>
+
+<h1>
+
 Foreword
 
-Some books are written to defend positions. Others are written to challenge them. This book was written for something far more personal and, to me, far more sacred. This book was written because certain passages of Scripture refused to leave my heart alone.
+</h1>
 
-As a teacher, I have spent years helping people slow down enough to truly see what stands before them instead of rushing toward assumptions. As a minister, I have watched wounded people quietly wrestle with questions they were terrified to speak aloud in church spaces. As a father, I understand the deep ache of wanting the people you love to grow up in truth instead of fear. As a believer, I hold Scripture with reverence, knowing the Word of God deserves honesty, patience, and humility from those who approach it. As a gay man, I know what it means to sit inside conversations where people debate whether love, belonging, tenderness, and faithfulness can fully exist within someone like you while never realizing there are human hearts listening from the pews.
+<p>
+
+Some stories remain alive because generations continue recognizing something human within them.
+
+Some questions survive because silence never fully answered them.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote-section">
+
+<h2>
+
+“Perhaps the rarest loves survive translation.”
+
+</h2>
+
+</section>
+
+<!-- MANUSCRIPT -->
+
+<section class="manuscript">
+
+<div class="manuscript-inner">
+
+<div class="manuscript-label">
+
+MANUSCRIPT
+
+</div>
+
+<h2 class="manuscript-title">
+
+Some passages of Scripture refuse to leave the human heart alone.
+
+</h2>
+
+<div class="manuscript-text">
+
+<p>
+
+Some books are written to defend positions.
+Others are written to challenge them.
+
+This book was written for something far more personal and, to me, far more sacred.
+
+</p>
+
+<p>
+
+This book was written because certain passages of Scripture refused to leave my heart alone.
+
+</p>
+
+<p>
+
+As a teacher, I have spent years helping people slow down enough to truly see what stands before them instead of rushing toward assumptions.
+
+As a minister, I have watched wounded people quietly wrestle with questions they were terrified to speak aloud in church spaces.
+
+As a father, I understand the deep ache of wanting the people you love to grow up in truth instead of fear.
+
+As a believer, I hold Scripture with reverence, knowing the Word of God deserves honesty, patience, and humility from those who approach it.
+
+As a gay man, I know what it means to sit inside conversations where people debate whether love, belonging, tenderness, and faithfulness can fully exist within someone like you while never realizing there are human hearts listening from the pews.
+
+</p>
+
+<p>
 
 All of those parts of my life walk together through these pages.
 
-This book did not begin with rebellion against God, nor with a desire to tear apart Scripture in pursuit of modern approval. The journey began with reading the Bible carefully and noticing how quickly certain passages created discomfort once readers slowed down long enough to truly hear them. The relationship between David and Jonathan has remained preserved within Scripture for thousands of years with astonishing emotional depth. Their covenant, their loyalty, their grief, their tears, their embraces, and David’s lament after Jonathan’s death continue to stand among the most intimate passages found anywhere in sacred literature.
+</p>
 
-Generation after generation has preached these verses, celebrated them, softened them, debated them, defended them, and sometimes hurried past them altogether. Yet the language remains. Scripture itself preserves their story with remarkable tenderness and without apology.
+<p>
 
-Modern readers often approach David and Jonathan carrying assumptions inherited from culture, denominational tradition, fear surrounding sexuality, discomfort with emotional vulnerability between men, and ideas about masculinity that would have been foreign to much of the ancient world. Ancient covenant relationships carried immense social, spiritual, emotional, and political significance. Public weeping between men was not automatically viewed with suspicion. Expressions of devotion and loyalty often possessed a depth modern readers struggle to recognize because contemporary culture has trained many people to fear tenderness long before they ever encounter it honestly.
+This book did not begin with rebellion against God, nor with a desire to tear apart Scripture in pursuit of modern approval.
 
-This book does not seek scandal, controversy, or outrage. My goal has never been to shock the church or force conclusions onto readers. My goal is honesty. Honest engagement with the Hebrew text. Honest engagement with translation history. Honest engagement with church interpretation. Honest engagement with the emotional language Scripture itself chose to preserve.
+The journey began with reading the Bible carefully and noticing how quickly certain passages created discomfort once readers slowed down long enough to truly hear them.
 
-Within these pages, I approach David and Jonathan not as a professor attempting to impress an academic audience, but as an educator who believes ordinary people deserve access to serious study without shame or intimidation. I write as someone who loves Jesus deeply, who believes Scripture matters profoundly, and who also believes wounded people deserve more than quick dismissals whenever difficult questions arise.
+</p>
 
-Many readers have spent years hearing fear presented as holiness. Many LGBTQIA+ believers learned very early that silence was often safer than honesty inside religious environments. Entire generations have carried loneliness while listening to sermons about love, covenant, faithfulness, and mercy, wondering whether those gifts could ever fully belong to them too. Some eventually walked away from faith entirely. Others remained in church while quietly burying parts of themselves beneath guilt, exhaustion, or spiritual survival.
+<p>
 
-Those realities matter.
+The relationship between David and Jonathan has remained preserved within Scripture for thousands of years with astonishing emotional depth.
 
-Questions surrounding David and Jonathan have often been treated as dangerous before they were ever examined carefully. Fear narrows interpretation. Fear rushes people away from complexity. Fear teaches communities to panic whenever tenderness refuses to fit neatly inside familiar theological boundaries. Yet throughout Scripture, truth never fears examination. God does not tremble before honest study.
+Their covenant, their loyalty, their grief, their tears, their embraces, and David’s lament after Jonathan’s death continue to stand among the most intimate passages found anywhere in sacred literature.
 
-The Bible contains grief, longing, covenant, affection, devotion, loyalty, lamentation, tears, kisses, embraces, and love expressed with far greater emotional openness than many modern readers have been taught to expect. David and Jonathan remain within that sacred landscape, still speaking across centuries, still inviting readers to listen more carefully than fear sometimes allows.
+</p>
 
-Some readers will approach this work academically. Others will arrive carrying deep spiritual wounds. Some will come curious. Others will come exhausted after years of silence, exclusion, or confusion. My hope is that every reader who opens this book encounters sincerity within these pages, even when disagreement exists.
+<p>
 
-Whether one ultimately understands David and Jonathan as covenant brothers, beloved companions, romantic figures, or a relationship existing beyond modern categories entirely, the conversation still matters deeply. The language matters. The history matters. The humanity of wounded readers matters. The ways fear has shaped theology matter.
+Generation after generation has preached these verses, celebrated them, softened them, debated them, defended them, and sometimes hurried past them altogether.
 
-Most of all, Scripture matters.
+Yet the language remains.
 
-This book invites readers into study rather than panic, into reflection rather than outrage, and into the possibility that love and truth were never enemies to begin with. My prayer is not that readers leave with identical conclusions, but that they leave more willing to listen carefully, think honestly, love compassionately, and approach Scripture without fear controlling the conversation before the conversation even begins.
+Scripture itself preserves their story with remarkable tenderness and without apology.
 
-Perhaps some loves truly do survive death. Perhaps some survive history. Perhaps the rarest loves survive translation.
+</p>
+
+<p>
+
+Modern readers often approach David and Jonathan carrying assumptions inherited from culture, denominational tradition, fear surrounding sexuality, discomfort with emotional vulnerability between men, and ideas about masculinity that would have been foreign to much of the ancient world.
+
+</p>
+
+<p>
+
+Ancient covenant relationships carried immense social, spiritual, emotional, and political significance.
+
+Public weeping between men was not automatically viewed with suspicion.
+
+Expressions of devotion and loyalty often possessed a depth modern readers struggle to recognize because contemporary culture has trained many people to fear tenderness long before they ever encounter it honestly.
+
+</p>
+
+<p>
+
+This book does not seek scandal, controversy, or outrage.
+
+My goal has never been to shock the church or force conclusions onto readers.
+
+My goal is honesty.
+
+</p>
+
+<p>
+
+Honest engagement with the Hebrew text.
+Honest engagement with translation history.
+Honest engagement with church interpretation.
+Honest engagement with the emotional language Scripture itself chose to preserve.
+
+</p>
+
+<div class="emphasis-line">
+
+Truth never fears examination.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- NAVIGATION -->
+
+<section class="chapter-navigation">
+
+<a
+href="chapters.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+CHAPTERS
+
+</div>
+
+<h3>
+
+Begin Reading
+
+</h3>
+
+<p>
+
+Enter the manuscript and continue deeper into covenant, grief, tenderness, fear, and belonging.
+
+</p>
+
+</a>
+
+<a
+href="study-guide.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+STUDY GUIDE
+
+</div>
+
+<h3>
+
+Reading & Reflection
+
+</h3>
+
+<p>
+
+Explore guided reflection questions, theological discussion, and deeper conversation surrounding the manuscript.
+
+</p>
+
+</a>
+
+<a
+href="resources.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+RESOURCES
+
+</div>
+
+<h3>
+
+Research Archive
+
+</h3>
+
+<p>
+
+Explore historical, linguistic, theological, and pastoral research connected to this project.
+
+</p>
+
+</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<div id="footer-container"></div>
+
+<!-- HEADER -->
+
+<script>
+
+fetch('header.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'header-container'
+).innerHTML = data;
+
+initializeHeader();
+
+})
+
+.catch(error => {
+
+console.error(
+'Header failed to load:',
+error
+);
+
+});
+
+</script>
+
+<!-- FOOTER -->
+
+<script>
+
+fetch('footer.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(
+'Footer failed to load:',
+error
+);
+
+});
+
+</script>
+
+</body>
+
+</html>
