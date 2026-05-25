@@ -763,21 +763,13 @@ pointer-events:none;
 }
 
 .chapter-grid{
-
 display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
+grid-template-columns:repeat(3,1fr);
 gap:30px;
-
 max-width:1400px;
-
 margin:auto;
-
 position:relative;
-
 z-index:2;
-
 }
 
 .chapter-card{
@@ -1125,6 +1117,22 @@ gap:20px;
 .nav-links a{
 font-size:10px;
 letter-spacing:2px;
+}
+
+}
+
+@media(max-width:1100px){
+
+.chapter-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:700px){
+
+.chapter-grid{
+grid-template-columns:1fr;
 }
 
 }
@@ -1584,9 +1592,9 @@ What survives after fear, silence, grief, history, translation, and centuries of
 
 <!-- EXPLORE -->
 
-<section class="chapters">
+<section class="chapters" id="chapters">
 
-<div class="section-content" style="margin-bottom:70px;">
+<div class="section-content">
 
 <div class="section-label">
 
@@ -1603,6 +1611,27 @@ Beyond the manuscript.
 <p>
 
 The journey surrounding David and Jonathan extends beyond chapters alone through historical timelines, reflection spaces, frequently asked questions, covenant reflections, and guided paths for deeper exploration.
+
+</p>
+
+</div>
+
+<div style="
+text-align:center;
+margin:0 auto 90px;
+max-width:900px;
+">
+
+<p style="
+font-family:'Cormorant Garamond',serif;
+font-size:2rem;
+line-height:1.8;
+color:#d8c7ad;
+font-weight:500;
+">
+
+“Some truths survive through study.
+Others survive through remembrance.”
 
 </p>
 
