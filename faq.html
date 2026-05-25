@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+FAQ | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#060504;
+--bg-alt:#120f0d;
+--bg-soft:#1b1512;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f7f1e7;
+--muted:#c8bbab;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#060504;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.10);
+
+border-radius:50%;
+
+animation:float 36s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:10%;
+animation-duration:40s;
+}
+
+.particle:nth-child(2){
+top:74%;
+left:84%;
+animation-duration:28s;
+}
+
+.particle:nth-child(3){
+top:40%;
+left:52%;
+animation-duration:46s;
+}
+
+.particle:nth-child(4){
+top:88%;
+left:24%;
+animation-duration:34s;
+}
+
+.particle:nth-child(5){
+top:20%;
+left:92%;
+animation-duration:38s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-200px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(6,5,4,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+position:relative;
+
+min-height:92vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 180px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#060504,
+#17120f
+);
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 45%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.hero-label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:34px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:44px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:220px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#17120f,
+#0a0908
+);
+
+}
+
+.quote-section h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.8rem,5vw,5rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1100px;
+
+margin:auto;
+
+color:#f2e6d3;
+
+}
+
+/* =========================
+FAQ SECTION
+========================= */
+
+.faq-section{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0a0908,
+#140f0d
+);
+
+}
+
+.faq-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1100px;
+
+margin:auto;
+
+}
+
+.faq-item{
+
+padding:50px 46px;
+
+margin-bottom:34px;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.faq-item:hover{
+
+transform:translateY(-4px);
+
+border-color:
+rgba(212,164,79,0.20);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.faq-question{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(1.7rem,3vw,2.5rem);
+
+line-height:1.4;
+
+margin-bottom:30px;
+
+color:#f5e7d4;
+
+}
+
+.faq-answer{
+
+font-size:1.06rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+}
+
+/* =========================
+REFLECTION
+========================= */
+
+.reflection{
+
+position:relative;
+
+padding:220px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#060504
+);
+
+}
+
+.reflection-content{
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.reflection h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+margin-bottom:50px;
+
+}
+
+.reflection p{
+
+font-size:1.15rem;
+
+line-height:2.3;
+
+color:var(--muted);
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:36px;
+
+background:
+linear-gradient(
+180deg,
+#060504,
+#120f0d
+);
+
+}
+
+.chapter-nav-card{
+
+padding:55px 45px;
+
+text-decoration:none;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.chapter-nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:22px;
+
+color:#f4e7d4;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c7b9a8;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.quote-section{
+
+padding:180px 8%;
+
+}
+
+.faq-section{
+
+padding:170px 8%;
+
+}
+
+.reflection{
+
+padding:170px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:100px 8%;
+
+}
+
+.chapter-nav-card{
+
+padding:42px 32px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.7rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.2rem;
+
+line-height:1.6;
+
+}
+
+.faq-item{
+
+padding:38px 28px;
+
+}
+
+.faq-question{
+
+font-size:1.6rem;
+
+}
+
+.chapter-nav-card h3{
+
+font-size:1.8rem;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="chapters.html">
+Chapters
+</a>
+
+<a href="resources.html">
+Resources
+</a>
+
+<a href="about.html">
+About
+</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-label">
+
+QUESTIONS & REFLECTION
+
+</div>
+
+<h1>
+
+Frequently Asked Questions
+
+</h1>
+
+<p>
+
+Some readers arrive curious.
+Some arrive cautious.
+Some arrive wounded.
+Some arrive carrying years of silence, fear, grief, or unanswered questions.
+
+This page exists to answer honestly and compassionately.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“Truth does not tremble before careful questions.”
+
+</h2>
+
+</section>
+
+<section class="faq-section">
+
+<div class="faq-inner">
+
+<div class="faq-item">
+
+<h2 class="faq-question">
+
+Does this book attempt to rewrite Scripture?
+
+</h2>
+
+<p class="faq-answer">
+
+No. This project approaches Scripture with deep reverence and careful study. The goal is not to force modern ideology onto ancient text, but to examine language, covenant, history, grief, tenderness, translation, and interpretation honestly without fear controlling the conversation beforehand.
+
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h2 class="faq-question">
+
+Does this book claim David and Jonathan were unquestionably romantic?
+
+</h2>
+
+<p class="faq-answer">
+
+No. Readers throughout history have reached different conclusions regarding their relationship. Some interpret their covenant primarily through friendship and loyalty. Others recognize romantic or emotionally intimate dimensions within the language. This work encourages careful engagement with the text rather than demanding uniform conclusions.
+
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h2 class="faq-question">
+
+Why focus so deeply upon David and Jonathan?
+
+</h2>
+
+<p class="faq-answer">
+
+Because Scripture itself slows down around their story with unusual tenderness and emotional detail. Their covenant, grief, loyalty, vulnerability, and affection continue speaking powerfully across generations. The emotional honesty preserved within their relationship deserves thoughtful study rather than fearful avoidance.
+
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h2 class="faq-question">
+
+Is this project affirming toward LGBTQIA+ believers?
+
+</h2>
+
+<p class="faq-answer">
+
+Yes. This project believes LGBTQIA+ believers deserve dignity, compassion, thoughtful study, honesty, belonging, and spiritual safety. Many wounded believers spent years fearing rejection before God because fear shaped church environments more loudly than mercy. This work intentionally moves toward healing rather than shame.
+
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h2 class="faq-question">
+
+Can someone disagree with this project and still belong here?
+
+</h2>
+
+<p class="faq-answer">
+
+Absolutely. Honest disagreement and careful study have always existed within faith communities. This project encourages thoughtful reflection, humility, compassion, and historical awareness. Respectful dialogue matters deeply here.
+
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h2 class="faq-question">
+
+Why does the site speak so often about fear?
+
+</h2>
+
+<p class="faq-answer">
+
+Because fear has shaped many theological conversations surrounding tenderness, masculinity, emotional vulnerability, queerness, and belonging. Fear can narrow interpretation, silence questions, and wound people spiritually. Much of this project explores what becomes possible once fear no longer controls the conversation.
+
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h2 class="faq-question">
+
+What denomination is this project connected to?
+
+</h2>
+
+<p class="faq-answer">
+
+This project emerges from Christian faith, biblical study, covenant theology, historical research, and personal spiritual reflection. The focus remains upon Scripture, Jesus, compassion, emotional honesty, and careful engagement with sacred text rather than denominational loyalty alone.
+
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h2 class="faq-question">
+
+Who is this project written for?
+
+</h2>
+
+<p class="faq-answer">
+
+For wounded believers.
+For curious readers.
+For LGBTQIA+ Christians.
+For pastors.
+For educators.
+For grieving people.
+For students of Scripture.
+For anyone exhausted by fear driven conversations surrounding love, tenderness, and belonging.
+
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h2 class="faq-question">
+
+What does “A Love Older Than Fear” mean?
+
+</h2>
+
+<p class="faq-answer">
+
+The title reflects the belief that sacred love existed long before fear shaped modern theological panic surrounding tenderness, masculinity, queerness, and emotional honesty. Before contemporary debates emerged, the story of David and Jonathan already existed within Scripture with covenant, grief, affection, and devotion preserved openly inside sacred text.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="reflection">
+
+<div class="reflection-content">
+
+<h2>
+
+Questions Were Never the Enemy
+
+</h2>
+
+<p>
+
+Throughout Scripture, people continually wrestled with God, grief, covenant, mystery, suffering, interpretation, belonging, and truth. Honest questions have always existed inside sacred history.
+
+Fear often teaches silence.
+Love invites people closer.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="chapter-navigation">
+
+<a
+href="study-guide.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+STUDY GUIDE
+
+</div>
+
+<h3>
+
+Reading & Reflection
+
+</h3>
+
+<p>
+
+Continue deeper into guided questions, theological reflection, and group discussion material.
+
+</p>
+
+</a>
+
+<a
+href="prayer-room.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+PRAYER ROOM
+
+</div>
+
+<h3>
+
+Prayer & Healing
+
+</h3>
+
+<p>
+
+Enter a quieter space centered upon prayer requests, healing, compassion, and spiritual restoration.
+
+</p>
+
+</a>
+
+<a
+href="resources.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+RESOURCES
+
+</div>
+
+<h3>
+
+Research Archive
+
+</h3>
+
+<p>
+
+Explore historical, linguistic, theological, and pastoral resources connected to this project.
+
+</p>
+
+</a>
+
+<a
+href="index.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+HOME
+
+</div>
+
+<h3>
+
+Return Home
+
+</h3>
+
+<p>
+
+Return to the main archive and continue exploring A Love Older Than Fear.
+
+</p>
+
+</a>
+
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+});
+
+</script>
+
+</body>
+</html>
