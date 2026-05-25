@@ -1,22 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<link
-rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link
-rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
 <link
 href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
 rel="stylesheet">
@@ -31,7 +12,7 @@ FOOTER
 
 position:relative;
 
-padding:150px 8% 80px;
+padding:130px 8% 70px;
 
 background:
 linear-gradient(
@@ -77,18 +58,18 @@ content:"";
 
 position:absolute;
 
-top:-300px;
+top:0;
 left:50%;
 
 transform:translateX(-50%);
 
-width:900px;
-height:900px;
+width:1200px;
+height:1200px;
 
 background:
 radial-gradient(
 circle,
-rgba(212,164,79,0.04),
+rgba(212,164,79,0.03),
 transparent 70%
 );
 
@@ -106,14 +87,14 @@ position:relative;
 
 z-index:2;
 
-max-width:1300px;
+max-width:1400px;
 
 margin:auto;
 
 }
 
 /* =========================
-TOP
+TOP TITLE
 ========================= */
 
 .footer-top{
@@ -128,15 +109,15 @@ margin-bottom:90px;
 
 font-family:'Cinzel',serif;
 
-font-size:clamp(2.3rem,4vw,4.5rem);
+font-size:clamp(2.8rem,5vw,5rem);
 
 letter-spacing:3px;
 
-margin-bottom:28px;
+line-height:1.1;
+
+margin-bottom:36px;
 
 color:#f4e7d2;
-
-line-height:1.1;
 
 }
 
@@ -144,13 +125,13 @@ line-height:1.1;
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:clamp(1.5rem,2vw,2.2rem);
+font-size:clamp(1.7rem,2.3vw,2.7rem);
 
 line-height:1.9;
 
 color:#d8c7ad;
 
-max-width:850px;
+max-width:900px;
 
 margin:auto;
 
@@ -162,16 +143,16 @@ DIVIDER
 
 .footer-divider{
 
-width:220px;
+width:260px;
 height:1px;
 
-margin:0 auto 90px;
+margin:70px auto 100px;
 
 background:
 linear-gradient(
 90deg,
 transparent,
-rgba(212,164,79,0.55),
+rgba(212,164,79,0.7),
 transparent
 );
 
@@ -188,85 +169,66 @@ display:grid;
 grid-template-columns:
 repeat(auto-fit,minmax(220px,1fr));
 
-gap:60px;
+gap:90px 70px;
 
-margin-bottom:100px;
+margin-bottom:110px;
 
 }
 
-/* =========================
-COLUMN
-========================= */
-
 .footer-column h3{
 
-font-size:11px;
+font-size:12px;
 
-letter-spacing:4px;
+letter-spacing:6px;
 
 text-transform:uppercase;
 
-margin-bottom:28px;
-
 color:#d4a44f;
+
+margin-bottom:36px;
 
 font-family:'Inter',sans-serif;
 
 }
 
+.footer-column ul{
+
+list-style:none;
+
+display:flex;
+
+flex-direction:column;
+
+gap:24px;
+
+}
+
 .footer-column a{
-
-display:block;
-
-width:fit-content;
-
-margin-bottom:16px;
 
 text-decoration:none;
 
-font-size:1rem;
+font-size:1.05rem;
 
-line-height:1.8;
+line-height:1.6;
 
-color:#cdbba7;
+color:#d8c7ad;
 
 transition:0.4s ease;
 
 position:relative;
 
-}
-
-.footer-column a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-4px;
-
-width:0%;
-
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
+display:inline-block;
 
 }
 
 .footer-column a:hover{
 
-color:#f2d18b;
+color:#f3d69a;
+
+transform:translateX(4px);
 
 text-shadow:
 0 0 12px rgba(212,164,79,0.25);
-
-}
-
-.footer-column a:hover::after{
-
-width:100%;
 
 }
 
@@ -286,68 +248,74 @@ margin-bottom:70px;
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:clamp(1.5rem,2vw,2.1rem);
+font-size:clamp(2rem,3vw,3rem);
 
-line-height:2;
+line-height:1.9;
 
-color:#d8cab8;
+color:#efe3d3;
 
-margin-bottom:18px;
+margin-bottom:26px;
 
 }
 
 .footer-scripture span{
 
-font-size:11px;
+font-size:12px;
 
-letter-spacing:4px;
+letter-spacing:8px;
 
 text-transform:uppercase;
 
-color:#9d8f80;
+color:#8e7b64;
 
 }
 
 /* =========================
-BOTTOM DIVIDER
+SECOND DIVIDER
 ========================= */
 
-.footer-bottom-divider{
+.footer-spacer{
 
-width:160px;
+width:180px;
 height:1px;
 
-margin:0 auto 40px;
+margin:70px auto;
 
 background:
 linear-gradient(
 90deg,
 transparent,
-rgba(212,164,79,0.35),
+rgba(212,164,79,0.45),
 transparent
 );
 
 }
 
 /* =========================
-DESIGNER
+CREDITS
 ========================= */
 
-.footer-designer{
+.footer-credit{
 
 text-align:center;
 
-margin-bottom:16px;
-
-font-size:0.98rem;
-
-color:#9d8f80;
-
-line-height:1.9;
+margin-bottom:50px;
 
 }
 
-.footer-designer a{
+.footer-credit p{
+
+font-size:1.05rem;
+
+line-height:2;
+
+color:#bba891;
+
+margin-bottom:18px;
+
+}
+
+.footer-credit a{
 
 color:#d4a44f;
 
@@ -357,102 +325,251 @@ transition:0.4s ease;
 
 }
 
-.footer-designer a:hover{
+.footer-credit a:hover{
 
-color:#f2d18b;
+color:#f3d69a;
 
 text-shadow:
-0 0 10px rgba(212,164,79,0.28);
+0 0 12px rgba(212,164,79,0.25);
 
 }
 
-.footer-portfolio{
+/* =========================
+BOTTOM
+========================= */
+
+.footer-bottom{
 
 text-align:center;
 
-margin-bottom:40px;
+padding-top:50px;
+
+border-top:
+1px solid rgba(255,255,255,0.04);
 
 }
 
-.footer-portfolio a{
-
-text-decoration:none;
+.footer-bottom p{
 
 font-size:0.95rem;
 
-letter-spacing:1px;
-
-color:#b8aa99;
-
-transition:0.4s ease;
-
-}
-
-.footer-portfolio a:hover{
-
-color:#f2d18b;
-
-}
-
-/* =========================
-COPYRIGHT
-========================= */
-
-.footer-copy{
-
-text-align:center;
-
-font-size:0.88rem;
-
-letter-spacing:1.5px;
+letter-spacing:3px;
 
 line-height:2;
 
-color:#75695c;
-
 text-transform:uppercase;
+
+color:#8f8374;
 
 }
 
 /* =========================
-RESPONSIVE
+TABLET COMPRESSION
+========================= */
+
+@media(max-width:1024px){
+
+.site-footer{
+
+padding:90px 6% 55px;
+
+}
+
+.footer-top{
+
+margin-bottom:65px;
+
+}
+
+.footer-divider{
+
+margin:55px auto 75px;
+
+}
+
+.footer-grid{
+
+gap:60px 45px;
+
+margin-bottom:80px;
+
+}
+
+.footer-column h3{
+
+font-size:11px;
+
+letter-spacing:4px;
+
+margin-bottom:24px;
+
+}
+
+.footer-column ul{
+
+gap:18px;
+
+}
+
+.footer-column a{
+
+font-size:0.95rem;
+
+line-height:1.5;
+
+}
+
+.footer-scripture{
+
+margin-bottom:55px;
+
+}
+
+.footer-scripture p{
+
+font-size:2rem;
+
+line-height:1.8;
+
+margin-bottom:22px;
+
+}
+
+.footer-credit{
+
+margin-bottom:38px;
+
+}
+
+.footer-bottom{
+
+padding-top:38px;
+
+}
+
+}
+
+/* =========================
+MOBILE
 ========================= */
 
 @media(max-width:768px){
 
 .site-footer{
 
-padding:120px 8% 70px;
+padding:90px 7% 60px;
 
 }
 
-.footer-grid{
+.footer-top{
 
-gap:50px;
-
-margin-bottom:80px;
+margin-bottom:55px;
 
 }
-
-.footer-divider{
-
-margin:0 auto 70px;
-
-}
-
-}
-
-@media(max-width:540px){
 
 .footer-title{
 
-font-size:2.5rem;
+font-size:2.8rem;
 
 }
 
 .footer-quote{
 
-font-size:1.3rem;
+font-size:1.4rem;
+
+line-height:1.8;
+
+}
+
+.footer-divider{
+
+margin:45px auto 65px;
+
+width:180px;
+
+}
+
+.footer-grid{
+
+grid-template-columns:1fr;
+
+gap:55px;
+
+margin-bottom:65px;
+
+}
+
+.footer-column{
+
+text-align:center;
+
+}
+
+.footer-column ul{
+
+gap:18px;
+
+}
+
+.footer-column h3{
+
+margin-bottom:20px;
+
+}
+
+.footer-scripture p{
+
+font-size:1.7rem;
+
+line-height:1.8;
+
+}
+
+.footer-scripture span{
+
+letter-spacing:5px;
+
+}
+
+.footer-spacer{
+
+margin:55px auto;
+
+}
+
+.footer-credit p{
+
+font-size:1rem;
+
+}
+
+.footer-bottom p{
+
+font-size:0.8rem;
+
+letter-spacing:2px;
+
+}
+
+}
+
+/* =========================
+SMALL MOBILE
+========================= */
+
+@media(max-width:540px){
+
+.footer-title{
+
+font-size:2.2rem;
+
+line-height:1.2;
+
+}
+
+.footer-quote{
+
+font-size:1.15rem;
 
 line-height:1.8;
 
@@ -460,25 +577,19 @@ line-height:1.8;
 
 .footer-scripture p{
 
-font-size:1.3rem;
-
-line-height:1.8;
+font-size:1.45rem;
 
 }
 
 .footer-column a{
 
-font-size:0.96rem;
+font-size:0.95rem;
 
 }
 
 }
 
 </style>
-
-</head>
-
-<body>
 
 <footer class="site-footer">
 
@@ -489,9 +600,7 @@ font-size:0.96rem;
 <div class="footer-top">
 
 <h2 class="footer-title">
-
 A LOVE OLDER THAN FEAR
-
 </h2>
 
 <p class="footer-quote">
@@ -504,8 +613,6 @@ The rarest loves survive translation.”
 
 </div>
 
-<!-- DIVIDER -->
-
 <div class="footer-divider"></div>
 
 <!-- GRID -->
@@ -517,34 +624,28 @@ The rarest loves survive translation.”
 <div class="footer-column">
 
 <h3>
-
 Begin Reading
-
 </h3>
 
-<a href="index.html">
+<ul>
 
-Home
+<li>
+<a href="index.html">Home</a>
+</li>
 
-</a>
+<li>
+<a href="reading-paths.html">Reading Paths</a>
+</li>
 
-<a href="reading-paths.html">
+<li>
+<a href="chapters.html">Chapters</a>
+</li>
 
-Reading Paths
+<li>
+<a href="timeline.html">Timeline</a>
+</li>
 
-</a>
-
-<a href="chapters.html">
-
-Chapters
-
-</a>
-
-<a href="timeline.html">
-
-Timeline
-
-</a>
+</ul>
 
 </div>
 
@@ -553,40 +654,32 @@ Timeline
 <div class="footer-column">
 
 <h3>
-
 The Manuscript
-
 </h3>
 
-<a href="preface.html">
+<ul>
 
-Preface
+<li>
+<a href="preface.html">Preface</a>
+</li>
 
-</a>
+<li>
+<a href="prologue.html">Prologue</a>
+</li>
 
-<a href="prologue.html">
+<li>
+<a href="foreword.html">Foreword</a>
+</li>
 
-Prologue
+<li>
+<a href="introduction.html">Introduction</a>
+</li>
 
-</a>
+<li>
+<a href="acknowledgements.html">Acknowledgements</a>
+</li>
 
-<a href="foreword.html">
-
-Foreword
-
-</a>
-
-<a href="introduction.html">
-
-Introduction
-
-</a>
-
-<a href="acknowledgements.html">
-
-Acknowledgements
-
-</a>
+</ul>
 
 </div>
 
@@ -595,34 +688,28 @@ Acknowledgements
 <div class="footer-column">
 
 <h3>
-
 Study & Research
-
 </h3>
 
-<a href="resources.html">
+<ul>
 
-Resources
+<li>
+<a href="resources.html">Resources</a>
+</li>
 
-</a>
+<li>
+<a href="study-guide.html">Study Guide</a>
+</li>
 
-<a href="study-guide.html">
+<li>
+<a href="notes.html">Notes</a>
+</li>
 
-Study Guide
+<li>
+<a href="faq.html">FAQ</a>
+</li>
 
-</a>
-
-<a href="notes.html">
-
-Notes
-
-</a>
-
-<a href="faq.html">
-
-FAQ
-
-</a>
+</ul>
 
 </div>
 
@@ -631,34 +718,28 @@ FAQ
 <div class="footer-column">
 
 <h3>
-
 Reflection & Healing
-
 </h3>
 
-<a href="prayer-room.html">
+<ul>
 
-Prayer Room
+<li>
+<a href="prayer-room.html">Prayer Room</a>
+</li>
 
-</a>
+<li>
+<a href="covenant.html">Covenant</a>
+</li>
 
-<a href="covenant.html">
+<li>
+<a href="about.html">About</a>
+</li>
 
-Covenant
+<li>
+<a href="publication.html">Publication</a>
+</li>
 
-</a>
-
-<a href="about.html">
-
-About
-
-</a>
-
-<a href="publication.html">
-
-Publication
-
-</a>
+</ul>
 
 </div>
 
@@ -676,22 +757,21 @@ but perfect love casteth out fear.”
 </p>
 
 <span>
-
 1 JOHN 4:18
-
 </span>
 
 </div>
 
-<!-- DIVIDER -->
+<div class="footer-spacer"></div>
 
-<div class="footer-bottom-divider"></div>
+<!-- CREDIT -->
 
-<!-- DESIGNER -->
+<div class="footer-credit">
 
-<div class="footer-designer">
+<p>
 
 Written, designed, and developed by
+
 <a
 href="https://brad-hobbswd.github.io/brad-hobbswd"
 target="_blank">
@@ -700,9 +780,9 @@ Bradley Hobbs
 
 </a>
 
-</div>
+</p>
 
-<div class="footer-portfolio">
+<p>
 
 <a
 href="https://brad-hobbswd.github.io/clients"
@@ -712,20 +792,26 @@ Selected Client Portfolio
 
 </a>
 
+</p>
+
 </div>
 
-<!-- COPYRIGHT -->
+<!-- BOTTOM -->
 
-<div class="footer-copy">
+<div class="footer-bottom">
 
-© 2026 Bradley Hobbs • A Love Older Than Fear<br>
-All Rights Reserved
+<p>
+
+© 2026 BRADLEY HOBBS • A LOVE OLDER THAN FEAR
+
+<br>
+
+ALL RIGHTS RESERVED
+
+</p>
 
 </div>
 
 </div>
 
 </footer>
-
-</body>
-</html>
