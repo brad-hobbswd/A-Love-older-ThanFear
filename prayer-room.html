@@ -278,6 +278,22 @@ width:100%;
 }
 
 /* =========================
+ACTIVE LINK
+========================= */
+
+.nav-links a.active{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a.active::after{
+
+width:100%;
+
+}
+
+/* =========================
 HERO
 ========================= */
 
@@ -519,6 +535,17 @@ outline:none;
 
 transition:0.4s ease;
 
+appearance:none;
+
+}
+
+.prayer-form input::placeholder,
+.prayer-form textarea::placeholder{
+
+color:#9f9384;
+
+opacity:1;
+
 }
 
 .prayer-form textarea{
@@ -574,6 +601,23 @@ rgba(212,164,79,0.16);
 
 border-color:
 rgba(212,164,79,0.55);
+
+box-shadow:
+0 0 30px rgba(212,164,79,0.18);
+
+}
+
+.form-note{
+
+font-size:0.95rem;
+
+line-height:1.9;
+
+color:#bda98d;
+
+text-align:center;
+
+margin-top:8px;
 
 }
 
@@ -772,7 +816,7 @@ color:var(--muted);
 }
 
 /* =========================
-NAVIGATION
+NAVIGATION CARDS
 ========================= */
 
 .chapter-navigation{
@@ -960,6 +1004,14 @@ font-size:1.8rem;
 
 }
 
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
 }
 
 </style>
@@ -1007,9 +1059,9 @@ Resources
 Study Guide
 </a>
 
-<a href="prayer-room.html" style="
-color:#f6ddb0;
-">
+<a
+href="prayer-room.html"
+class="active">
 Prayer Room
 </a>
 
@@ -1086,82 +1138,104 @@ Prayer requests may be shared publicly within the prayer wall unless privacy is 
 
 <form
 class="prayer-form"
-action="YOUR-GOOGLE-FORM-LINK"
+action="https://docs.google.com/forms/d/e/1FAIpQLSfmb_jHm70XHghymkzeKVAZnxinKPjSs8mDeUUeqp7t3aRQ3w/formResponse"
 method="POST"
 target="_blank">
 
 <input
 type="text"
+name="entry.727528594"
 placeholder="Name or Anonymous">
 
 <input
 type="email"
+name="entry.192210686"
 placeholder="Email (Optional)">
 
-<select>
+<select
+name="entry.1395945411"
+required>
 
-<option>
+<option value="">
+Privacy Preference
+</option>
+
+<option value="Share Publicly">
 Share Publicly
 </option>
 
-<option>
+<option value="Keep Private">
 Keep Private
 </option>
 
-<option>
+<option value="Share As Anonymous">
 Share As Anonymous
 </option>
 
 </select>
 
-<select>
+<select
+name="entry.1132740109"
+required>
 
-<option>
+<option value="">
+Prayer Category
+</option>
+
+<option value="Healing">
 Healing
 </option>
 
-<option>
+<option value="Family">
 Family
 </option>
 
-<option>
+<option value="Peace">
 Peace
 </option>
 
-<option>
+<option value="Church Hurt">
 Church Hurt
 </option>
 
-<option>
+<option value="Grief">
 Grief
 </option>
 
-<option>
+<option value="Faith">
 Faith
 </option>
 
-<option>
+<option value="Relationships">
 Relationships
 </option>
 
-<option>
+<option value="Guidance">
 Guidance
 </option>
 
-<option>
+<option value="Identity">
 Identity
 </option>
 
 </select>
 
 <textarea
-placeholder="Write your prayer request here..."></textarea>
+name="entry.30429216"
+placeholder="Write your prayer request here..."
+required></textarea>
 
 <button type="submit">
 
 Submit Prayer Request
 
 </button>
+
+<p class="form-note">
+
+Every request is received prayerfully and reviewed with care.
+
+</p>
 
 </form>
 
