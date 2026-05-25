@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Reading Paths | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#070605;
+--bg-alt:#120f0d;
+--bg-soft:#1a1411;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f7f1e7;
+--muted:#c7b9a8;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#070605;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:1;
+
+overflow:hidden;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+background:rgba(255,220,160,0.10);
+
+border-radius:50%;
+
+animation:float 32s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:12%;
+left:12%;
+animation-duration:38s;
+}
+
+.particle:nth-child(2){
+top:76%;
+left:82%;
+animation-duration:28s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:52%;
+animation-duration:44s;
+}
+
+.particle:nth-child(4){
+top:88%;
+left:24%;
+animation-duration:34s;
+}
+
+.particle:nth-child(5){
+top:18%;
+left:92%;
+animation-duration:40s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-190px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(7,6,5,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:28px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+position:relative;
+
+min-height:90vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:240px 8% 180px;
+
+text-align:center;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#18120f
+);
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.10),
+transparent 44%
+);
+
+pointer-events:none;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:1000px;
+
+}
+
+.hero-label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.hero-content h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:44px;
+
+}
+
+.hero-content p{
+
+font-size:1.2rem;
+
+line-height:2.2;
+
+color:var(--muted);
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
+
+position:relative;
+
+padding:220px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#18120f,
+#0a0908
+);
+
+}
+
+.quote-section h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.6rem,5vw,5rem);
+
+line-height:1.7;
+
+font-weight:500;
+
+max-width:1100px;
+
+margin:auto;
+
+color:#f2e6d3;
+
+}
+
+/* =========================
+PATHS
+========================= */
+
+.paths{
+
+position:relative;
+
+padding:220px 8%;
+
+background:
+linear-gradient(
+180deg,
+#0a0908,
+#140f0d
+);
+
+}
+
+.paths-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:1400px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:38px;
+
+}
+
+.path-card{
+
+padding:55px 45px;
+
+background:
+rgba(255,255,255,0.025);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.path-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.path-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:22px;
+
+}
+
+.path-card h2{
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:28px;
+
+color:#f4e7d4;
+
+}
+
+.path-card p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c7b9a8;
+
+margin-bottom:30px;
+
+}
+
+.path-links{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:12px;
+
+margin-bottom:26px;
+
+}
+
+.path-links a{
+
+text-decoration:none;
+
+padding:10px 18px;
+
+font-size:11px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:#f3e4cf;
+
+border:
+1px solid rgba(212,164,79,0.24);
+
+transition:0.4s ease;
+
+}
+
+.path-links a:hover{
+
+background:
+rgba(212,164,79,0.08);
+
+border-color:
+rgba(212,164,79,0.55);
+
+}
+
+.path-theme{
+
+font-size:0.95rem;
+
+line-height:1.9;
+
+color:#aa9b8b;
+
+font-style:italic;
+
+}
+
+/* =========================
+REFLECTION
+========================= */
+
+.reflection{
+
+position:relative;
+
+padding:240px 8%;
+
+text-align:center;
+
+background:
+linear-gradient(
+180deg,
+#140f0d,
+#070605
+);
+
+}
+
+.reflection-content{
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.reflection h2{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(2.5rem,5vw,4.8rem);
+
+margin-bottom:50px;
+
+}
+
+.reflection p{
+
+font-size:1.15rem;
+
+line-height:2.3;
+
+color:var(--muted);
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.chapter-navigation{
+
+position:relative;
+
+padding:140px 8%;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:36px;
+
+background:
+linear-gradient(
+180deg,
+#070605,
+#120f0d
+);
+
+}
+
+.chapter-nav-card{
+
+padding:55px 45px;
+
+text-decoration:none;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.chapter-nav-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.chapter-nav-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.chapter-nav-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:22px;
+
+color:#f4e7d4;
+
+}
+
+.chapter-nav-card p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c7b9a8;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.hero{
+
+padding:200px 8% 150px;
+
+min-height:auto;
+
+}
+
+.paths{
+
+padding:170px 8%;
+
+}
+
+.reflection{
+
+padding:170px 8%;
+
+}
+
+.chapter-navigation{
+
+padding:100px 8%;
+
+}
+
+.chapter-nav-card{
+
+padding:42px 32px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.hero-content h1{
+
+font-size:2.8rem;
+
+}
+
+.quote-section h2{
+
+font-size:2.2rem;
+
+line-height:1.6;
+
+}
+
+.path-card{
+
+padding:40px 28px;
+
+}
+
+.path-card h2{
+
+font-size:1.7rem;
+
+}
+
+.chapter-nav-card h3{
+
+font-size:1.8rem;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="chapters.html">
+Chapters
+</a>
+
+<a href="timeline.html">
+Timeline
+</a>
+
+<a href="about.html">
+About
+</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="hero-label">
+
+GUIDED JOURNEYS
+
+</div>
+
+<h1>
+
+Reading Paths
+
+</h1>
+
+<p>
+
+Not every reader arrives carrying the same questions, wounds, fears, hopes, or reasons for opening this book. These paths were created to help readers begin where they are.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="quote-section">
+
+<h2>
+
+“Some readers arrive searching for answers.
+Others arrive searching for breath.”
+
+</h2>
+
+</section>
+
+<section class="paths">
+
+<div class="paths-inner">
+
+<div class="path-card">
+
+<div class="path-label">
+
+HEALING
+
+</div>
+
+<h2>
+
+For Wounded Readers
+
+</h2>
+
+<p>
+
+Begin with chapters focused upon fear, belonging, tenderness, grief, healing, and spiritual survival within difficult religious environments.
+
+</p>
+
+<div class="path-links">
+
+<a href="preface.html">Preface</a>
+<a href="chapter16.html">Chapter 16</a>
+<a href="chapter19.html">Chapter 19</a>
+<a href="prayer-room.html">Prayer Room</a>
+
+</div>
+
+<div class="path-theme">
+
+Themes: healing, belonging, fear, tenderness, restoration
+
+</div>
+
+</div>
+
+<div class="path-card">
+
+<div class="path-label">
+
+BELONGING
+
+</div>
+
+<h2>
+
+For LGBTQIA+ Believers
+
+</h2>
+
+<p>
+
+Explore chapters centered upon identity, faith, dignity, survival, covenant, emotional honesty, and the search for belonging within sacred spaces.
+
+</p>
+
+<div class="path-links">
+
+<a href="foreword.html">Foreword</a>
+<a href="introduction.html">Introduction</a>
+<a href="chapter15.html">Ch. 15</a>
+<a href="chapter16.html">Ch. 16</a>
+<a href="chapter17.html">Ch. 17</a>
+<a href="chapter18.html">Ch. 18</a>
+<a href="chapter19.html">Ch. 19</a>
+<a href="chapter20.html">Ch. 20</a>
+<a href="chapter21.html">Ch. 21</a>
+<a href="covenant.html">Covenant</a>
+
+</div>
+
+<div class="path-theme">
+
+Themes: identity, faith, dignity, survival, sacred honesty
+
+</div>
+
+</div>
+
+<div class="path-card">
+
+<div class="path-label">
+
+MINISTRY
+
+</div>
+
+<h2>
+
+For Pastors & Ministers
+
+</h2>
+
+<p>
+
+Resources focused upon compassionate theology, pastoral care, wounded believers, interpretation, fear, and the responsibility carried by spiritual leadership.
+
+</p>
+
+<div class="path-links">
+
+<a href="introduction.html">Introduction</a>
+<a href="study-guide.html">Study Guide</a>
+<a href="faq.html">FAQ</a>
+<a href="resources.html">Resources</a>
+<a href="chapter19.html">Chapter 19</a>
+
+</div>
+
+<div class="path-theme">
+
+Themes: theology, compassion, ministry, pastoral care
+
+</div>
+
+</div>
+
+<div class="path-card">
+
+<div class="path-label">
+
+ACADEMIC
+
+</div>
+
+<h2>
+
+For Academic Readers
+
+</h2>
+
+<p>
+
+Historical, linguistic, covenant, translation, and manuscript focused sections intended for readers seeking deeper research and scholarly engagement.
+
+</p>
+
+<div class="path-links">
+
+<a href="timeline.html">Timeline</a>
+<a href="resources.html">Resources</a>
+<a href="chapter7.html">Ch. 7</a>
+<a href="chapter8.html">Ch. 8</a>
+<a href="chapter9.html">Ch. 9</a>
+<a href="chapter10.html">Ch. 10</a>
+<a href="chapter11.html">Ch. 11</a>
+<a href="chapter12.html">Ch. 12</a>
+<a href="chapter13.html">Ch. 13</a>
+<a href="chapter14.html">Ch. 14</a>
+
+</div>
+
+<div class="path-theme">
+
+Themes: Hebrew, covenant, translation, history, interpretation
+
+</div>
+
+</div>
+
+<div class="path-card">
+
+<div class="path-label">
+
+QUESTIONS
+
+</div>
+
+<h2>
+
+For Skeptical Readers
+
+</h2>
+
+<p>
+
+A slower introduction focused upon historical context, honesty, interpretation, manuscript history, and the emotional complexity surrounding David and Jonathan.
+
+</p>
+
+<div class="path-links">
+
+<a href="faq.html">FAQ</a>
+<a href="timeline.html">Timeline</a>
+<a href="introduction.html">Introduction</a>
+<a href="resources.html">Resources</a>
+
+</div>
+
+<div class="path-theme">
+
+Themes: history, honesty, interpretation, theological questions
+
+</div>
+
+</div>
+
+<div class="path-card">
+
+<div class="path-label">
+
+FAMILY
+
+</div>
+
+<h2>
+
+For Parents
+
+</h2>
+
+<p>
+
+Sections exploring fear, tenderness, compassion, belonging, wounded faith, and the kind of spiritual safety future generations deserve to inherit.
+
+</p>
+
+<div class="path-links">
+
+<a href="foreword.html">Foreword</a>
+<a href="chapter16.html">Chapter 16</a>
+<a href="prayer-room.html">Prayer Room</a>
+<a href="chapter19.html">Chapter 19</a>
+
+</div>
+
+<div class="path-theme">
+
+Themes: compassion, protection, belonging, healing
+
+</div>
+
+</div>
+
+<div class="path-card">
+
+<div class="path-label">
+
+GROUP STUDY
+
+</div>
+
+<h2>
+
+For Bible Study Groups
+
+</h2>
+
+<p>
+
+Guided resources intended for classrooms, church discussions, study circles, and theological conversations seeking depth without fear controlling the dialogue.
+
+</p>
+
+<div class="path-links">
+
+<a href="study-guide.html">Study Guide</a>
+<a href="timeline.html">Timeline</a>
+<a href="faq.html">FAQ</a>
+<a href="resources.html">Resources</a>
+
+</div>
+
+<div class="path-theme">
+
+Themes: discussion, reflection, historical context, group study
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="reflection">
+
+<div class="reflection-content">
+
+<h2>
+
+Begin Where You Are
+
+</h2>
+
+<p>
+
+Some readers arrive carrying fear.
+Some arrive carrying exhaustion.
+Some arrive carrying questions they were taught never to ask aloud.
+Some arrive hoping Scripture still has room for honesty, tenderness, and belonging.
+
+Every journey through this archive begins differently.
+
+You are still welcome here.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="chapter-navigation">
+
+<a
+href="timeline.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+TIMELINE
+
+</div>
+
+<h3>
+
+Historical Journey
+
+</h3>
+
+<p>
+
+Explore the historical timeline surrounding covenant, interpretation, translation, theology, and sacred memory.
+
+</p>
+
+</a>
+
+<a
+href="study-guide.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+STUDY GUIDE
+
+</div>
+
+<h3>
+
+Reading & Reflection
+
+</h3>
+
+<p>
+
+Continue deeper into discussion questions, guided reflection, and theological conversation.
+
+</p>
+
+</a>
+
+<a
+href="prayer-room.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+PRAYER ROOM
+
+</div>
+
+<h3>
+
+Sacred Quietness
+
+</h3>
+
+<p>
+
+Enter a quieter space for prayer, healing, reflection, honesty, and shared burdens.
+
+</p>
+
+</a>
+
+<a
+href="index.html"
+class="chapter-nav-card">
+
+<div class="chapter-nav-label">
+
+HOME
+
+</div>
+
+<h3>
+
+Return Home
+
+</h3>
+
+<p>
+
+Return to the main archive and continue exploring A Love Older Than Fear.
+
+</p>
+
+</a>
+
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+});
+
+</script>
+
+</body>
+</html>
