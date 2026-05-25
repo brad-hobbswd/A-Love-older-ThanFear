@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Thank You | A Love Older Than Fear
+</title>
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg-main:#060504;
+--bg-alt:#120f0d;
+
+--gold:#d4a44f;
+--gold-soft:#f0cf8d;
+
+--text:#f7f1e7;
+--muted:#c8bbab;
+
+}
+
+body{
+
+background:var(--bg-main);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =========================
+SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#060504;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--gold);
+border-radius:20px;
+}
+
+/* =========================
+ATMOSPHERE
+========================= */
+
+.atmosphere{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:1;
+
+}
+
+.particle{
+
+position:absolute;
+
+width:3px;
+height:3px;
+
+border-radius:50%;
+
+background:
+rgba(255,220,160,0.10);
+
+animation:float 34s linear infinite;
+
+}
+
+.particle:nth-child(1){
+top:10%;
+left:14%;
+animation-duration:40s;
+}
+
+.particle:nth-child(2){
+top:72%;
+left:82%;
+animation-duration:28s;
+}
+
+.particle:nth-child(3){
+top:42%;
+left:50%;
+animation-duration:46s;
+}
+
+.particle:nth-child(4){
+top:88%;
+left:22%;
+animation-duration:34s;
+}
+
+.particle:nth-child(5){
+top:20%;
+left:90%;
+animation-duration:38s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-220px);
+opacity:0;
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.floating-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:22px 6%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+z-index:999;
+
+background:
+rgba(6,5,4,0.82);
+
+backdrop-filter:blur(14px);
+
+-webkit-backdrop-filter:blur(14px);
+
+border-bottom:
+1px solid rgba(255,255,255,0.04);
+
+}
+
+.nav-logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1rem;
+
+letter-spacing:3px;
+
+color:#f0cf8d;
+
+text-decoration:none;
+
+white-space:nowrap;
+
+}
+
+.nav-links{
+
+display:flex;
+
+align-items:center;
+
+justify-content:flex-end;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+color:#d5c2a5;
+
+transition:0.4s ease;
+
+position:relative;
+
+white-space:nowrap;
+
+}
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+height:1px;
+
+background:#d4a44f;
+
+transition:0.4s ease;
+
+}
+
+.nav-links a:hover{
+
+color:#f6ddb0;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =========================
+MAIN
+========================= */
+
+.thank-you-section{
+
+position:relative;
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+padding:220px 8% 180px;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#060504,
+#17120f
+);
+
+}
+
+.thank-you-section::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(212,164,79,0.08),
+transparent 44%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(255,255,255,0.02),
+transparent 60%
+);
+
+pointer-events:none;
+
+}
+
+.thank-you-inner{
+
+position:relative;
+
+z-index:2;
+
+max-width:980px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.label{
+
+font-size:12px;
+
+letter-spacing:7px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:36px;
+
+}
+
+.thank-you-inner h1{
+
+font-family:'Cinzel',serif;
+
+font-size:clamp(3rem,7vw,6rem);
+
+line-height:1.1;
+
+margin-bottom:42px;
+
+color:#f5e9d7;
+
+}
+
+.thank-you-inner p{
+
+font-size:1.15rem;
+
+line-height:2.3;
+
+color:var(--muted);
+
+margin-bottom:34px;
+
+}
+
+.scripture{
+
+margin-top:70px;
+
+padding-top:60px;
+
+border-top:
+1px solid rgba(212,164,79,0.14);
+
+}
+
+.scripture h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:clamp(2.2rem,4vw,3.8rem);
+
+line-height:1.6;
+
+font-weight:500;
+
+color:#f0e2cf;
+
+margin-bottom:26px;
+
+}
+
+.scripture p{
+
+font-size:1rem;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:#bfa98a;
+
+}
+
+/* =========================
+NAVIGATION CARDS
+========================= */
+
+.button-group{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:36px;
+
+margin-top:90px;
+
+}
+
+.thank-card{
+
+padding:55px 45px;
+
+text-decoration:none;
+
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.thank-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+180deg,
+rgba(212,164,79,0.05),
+transparent
+);
+
+opacity:0;
+
+transition:0.4s ease;
+
+}
+
+.thank-card:hover{
+
+transform:translateY(-6px);
+
+border-color:
+rgba(212,164,79,0.22);
+
+box-shadow:
+0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.thank-card:hover::before{
+
+opacity:1;
+
+}
+
+.thank-card-label{
+
+position:relative;
+
+z-index:2;
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.thank-card h3{
+
+position:relative;
+
+z-index:2;
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:22px;
+
+color:#f4e7d4;
+
+}
+
+.thank-card p{
+
+position:relative;
+
+z-index:2;
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c7b9a8;
+
+margin:0;
+
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.floating-nav{
+
+flex-direction:column;
+
+gap:18px;
+
+padding:18px 5%;
+
+}
+
+.nav-links{
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.nav-links a{
+
+font-size:10px;
+
+letter-spacing:2px;
+
+}
+
+.thank-you-section{
+
+padding:200px 8% 160px;
+
+}
+
+.thank-card{
+
+padding:42px 32px;
+
+}
+
+}
+
+@media(max-width:540px){
+
+.thank-you-inner h1{
+
+font-size:2.7rem;
+
+}
+
+.scripture h2{
+
+font-size:2rem;
+
+line-height:1.5;
+
+}
+
+.nav-links a{
+
+font-size:9px;
+
+letter-spacing:1.5px;
+
+}
+
+.thank-card h3{
+
+font-size:1.8rem;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="atmosphere">
+
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+
+</div>
+
+<nav class="floating-nav">
+
+<a href="index.html" class="nav-logo">
+
+A LOVE OLDER THAN FEAR
+
+</a>
+
+<div class="nav-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="chapters.html">
+Chapters
+</a>
+
+<a href="resources.html">
+Resources
+</a>
+
+<a href="prayer-room.html">
+Prayer Room
+</a>
+
+<a href="about.html">
+About
+</a>
+
+</div>
+
+</nav>
+
+<section class="thank-you-section">
+
+<div class="thank-you-inner">
+
+<div class="label">
+
+PRAYER RECEIVED
+
+</div>
+
+<h1>
+
+Your prayer matters here.
+
+</h1>
+
+<p>
+
+Thank you for trusting this space with something sacred.
+
+Some requests arrive carrying grief.
+Some carry exhaustion.
+Some carry fear that has remained unspoken for years.
+Some carry hope fragile enough to tremble while being written.
+
+Every prayer shared here is treated with care, dignity, compassion, and confidentiality.
+
+</p>
+
+<p>
+
+You are not weak for needing prayer.
+You are not forgotten for feeling overwhelmed.
+You are not alone while carrying difficult things quietly.
+
+Jesus still moves gently toward wounded people.
+
+</p>
+
+<p>
+
+Whether your request was shared publicly or privately, prayer will continue beyond this page.
+
+May peace breathe slowly back into your heart.
+
+</p>
+
+<div class="scripture">
+
+<h2>
+
+“Come unto me, all ye that labour and are heavy laden, and I will give you rest.”
+
+</h2>
+
+<p>
+
+Matthew 11:28
+
+</p>
+
+</div>
+
+<div class="button-group">
+
+<a
+href="prayer-room.html"
+class="thank-card">
+
+<div class="thank-card-label">
+
+PRAYER ROOM
+
+</div>
+
+<h3>
+
+Return to Prayer Room
+
+</h3>
+
+<p>
+
+Return to the prayer wall, continue praying for others, or leave another request quietly and safely.
+
+</p>
+
+</a>
+
+<a
+href="index.html"
+class="thank-card">
+
+<div class="thank-card-label">
+
+HOME
+
+</div>
+
+<h3>
+
+Return Home
+
+</h3>
+
+<p>
+
+Return to the main archive and continue exploring A Love Older Than Fear.
+
+</p>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<div id="footer-container"></div>
+
+<script>
+
+fetch('footer.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'footer-container'
+).innerHTML = data;
+
+});
+
+</script>
+
+</body>
+</html>
