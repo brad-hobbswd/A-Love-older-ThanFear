@@ -41,17 +41,15 @@ scroll-behavior:smooth;
 
 :root{
 
---bg-main:#090807;
---bg-alt:#120f0d;
---bg-soft:#1b1613;
+--bg-main:#070605;
+--bg-alt:#110e0c;
+--bg-soft:#181311;
 
 --gold:#d4a44f;
---gold-soft:#f2d18b;
+--gold-soft:#f0cf8d;
 
 --text:#f8f2e8;
 --muted:#c8bbab;
-
---purple:#41284b;
 
 }
 
@@ -65,8 +63,6 @@ color:var(--text);
 
 overflow-x:hidden;
 
-position:relative;
-
 }
 
 /* =========================
@@ -78,7 +74,7 @@ width:10px;
 }
 
 ::-webkit-scrollbar-track{
-background:#090807;
+background:#070605;
 }
 
 ::-webkit-scrollbar-thumb{
@@ -111,42 +107,43 @@ position:absolute;
 width:3px;
 height:3px;
 
-background:rgba(255,215,150,0.18);
-
 border-radius:50%;
 
-animation:float 18s linear infinite;
+background:
+rgba(255,220,160,0.10);
+
+animation:float 30s linear infinite;
 
 }
 
 .particle:nth-child(1){
-top:10%;
-left:15%;
-animation-duration:24s;
+top:12%;
+left:10%;
+animation-duration:34s;
 }
 
 .particle:nth-child(2){
-top:70%;
-left:80%;
-animation-duration:18s;
+top:74%;
+left:82%;
+animation-duration:24s;
 }
 
 .particle:nth-child(3){
-top:40%;
-left:55%;
-animation-duration:28s;
+top:42%;
+left:52%;
+animation-duration:40s;
 }
 
 .particle:nth-child(4){
-top:80%;
-left:30%;
-animation-duration:22s;
+top:88%;
+left:22%;
+animation-duration:32s;
 }
 
 .particle:nth-child(5){
-top:20%;
+top:18%;
 left:90%;
-animation-duration:26s;
+animation-duration:38s;
 }
 
 @keyframes float{
@@ -165,21 +162,9 @@ opacity:1;
 }
 
 100%{
-transform:translateY(-150px);
+transform:translateY(-190px);
 opacity:0;
 }
-
-}
-
-/* =========================
-HEADER CONTAINER
-========================= */
-
-#header-container{
-
-position:relative;
-
-z-index:9999;
 
 }
 
@@ -187,18 +172,18 @@ z-index:9999;
 HERO
 ========================= */
 
-.hero{
+.archive-hero{
 
 position:relative;
 
-min-height:100vh;
+min-height:88vh;
 
 display:flex;
 
 align-items:center;
 justify-content:center;
 
-padding:280px 8% 220px;
+padding:240px 8% 180px;
 
 text-align:center;
 
@@ -207,14 +192,13 @@ overflow:hidden;
 background:
 linear-gradient(
 180deg,
-#060504 0%,
-#120e0c 45%,
-#17110e 100%
+#070605,
+#17120f
 );
 
 }
 
-.hero::before{
+.archive-hero::before{
 
 content:"";
 
@@ -225,35 +209,9 @@ inset:0;
 background:
 
 radial-gradient(
-circle at top center,
+circle at top,
 rgba(212,164,79,0.10),
 transparent 42%
-),
-
-radial-gradient(
-circle at bottom center,
-rgba(65,40,75,0.10),
-transparent 55%
-);
-
-pointer-events:none;
-
-}
-
-.hero::after{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-linear-gradient(
-180deg,
-rgba(0,0,0,0.58),
-rgba(0,0,0,0.18) 40%,
-rgba(0,0,0,0.72)
 );
 
 pointer-events:none;
@@ -264,118 +222,81 @@ pointer-events:none;
 
 position:relative;
 
-z-index:5;
+z-index:2;
 
-max-width:1200px;
-
-margin:auto;
-
-animation:heroFade 2s ease;
+max-width:1000px;
 
 }
 
 .hero-label{
 
-font-size:13px;
+font-size:12px;
 
-letter-spacing:6px;
+letter-spacing:7px;
 
 text-transform:uppercase;
 
 color:var(--gold);
 
-margin-bottom:35px;
+margin-bottom:34px;
 
 }
 
-.hero h1{
+.hero-content h1{
 
 font-family:'Cinzel',serif;
 
-font-size:clamp(3rem,7vw,6.5rem);
+font-size:clamp(3rem,7vw,6rem);
 
-line-height:1.08;
+line-height:1.1;
 
-margin-bottom:35px;
+margin-bottom:44px;
 
-color:#f6ead7;
+color:#f5ead8;
 
 }
 
-.hero p{
+.hero-content p{
 
-font-size:1.2rem;
+font-size:1.15rem;
 
-line-height:2;
+line-height:2.2;
 
-max-width:900px;
+color:var(--muted);
+
+max-width:850px;
 
 margin:auto;
-
-color:#c8bbab;
-
-font-weight:300;
-
-}
-
-@keyframes heroFade{
-
-0%{
-opacity:0;
-transform:translateY(30px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
 
 }
 
 /* =========================
-ARCHIVE
+ARCHIVE SECTION
 ========================= */
 
-.archive{
+.archive-section{
 
 position:relative;
 
-padding:260px 8%;
+padding:180px 8%;
 
 background:
 linear-gradient(
 180deg,
-#17110e,
+#17120f,
 #090807
 );
 
-overflow:hidden;
-
 }
 
-.archive::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
+.archive-section:nth-child(even){
 
 background:
-
-radial-gradient(
-circle at top right,
-rgba(212,164,79,0.05),
-transparent 40%
-),
-
-radial-gradient(
-circle at bottom left,
-rgba(65,40,75,0.08),
-transparent 45%
+linear-gradient(
+180deg,
+#120f0d,
+#0a0908
 );
-
-pointer-events:none;
 
 }
 
@@ -385,105 +306,9 @@ position:relative;
 
 z-index:2;
 
-max-width:1400px;
+max-width:1300px;
 
 margin:auto;
-
-display:flex;
-
-flex-direction:column;
-
-gap:90px;
-
-}
-
-.archive-entry{
-
-position:relative;
-
-padding:90px 80px;
-
-background:
-linear-gradient(
-180deg,
-rgba(255,255,255,0.03),
-rgba(255,255,255,0.015)
-);
-
-border:
-1px solid rgba(255,255,255,0.05);
-
-overflow:hidden;
-
-transition:0.6s ease;
-
-backdrop-filter:blur(10px);
-
--webkit-backdrop-filter:blur(10px);
-
-animation:fadeRise 1.5s ease;
-
-}
-
-.archive-entry::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-linear-gradient(
-180deg,
-rgba(212,164,79,0.05),
-transparent
-);
-
-opacity:0;
-
-transition:0.5s ease;
-
-pointer-events:none;
-
-}
-
-.archive-entry:hover{
-
-transform:translateY(-8px);
-
-border-color:
-rgba(212,164,79,0.25);
-
-box-shadow:
-0 0 45px rgba(212,164,79,0.10);
-
-}
-
-.archive-entry:hover::before{
-
-opacity:1;
-
-}
-
-.archive-number{
-
-position:absolute;
-
-top:10px;
-right:35px;
-
-font-family:'Cinzel',serif;
-
-font-size:9rem;
-
-opacity:0.05;
-
-color:#f0cf8d;
-
-pointer-events:none;
-
-line-height:1;
 
 }
 
@@ -491,156 +316,234 @@ line-height:1;
 
 font-size:12px;
 
-letter-spacing:5px;
+letter-spacing:6px;
 
 text-transform:uppercase;
 
-color:#d4a44f;
+color:var(--gold);
 
-margin-bottom:24px;
-
-position:relative;
-
-z-index:2;
+margin-bottom:26px;
 
 }
 
-.archive-entry h2{
+.archive-title{
 
 font-family:'Cinzel',serif;
 
-font-size:clamp(2rem,5vw,4rem);
+font-size:clamp(2.3rem,5vw,4rem);
 
-line-height:1.15;
+line-height:1.2;
 
 margin-bottom:30px;
 
-position:relative;
-
-z-index:2;
+color:#f3e7d4;
 
 }
 
-.archive-entry p{
+.archive-description{
 
-font-size:1.12rem;
+max-width:900px;
 
-line-height:2;
+font-size:1.08rem;
 
-color:#c8bbab;
+line-height:2.1;
 
-max-width:950px;
+color:var(--muted);
 
-position:relative;
-
-z-index:2;
-
-margin-bottom:45px;
+margin-bottom:90px;
 
 }
 
-.archive-button{
+.archive-grid{
 
-display:inline-flex;
+display:grid;
 
-align-items:center;
-justify-content:center;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
 
-padding:18px 38px;
+gap:34px;
 
-border-radius:60px;
+}
 
-border:
-1px solid rgba(212,164,79,0.45);
+/* =========================
+ARCHIVE CARD
+========================= */
 
-background:
-rgba(212,164,79,0.08);
+.archive-card{
 
-backdrop-filter:blur(10px);
+position:relative;
 
--webkit-backdrop-filter:blur(10px);
+padding:50px 42px;
 
 text-decoration:none;
 
-color:#f2d18b;
+background:
+rgba(255,255,255,0.02);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+overflow:hidden;
+
+transition:0.45s ease;
+
+}
+
+.archive-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:1px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(212,164,79,0.55),
+transparent
+);
+
+opacity:0;
+
+transition:0.5s ease;
+
+}
+
+.archive-card:hover{
+
+transform:translateY(-8px);
+
+border-color:
+rgba(212,164,79,0.20);
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.08);
+
+}
+
+.archive-card:hover::before{
+
+opacity:1;
+
+}
+
+.archive-card-label{
 
 font-size:11px;
-
-font-weight:600;
 
 letter-spacing:4px;
 
 text-transform:uppercase;
 
-transition:0.5s ease;
+color:var(--gold);
+
+margin-bottom:22px;
+
+}
+
+.archive-card h3{
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+line-height:1.3;
+
+margin-bottom:24px;
+
+color:#f4e7d4;
+
+}
+
+.archive-card p{
+
+font-size:1rem;
+
+line-height:2;
+
+color:#c8bbab;
+
+margin-bottom:34px;
+
+}
+
+.archive-link{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:14px;
+
+font-size:11px;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#f0cf8d;
+
+}
+
+.archive-arrow{
+
+font-size:1rem;
+
+transform:translateX(0);
+
+transition:0.4s ease;
+
+}
+
+.archive-card:hover
+.archive-arrow{
+
+transform:translateX(8px);
+
+}
+
+/* =========================
+QUOTE
+========================= */
+
+.quote-section{
 
 position:relative;
 
-z-index:2;
+padding:220px 8%;
 
-overflow:hidden;
-
-}
-
-.archive-button::before{
-
-content:"➜";
-
-margin-right:12px;
-
-transition:0.5s ease;
-
-display:inline-block;
-
-color:#f2d18b;
-
-}
-
-.archive-button:hover{
+text-align:center;
 
 background:
-rgba(212,164,79,0.16);
-
-transform:translateY(-4px);
-
-box-shadow:
-0 0 35px rgba(212,164,79,0.18);
-
-}
-
-.archive-button:hover::before{
-
-transform:translateX(5px);
+linear-gradient(
+180deg,
+#090807,
+#17120f
+);
 
 }
 
-/* =========================
-FETCHED FOOTER
-========================= */
+.quote-section h2{
 
-#footer-container{
+font-family:'Cormorant Garamond',serif;
 
-position:relative;
+font-size:clamp(2.8rem,5vw,5rem);
 
-z-index:2;
+line-height:1.6;
 
-}
+font-weight:500;
 
-/* =========================
-ANIMATION
-========================= */
+max-width:1100px;
 
-@keyframes fadeRise{
+margin:auto;
 
-0%{
-opacity:0;
-transform:translateY(30px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
+color:#f2e7d2;
 
 }
 
@@ -648,61 +551,31 @@ transform:translateY(0);
 RESPONSIVE
 ========================= */
 
-@media(max-width:900px){
-
-.hero{
-
-padding:240px 8% 180px;
-
-}
-
-.archive{
-
-padding:180px 8%;
-
-}
-
-.archive-entry{
-
-padding:70px 45px;
-
-}
-
-.archive-number{
-
-font-size:6rem;
-
-}
-
-}
-
 @media(max-width:768px){
 
-.hero{
+.archive-hero{
 
-padding:220px 7% 160px;
+padding:210px 8% 160px;
 
 min-height:auto;
 
 }
 
-.hero h1{
+.archive-section{
 
-line-height:1.15;
-
-}
-
-.archive-entry{
-
-padding:60px 35px;
+padding:150px 8%;
 
 }
 
-.archive-number{
+.quote-section{
 
-font-size:5rem;
+padding:180px 8%;
 
-right:20px;
+}
+
+.archive-card{
+
+padding:42px 34px;
 
 }
 
@@ -710,66 +583,29 @@ right:20px;
 
 @media(max-width:540px){
 
-.hero{
+.hero-content h1{
 
-padding:200px 7% 140px;
-
-}
-
-.hero p{
-
-font-size:1.05rem;
-
-line-height:1.9;
+font-size:2.7rem;
 
 }
 
-.archive{
+.archive-title{
 
-padding:140px 6%;
-
-}
-
-.archive-entry{
-
-padding:50px 28px;
+font-size:2.2rem;
 
 }
 
-.archive-number{
+.quote-section h2{
 
-font-size:4rem;
+font-size:2.2rem;
 
-top:20px;
-right:16px;
-
-}
-
-.archive-entry h2{
-
-line-height:1.2;
+line-height:1.5;
 
 }
 
-.archive-entry p{
+.archive-card h3{
 
-font-size:1rem;
-
-line-height:1.9;
-
-}
-
-.archive-button{
-
-padding:16px 26px;
-
-font-size:10px;
-
-letter-spacing:3px;
-
-width:100%;
-
-justify-content:center;
+font-size:1.7rem;
 
 }
 
@@ -780,10 +616,6 @@ justify-content:center;
 </head>
 
 <body>
-
-<!-- HEADER -->
-
-<div id="header-container"></div>
 
 <!-- ATMOSPHERE -->
 
@@ -797,27 +629,31 @@ justify-content:center;
 
 </div>
 
+<!-- HEADER -->
+
+<div id="header-container"></div>
+
 <!-- HERO -->
 
-<section class="hero">
+<section class="archive-hero">
 
 <div class="hero-content">
 
 <div class="hero-label">
 
-THE ARCHIVE
+PRESERVED COLLECTIONS
 
 </div>
 
 <h1>
 
-Fragments preserved through memory, language, covenant, and grief.
+The Archive
 
 </h1>
 
 <p>
 
-Every chapter within this archive follows traces left behind inside Scripture, history, translation, and human tenderness. Some pages preserve longing. Some preserve silence. Some preserve love generations struggled to name openly.
+A preserved collection of manuscripts, reflections, theological studies, pastoral writings, historical notes, and sacred conversations gathered throughout the creation of A Love Older Than Fear.
 
 </p>
 
@@ -825,177 +661,809 @@ Every chapter within this archive follows traces left behind inside Scripture, h
 
 </section>
 
-<!-- ARCHIVE -->
+<!-- FOUNDATIONAL TEXTS -->
 
-<section class="archive">
+<section class="archive-section">
 
 <div class="archive-inner">
 
-<div class="archive-entry">
-
-<div class="archive-number">
-I
-</div>
-
 <div class="archive-label">
 
-FOREWORD
+COLLECTION I
 
 </div>
 
-<h2>
+<h2 class="archive-title">
 
-Before the Questions Began
+Foundational Texts
 
 </h2>
 
-<p>
+<p class="archive-description">
 
-Every journey into sacred text begins somewhere. Some begin academically. Some begin emotionally. Some begin through grief, silence, tenderness, or longing difficult to explain aloud.
+Opening manuscript materials introducing the emotional, historical, spiritual, and theological framework surrounding the archive.
 
 </p>
 
-<a
-href="foreword.html"
-class="archive-button">
+<div class="archive-grid">
 
-ENTER FOREWORD
+<a href="publication.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Publication
+
+</div>
+
+<h3>
+
+Publication Information
+
+</h3>
+
+<p>
+
+Preserved publication records and introductory archival details connected to the manuscript.
+
+</p>
+
+<div class="archive-link">
+
+ENTER ARCHIVE
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="dedication.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Dedication
+
+</div>
+
+<h3>
+
+Dedication
+
+</h3>
+
+<p>
+
+A personal dedication honoring the hearts, stories, and lives connected to this journey.
+
+</p>
+
+<div class="archive-link">
+
+ENTER ARCHIVE
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="foreword.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Foreword
+
+</div>
+
+<h3>
+
+Foreword
+
+</h3>
+
+<p>
+
+An opening reflection introducing the emotional and theological heartbeat of the manuscript.
+
+</p>
+
+<div class="archive-link">
+
+ENTER ARCHIVE
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="preface.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Preface
+
+</div>
+
+<h3>
+
+Preface
+
+</h3>
+
+<p>
+
+A reflective introduction exploring the purpose and origins behind this work.
+
+</p>
+
+<div class="archive-link">
+
+ENTER ARCHIVE
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="prologue.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Prologue
+
+</div>
+
+<h3>
+
+Prologue
+
+</h3>
+
+<p>
+
+An opening narrative inviting readers into the emotional landscape of the archive.
+
+</p>
+
+<div class="archive-link">
+
+ENTER ARCHIVE
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="introduction.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Introduction
+
+</div>
+
+<h3>
+
+Introduction
+
+</h3>
+
+<p>
+
+Historical, theological, and emotional context surrounding the manuscript journey.
+
+</p>
+
+<div class="archive-link">
+
+ENTER ARCHIVE
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
 
 </a>
 
 </div>
 
-<div class="archive-entry">
-
-<div class="archive-number">
-II
 </div>
+
+</section>
+
+<!-- MANUSCRIPT -->
+
+<section class="archive-section">
+
+<div class="archive-inner">
 
 <div class="archive-label">
 
-MANUSCRIPT
+COLLECTION II
 
 </div>
 
-<h2>
+<h2 class="archive-title">
 
-The Language of Love
+The Manuscript
 
 </h2>
 
-<p>
+<p class="archive-description">
 
-Ancient words carried emotional depth many readers were never taught to notice carefully. Covenant language, devotion, affection, grief, and loyalty survived translation after translation while preserving remarkable tenderness.
+The central manuscript collection exploring covenant, tenderness, fear, Scripture, interpretation, grief, belonging, and theological reflection.
 
 </p>
 
-<a
-href="manuscript.html"
-class="archive-button">
+<div class="archive-grid">
+
+<a href="chapters.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Chapters
+
+</div>
+
+<h3>
+
+Complete Chapter Archive
+
+</h3>
+
+<p>
+
+Explore the full manuscript collection across all preserved chapters.
+
+</p>
+
+<div class="archive-link">
 
 ENTER MANUSCRIPT
 
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="part1.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Part One
+
+</div>
+
+<h3>
+
+Part I
+
+</h3>
+
+<p>
+
+Opening manuscript studies introducing fear, tenderness, and interpretation.
+
+</p>
+
+<div class="archive-link">
+
+READ COLLECTION
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="part2.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Part Two
+
+</div>
+
+<h3>
+
+Part II
+
+</h3>
+
+<p>
+
+Historical and emotional exploration surrounding David and Jonathan.
+
+</p>
+
+<div class="archive-link">
+
+READ COLLECTION
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="part3.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Part Three
+
+</div>
+
+<h3>
+
+Part III
+
+</h3>
+
+<p>
+
+Questions surrounding covenant, belonging, faith, and tenderness.
+
+</p>
+
+<div class="archive-link">
+
+READ COLLECTION
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="part4.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Part Four
+
+</div>
+
+<h3>
+
+Part IV
+
+</h3>
+
+<p>
+
+Interpretive tensions, theological reflections, and historical analysis.
+
+</p>
+
+<div class="archive-link">
+
+READ COLLECTION
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="part5.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Part Five
+
+</div>
+
+<h3>
+
+Part V
+
+</h3>
+
+<p>
+
+Closing manuscript reflections centered on healing, honesty, and compassion.
+
+</p>
+
+<div class="archive-link">
+
+READ COLLECTION
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
 </a>
 
 </div>
 
-<div class="archive-entry">
-
-<div class="archive-number">
-III
 </div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote-section">
+
+<h2>
+
+“Some archives survive because wounded people still search them for mercy.”
+
+</h2>
+
+</section>
+
+<!-- REFLECTIONS -->
+
+<section class="archive-section">
+
+<div class="archive-inner">
 
 <div class="archive-label">
 
-REFLECTIONS
+COLLECTION III
 
 </div>
 
-<h2>
+<h2 class="archive-title">
+
+Covenant & Reflection
+
+</h2>
+
+<p class="archive-description">
+
+Personal reflections, preserved observations, emotional discoveries, and theological notes gathered throughout the writing journey.
+
+</p>
+
+<div class="archive-grid">
+
+<a href="covenant.html" class="archive-card">
+
+<div class="archive-card-label">
 
 Covenant
 
-</h2>
+</div>
+
+<h3>
+
+Personal Reflections
+
+</h3>
 
 <p>
 
-Personal reflections gathered throughout the writing journey surrounding tenderness, faith, Scripture, fear, translation, belonging, and the emotional honesty preserved within David and Jonathan.
+Thoughts surrounding covenant, tenderness, grief, translation, and belonging.
 
 </p>
 
-<a
-href="covenant.html"
-class="archive-button">
+<div class="archive-link">
 
-ENTER REFLECTIONS
+OPEN REFLECTIONS
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="notes.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Notes
+
+</div>
+
+<h3>
+
+Research Notes
+
+</h3>
+
+<p>
+
+Collected manuscript notes, observations, and preserved discoveries connected to the archive.
+
+</p>
+
+<div class="archive-link">
+
+OPEN NOTES
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
 
 </a>
 
 </div>
 
-<div class="archive-entry">
-
-<div class="archive-number">
-IV
 </div>
+
+</section>
+
+<!-- STUDY -->
+
+<section class="archive-section">
+
+<div class="archive-inner">
 
 <div class="archive-label">
 
-STUDY
+COLLECTION IV
 
 </div>
 
-<h2>
+<h2 class="archive-title">
+
+Study & Interpretation
+
+</h2>
+
+<p class="archive-description">
+
+Resources designed for readers, churches, classrooms, researchers, and wounded believers seeking deeper theological engagement.
+
+</p>
+
+<div class="archive-grid">
+
+<a href="study-guide.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Study Guide
+
+</div>
+
+<h3>
 
 Reading & Reflection
 
-</h2>
+</h3>
 
 <p>
 
-Guided questions, theological reflection, historical exploration, and emotional examination created for readers, classrooms, churches, and small group discussion.
+Guided questions, reflection prompts, and theological discussion materials.
 
 </p>
 
-<a
-href="study-guide.html"
-class="archive-button">
+<div class="archive-link">
 
-OPEN STUDY GUIDE
+OPEN GUIDE
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="resources.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Resources
+
+</div>
+
+<h3>
+
+Research Archive
+
+</h3>
+
+<p>
+
+Historical, theological, linguistic, and pastoral resources connected to the manuscript.
+
+</p>
+
+<div class="archive-link">
+
+OPEN ARCHIVE
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="faq.html" class="archive-card">
+
+<div class="archive-card-label">
+
+FAQ
+
+</div>
+
+<h3>
+
+Questions & Answers
+
+</h3>
+
+<p>
+
+Responses addressing interpretation, purpose, belonging, faith, and manuscript themes.
+
+</p>
+
+<div class="archive-link">
+
+READ RESPONSES
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
 
 </a>
 
 </div>
 
-<div class="archive-entry">
-
-<div class="archive-number">
-V
 </div>
+
+</section>
+
+<!-- HEALING -->
+
+<section class="archive-section">
+
+<div class="archive-inner">
 
 <div class="archive-label">
 
-RESEARCH
+COLLECTION V
 
 </div>
 
-<h2>
+<h2 class="archive-title">
 
-Resources & Sources
+Care & Healing Spaces
 
 </h2>
 
-<p>
+<p class="archive-description">
 
-Historical archives, linguistic studies, translation notes, theological resources, and research materials connected to the broader journey behind this project.
+Sacred spaces created for reflection, prayer, healing, honesty, compassion, and emotional restoration.
 
 </p>
 
-<a
-href="resources.html"
-class="archive-button">
+<div class="archive-grid">
 
-EXPLORE RESOURCES
+<a href="prayer-room.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Prayer Room
+
+</div>
+
+<h3>
+
+Sacred Quietness
+
+</h3>
+
+<p>
+
+A preserved space for prayer requests, healing, honesty, and spiritual care.
+
+</p>
+
+<div class="archive-link">
+
+ENTER ROOM
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="about.html" class="archive-card">
+
+<div class="archive-card-label">
+
+About
+
+</div>
+
+<h3>
+
+Why This Exists
+
+</h3>
+
+<p>
+
+The emotional and spiritual heart behind A Love Older Than Fear.
+
+</p>
+
+<div class="archive-link">
+
+READ STORY
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
+
+</a>
+
+<a href="reading-paths.html" class="archive-card">
+
+<div class="archive-card-label">
+
+Reading Paths
+
+</div>
+
+<h3>
+
+Reading Journeys
+
+</h3>
+
+<p>
+
+Curated reading experiences designed for different emotional and theological journeys.
+
+</p>
+
+<div class="archive-link">
+
+BEGIN JOURNEY
+
+<span class="archive-arrow">
+→
+</span>
+
+</div>
 
 </a>
 
@@ -1011,77 +1479,23 @@ EXPLORE RESOURCES
 
 <script>
 
-/* =========================
-HEADER FETCH
-========================= */
-
-fetch('./header.html')
-
-.then(response => {
-
-if(!response.ok){
-
-throw new Error(
-'Header failed to load'
-);
-
-}
-
-return response.text();
-
-})
-
+fetch('header.html')
+.then(response => response.text())
 .then(data => {
 
 document.getElementById(
 'header-container'
 ).innerHTML = data;
 
-})
-
-.catch(error => {
-
-console.error(
-'Header failed to load:',
-error
-);
-
 });
 
-/* =========================
-FOOTER FETCH
-========================= */
-
-fetch('./footer.html')
-
-.then(response => {
-
-if(!response.ok){
-
-throw new Error(
-'Footer failed to load'
-);
-
-}
-
-return response.text();
-
-})
-
+fetch('footer.html')
+.then(response => response.text())
 .then(data => {
 
 document.getElementById(
 'footer-container'
 ).innerHTML = data;
-
-})
-
-.catch(error => {
-
-console.error(
-'Footer failed to load:',
-error
-);
 
 });
 
