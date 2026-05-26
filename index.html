@@ -169,132 +169,6 @@ opacity:0;
 }
 
 /* =========================
-NAVIGATION
-========================= */
-
-.floating-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:22px 4%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-z-index:999;
-
-background:
-linear-gradient(
-180deg,
-rgba(0,0,0,0.42),
-transparent
-);
-
-backdrop-filter:blur(10px);
-
--webkit-backdrop-filter:blur(10px);
-
-transition:0.5s ease;
-
-}
-
-.nav-logo{
-
-font-family:'Cinzel',serif;
-
-font-size:0.92rem;
-
-letter-spacing:3px;
-
-color:#f2d18b;
-
-white-space:nowrap;
-
-text-decoration:none;
-
-display:block;
-
-text-shadow:
-0 0 12px rgba(212,164,79,0.25);
-
-}
-
-.nav-links{
-
-display:flex;
-
-align-items:center;
-
-justify-content:flex-end;
-
-gap:18px;
-
-flex-wrap:wrap;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-font-size:10px;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-color:#d7c3a4;
-
-transition:0.4s ease;
-
-position:relative;
-
-white-space:nowrap;
-
-}
-
-.nav-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.nav-links a:hover{
-
-color:#f2d18b;
-
-text-shadow:
-0 0 12px rgba(212,164,79,0.35);
-
-}
-
-.nav-links a:hover::after{
-
-width:100%;
-
-}
-
-/* =========================
 HERO
 ========================= */
 
@@ -1206,7 +1080,7 @@ letter-spacing:1px;
 </head>
 
 <body>
-
+<div id="header-container"></div>
 <!-- ATMOSPHERE -->
 
 <div class="atmosphere">
@@ -1218,51 +1092,6 @@ letter-spacing:1px;
 <div class="particle"></div>
 
 </div>
-
-<!-- NAVIGATION -->
-
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="reading-paths.html">
-Reading Paths
-</a>
-
-<a href="chapters.html">
-Chapters
-</a>
-
-<a href="resources.html">
-Resources
-</a>
-
-<a href="study-guide.html">
-Study Guide
-</a>
-
-<a href="prayer-room.html">
-Prayer Room
-</a>
-
-<a href="about.html">
-About
-</a>
-
-</div>
-
-</nav>
-
 <!-- HERO -->
 
 <section class="hero">
@@ -1620,12 +1449,21 @@ Their covenant remains visible. Their grief remains visible. Their love remains 
 </p>
 
 </section>
-
-<!-- FOOTER -->
-
 <div id="footer-container"></div>
-
+    
 <script>
+
+fetch('header.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'header-container'
+).innerHTML = data;
+
+});
 
 fetch('footer.html')
 
@@ -1640,9 +1478,7 @@ document.getElementById(
 });
 
 </script>
-
 <script>
-
 // SCROLL REVEAL
 
 const revealItems =
