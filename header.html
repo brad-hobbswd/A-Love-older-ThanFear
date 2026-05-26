@@ -1,6 +1,6 @@
 <!-- ========================================
 HEADER.HTML
-PLACE THIS ENTIRE FILE INSIDE header.html
+UNIVERSAL SACRED NAVIGATION
 ======================================== -->
 
 <style>
@@ -38,6 +38,8 @@ backdrop-filter:blur(14px);
 border-bottom:
 1px solid rgba(255,255,255,0.04);
 
+transition:0.45s ease;
+
 }
 
 /* =========================
@@ -59,6 +61,9 @@ text-decoration:none;
 white-space:nowrap;
 
 z-index:10001;
+
+text-shadow:
+0 0 12px rgba(212,164,79,0.18);
 
 }
 
@@ -117,6 +122,9 @@ transition:0.4s ease;
 
 color:#f2d18b;
 
+text-shadow:
+0 0 10px rgba(212,164,79,0.24);
+
 }
 
 .desktop-nav a:hover::after{
@@ -138,10 +146,12 @@ width:100%;
 }
 
 /* =========================
-MENU BUTTON
+MENU TOGGLE
 ========================= */
 
 .menu-toggle{
+
+display:none;
 
 width:58px;
 height:58px;
@@ -153,8 +163,6 @@ border:
 
 background:
 rgba(212,164,79,0.06);
-
-display:flex;
 
 align-items:center;
 
@@ -185,7 +193,7 @@ box-shadow:
 }
 
 /* =========================
-GOLD ARROW
+ARROW ICON
 ========================= */
 
 .arrow-wrap{
@@ -231,6 +239,10 @@ rotate(-45deg)
 translate(2px,5px);
 
 }
+
+/* =========================
+ACTIVE X
+========================= */
 
 .menu-toggle.active
 .arrow-line.one{
@@ -296,29 +308,40 @@ position:fixed;
 top:0;
 right:0;
 
-width:min(420px,90vw);
+width:340px;
+max-width:90%;
 
 height:100vh;
-
-padding:130px 50px 60px;
 
 background:
 linear-gradient(
 180deg,
-#0d0b0a,
-#17120f
+rgba(10,8,7,0.98),
+rgba(20,15,13,0.98)
 );
 
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
 border-left:
-1px solid rgba(212,164,79,0.14);
-
-transform:translateX(100%);
-
-transition:0.55s cubic-bezier(.77,0,.18,1);
-
-overflow-y:auto;
+1px solid rgba(212,164,79,0.15);
 
 z-index:9998;
+
+padding:120px 40px 60px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:26px;
+
+transform:translateX(110%);
+
+transition:0.5s ease;
+
+overflow-y:auto;
 
 }
 
@@ -347,7 +370,7 @@ margin-bottom:45px;
 }
 
 /* =========================
-MENU LINKS
+SLIDE LINKS
 ========================= */
 
 .slide-links{
@@ -414,7 +437,7 @@ transform:translateX(10px);
 }
 
 /* =========================
-MOBILE
+TABLET + MOBILE
 ========================= */
 
 @media(max-width:900px){
@@ -425,10 +448,6 @@ display:none;
 
 }
 
-}
-
-@media(min-width:901px){
-
 .menu-toggle{
 
 display:flex;
@@ -436,6 +455,25 @@ display:flex;
 }
 
 }
+
+/* =========================
+DESKTOP
+========================= */
+
+@media(min-width:901px){
+
+.slide-menu,
+.menu-overlay{
+
+display:none;
+
+}
+
+}
+
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:540px){
 
@@ -707,7 +745,7 @@ toggleMenu
 );
 
 /* =========================
-CLOSE ON LINK CLICK
+CLOSE MENU ON LINK CLICK
 ========================= */
 
 document.querySelectorAll(
@@ -755,6 +793,41 @@ link.getAttribute('href')
 link.classList.add(
 'active'
 );
+
+}
+
+});
+
+/* =========================
+HEADER SCROLL EFFECT
+========================= */
+
+const header =
+document.querySelector(
+'.site-header'
+);
+
+window.addEventListener(
+'scroll',
+() => {
+
+if(window.scrollY > 50){
+
+header.style.background =
+'rgba(7,6,5,0.92)';
+
+header.style.borderBottom =
+'1px solid rgba(255,255,255,0.06)';
+
+}
+
+else{
+
+header.style.background =
+'rgba(7,6,5,0.72)';
+
+header.style.borderBottom =
+'1px solid rgba(255,255,255,0.04)';
 
 }
 
