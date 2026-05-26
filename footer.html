@@ -186,6 +186,8 @@ z-index:10001;
 
 flex-shrink:0;
 
+touch-action:manipulation;
+
 }
 
 .menu-toggle:hover{
@@ -336,6 +338,9 @@ backdrop-filter:blur(18px);
 
 border-left:
 1px solid rgba(212,164,79,0.15);
+
+box-shadow:
+-20px 0 60px rgba(0,0,0,0.45);
 
 z-index:9998;
 
@@ -610,103 +615,53 @@ Archive Navigation
 <div class="slide-links">
 
 <a href="index.html">
-
 Home
-
-<span>
-→
-</span>
-
+<span>→</span>
 </a>
 
 <a href="archive.html">
-
 Archive
-
-<span>
-→
-</span>
-
+<span>→</span>
 </a>
 
 <a href="chapters.html">
-
 Chapters
-
-<span>
-→
-</span>
-
+<span>→</span>
 </a>
 
 <a href="reading-paths.html">
-
 Reading Paths
-
-<span>
-→
-</span>
-
+<span>→</span>
 </a>
 
 <a href="resources.html">
-
 Resources
-
-<span>
-→
-</span>
-
+<span>→</span>
 </a>
 
 <a href="study-guide.html">
-
 Study Guide
-
-<span>
-→
-</span>
-
+<span>→</span>
 </a>
 
 <a href="prayer-room.html">
-
 Prayer Room
-
-<span>
-→
-</span>
-
+<span>→</span>
 </a>
 
 <a href="faq.html">
-
 FAQ
-
-<span>
-→
-</span>
-
+<span>→</span>
 </a>
 
 <a href="notes.html">
-
 Notes
-
-<span>
-→
-</span>
-
+<span>→</span>
 </a>
 
 <a href="about.html">
-
 About
-
-<span>
-→
-</span>
-
+<span>→</span>
 </a>
 
 </div>
@@ -715,13 +670,7 @@ About
 
 <script>
 
-/* =========================
-WAIT FOR DOM
-========================= */
-
-document.addEventListener(
-'DOMContentLoaded',
-() => {
+(() => {
 
 /* =========================
 ELEMENTS
@@ -782,7 +731,7 @@ slideMenu.classList.contains(
 'active'
 )
 ? 'hidden'
-: '';
+: 'auto';
 
 }
 
@@ -825,20 +774,21 @@ menuOverlay.classList.remove(
 );
 
 document.body.style.overflow =
-'';
+'auto';
 
 });
 
 });
 
 /* =========================
-ACTIVE LINK
+ACTIVE LINKS
 ========================= */
 
 const currentPage =
 window.location.pathname
 .split("/")
-.pop();
+.pop() ||
+'index.html';
 
 document.querySelectorAll(
 '.nav-link'
@@ -852,6 +802,22 @@ link.getAttribute('href')
 link.classList.add(
 'active'
 );
+
+}
+
+});
+
+document.querySelectorAll(
+'.slide-links a'
+).forEach(link => {
+
+if(
+link.getAttribute('href')
+=== currentPage
+){
+
+link.style.color =
+'#f0cf8d';
 
 }
 
@@ -887,6 +853,6 @@ header.style.borderBottom =
 
 });
 
-});
+})();
 
 </script>
