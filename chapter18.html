@@ -914,6 +914,8 @@ line-height:1.9;
 
 <body>
 
+<div id="header-container"></div>
+
 <div class="atmosphere">
 
 <div class="particle"></div>
@@ -924,31 +926,7 @@ line-height:1.9;
 
 </div>
 
-<nav class="floating-nav">
 
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="part3.html">
-Part III
-</a>
-
-<a href="chapters.html">
-Archive
-</a>
-
-<a href="chapter17.html">
-Previous
-</a>
-
-</div>
-
-</nav>
 
 <section class="chapter-hero">
 
@@ -1318,14 +1296,22 @@ Continue into the next chapter as the journey moves deeper into healing, remembr
 
 <script>
 
-fetch('footer.html')
+/* =========================
+
+LOAD PART IV HEADER
+
+========================= */
+
+fetch('manuscript-header-p4.html')
 
 .then(response => {
 
 if(!response.ok){
 
 throw new Error(
-'Footer failed to load'
+
+'Part IV header failed to load'
+
 );
 
 }
@@ -1337,17 +1323,96 @@ return response.text();
 .then(data => {
 
 document.getElementById(
+
+'header-container'
+
+).innerHTML = data;
+
+/* EXECUTE HEADER SCRIPTS */
+
+const scripts =
+
+document.getElementById(
+
+'header-container'
+
+).querySelectorAll('script');
+
+scripts.forEach(oldScript => {
+
+const newScript =
+
+document.createElement('script');
+
+if(oldScript.src){
+
+newScript.src =
+
+oldScript.src;
+
+}
+
+else{
+
+newScript.textContent =
+
+oldScript.textContent;
+
+}
+
+document.body.appendChild(
+
+newScript
+
+);
+
+});
+
+})
+
+.catch(error => {
+
+console.error(error);
+
+});
+
+/* =========================
+
+LOAD FOOTER
+
+========================= */
+
+fetch('footer.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+
+'Footer failed to load'
+
+);
+
+}
+
+return response.text();
+
+})
+
+.then(data => {
+
+document.getElementById(
+
 'footer-container'
+
 ).innerHTML = data;
 
 })
 
 .catch(error => {
 
-console.error(
-'Footer failed to load:',
-error
-);
+console.error(error);
 
 });
 
