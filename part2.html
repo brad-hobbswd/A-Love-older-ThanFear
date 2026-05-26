@@ -166,112 +166,7 @@ opacity:0;
 
 }
 
-/* =========================
-NAVIGATION
-========================= */
 
-.floating-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:22px 6%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-z-index:999;
-
-background:
-rgba(7,6,5,0.78);
-
-backdrop-filter:blur(14px);
-
--webkit-backdrop-filter:blur(14px);
-
-border-bottom:
-1px solid rgba(255,255,255,0.05);
-
-}
-
-.nav-logo{
-
-font-family:'Cinzel',serif;
-
-font-size:1rem;
-
-letter-spacing:3px;
-
-color:#f2d18b;
-
-text-decoration:none;
-
-}
-
-.nav-links{
-
-display:flex;
-
-gap:28px;
-
-flex-wrap:wrap;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-font-size:11px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-color:#d7c3a4;
-
-transition:0.4s ease;
-
-position:relative;
-
-}
-
-.nav-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.nav-links a:hover{
-
-color:#f2d18b;
-
-}
-
-.nav-links a:hover::after{
-
-width:100%;
-
-}
 
 /* =========================
 HERO
@@ -727,154 +622,7 @@ color:#b6ab9d;
 
 }
 
-/* =========================
-FOOTER
-========================= */
 
-.site-footer{
-
-position:relative;
-
-padding:120px 8% 70px;
-
-background:
-linear-gradient(
-180deg,
-#090807,
-#050404
-);
-
-border-top:
-1px solid rgba(212,164,79,0.08);
-
-overflow:hidden;
-
-}
-
-.site-footer::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle at top center,
-rgba(212,164,79,0.06),
-transparent 50%
-);
-
-pointer-events:none;
-
-}
-
-.footer-content{
-
-position:relative;
-
-z-index:2;
-
-max-width:1200px;
-
-margin:auto;
-
-text-align:center;
-
-}
-
-.footer-title{
-
-font-family:'Cinzel',serif;
-
-font-size:clamp(2rem,4vw,3.5rem);
-
-letter-spacing:2px;
-
-margin-bottom:20px;
-
-color:#f4e7d2;
-
-}
-
-.footer-quote{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:1.5rem;
-
-line-height:1.7;
-
-color:#d8c7ad;
-
-margin-bottom:35px;
-
-}
-
-.footer-links{
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-gap:24px;
-
-margin-bottom:40px;
-
-}
-
-.footer-links a{
-
-text-decoration:none;
-
-font-size:12px;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-color:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.footer-links a:hover{
-
-color:#f2d18b;
-
-text-shadow:
-0 0 12px rgba(212,164,79,0.35);
-
-}
-
-.footer-scripture{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:1.3rem;
-
-line-height:1.8;
-
-color:#c8bbab;
-
-margin-bottom:30px;
-
-}
-
-.footer-copy{
-
-font-size:0.95rem;
-
-letter-spacing:1px;
-
-color:#8f8374;
-
-}
 
 /* =========================
 RESPONSIVE
@@ -978,6 +726,8 @@ letter-spacing:1.5px;
 </head>
 
 <body>
+    
+    <div id="header-container"></div>
 
 <!-- ATMOSPHERE -->
 
@@ -991,33 +741,7 @@ letter-spacing:1.5px;
 
 </div>
 
-<!-- NAVIGATION -->
 
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="chapters.html">
-Archive
-</a>
-
-<a href="#chapters">
-Chapters
-</a>
-
-</div>
-
-</nav>
 
 <!-- HERO -->
 
@@ -1257,29 +981,127 @@ One of Scripture’s most emotionally debated statements explored through grief,
 
 </section>
 
-<!-- FOOTER -->
-
-<!-- FOOTER -->
-
 <div id="footer-container"></div>
 
 <script>
 
-fetch('footer.html')
-.then(response => response.text())
+/* =========================
+
+LOAD PART II HEADER
+
+========================= */
+
+fetch('manuscript-header-p2.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+
+'Part II header failed to load'
+
+);
+
+}
+
+return response.text();
+
+})
+
 .then(data => {
 
 document.getElementById(
+
+'header-container'
+
+).innerHTML = data;
+
+/* EXECUTE HEADER SCRIPTS */
+
+const scripts =
+
+document.getElementById(
+
+'header-container'
+
+).querySelectorAll('script');
+
+scripts.forEach(oldScript => {
+
+const newScript =
+
+document.createElement('script');
+
+if(oldScript.src){
+
+newScript.src =
+
+oldScript.src;
+
+}
+
+else{
+
+newScript.textContent =
+
+oldScript.textContent;
+
+}
+
+document.body.appendChild(
+
+newScript
+
+);
+
+});
+
+})
+
+.catch(error => {
+
+console.error(error);
+
+});
+
+/* =========================
+
+LOAD FOOTER
+
+========================= */
+
+fetch('footer.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+
+'Footer failed to load'
+
+);
+
+}
+
+return response.text();
+
+})
+
+.then(data => {
+
+document.getElementById(
+
 'footer-container'
+
 ).innerHTML = data;
 
 })
+
 .catch(error => {
 
-console.error(
-'Footer failed to load:',
-error
-);
+console.error(error);
 
 });
 
