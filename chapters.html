@@ -680,7 +680,6 @@ color:#f2e7d2;
 }
 
 
-
 /* =========================
 RESPONSIVE
 ========================= */
@@ -783,7 +782,7 @@ letter-spacing:1.5px;
 </head>
 
 <body>
-
+<div id="header-container"></div>
 <!-- ATMOSPHERE -->
 
 <div class="atmosphere">
@@ -795,52 +794,6 @@ letter-spacing:1.5px;
 <div class="particle"></div>
 
 </div>
-
-<!-- NAVIGATION -->
-
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="reading-paths.html">
-Reading Paths
-</a>
-
-<a href="chapters.html" style="
-color:#f2d18b;
-">
-Chapters
-</a>
-
-<a href="resources.html">
-Resources
-</a>
-
-<a href="study-guide.html">
-Study Guide
-</a>
-
-<a href="prayer-room.html">
-Prayer Room
-</a>
-
-<a href="about.html">
-About
-</a>
-
-</div>
-
-</nav>
 
 <!-- HERO -->
 
@@ -1531,6 +1484,18 @@ The difficult conversations many believers continue carrying quietly beneath the
 
 <div id="footer-container"></div>
 <script>
+
+fetch('header.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'header-container'
+).innerHTML = data;
+
+});
 
 fetch('footer.html')
 
