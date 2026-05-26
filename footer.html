@@ -1,145 +1,529 @@
 <!-- ========================================
-FOOTER.HTML
-PLACE THIS ENTIRE FILE INSIDE footer.html
+HEADER.HTML
+UNIVERSAL SACRED NAVIGATION
 ======================================== -->
 
 <style>
 
-.site-footer{
+/* =========================
+HEADER
+========================= */
 
-position:relative;
+.site-header{
 
-padding:120px 8% 80px;
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+z-index:9999;
+
+padding:22px 5%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
 
 background:
-linear-gradient(
-180deg,
-#0b0908,
-#050404
-);
+rgba(7,6,5,0.72);
 
-border-top:
-1px solid rgba(255,255,255,0.05);
+backdrop-filter:blur(14px);
 
-overflow:hidden;
+-webkit-backdrop-filter:blur(14px);
 
-}
+border-bottom:
+1px solid rgba(255,255,255,0.04);
 
-.footer-inner{
-
-position:relative;
-
-z-index:2;
-
-max-width:1300px;
-
-margin:auto;
+transition:0.45s ease;
 
 }
 
-.footer-grid{
+/* =========================
+LOGO
+========================= */
 
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:60px;
-
-margin-bottom:80px;
-
-}
-
-.footer-column h3{
+.site-logo{
 
 font-family:'Cinzel',serif;
 
-font-size:1.1rem;
+font-size:0.95rem;
 
 letter-spacing:3px;
 
-margin-bottom:28px;
-
 color:#f0cf8d;
-
-}
-
-.footer-column a{
-
-display:block;
-
-margin-bottom:18px;
 
 text-decoration:none;
 
-font-size:0.95rem;
+white-space:nowrap;
 
-line-height:1.8;
+z-index:10001;
 
-color:#c8bbab;
+text-shadow:
+0 0 12px rgba(212,164,79,0.18);
+
+}
+
+/* =========================
+DESKTOP NAV
+========================= */
+
+.desktop-nav{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+justify-content:flex-end;
+
+}
+
+.desktop-nav a{
+
+position:relative;
+
+font-size:10px;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+text-decoration:none;
+
+color:#d7c3a4;
+
+transition:0.4s ease;
+
+white-space:nowrap;
+
+}
+
+.desktop-nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-7px;
+
+width:0%;
+
+height:1px;
+
+background:#d4a44f;
 
 transition:0.4s ease;
 
 }
 
-.footer-column a:hover{
+.desktop-nav a:hover{
+
+color:#f2d18b;
+
+text-shadow:
+0 0 10px rgba(212,164,79,0.24);
+
+}
+
+.desktop-nav a:hover::after{
+
+width:100%;
+
+}
+
+.desktop-nav a.active{
+
+color:#f2d18b;
+
+}
+
+.desktop-nav a.active::after{
+
+width:100%;
+
+}
+
+/* =========================
+MENU TOGGLE
+========================= */
+
+.menu-toggle{
+
+display:none;
+
+width:58px;
+height:58px;
+
+border-radius:50%;
+
+border:
+1px solid rgba(212,164,79,0.28);
+
+background:
+rgba(212,164,79,0.06);
+
+align-items:center;
+
+justify-content:center;
+
+cursor:pointer;
+
+transition:0.45s ease;
+
+position:relative;
+
+overflow:hidden;
+
+z-index:10001;
+
+flex-shrink:0;
+
+}
+
+.menu-toggle:hover{
+
+transform:translateY(-2px);
+
+border-color:
+rgba(212,164,79,0.5);
+
+box-shadow:
+0 0 30px rgba(212,164,79,0.15);
+
+}
+
+/* =========================
+ARROW ICON
+========================= */
+
+.arrow-wrap{
+
+position:relative;
+
+width:24px;
+height:24px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+.arrow-line{
+
+position:absolute;
+
+width:16px;
+height:1px;
+
+background:#f0cf8d;
+
+transition:0.45s ease;
+
+}
+
+.arrow-line.one{
+
+transform:
+rotate(45deg)
+translate(2px,-5px);
+
+}
+
+.arrow-line.two{
+
+transform:
+rotate(-45deg)
+translate(2px,5px);
+
+}
+
+/* =========================
+ACTIVE X
+========================= */
+
+.menu-toggle.active
+.arrow-line.one{
+
+transform:
+rotate(-45deg)
+translate(2px,-5px);
+
+}
+
+.menu-toggle.active
+.arrow-line.two{
+
+transform:
+rotate(45deg)
+translate(2px,5px);
+
+}
+
+/* =========================
+OVERLAY
+========================= */
+
+.menu-overlay{
+
+position:fixed;
+
+inset:0;
+
+background:
+rgba(0,0,0,0.55);
+
+backdrop-filter:blur(8px);
+
+-webkit-backdrop-filter:blur(8px);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:0.45s ease;
+
+z-index:9997;
+
+}
+
+.menu-overlay.active{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+/* =========================
+SLIDE MENU
+========================= */
+
+.slide-menu{
+
+position:fixed;
+
+top:0;
+right:0;
+
+width:340px;
+max-width:90%;
+
+height:100dvh;
+
+-webkit-overflow-scrolling:touch;
+
+background:
+linear-gradient(
+180deg,
+rgba(10,8,7,0.98),
+rgba(20,15,13,0.98)
+);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border-left:
+1px solid rgba(212,164,79,0.15);
+
+z-index:9998;
+
+padding:120px 40px 120px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:26px;
+
+transform:translateX(110%);
+
+transition:0.5s ease;
+
+overflow-y:auto;
+
+overscroll-behavior:contain;
+
+}
+
+.slide-menu.active{
+
+transform:translateX(0);
+
+}
+
+/* =========================
+MENU LABEL
+========================= */
+
+.menu-label{
+
+font-size:11px;
+
+letter-spacing:5px;
+
+text-transform:uppercase;
+
+color:#d4a44f;
+
+margin-bottom:45px;
+
+}
+
+/* =========================
+SLIDE LINKS
+========================= */
+
+.slide-links{
+
+display:flex;
+
+flex-direction:column;
+
+gap:26px;
+
+}
+
+.slide-links a{
+
+font-family:'Cinzel',serif;
+
+font-size:1.5rem;
+
+line-height:1.4;
+
+text-decoration:none;
+
+color:#f3e7d4;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding-bottom:18px;
+
+border-bottom:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.4s ease;
+
+}
+
+.slide-links a span{
+
+font-size:1.2rem;
+
+color:#d4a44f;
+
+transform:translateX(0);
+
+transition:0.4s ease;
+
+}
+
+.slide-links a:hover{
 
 color:#f0cf8d;
 
-padding-left:6px;
+padding-left:8px;
 
 }
 
-.footer-bottom{
+.slide-links a:hover span{
 
-padding-top:50px;
-
-border-top:
-1px solid rgba(255,255,255,0.05);
-
-text-align:center;
+transform:translateX(10px);
 
 }
 
-.footer-bottom p{
+/* =========================
+TABLET + MOBILE
+========================= */
 
-font-size:0.95rem;
+@media(max-width:900px){
 
-line-height:2;
+.desktop-nav{
 
-color:#9e907f;
-
-max-width:800px;
-
-margin:auto;
+display:none;
 
 }
 
-.footer-quote{
+.menu-toggle{
 
-font-family:'Cormorant Garamond',serif;
-
-font-size:1.6rem;
-
-line-height:1.8;
-
-color:#f0e1cb;
-
-margin-bottom:30px;
+display:flex;
 
 }
 
-@media(max-width:768px){
+}
 
-.site-footer{
+/* =========================
+DESKTOP
+========================= */
 
-padding:90px 8% 60px;
+@media(min-width:901px){
+
+.slide-menu,
+.menu-overlay{
+
+display:none;
 
 }
 
-.footer-grid{
+}
 
-gap:40px;
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:540px){
+
+.site-header{
+
+padding:18px 20px;
+
+}
+
+.site-logo{
+
+font-size:0.74rem;
+
+letter-spacing:1.5px;
+
+max-width:70%;
+
+line-height:1.5;
+
+}
+
+.slide-menu{
+
+padding:
+120px 34px 120px;
+
+}
+
+.slide-links a{
+
+font-size:1.2rem;
+
+}
+
+.menu-toggle{
+
+width:52px;
+height:52px;
 
 }
 
@@ -147,134 +531,362 @@ gap:40px;
 
 </style>
 
-<footer class="site-footer">
+<header class="site-header">
 
-<div class="footer-inner">
+<a href="index.html" class="site-logo">
 
-<div class="footer-grid">
+A LOVE OLDER THAN FEAR
 
-<div class="footer-column">
+</a>
 
-<h3>
+<nav class="desktop-nav">
 
-Archive
+<a href="index.html" class="nav-link">
+Home
+</a>
 
-</h3>
-
-<a href="archive.html">
+<a href="archive.html" class="nav-link">
 Archive
 </a>
 
-<a href="chapters.html">
+<a href="chapters.html" class="nav-link">
 Chapters
 </a>
 
-<a href="resources.html">
-Resources
-</a>
-
-<a href="study-guide.html">
-Study Guide
-</a>
-
-</div>
-
-<div class="footer-column">
-
-<h3>
-
-Sacred Spaces
-
-</h3>
-
-<a href="prayer-room.html">
-Prayer Room
-</a>
-
-<a href="reading-paths.html">
+<a href="reading-paths.html" class="nav-link">
 Reading Paths
 </a>
 
-<a href="faq.html">
+<a href="resources.html" class="nav-link">
+Resources
+</a>
+
+<a href="study-guide.html" class="nav-link">
+Study Guide
+</a>
+
+<a href="prayer-room.html" class="nav-link">
+Prayer Room
+</a>
+
+<a href="faq.html" class="nav-link">
 FAQ
 </a>
 
-<a href="about.html">
+<a href="notes.html" class="nav-link">
+Notes
+</a>
+
+<a href="about.html" class="nav-link">
 About
 </a>
 
-</div>
+</nav>
 
-<div class="footer-column">
+<div class="menu-toggle" id="menuToggle">
 
-<h3>
+<div class="arrow-wrap">
 
-Manuscript
+<div class="arrow-line one"></div>
 
-</h3>
-
-<a href="foreword.html">
-Foreword
-</a>
-
-<a href="preface.html">
-Preface
-</a>
-
-<a href="prologue.html">
-Prologue
-</a>
-
-<a href="introduction.html">
-Introduction
-</a>
-
-</div>
-
-<div class="footer-column">
-
-<h3>
-
-Publication
-
-</h3>
-
-<a href="publication.html">
-Publication
-</a>
-
-<a href="copyright.html">
-Copyright
-</a>
-
-<a href="acknowledgements.html">
-Acknowledgements
-</a>
+<div class="arrow-line two"></div>
 
 </div>
 
 </div>
 
-<div class="footer-bottom">
+</header>
 
-<div class="footer-quote">
+<div class="menu-overlay" id="menuOverlay"></div>
 
-“Perfect love casteth out fear.”
+<div class="slide-menu" id="slideMenu">
 
-</div>
+<div class="menu-label">
 
-<p>
-
-© A Love Older Than Fear
-
-<br><br>
-
-A preserved archive of theology, tenderness, covenant, grief, belonging, and sacred reflection.
-
-</p>
+Archive Navigation
 
 </div>
 
+<div class="slide-links">
+
+<a href="index.html">
+
+Home
+
+<span>
+→
+</span>
+
+</a>
+
+<a href="archive.html">
+
+Archive
+
+<span>
+→
+</span>
+
+</a>
+
+<a href="chapters.html">
+
+Chapters
+
+<span>
+→
+</span>
+
+</a>
+
+<a href="reading-paths.html">
+
+Reading Paths
+
+<span>
+→
+</span>
+
+</a>
+
+<a href="resources.html">
+
+Resources
+
+<span>
+→
+</span>
+
+</a>
+
+<a href="study-guide.html">
+
+Study Guide
+
+<span>
+→
+</span>
+
+</a>
+
+<a href="prayer-room.html">
+
+Prayer Room
+
+<span>
+→
+</span>
+
+</a>
+
+<a href="faq.html">
+
+FAQ
+
+<span>
+→
+</span>
+
+</a>
+
+<a href="notes.html">
+
+Notes
+
+<span>
+→
+</span>
+
+</a>
+
+<a href="about.html">
+
+About
+
+<span>
+→
+</span>
+
+</a>
+
 </div>
 
-</footer>
+</div>
+
+<script>
+
+/* =========================
+WAIT FOR DOM
+========================= */
+
+document.addEventListener(
+'DOMContentLoaded',
+() => {
+
+/* =========================
+ELEMENTS
+========================= */
+
+const menuToggle =
+document.getElementById(
+'menuToggle'
+);
+
+const slideMenu =
+document.getElementById(
+'slideMenu'
+);
+
+const menuOverlay =
+document.getElementById(
+'menuOverlay'
+);
+
+const header =
+document.querySelector(
+'.site-header'
+);
+
+/* =========================
+SAFETY CHECK
+========================= */
+
+if(
+!menuToggle ||
+!slideMenu ||
+!menuOverlay
+){
+return;
+}
+
+/* =========================
+TOGGLE MENU
+========================= */
+
+function toggleMenu(){
+
+menuToggle.classList.toggle(
+'active'
+);
+
+slideMenu.classList.toggle(
+'active'
+);
+
+menuOverlay.classList.toggle(
+'active'
+);
+
+document.body.style.overflow =
+slideMenu.classList.contains(
+'active'
+)
+? 'hidden'
+: '';
+
+}
+
+/* =========================
+OPEN/CLOSE
+========================= */
+
+menuToggle.addEventListener(
+'click',
+toggleMenu
+);
+
+menuOverlay.addEventListener(
+'click',
+toggleMenu
+);
+
+/* =========================
+CLOSE MENU ON LINK CLICK
+========================= */
+
+document.querySelectorAll(
+'.slide-links a'
+).forEach(link => {
+
+link.addEventListener(
+'click',
+() => {
+
+menuToggle.classList.remove(
+'active'
+);
+
+slideMenu.classList.remove(
+'active'
+);
+
+menuOverlay.classList.remove(
+'active'
+);
+
+document.body.style.overflow =
+'';
+
+});
+
+});
+
+/* =========================
+ACTIVE LINK
+========================= */
+
+const currentPage =
+window.location.pathname
+.split("/")
+.pop();
+
+document.querySelectorAll(
+'.nav-link'
+).forEach(link => {
+
+if(
+link.getAttribute('href')
+=== currentPage
+){
+
+link.classList.add(
+'active'
+);
+
+}
+
+});
+
+/* =========================
+HEADER SCROLL EFFECT
+========================= */
+
+window.addEventListener(
+'scroll',
+() => {
+
+if(window.scrollY > 50){
+
+header.style.background =
+'rgba(7,6,5,0.92)';
+
+header.style.borderBottom =
+'1px solid rgba(255,255,255,0.06)';
+
+}
+
+else{
+
+header.style.background =
+'rgba(7,6,5,0.72)';
+
+header.style.borderBottom =
+'1px solid rgba(255,255,255,0.04)';
+
+}
+
+});
+
+});
+
+</script>
