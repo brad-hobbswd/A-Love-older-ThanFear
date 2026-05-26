@@ -1621,13 +1621,27 @@ Return to the main archive and continue exploring the world of A Love Older Than
 
 </section>
 
-<div id="footer-container"></div>
-
 <script>
+
+/* =========================
+LOAD HEADER
+========================= */
 
 fetch('header.html')
 
-.then(response => response.text())
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Header failed to load'
+);
+
+}
+
+return response.text();
+
+})
 
 .then(data => {
 
@@ -1635,17 +1649,134 @@ document.getElementById(
 'header-container'
 ).innerHTML = data;
 
+/* EXECUTE HEADER SCRIPTS */
+
+const scripts =
+document.getElementById(
+'header-container'
+).querySelectorAll('script');
+
+scripts.forEach(oldScript => {
+
+const newScript =
+document.createElement('script');
+
+if(oldScript.src){
+
+newScript.src =
+oldScript.src;
+
+}
+
+else{
+
+newScript.textContent =
+oldScript.textContent;
+
+}
+
+document.body.appendChild(
+newScript
+);
+
 });
+
+})
+
+.catch(error => {
+
+console.error(error);
+
+});
+
+/* =========================
+LOAD FOOTER
+========================= */
 
 fetch('footer.html')
 
-.then(response => response.text())
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Footer failed to load'
+);
+
+}
+
+return response.text();
+
+})
 
 .then(data => {
 
 document.getElementById(
 'footer-container'
 ).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(error);
+
+});
+
+/* =========================
+SCROLL REVEAL
+========================= */
+
+window.addEventListener(
+'DOMContentLoaded',
+() => {
+
+const revealItems =
+document.querySelectorAll(
+'.archive-section, .quote-section, .archive-card'
+);
+
+revealItems.forEach(item => {
+
+item.style.opacity = '0';
+
+item.style.transform =
+'translateY(60px)';
+
+item.style.transition =
+'all 1.3s ease';
+
+});
+
+const revealOnScroll = () => {
+
+const triggerBottom =
+window.innerHeight * 0.88;
+
+revealItems.forEach(item => {
+
+const itemTop =
+item.getBoundingClientRect().top;
+
+if(itemTop < triggerBottom){
+
+item.style.opacity = '1';
+
+item.style.transform =
+'translateY(0)';
+
+}
+
+});
+
+};
+
+window.addEventListener(
+'scroll',
+revealOnScroll
+);
+
+revealOnScroll();
 
 });
 
