@@ -166,112 +166,7 @@ opacity:0;
 
 }
 
-/* =========================
-NAVIGATION
-========================= */
 
-.floating-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:22px 6%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-z-index:999;
-
-background:
-rgba(7,6,5,0.80);
-
-backdrop-filter:blur(14px);
-
--webkit-backdrop-filter:blur(14px);
-
-border-bottom:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.nav-logo{
-
-font-family:'Cinzel',serif;
-
-font-size:1rem;
-
-letter-spacing:3px;
-
-color:#f2d18b;
-
-text-decoration:none;
-
-}
-
-.nav-links{
-
-display:flex;
-
-gap:28px;
-
-flex-wrap:wrap;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-font-size:11px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-color:#d7c3a4;
-
-transition:0.4s ease;
-
-position:relative;
-
-}
-
-.nav-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.nav-links a:hover{
-
-color:#f2d18b;
-
-}
-
-.nav-links a:hover::after{
-
-width:100%;
-
-}
 
 /* =========================
 HERO
@@ -288,7 +183,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 
-padding:220px 8% 150px;
+padding:260px 8% 150px;
 
 text-align:center;
 
@@ -892,6 +787,7 @@ line-height:2.2;
 </head>
 
 <body>
+    <div id="header-container"></div>
 
 <!-- ATMOSPHERE -->
 
@@ -905,37 +801,6 @@ line-height:2.2;
 
 </div>
 
-<!-- NAVIGATION -->
-
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="part1.html">
-Part I
-</a>
-
-<a href="notes.html">
-Notes
-</a>
-
-<a href="bibliography.html">
-Bibliography
-</a>
-
-</div>
-
-</nav>
 
 <!-- HERO -->
 
@@ -1175,15 +1040,160 @@ Continue deeper into the covenant language surrounding David and Jonathan and wh
 
 <script>
 
+/* =========================
+LOAD MANUSCRIPT HEADER
+========================= */
+
+fetch('manuscript-header.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Manuscript header failed to load'
+);
+
+}
+
+return response.text();
+
+})
+
+.then(data => {
+
+document.getElementById(
+'header-container'
+).innerHTML = data;
+
+/* EXECUTE HEADER SCRIPTS */
+
+const scripts =
+document.getElementById(
+'header-container'
+).querySelectorAll('script');
+
+scripts.forEach(oldScript => {
+
+const newScript =
+document.createElement('script');
+
+if(oldScript.src){
+
+newScript.src =
+oldScript.src;
+
+}
+
+else{
+
+newScript.textContent =
+oldScript.textContent;
+
+}
+
+document.body.appendChild(
+newScript
+);
+
+});
+
+})
+
+.catch(error => {
+
+console.error(error);
+
+});
+
+/* =========================
+LOAD FOOTER
+========================= */
+
 fetch('footer.html')
 
-.then(response => response.text())
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Footer failed to load'
+);
+
+}
+
+return response.text();
+
+})
 
 .then(data => {
 
 document.getElementById(
 'footer-container'
 ).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(error);
+
+});
+
+/* =========================
+SCROLL REVEAL
+========================= */
+
+window.addEventListener(
+'DOMContentLoaded',
+() => {
+
+const revealItems =
+document.querySelectorAll(
+'.scripture-section, .chapter-manuscript, .footnotes, .chapter-reflection, .chapter-nav-card'
+);
+
+revealItems.forEach(item => {
+
+item.style.opacity = '0';
+
+item.style.transform =
+'translateY(60px)';
+
+item.style.transition =
+'all 1.3s ease';
+
+});
+
+const revealOnScroll = () => {
+
+const triggerBottom =
+window.innerHeight * 0.88;
+
+revealItems.forEach(item => {
+
+const itemTop =
+item.getBoundingClientRect().top;
+
+if(itemTop < triggerBottom){
+
+item.style.opacity = '1';
+
+item.style.transform =
+'translateY(0)';
+
+}
+
+});
+
+};
+
+window.addEventListener(
+'scroll',
+revealOnScroll
+);
+
+revealOnScroll();
 
 });
 
