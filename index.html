@@ -809,7 +809,19 @@ LOAD HEADER
 
 fetch('header.html')
 
-.then(response => response.text())
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Header failed to load'
+);
+
+}
+
+return response.text();
+
+})
 
 .then(data => {
 
@@ -847,6 +859,12 @@ newScript
 
 });
 
+})
+
+.catch(error => {
+
+console.error(error);
+
 });
 
 /* =========================
@@ -855,13 +873,31 @@ LOAD FOOTER
 
 fetch('footer.html')
 
-.then(response => response.text())
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Footer failed to load'
+);
+
+}
+
+return response.text();
+
+})
 
 .then(data => {
 
 document.getElementById(
 'footer-container'
 ).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(error);
 
 });
 
