@@ -167,117 +167,6 @@ opacity:0;
 }
 
 /* =========================
-NAVIGATION
-========================= */
-
-.floating-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:22px 6%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-z-index:999;
-
-background:
-rgba(7,6,5,0.82);
-
-backdrop-filter:blur(14px);
-
--webkit-backdrop-filter:blur(14px);
-
-border-bottom:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.nav-logo{
-
-font-family:'Cinzel',serif;
-
-font-size:1rem;
-
-letter-spacing:3px;
-
-color:#f0cf8d;
-
-text-decoration:none;
-
-}
-
-.nav-links{
-
-display:flex;
-
-align-items:center;
-
-justify-content:flex-end;
-
-gap:18px;
-
-flex-wrap:wrap;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-font-size:11px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-color:#d5c2a5;
-
-transition:0.4s ease;
-
-position:relative;
-
-}
-
-.nav-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.nav-links a:hover{
-
-color:#f6ddb0;
-
-}
-
-.nav-links a:hover::after{
-
-width:100%;
-
-}
-
-/* =========================
 HERO
 ========================= */
 
@@ -292,7 +181,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 
-padding:240px 8% 180px;
+padding:280px 8% 180px;
 
 text-align:center;
 
@@ -800,6 +689,7 @@ font-size:1.8rem;
 </head>
 
 <body>
+  <div id="header-container"></div>
 
 <div class="atmosphere">
 
@@ -811,49 +701,6 @@ font-size:1.8rem;
 
 </div>
 
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="reading-paths.html">
-Reading Paths
-</a>
-
-<a href="chapters.html">
-Chapters
-</a>
-
-<a href="resources.html">
-Resources
-</a>
-
-<a href="study-guide.html" style="
-color:#f6ddb0;
-">
-Study Guide
-</a>
-
-<a href="prayer-room.html">
-Prayer Room
-</a>
-
-<a href="about.html">
-About
-</a>
-
-</div>
-
-</nav>
 
 <section class="hero">
 
@@ -1364,6 +1211,18 @@ Return to the main archive and continue exploring A Love Older Than Fear.
 <div id="footer-container"></div>
 
 <script>
+
+fetch('header.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'header-container'
+).innerHTML = data;
+
+});
 
 fetch('footer.html')
 
