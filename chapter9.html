@@ -167,112 +167,7 @@ opacity:0;
 
 }
 
-/* =========================
-NAVIGATION
-========================= */
 
-.floating-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:22px 6%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-z-index:999;
-
-background:
-rgba(8,7,6,0.82);
-
-backdrop-filter:blur(14px);
-
--webkit-backdrop-filter:blur(14px);
-
-border-bottom:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.nav-logo{
-
-font-family:'Cinzel',serif;
-
-font-size:1rem;
-
-letter-spacing:3px;
-
-color:#f0cf8d;
-
-text-decoration:none;
-
-}
-
-.nav-links{
-
-display:flex;
-
-gap:28px;
-
-flex-wrap:wrap;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-font-size:11px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-color:#d5c2a5;
-
-transition:0.4s ease;
-
-position:relative;
-
-}
-
-.nav-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.nav-links a:hover{
-
-color:#f6ddb0;
-
-}
-
-.nav-links a:hover::after{
-
-width:100%;
-
-}
 
 /* =========================
 HERO
@@ -975,6 +870,7 @@ line-height:1.9;
 </head>
 
 <body>
+    <div id="header-container"></div>
 
 <div class="atmosphere">
 
@@ -994,23 +890,6 @@ A LOVE OLDER THAN FEAR
 
 </a>
 
-<div class="nav-links">
-
-<a href="part2.html">
-Part II
-</a>
-
-<a href="chapters.html">
-Archive
-</a>
-
-<a href="chapter8.html">
-Previous
-</a>
-
-</div>
-
-</nav>
 
 <section class="chapter-hero">
 
@@ -1474,15 +1353,123 @@ Continue deeper into lamentation, covenant memory, grief poetry, and the emotion
 
 <script>
 
-fetch('footer.html')
+/* =========================
 
-.then(response => response.text())
+LOAD PART II HEADER
+
+========================= */
+
+fetch('manuscript-header-p2.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+
+'Part II header failed to load'
+
+);
+
+}
+
+return response.text();
+
+})
 
 .then(data => {
 
 document.getElementById(
-'footer-container'
+
+'header-container'
+
 ).innerHTML = data;
+
+/* EXECUTE HEADER SCRIPTS */
+
+const scripts =
+
+document.getElementById(
+
+'header-container'
+
+).querySelectorAll('script');
+
+scripts.forEach(oldScript => {
+
+const newScript =
+
+document.createElement('script');
+
+if(oldScript.src){
+
+newScript.src =
+
+oldScript.src;
+
+}
+
+else{
+
+newScript.textContent =
+
+oldScript.textContent;
+
+}
+
+document.body.appendChild(
+
+newScript
+
+);
+
+});
+
+})
+
+.catch(error => {
+
+console.error(error);
+
+});
+
+/* =========================
+
+LOAD FOOTER
+
+========================= */
+
+fetch('footer.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+
+'Footer failed to load'
+
+);
+
+}
+
+return response.text();
+
+})
+
+.then(data => {
+
+document.getElementById(
+
+'footer-container'
+
+).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(error);
 
 });
 
