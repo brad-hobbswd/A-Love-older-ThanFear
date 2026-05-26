@@ -739,6 +739,8 @@ font-size:1.8rem;
 </head>
 
 <body>
+    
+    <div id="header-container"></div>
 
 <div class="atmosphere">
 
@@ -750,35 +752,7 @@ font-size:1.8rem;
 
 </div>
 
-<nav class="floating-nav">
 
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="chapters.html">
-Chapters
-</a>
-
-<a href="resources.html">
-Resources
-</a>
-
-<a href="about.html">
-About
-</a>
-
-</div>
-
-</nav>
 
 <section class="hero">
 
@@ -1103,6 +1077,8 @@ Return to the main archive and continue exploring A Love Older Than Fear.
 
 </section>
 
+<div id="footer-container"></div>
+
 <script>
 
 /* =========================
@@ -1215,7 +1191,7 @@ window.addEventListener(
 
 const revealItems =
 document.querySelectorAll(
-'.archive-section, .quote-section, .archive-card'
+'.hero, .quote-section, .faq-item, .reflection, .chapter-nav-card'
 );
 
 revealItems.forEach(item => {
