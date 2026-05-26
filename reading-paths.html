@@ -167,113 +167,6 @@ opacity:0;
 }
 
 /* =========================
-NAVIGATION
-========================= */
-
-.floating-nav{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-padding:22px 6%;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-z-index:999;
-
-background:
-rgba(7,6,5,0.82);
-
-backdrop-filter:blur(14px);
-
--webkit-backdrop-filter:blur(14px);
-
-border-bottom:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.nav-logo{
-
-font-family:'Cinzel',serif;
-
-font-size:1rem;
-
-letter-spacing:3px;
-
-color:#f0cf8d;
-
-text-decoration:none;
-
-}
-
-.nav-links{
-
-display:flex;
-
-gap:28px;
-
-flex-wrap:wrap;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-font-size:11px;
-
-letter-spacing:3px;
-
-text-transform:uppercase;
-
-color:#d5c2a5;
-
-transition:0.4s ease;
-
-position:relative;
-
-}
-
-.nav-links a::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0%;
-height:1px;
-
-background:#d4a44f;
-
-transition:0.4s ease;
-
-}
-
-.nav-links a:hover{
-
-color:#f6ddb0;
-
-}
-
-.nav-links a:hover::after{
-
-width:100%;
-
-}
-
-/* =========================
 HERO
 ========================= */
 
@@ -288,7 +181,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 
-padding:240px 8% 180px;
+padding:320px 8% 180px;
 
 text-align:center;
 
@@ -461,6 +354,36 @@ border:
 
 transition:0.4s ease;
 
+position:relative;
+
+overflow:hidden;
+
+}
+
+.path-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:1px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(212,164,79,0.55),
+transparent
+);
+
+opacity:0;
+
+transition:0.4s ease;
+
 }
 
 .path-card:hover{
@@ -472,6 +395,12 @@ rgba(212,164,79,0.22);
 
 box-shadow:
 0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.path-card:hover::before{
+
+opacity:1;
 
 }
 
@@ -555,6 +484,9 @@ rgba(212,164,79,0.08);
 
 border-color:
 rgba(212,164,79,0.55);
+
+box-shadow:
+0 0 20px rgba(212,164,79,0.12);
 
 }
 
@@ -658,6 +590,36 @@ border:
 
 transition:0.4s ease;
 
+position:relative;
+
+overflow:hidden;
+
+}
+
+.chapter-nav-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:1px;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(212,164,79,0.55),
+transparent
+);
+
+opacity:0;
+
+transition:0.4s ease;
+
 }
 
 .chapter-nav-card:hover{
@@ -669,6 +631,12 @@ rgba(212,164,79,0.22);
 
 box-shadow:
 0 0 35px rgba(212,164,79,0.08);
+
+}
+
+.chapter-nav-card:hover::before{
+
+opacity:1;
 
 }
 
@@ -716,29 +684,17 @@ RESPONSIVE
 
 @media(max-width:768px){
 
-.floating-nav{
-
-flex-direction:column;
-
-gap:18px;
-
-padding:18px 5%;
-
-}
-
-.nav-links{
-
-justify-content:center;
-
-gap:16px;
-
-}
-
 .hero{
 
-padding:200px 8% 150px;
+padding:260px 8% 150px;
 
 min-height:auto;
+
+}
+
+.quote-section{
+
+padding:180px 8%;
 
 }
 
@@ -805,9 +761,12 @@ font-size:1.8rem;
 }
 
 </style>
+
 </head>
 
 <body>
+
+<div id="header-container"></div>
 
 <div class="atmosphere">
 
@@ -818,50 +777,6 @@ font-size:1.8rem;
 <div class="particle"></div>
 
 </div>
-
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="reading-paths.html" style="
-color:#f2d18b;
-">
-Reading Paths
-</a>
-
-<a href="chapters.html">
-Chapters
-</a>
-
-<a href="resources.html">
-Resources
-</a>
-
-<a href="study-guide.html">
-Study Guide
-</a>
-
-<a href="prayer-room.html">
-Prayer Room
-</a>
-
-<a href="about.html">
-About
-</a>
-
-</div>
-
-</nav>
 
 <section class="hero">
 
@@ -881,7 +796,7 @@ Reading Paths
 
 <p>
 
-Not every reader arrives carrying the same questions, wounds, fears, hopes, or reasons for opening this book. These paths were created to help readers begin where they are.
+Not every reader arrives carrying the same questions, wounds, fears, hopes, or reasons for opening this archive. These reading paths were created to help readers begin where they are emotionally, spiritually, historically, and personally.
 
 </p>
 
@@ -920,22 +835,22 @@ For Wounded Readers
 
 <p>
 
-Begin with chapters focused upon fear, belonging, tenderness, grief, healing, and spiritual survival within difficult religious environments.
+Begin with reflections surrounding fear, belonging, tenderness, grief, healing, and spiritual survival within difficult religious environments.
 
 </p>
 
 <div class="path-links">
 
 <a href="preface.html">Preface</a>
-<a href="chapter16.html">Chapter 16</a>
-<a href="chapter19.html">Chapter 19</a>
+<a href="chapter16.html">Ch. 16</a>
+<a href="chapter19.html">Ch. 19</a>
 <a href="prayer-room.html">Prayer Room</a>
 
 </div>
 
 <div class="path-theme">
 
-Themes: healing, belonging, fear, tenderness, restoration
+Themes: healing, belonging, fear, restoration
 
 </div>
 
@@ -957,7 +872,7 @@ For LGBTQIA+ Believers
 
 <p>
 
-Explore chapters centered upon identity, faith, dignity, survival, covenant, emotional honesty, and the search for belonging within sacred spaces.
+Explore reflections centered upon identity, faith, dignity, covenant, emotional honesty, and the longing for spiritual belonging without fear.
 
 </p>
 
@@ -965,6 +880,7 @@ Explore chapters centered upon identity, faith, dignity, survival, covenant, emo
 
 <a href="foreword.html">Foreword</a>
 <a href="introduction.html">Introduction</a>
+<a href="covenant.html">Covenant</a>
 <a href="chapter15.html">Ch. 15</a>
 <a href="chapter16.html">Ch. 16</a>
 <a href="chapter17.html">Ch. 17</a>
@@ -972,7 +888,6 @@ Explore chapters centered upon identity, faith, dignity, survival, covenant, emo
 <a href="chapter19.html">Ch. 19</a>
 <a href="chapter20.html">Ch. 20</a>
 <a href="chapter21.html">Ch. 21</a>
-<a href="covenant.html">Covenant</a>
 
 </div>
 
@@ -1000,7 +915,7 @@ For Pastors & Ministers
 
 <p>
 
-Resources focused upon compassionate theology, pastoral care, wounded believers, interpretation, fear, and the responsibility carried by spiritual leadership.
+Resources centered upon compassionate theology, pastoral care, wounded believers, interpretation, fear, and spiritual responsibility.
 
 </p>
 
@@ -1010,13 +925,13 @@ Resources focused upon compassionate theology, pastoral care, wounded believers,
 <a href="study-guide.html">Study Guide</a>
 <a href="faq.html">FAQ</a>
 <a href="resources.html">Resources</a>
-<a href="chapter19.html">Chapter 19</a>
+<a href="chapter19.html">Ch. 19</a>
 
 </div>
 
 <div class="path-theme">
 
-Themes: theology, compassion, ministry, pastoral care
+Themes: theology, compassion, ministry, restoration
 
 </div>
 
@@ -1059,7 +974,7 @@ Historical, linguistic, covenant, translation, and manuscript focused sections i
 
 <div class="path-theme">
 
-Themes: Hebrew, covenant, translation, history, interpretation
+Themes: Hebrew, covenant, translation, interpretation
 
 </div>
 
@@ -1081,7 +996,7 @@ For Skeptical Readers
 
 <p>
 
-A slower introduction focused upon historical context, honesty, interpretation, manuscript history, and the emotional complexity surrounding David and Jonathan.
+A slower introduction focused upon historical context, honesty, interpretation, manuscript history, and emotional complexity.
 
 </p>
 
@@ -1096,7 +1011,7 @@ A slower introduction focused upon historical context, honesty, interpretation, 
 
 <div class="path-theme">
 
-Themes: history, honesty, interpretation, theological questions
+Themes: history, honesty, interpretation, theology
 
 </div>
 
@@ -1118,59 +1033,22 @@ For Parents
 
 <p>
 
-Sections exploring fear, tenderness, compassion, belonging, wounded faith, and the kind of spiritual safety future generations deserve to inherit.
+Sections exploring tenderness, compassion, belonging, wounded faith, and spiritual safety for future generations.
 
 </p>
 
 <div class="path-links">
 
 <a href="foreword.html">Foreword</a>
-<a href="chapter16.html">Chapter 16</a>
+<a href="chapter16.html">Ch. 16</a>
 <a href="prayer-room.html">Prayer Room</a>
-<a href="chapter19.html">Chapter 19</a>
+<a href="chapter19.html">Ch. 19</a>
 
 </div>
 
 <div class="path-theme">
 
-Themes: compassion, protection, belonging, healing
-
-</div>
-
-</div>
-
-<div class="path-card">
-
-<div class="path-label">
-
-GROUP STUDY
-
-</div>
-
-<h2>
-
-For Bible Study Groups
-
-</h2>
-
-<p>
-
-Guided resources intended for classrooms, church discussions, study circles, and theological conversations seeking depth without fear controlling the dialogue.
-
-</p>
-
-<div class="path-links">
-
-<a href="study-guide.html">Study Guide</a>
-<a href="timeline.html">Timeline</a>
-<a href="faq.html">FAQ</a>
-<a href="resources.html">Resources</a>
-
-</div>
-
-<div class="path-theme">
-
-Themes: discussion, reflection, historical context, group study
+Themes: compassion, protection, healing, belonging
 
 </div>
 
@@ -1192,10 +1070,10 @@ Begin Where You Are
 
 <p>
 
-Some readers arrive carrying fear.
+Some readers arrive carrying grief.
 Some arrive carrying exhaustion.
 Some arrive carrying questions they were taught never to ask aloud.
-Some arrive hoping Scripture still has room for honesty, tenderness, and belonging.
+Some arrive hoping faith still has room for tenderness, honesty, and belonging.
 
 Every journey through this archive begins differently.
 
@@ -1210,24 +1088,24 @@ You are still welcome here.
 <section class="chapter-navigation">
 
 <a
-href="timeline.html"
+href="archive.html"
 class="chapter-nav-card">
 
 <div class="chapter-nav-label">
 
-TIMELINE
+ARCHIVE
 
 </div>
 
 <h3>
 
-Historical Journey
+Explore The Archive
 
 </h3>
 
 <p>
 
-Explore the historical timeline surrounding covenant, interpretation, translation, theology, and sacred memory.
+Browse the complete manuscript collection, reflections, historical resources, chapters, and sacred writings connected to this project.
 
 </p>
 
@@ -1275,7 +1153,7 @@ Sacred Quietness
 
 <p>
 
-Enter a quieter space for prayer, healing, reflection, honesty, and shared burdens.
+Enter a quieter place for prayer, healing, reflection, honesty, and shared burdens.
 
 </p>
 
@@ -1310,6 +1188,18 @@ Return to the main archive and continue exploring A Love Older Than Fear.
 <div id="footer-container"></div>
 
 <script>
+
+fetch('header.html')
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById(
+'header-container'
+).innerHTML = data;
+
+});
 
 fetch('footer.html')
 
