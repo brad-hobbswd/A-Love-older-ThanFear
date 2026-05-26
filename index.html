@@ -1453,6 +1453,10 @@ Their covenant remains visible. Their grief remains visible. Their love remains 
     
 <script>
 
+/* =========================
+LOAD HEADER
+========================= */
+
 fetch('header.html')
 
 .then(response => response.text())
@@ -1463,7 +1467,45 @@ document.getElementById(
 'header-container'
 ).innerHTML = data;
 
+/* =========================
+RUN HEADER SCRIPTS
+========================= */
+
+const scripts =
+document.getElementById(
+'header-container'
+).querySelectorAll('script');
+
+scripts.forEach(oldScript => {
+
+const newScript =
+document.createElement('script');
+
+if(oldScript.src){
+
+newScript.src =
+oldScript.src;
+
+}
+
+else{
+
+newScript.textContent =
+oldScript.textContent;
+
+}
+
+document.body.appendChild(
+newScript
+);
+
 });
+
+});
+
+/* =========================
+LOAD FOOTER
+========================= */
 
 fetch('footer.html')
 
@@ -1478,6 +1520,7 @@ document.getElementById(
 });
 
 </script>
+
 <script>
 // SCROLL REVEAL
 
