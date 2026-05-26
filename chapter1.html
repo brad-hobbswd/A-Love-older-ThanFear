@@ -1041,17 +1041,17 @@ Continue deeper into the covenant language surrounding David and Jonathan and wh
 <script>
 
 /* =========================
-LOAD MANUSCRIPT HEADER
+LOAD PART I HEADER
 ========================= */
 
-fetch('manuscript-header.html')
+fetch('manuscript-header-p1.html')
 
 .then(response => {
 
 if(!response.ok){
 
 throw new Error(
-'Manuscript header failed to load'
+'Part I header failed to load'
 );
 
 }
@@ -1137,63 +1137,6 @@ document.getElementById(
 .catch(error => {
 
 console.error(error);
-
-});
-
-/* =========================
-SCROLL REVEAL
-========================= */
-
-window.addEventListener(
-'DOMContentLoaded',
-() => {
-
-const revealItems =
-document.querySelectorAll(
-'.scripture-section, .chapter-manuscript, .footnotes, .chapter-reflection, .chapter-nav-card'
-);
-
-revealItems.forEach(item => {
-
-item.style.opacity = '0';
-
-item.style.transform =
-'translateY(60px)';
-
-item.style.transition =
-'all 1.3s ease';
-
-});
-
-const revealOnScroll = () => {
-
-const triggerBottom =
-window.innerHeight * 0.88;
-
-revealItems.forEach(item => {
-
-const itemTop =
-item.getBoundingClientRect().top;
-
-if(itemTop < triggerBottom){
-
-item.style.opacity = '1';
-
-item.style.transform =
-'translateY(0)';
-
-}
-
-});
-
-};
-
-window.addEventListener(
-'scroll',
-revealOnScroll
-);
-
-revealOnScroll();
 
 });
 
