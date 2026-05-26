@@ -1,166 +1,41 @@
-<link
-href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-rel="stylesheet">
+<!-- ========================================
+FOOTER.HTML
+PLACE THIS ENTIRE FILE INSIDE footer.html
+======================================== -->
 
 <style>
-
-/* =========================
-FOOTER
-========================= */
 
 .site-footer{
 
 position:relative;
 
-padding:130px 8% 70px;
+padding:120px 8% 80px;
 
 background:
 linear-gradient(
 180deg,
-#090807,
+#0b0908,
 #050404
 );
 
 border-top:
-1px solid rgba(212,164,79,0.08);
+1px solid rgba(255,255,255,0.05);
 
 overflow:hidden;
 
 }
 
-/* =========================
-ATMOSPHERE
-========================= */
-
-.site-footer::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle at top center,
-rgba(212,164,79,0.06),
-transparent 50%
-);
-
-pointer-events:none;
-
-}
-
-.site-footer::after{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:50%;
-
-transform:translateX(-50%);
-
-width:1200px;
-height:1200px;
-
-background:
-radial-gradient(
-circle,
-rgba(212,164,79,0.03),
-transparent 70%
-);
-
-pointer-events:none;
-
-}
-
-/* =========================
-CONTENT
-========================= */
-
-.footer-content{
+.footer-inner{
 
 position:relative;
 
 z-index:2;
 
-max-width:1400px;
+max-width:1300px;
 
 margin:auto;
 
 }
-
-/* =========================
-TOP TITLE
-========================= */
-
-.footer-top{
-
-text-align:center;
-
-margin-bottom:90px;
-
-}
-
-.footer-title{
-
-font-family:'Cinzel',serif;
-
-font-size:clamp(2.8rem,5vw,5rem);
-
-letter-spacing:3px;
-
-line-height:1.1;
-
-margin-bottom:36px;
-
-color:#f4e7d2;
-
-}
-
-.footer-quote{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(1.7rem,2.3vw,2.7rem);
-
-line-height:1.9;
-
-color:#d8c7ad;
-
-max-width:900px;
-
-margin:auto;
-
-}
-
-/* =========================
-DIVIDER
-========================= */
-
-.footer-divider{
-
-width:260px;
-height:1px;
-
-margin:70px auto 100px;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(212,164,79,0.7),
-transparent
-);
-
-}
-
-/* =========================
-GRID
-========================= */
 
 .footer-grid{
 
@@ -169,227 +44,7 @@ display:grid;
 grid-template-columns:
 repeat(auto-fit,minmax(220px,1fr));
 
-gap:90px 70px;
-
-margin-bottom:110px;
-
-}
-
-.footer-column h3{
-
-font-size:12px;
-
-letter-spacing:6px;
-
-text-transform:uppercase;
-
-color:#d4a44f;
-
-margin-bottom:36px;
-
-font-family:'Inter',sans-serif;
-
-}
-
-.footer-column ul{
-
-list-style:none;
-
-display:flex;
-
-flex-direction:column;
-
-gap:24px;
-
-}
-
-.footer-column a{
-
-text-decoration:none;
-
-font-size:1.05rem;
-
-line-height:1.6;
-
-color:#d8c7ad;
-
-transition:0.4s ease;
-
-position:relative;
-
-display:inline-block;
-
-}
-
-.footer-column a:hover{
-
-color:#f3d69a;
-
-transform:translateX(4px);
-
-text-shadow:
-0 0 12px rgba(212,164,79,0.25);
-
-}
-
-/* =========================
-SCRIPTURE
-========================= */
-
-.footer-scripture{
-
-text-align:center;
-
-margin-bottom:70px;
-
-}
-
-.footer-scripture p{
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:clamp(2rem,3vw,3rem);
-
-line-height:1.9;
-
-color:#efe3d3;
-
-margin-bottom:26px;
-
-}
-
-.footer-scripture span{
-
-font-size:12px;
-
-letter-spacing:8px;
-
-text-transform:uppercase;
-
-color:#8e7b64;
-
-}
-
-/* =========================
-SECOND DIVIDER
-========================= */
-
-.footer-spacer{
-
-width:180px;
-height:1px;
-
-margin:70px auto;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(212,164,79,0.45),
-transparent
-);
-
-}
-
-/* =========================
-CREDITS
-========================= */
-
-.footer-credit{
-
-text-align:center;
-
-margin-bottom:50px;
-
-}
-
-.footer-credit p{
-
-font-size:1.05rem;
-
-line-height:2;
-
-color:#bba891;
-
-margin-bottom:18px;
-
-}
-
-.footer-credit a{
-
-color:#d4a44f;
-
-text-decoration:none;
-
-transition:0.4s ease;
-
-}
-
-.footer-credit a:hover{
-
-color:#f3d69a;
-
-text-shadow:
-0 0 12px rgba(212,164,79,0.25);
-
-}
-
-/* =========================
-BOTTOM
-========================= */
-
-.footer-bottom{
-
-text-align:center;
-
-padding-top:50px;
-
-border-top:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.footer-bottom p{
-
-font-size:0.95rem;
-
-letter-spacing:3px;
-
-line-height:2;
-
-text-transform:uppercase;
-
-color:#8f8374;
-
-}
-
-/* =========================
-TABLET COMPRESSION
-========================= */
-
-@media(max-width:1024px){
-
-.site-footer{
-
-padding:90px 6% 55px;
-
-}
-
-.footer-top{
-
-margin-bottom:65px;
-
-}
-
-.footer-divider{
-
-margin:55px auto 75px;
-
-}
-
-.footer-grid{
-
-gap:60px 45px;
+gap:60px;
 
 margin-bottom:80px;
 
@@ -397,193 +52,94 @@ margin-bottom:80px;
 
 .footer-column h3{
 
-font-size:11px;
+font-family:'Cinzel',serif;
 
-letter-spacing:4px;
+font-size:1.1rem;
 
-margin-bottom:24px;
+letter-spacing:3px;
 
-}
+margin-bottom:28px;
 
-.footer-column ul{
-
-gap:18px;
+color:#f0cf8d;
 
 }
 
 .footer-column a{
 
+display:block;
+
+margin-bottom:18px;
+
+text-decoration:none;
+
 font-size:0.95rem;
-
-line-height:1.5;
-
-}
-
-.footer-scripture{
-
-margin-bottom:55px;
-
-}
-
-.footer-scripture p{
-
-font-size:2rem;
 
 line-height:1.8;
 
-margin-bottom:22px;
+color:#c8bbab;
+
+transition:0.4s ease;
 
 }
 
-.footer-credit{
+.footer-column a:hover{
 
-margin-bottom:38px;
+color:#f0cf8d;
+
+padding-left:6px;
 
 }
 
 .footer-bottom{
 
-padding-top:38px;
+padding-top:50px;
 
-}
-
-}
-
-/* =========================
-MOBILE
-========================= */
-
-@media(max-width:768px){
-
-.site-footer{
-
-padding:90px 7% 60px;
-
-}
-
-.footer-top{
-
-margin-bottom:55px;
-
-}
-
-.footer-title{
-
-font-size:2.8rem;
-
-}
-
-.footer-quote{
-
-font-size:1.4rem;
-
-line-height:1.8;
-
-}
-
-.footer-divider{
-
-margin:45px auto 65px;
-
-width:180px;
-
-}
-
-.footer-grid{
-
-grid-template-columns:1fr;
-
-gap:55px;
-
-margin-bottom:65px;
-
-}
-
-.footer-column{
+border-top:
+1px solid rgba(255,255,255,0.05);
 
 text-align:center;
 
 }
 
-.footer-column ul{
-
-gap:18px;
-
-}
-
-.footer-column h3{
-
-margin-bottom:20px;
-
-}
-
-.footer-scripture p{
-
-font-size:1.7rem;
-
-line-height:1.8;
-
-}
-
-.footer-scripture span{
-
-letter-spacing:5px;
-
-}
-
-.footer-spacer{
-
-margin:55px auto;
-
-}
-
-.footer-credit p{
-
-font-size:1rem;
-
-}
-
 .footer-bottom p{
 
-font-size:0.8rem;
+font-size:0.95rem;
 
-letter-spacing:2px;
+line-height:2;
 
-}
+color:#9e907f;
 
-}
+max-width:800px;
 
-/* =========================
-SMALL MOBILE
-========================= */
-
-@media(max-width:540px){
-
-.footer-title{
-
-font-size:2.2rem;
-
-line-height:1.2;
+margin:auto;
 
 }
 
 .footer-quote{
 
-font-size:1.15rem;
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.6rem;
 
 line-height:1.8;
 
-}
+color:#f0e1cb;
 
-.footer-scripture p{
-
-font-size:1.45rem;
+margin-bottom:30px;
 
 }
 
-.footer-column a{
+@media(max-width:768px){
 
-font-size:0.95rem;
+.site-footer{
+
+padding:90px 8% 60px;
+
+}
+
+.footer-grid{
+
+gap:40px;
 
 }
 
@@ -593,220 +149,127 @@ font-size:0.95rem;
 
 <footer class="site-footer">
 
-<div class="footer-content">
-
-<!-- TOP -->
-
-<div class="footer-top">
-
-<h2 class="footer-title">
-A LOVE OLDER THAN FEAR
-</h2>
-
-<p class="footer-quote">
-
-“Some loves survive death.<br>
-Some survive history.<br>
-The rarest loves survive translation.”
-
-</p>
-
-</div>
-
-<div class="footer-divider"></div>
-
-<!-- GRID -->
+<div class="footer-inner">
 
 <div class="footer-grid">
 
-<!-- COLUMN -->
-
 <div class="footer-column">
 
 <h3>
-Begin Reading
+
+Archive
+
 </h3>
 
-<ul>
-
-<li>
-<a href="index.html">Home</a>
-</li>
-
-<li>
-<a href="reading-paths.html">Reading Paths</a>
-</li>
-
-<li>
-<a href="chapters.html">Chapters</a>
-</li>
-
-<li>
-<a href="timeline.html">Timeline</a>
-</li>
-
-</ul>
-
-</div>
-
-<!-- COLUMN -->
-
-<div class="footer-column">
-
-<h3>
-The Manuscript
-</h3>
-
-<ul>
-
-<li>
-<a href="preface.html">Preface</a>
-</li>
-
-<li>
-<a href="prologue.html">Prologue</a>
-</li>
-
-<li>
-<a href="foreword.html">Foreword</a>
-</li>
-
-<li>
-<a href="introduction.html">Introduction</a>
-</li>
-
-<li>
-<a href="acknowledgements.html">Acknowledgements</a>
-</li>
-
-</ul>
-
-</div>
-
-<!-- COLUMN -->
-
-<div class="footer-column">
-
-<h3>
-Study & Research
-</h3>
-
-<ul>
-
-<li>
-<a href="resources.html">Resources</a>
-</li>
-
-<li>
-<a href="study-guide.html">Study Guide</a>
-</li>
-
-<li>
-<a href="notes.html">Notes</a>
-</li>
-
-<li>
-<a href="faq.html">FAQ</a>
-</li>
-
-</ul>
-
-</div>
-
-<!-- COLUMN -->
-
-<div class="footer-column">
-
-<h3>
-Reflection & Healing
-</h3>
-
-<ul>
-
-<li>
-<a href="prayer-room.html">Prayer Room</a>
-</li>
-
-<li>
-<a href="covenant.html">Covenant</a>
-</li>
-
-<li>
-<a href="about.html">About</a>
-</li>
-
-<li>
-<a href="publication.html">Publication</a>
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-<!-- SCRIPTURE -->
-
-<div class="footer-scripture">
-
-<p>
-
-“There is no fear in love;<br>
-but perfect love casteth out fear.”
-
-</p>
-
-<span>
-1 JOHN 4:18
-</span>
-
-</div>
-
-<div class="footer-spacer"></div>
-
-<!-- CREDIT -->
-
-<div class="footer-credit">
-
-<p>
-
-Written, designed, and developed by
-
-<a
-href="https://brad-hobbswd.github.io/brad-hobbswd"
-target="_blank">
-
-Brad Hobbs Web Design
-
+<a href="archive.html">
+Archive
 </a>
 
-</p>
-
-<p>
-
-<a
-href="https://brad-hobbswd.github.io/clients"
-target="_blank">
-
-Client Portfolio
-
+<a href="chapters.html">
+Chapters
 </a>
 
-</p>
+<a href="resources.html">
+Resources
+</a>
+
+<a href="study-guide.html">
+Study Guide
+</a>
 
 </div>
 
-<!-- BOTTOM -->
+<div class="footer-column">
+
+<h3>
+
+Sacred Spaces
+
+</h3>
+
+<a href="prayer-room.html">
+Prayer Room
+</a>
+
+<a href="reading-paths.html">
+Reading Paths
+</a>
+
+<a href="faq.html">
+FAQ
+</a>
+
+<a href="about.html">
+About
+</a>
+
+</div>
+
+<div class="footer-column">
+
+<h3>
+
+Manuscript
+
+</h3>
+
+<a href="foreword.html">
+Foreword
+</a>
+
+<a href="preface.html">
+Preface
+</a>
+
+<a href="prologue.html">
+Prologue
+</a>
+
+<a href="introduction.html">
+Introduction
+</a>
+
+</div>
+
+<div class="footer-column">
+
+<h3>
+
+Publication
+
+</h3>
+
+<a href="publication.html">
+Publication
+</a>
+
+<a href="copyright.html">
+Copyright
+</a>
+
+<a href="acknowledgements.html">
+Acknowledgements
+</a>
+
+</div>
+
+</div>
 
 <div class="footer-bottom">
 
+<div class="footer-quote">
+
+“Perfect love casteth out fear.”
+
+</div>
+
 <p>
 
-© 2026 BRADLEY HOBBS • A LOVE OLDER THAN FEAR
+© A Love Older Than Fear
 
-<br>
+<br><br>
 
-ALL RIGHTS RESERVED
+A preserved archive of theology, tenderness, covenant, grief, belonging, and sacred reflection.
 
 </p>
 
