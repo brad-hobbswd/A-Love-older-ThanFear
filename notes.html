@@ -770,6 +770,7 @@ letter-spacing:1.5px;
 </head>
 
 <body>
+    <div id="header-container"></div>
 
 <div class="atmosphere">
 
@@ -781,31 +782,6 @@ letter-spacing:1.5px;
 
 </div>
 
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="chapters.html">
-Archive
-</a>
-
-<a href="bibliography.html">
-Bibliography
-</a>
-
-</div>
-
-</nav>
 
 <section class="hero">
 
@@ -1157,21 +1133,162 @@ Some questions remain unresolved not because Scripture failed to speak, but beca
 
 </section>
 
-<!-- FOOTER -->
-
-<div id="footer-container"></div>
-
 <script>
+
+/* =========================
+LOAD HEADER
+========================= */
+
+fetch('header.html')
+
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Header failed to load'
+);
+
+}
+
+return response.text();
+
+})
+
+.then(data => {
+
+document.getElementById(
+'header-container'
+).innerHTML = data;
+
+/* EXECUTE HEADER SCRIPTS */
+
+const scripts =
+document.getElementById(
+'header-container'
+).querySelectorAll('script');
+
+scripts.forEach(oldScript => {
+
+const newScript =
+document.createElement('script');
+
+if(oldScript.src){
+
+newScript.src =
+oldScript.src;
+
+}
+
+else{
+
+newScript.textContent =
+oldScript.textContent;
+
+}
+
+document.body.appendChild(
+newScript
+);
+
+});
+
+})
+
+.catch(error => {
+
+console.error(error);
+
+});
+
+/* =========================
+LOAD FOOTER
+========================= */
 
 fetch('footer.html')
 
-.then(response => response.text())
+.then(response => {
+
+if(!response.ok){
+
+throw new Error(
+'Footer failed to load'
+);
+
+}
+
+return response.text();
+
+})
 
 .then(data => {
 
 document.getElementById(
 'footer-container'
 ).innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.error(error);
+
+});
+
+/* =========================
+SCROLL REVEAL
+========================= */
+
+window.addEventListener(
+'DOMContentLoaded',
+() => {
+
+const revealItems =
+document.querySelectorAll(
+'.hero, .quote-section, .note-group, .note-card, .reflection'
+);
+
+revealItems.forEach(item => {
+
+item.style.opacity = '0';
+
+item.style.transform =
+'translateY(60px)';
+
+item.style.transition =
+'all 1.3s ease';
+
+});
+
+const revealOnScroll = () => {
+
+const triggerBottom =
+window.innerHeight * 0.88;
+
+revealItems.forEach(item => {
+
+const itemTop =
+item.getBoundingClientRect().top;
+
+if(itemTop < triggerBottom){
+
+item.style.opacity = '1';
+
+item.style.transform =
+'translateY(0)';
+
+}
+
+});
+
+};
+
+window.addEventListener(
+'scroll',
+revealOnScroll
+);
+
+revealOnScroll();
 
 });
 
