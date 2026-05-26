@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
 
 <meta charset="UTF-8">
@@ -27,6 +27,7 @@ href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&famil
 rel="stylesheet">
 
 <style>
+
 /* =========================
 RESET
 ========================= */
@@ -616,26 +617,6 @@ overflow:hidden;
 
 }
 
-.chapters::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle at top,
-rgba(212,164,79,0.05),
-transparent 45%
-);
-
-pointer-events:none;
-
-}
-
 .chapter-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -664,6 +645,10 @@ position:relative;
 
 overflow:hidden;
 
+text-decoration:none;
+
+display:block;
+
 }
 
 .chapter-card::before{
@@ -690,8 +675,6 @@ transition:0.5s ease;
 .chapter-card:hover{
 
 transform:translateY(-10px);
-
-cursor:pointer;
 
 box-shadow:
 0 0 45px rgba(212,164,79,0.12);
@@ -737,22 +720,6 @@ z-index:2;
 
 }
 
-.chapter-card{
-
-text-decoration:none;
-
-display:block;
-
-min-height:100%;
-
-}
-
-.chapter-card .section-label{
-
-margin-bottom:18px;
-
-}
-
 /* =========================
 EXPLORE GRID
 ========================= */
@@ -784,16 +751,6 @@ max-width:540px;
 margin:0 auto;
 
 width:100%;
-
-}
-
-@media(max-width:768px){
-
-.explore-grid{
-
-grid-template-columns:1fr;
-
-}
 
 }
 
@@ -869,28 +826,9 @@ color:#c8bbab;
 
 }
 
-
-
 /* =========================
 RESPONSIVE
 ========================= */
-
-@media(max-width:1024px){
-
-.floating-nav{
-padding:20px 5%;
-}
-
-.nav-links{
-gap:20px;
-}
-
-.nav-links a{
-font-size:10px;
-letter-spacing:2px;
-}
-
-}
 
 @media(max-width:1100px){
 
@@ -900,75 +838,7 @@ grid-template-columns:repeat(2,1fr);
 
 }
 
-@media(max-width:700px){
-
-.chapter-grid{
-grid-template-columns:1fr;
-}
-
-}
-
 @media(max-width:768px){
-
-.floating-nav{
-
-flex-direction:column;
-
-gap:18px;
-
-padding:18px 5%;
-
-background:
-rgba(9,8,7,0.82);
-
-border-bottom:
-1px solid rgba(255,255,255,0.04);
-
-}
-
-.nav-logo{
-
-font-size:0.9rem;
-
-letter-spacing:2px;
-
-text-align:center;
-
-}
-
-.nav-links{
-
-justify-content:center;
-
-gap:16px;
-
-}
-
-.nav-links a{
-
-font-size:10px;
-
-letter-spacing:2px;
-
-}
-
-.hero-bottom{
-
-bottom:55px;
-
-gap:18px;
-
-}
-
-.enter-button{
-
-padding:16px 30px;
-
-font-size:11px;
-
-letter-spacing:3px;
-
-}
 
 .section{
 
@@ -994,41 +864,41 @@ padding:180px 8%;
 
 }
 
+.hero-bottom{
+
+bottom:55px;
+
+gap:18px;
+
+}
+
+.enter-button{
+
+padding:16px 30px;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+}
+
+.explore-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:700px){
+
+.chapter-grid{
+grid-template-columns:1fr;
+}
+
 }
 
 @media(max-width:540px){
-
-.floating-nav{
-
-padding:16px 20px;
-
-gap:14px;
-
-}
-
-.nav-logo{
-
-font-size:0.75rem;
-
-letter-spacing:1.5px;
-
-line-height:1.5;
-
-}
-
-.nav-links{
-
-gap:12px;
-
-}
-
-.nav-links a{
-
-font-size:9px;
-
-letter-spacing:1.5px;
-
-}
 
 .hero-bottom{
 
@@ -1058,30 +928,12 @@ padding:38px 28px;
 
 }
 
-@media(max-width:390px){
-
-.nav-links{
-
-gap:10px;
-
-}
-
-.nav-links a{
-
-font-size:8px;
-
-letter-spacing:1px;
-
-}
-
-}
-
 </style>
 </head>
 
 <body>
+
 <div id="header-container"></div>
-<!-- ATMOSPHERE -->
 
 <div class="atmosphere">
 
@@ -1092,7 +944,6 @@ letter-spacing:1px;
 <div class="particle"></div>
 
 </div>
-<!-- HERO -->
 
 <section class="hero">
 
@@ -1125,8 +976,6 @@ SCROLL
 
 </section>
 
-<!-- SECTION -->
-
 <section class="section" id="archive">
 
 <div class="section-content">
@@ -1145,15 +994,13 @@ Scripture remembered their tenderness.
 
 <p>
 
-The relationship between David and Jonathan survived kingdoms, translators, empires, theology, and centuries of interpretation while still carrying extraordinary emotional honesty within sacred text itself. Their covenant endured because Scripture preserved grief, loyalty, devotion, and love with remarkable tenderness instead of distance.
+The relationship between David and Jonathan survived kingdoms, translators, empires, theology, and centuries of interpretation while still carrying extraordinary emotional honesty within sacred text itself.
 
 </p>
 
 </div>
 
 </section>
-
-<!-- MASSIVE QUOTE -->
 
 <section class="massive-quote">
 
@@ -1165,8 +1012,6 @@ Scripture refused to erase.”
 </h3>
 
 </section>
-
-<!-- SECTION -->
 
 <section class="section">
 
@@ -1186,7 +1031,7 @@ Fear arrived later.
 
 <p>
 
-The Hebrew language surrounding David and Jonathan speaks with covenant depth, emotional vulnerability, and poetic intensity many readers were never taught to examine carefully. Long before fear shaped interpretation, Scripture already preserved souls knit together, tears shared openly, and love described with extraordinary tenderness.
+The Hebrew language surrounding David and Jonathan speaks with covenant depth, emotional vulnerability, and poetic intensity many readers were never taught to examine carefully.
 
 </p>
 
@@ -1194,31 +1039,23 @@ The Hebrew language surrounding David and Jonathan speaks with covenant depth, e
 
 </section>
 
-<!-- CHAPTERS -->
-
-<!-- PARTS -->
-
 <section class="chapters" id="chapters">
 
-<div class="explore-grid">
+<div class="chapter-grid">
 
 <a href="part1.html" class="chapter-card">
 
 <div class="section-label">
-
 PART I
-
 </div>
 
 <h4>
-
 The Language of Love
-
 </h4>
 
 <p>
 
-Where covenant, language, and tenderness begin emerging from Scripture itself through ancient words that survived history.
+Where covenant, language, and tenderness begin emerging from Scripture itself.
 
 </p>
 
@@ -1227,20 +1064,16 @@ Where covenant, language, and tenderness begin emerging from Scripture itself th
 <a href="part2.html" class="chapter-card">
 
 <div class="section-label">
-
 PART II
-
 </div>
 
 <h4>
-
 David and Jonathan
-
 </h4>
 
 <p>
 
-The relationship preserved through grief, loyalty, covenant, tears, devotion, and extraordinary emotional honesty.
+The relationship preserved through grief, loyalty, covenant, tears, devotion, and emotional honesty.
 
 </p>
 
@@ -1249,64 +1082,16 @@ The relationship preserved through grief, loyalty, covenant, tears, devotion, an
 <a href="part3.html" class="chapter-card">
 
 <div class="section-label">
-
 PART III
-
 </div>
 
 <h4>
-
 Fear and Interpretation
-
 </h4>
 
 <p>
 
-How theology, translation, fear, and cultural pressure reshaped generations of biblical interpretation.
-
-</p>
-
-</a>
-
-<a href="part4.html" class="chapter-card">
-
-<div class="section-label">
-
-PART IV
-
-</div>
-
-<h4>
-
-Wounded Readers
-
-</h4>
-
-<p>
-
-The spiritual cost carried by believers searching for belonging, compassion, safety, and honesty within faith communities.
-
-</p>
-
-</a>
-
-<a href="part5.html" class="chapter-card">
-
-<div class="section-label">
-
-PART V
-
-</div>
-
-<h4>
-
-What Remains
-
-</h4>
-
-<p>
-
-What survives after fear, silence, grief, history, translation, and centuries of interpretation.
+How theology, translation, fear, and cultural pressure reshaped generations of interpretation.
 
 </p>
 
@@ -1316,125 +1101,7 @@ What survives after fear, silence, grief, history, translation, and centuries of
 
 </section>
 
-<!-- EXPLORE -->
-
-<section class="section">
-
-<div class="section-content">
-
-<div class="section-label">
-
-EXPLORE THE ARCHIVE
-
-</div>
-
-<h2 style="
-max-width:760px;
-">
-
-Beyond the manuscript.
-
-</h2>
-
-<p style="
-max-width:820px;
-">
-
-The journey surrounding David and Jonathan extends beyond chapters alone through historical timelines, reflection spaces, frequently asked questions, covenant reflections, and guided paths for deeper exploration.
-
-</p>
-
-</div>
-
-<div style="
-text-align:center;
-margin:90px auto 110px;
-max-width:1000px;
-padding:0 8%;
-position:relative;
-z-index:3;
-">
-
-<p style="
-font-family:'Cormorant Garamond',serif;
-font-size:clamp(2.2rem,4vw,3.5rem);
-line-height:1.7;
-color:#e6d7c3;
-font-weight:400;
-font-style:italic;
-letter-spacing:0.5px;
-">
-
-“Some truths survive through study.
-Others survive through remembrance.”
-
-</p>
-
-</div>
-
-<div class="explore-grid">
-
-<a href="timeline.html" class="chapter-card">
-
-<div class="section-label">
-TIMELINE
-</div>
-
-<h4>
-History Preserved
-</h4>
-
-<p>
-
-Explore historical events, kingdoms, translation eras, theological movements, and the long preservation of sacred text across generations.
-
-</p>
-
-</a>
-
-<a href="faq.html" class="chapter-card">
-
-<div class="section-label">
-FAQ
-</div>
-
-<h4>
-Questions Asked Carefully
-</h4>
-
-<p>
-
-Responses to common questions surrounding Scripture, interpretation, covenant language, theology, and emotional honesty within the text.
-
-</p>
-
-</a>
-
-<a href="covenant.html" class="chapter-card explore-center">
-
-<div class="section-label">
-COVENANT
-</div>
-
-<h4>
-Personal Reflections
-</h4>
-
-<p>
-
-Personal thoughts, discoveries, reflections, emotional responses, and spiritual observations gathered throughout this journey.
-
-</p>
-
-</a>
-
-</div>
-
-</section>
-
-<!-- FINAL -->
-
-<section class="final" id="final">
+<section class="final">
 
 <h2>
 
@@ -1444,13 +1111,14 @@ What Remains
 
 <p>
 
-Their covenant remains visible. Their grief remains visible. Their love remains visible. Across centuries of debate and interpretation, the story of David and Jonathan still waits within Scripture exactly where generations before us left it, inviting readers to listen beyond fear and encounter the emotional honesty sacred text refused to silence.
+Their covenant remains visible. Their grief remains visible. Their love remains visible.
 
 </p>
 
 </section>
+
 <div id="footer-container"></div>
-    
+
 <script>
 
 /* =========================
@@ -1466,10 +1134,6 @@ fetch('header.html')
 document.getElementById(
 'header-container'
 ).innerHTML = data;
-
-/* =========================
-RUN HEADER SCRIPTS
-========================= */
 
 const scripts =
 document.getElementById(
@@ -1519,15 +1183,30 @@ document.getElementById(
 
 });
 
-</script>
+/* =========================
+SCROLL REVEAL
+========================= */
 
-<script>
-// SCROLL REVEAL
+window.addEventListener(
+'DOMContentLoaded',
+() => {
 
 const revealItems =
 document.querySelectorAll(
 '.section, .massive-quote, .chapter-card, .final'
 );
+
+revealItems.forEach(item => {
+
+item.style.opacity = '0';
+
+item.style.transform =
+'translateY(60px)';
+
+item.style.transition =
+'all 1.4s ease';
+
+});
 
 const revealOnScroll = () => {
 
@@ -1541,10 +1220,10 @@ item.getBoundingClientRect().top;
 
 if(itemTop < triggerBottom){
 
-item.style.opacity = "1";
+item.style.opacity = '1';
 
 item.style.transform =
-"translateY(0)";
+'translateY(0)';
 
 }
 
@@ -1552,59 +1231,12 @@ item.style.transform =
 
 };
 
-revealItems.forEach(item => {
-
-item.style.opacity = "0";
-
-item.style.transform =
-"translateY(60px)";
-
-item.style.transition =
-'all 1.4s ease';
-
-});
-
 window.addEventListener(
 'scroll',
 revealOnScroll
 );
 
 revealOnScroll();
-
-// NAVIGATION FADE
-
-const nav =
-document.querySelector(
-'.floating-nav'
-);
-
-window.addEventListener(
-'scroll',
-() => {
-
-if(window.innerWidth > 768){
-
-if(window.scrollY > 100){
-
-nav.style.background =
-'rgba(9,8,7,0.82)';
-
-nav.style.borderBottom =
-'1px solid rgba(255,255,255,0.05)';
-
-}
-
-else{
-
-nav.style.background =
-'linear-gradient(180deg, rgba(0,0,0,0.45), transparent)';
-
-nav.style.borderBottom =
-'none';
-
-}
-
-}
 
 });
 
