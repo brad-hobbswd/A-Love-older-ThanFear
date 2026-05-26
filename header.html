@@ -1,6 +1,5 @@
 <!-- ========================================
-HEADER.HTML
-UNIVERSAL SACRED NAVIGATION
+UNIVERSAL HEADER
 ======================================== -->
 
 <style>
@@ -42,10 +41,6 @@ transition:0.45s ease;
 
 }
 
-/* =========================
-LOGO
-========================= */
-
 .site-logo{
 
 font-family:'Cinzel',serif;
@@ -62,14 +57,7 @@ white-space:nowrap;
 
 z-index:10001;
 
-text-shadow:
-0 0 12px rgba(212,164,79,0.18);
-
 }
-
-/* =========================
-DESKTOP NAV
-========================= */
 
 .desktop-nav{
 
@@ -78,6 +66,8 @@ display:flex;
 align-items:center;
 
 gap:20px;
+
+flex-wrap:wrap;
 
 }
 
@@ -118,48 +108,31 @@ transition:0.4s ease;
 
 }
 
-.desktop-nav a:hover{
-
-color:#f2d18b;
-
-text-shadow:
-0 0 10px rgba(212,164,79,0.24);
-
-}
-
-.desktop-nav a:hover::after{
-
-width:100%;
-
-}
-
+.desktop-nav a:hover,
 .desktop-nav a.active{
 
 color:#f2d18b;
 
 }
 
+.desktop-nav a:hover::after,
 .desktop-nav a.active::after{
 
 width:100%;
 
 }
 
-/* =========================
-MENU TOGGLE
-========================= */
-
 .menu-toggle{
 
 display:none;
 
-width:58px;
-height:58px;
+width:56px;
+height:56px;
 
 border-radius:50%;
 
 border:
-1px solid rgba(212,164,79,0.28);
+1px solid rgba(212,164,79,0.3);
 
 background:
 rgba(212,164,79,0.06);
@@ -170,101 +143,25 @@ justify-content:center;
 
 cursor:pointer;
 
-transition:0.45s ease;
-
-position:relative;
-
-overflow:hidden;
-
 z-index:10001;
 
 }
 
-.menu-toggle:hover{
+.arrow{
 
-transform:translateY(-2px);
+font-size:1.3rem;
 
-border-color:
-rgba(212,164,79,0.5);
+color:#f0cf8d;
 
-box-shadow:
-0 0 30px rgba(212,164,79,0.15);
+transition:0.4s ease;
 
 }
 
-/* =========================
-ARROW ICON
-========================= */
+.menu-toggle.active .arrow{
 
-.arrow-wrap{
-
-position:relative;
-
-width:24px;
-height:24px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
+transform:rotate(180deg);
 
 }
-
-.arrow-line{
-
-position:absolute;
-
-width:16px;
-height:1px;
-
-background:#f0cf8d;
-
-transition:0.45s ease;
-
-}
-
-.arrow-line.one{
-
-transform:
-rotate(45deg)
-translate(2px,-5px);
-
-}
-
-.arrow-line.two{
-
-transform:
-rotate(-45deg)
-translate(2px,5px);
-
-}
-
-/* =========================
-ACTIVE X
-========================= */
-
-.menu-toggle.active
-.arrow-line.one{
-
-transform:
-rotate(-45deg)
-translate(2px,-5px);
-
-}
-
-.menu-toggle.active
-.arrow-line.two{
-
-transform:
-rotate(45deg)
-translate(2px,5px);
-
-}
-
-/* =========================
-OVERLAY
-========================= */
 
 .menu-overlay{
 
@@ -276,8 +173,6 @@ background:
 rgba(0,0,0,0.55);
 
 backdrop-filter:blur(8px);
-
--webkit-backdrop-filter:blur(8px);
 
 opacity:0;
 
@@ -297,10 +192,6 @@ visibility:visible;
 
 }
 
-/* =========================
-SLIDE MENU
-========================= */
-
 .slide-menu{
 
 position:fixed;
@@ -311,7 +202,7 @@ right:0;
 width:340px;
 max-width:90%;
 
-height:100vh;
+height:100dvh;
 
 background:
 linear-gradient(
@@ -320,28 +211,15 @@ rgba(10,8,7,0.98),
 rgba(20,15,13,0.98)
 );
 
-backdrop-filter:blur(18px);
+padding:120px 40px;
 
--webkit-backdrop-filter:blur(18px);
-
-border-left:
-1px solid rgba(212,164,79,0.15);
-
-z-index:9998;
-
-padding:120px 40px 60px;
-
-display:flex;
-
-flex-direction:column;
-
-gap:26px;
+overflow-y:auto;
 
 transform:translateX(110%);
 
 transition:0.5s ease;
 
-overflow-y:auto;
+z-index:9998;
 
 }
 
@@ -351,35 +229,13 @@ transform:translateX(0);
 
 }
 
-/* =========================
-MENU LABEL
-========================= */
-
-.menu-label{
-
-font-size:11px;
-
-letter-spacing:5px;
-
-text-transform:uppercase;
-
-color:#d4a44f;
-
-margin-bottom:45px;
-
-}
-
-/* =========================
-SLIDE LINKS
-========================= */
-
 .slide-links{
 
 display:flex;
 
 flex-direction:column;
 
-gap:26px;
+gap:24px;
 
 }
 
@@ -387,9 +243,7 @@ gap:26px;
 
 font-family:'Cinzel',serif;
 
-font-size:1.5rem;
-
-line-height:1.4;
+font-size:1.3rem;
 
 text-decoration:none;
 
@@ -397,118 +251,32 @@ color:#f3e7d4;
 
 display:flex;
 
-align-items:center;
-
 justify-content:space-between;
 
-padding-bottom:18px;
+padding-bottom:16px;
 
 border-bottom:
-1px solid rgba(255,255,255,0.05);
-
-transition:0.4s ease;
+1px solid rgba(255,255,255,0.06);
 
 }
-
-.slide-links a span{
-
-font-size:1.2rem;
-
-color:#d4a44f;
-
-transform:translateX(0);
-
-transition:0.4s ease;
-
-}
-
-.slide-links a:hover{
-
-color:#f0cf8d;
-
-padding-left:8px;
-
-}
-
-.slide-links a:hover span{
-
-transform:translateX(10px);
-
-}
-
-/* =========================
-TABLET + MOBILE
-========================= */
 
 @media(max-width:900px){
 
 .desktop-nav{
-
 display:none;
-
 }
 
 .menu-toggle{
-
 display:flex;
-
 }
 
 }
-
-/* =========================
-DESKTOP
-========================= */
 
 @media(min-width:901px){
 
 .slide-menu,
 .menu-overlay{
-
 display:none;
-
-}
-
-}
-
-/* =========================
-MOBILE
-========================= */
-
-@media(max-width:540px){
-
-.site-header{
-
-padding:18px 20px;
-
-}
-
-.site-logo{
-
-font-size:0.74rem;
-
-letter-spacing:1.5px;
-
-}
-
-.slide-menu{
-
-padding:
-120px 34px 50px;
-
-}
-
-.slide-links a{
-
-font-size:1.2rem;
-
-}
-
-.menu-toggle{
-
-width:52px;
-height:52px;
-
 }
 
 }
@@ -525,47 +293,24 @@ A LOVE OLDER THAN FEAR
 
 <nav class="desktop-nav">
 
-<a href="index.html" class="nav-link">
-Home
-</a>
-
-<a href="archive.html" class="nav-link">
-Archive
-</a>
-
-<a href="chapters.html" class="nav-link">
-Chapters
-</a>
-
-<a href="reading-paths.html" class="nav-link">
-Reading Paths
-</a>
-
-<a href="resources.html" class="nav-link">
-Resources
-</a>
-
-<a href="study-guide.html" class="nav-link">
-Study Guide
-</a>
-
-<a href="prayer-room.html" class="nav-link">
-Prayer Room
-</a>
-
-<a href="about.html" class="nav-link">
-About
-</a>
+<a href="index.html" class="nav-link">Home</a>
+<a href="archive.html" class="nav-link">Archive</a>
+<a href="chapters.html" class="nav-link">Chapters</a>
+<a href="reading-paths.html" class="nav-link">Reading Paths</a>
+<a href="resources.html" class="nav-link">Resources</a>
+<a href="study-guide.html" class="nav-link">Study Guide</a>
+<a href="prayer-room.html" class="nav-link">Prayer Room</a>
+<a href="faq.html" class="nav-link">FAQ</a>
+<a href="notes.html" class="nav-link">Notes</a>
+<a href="about.html" class="nav-link">About</a>
 
 </nav>
 
 <div class="menu-toggle" id="menuToggle">
 
-<div class="arrow-wrap">
+<div class="arrow">
 
-<div class="arrow-line one"></div>
-
-<div class="arrow-line two"></div>
+➜
 
 </div>
 
@@ -573,264 +318,4 @@ About
 
 </header>
 
-<div class="menu-overlay" id="menuOverlay"></div>
-
-<div class="slide-menu" id="slideMenu">
-
-<div class="menu-label">
-
-Archive Navigation
-
-</div>
-
-<div class="slide-links">
-
-<a href="index.html">
-
-Home
-
-<span>
-→
-</span>
-
-</a>
-
-<a href="archive.html">
-
-Archive
-
-<span>
-→
-</span>
-
-</a>
-
-<a href="chapters.html">
-
-Chapters
-
-<span>
-→
-</span>
-
-</a>
-
-<a href="reading-paths.html">
-
-Reading Paths
-
-<span>
-→
-</span>
-
-</a>
-
-<a href="resources.html">
-
-Resources
-
-<span>
-→
-</span>
-
-</a>
-
-<a href="study-guide.html">
-
-Study Guide
-
-<span>
-→
-</span>
-
-</a>
-
-<a href="prayer-room.html">
-
-Prayer Room
-
-<span>
-→
-</span>
-
-</a>
-
-<a href="faq.html">
-
-FAQ
-
-<span>
-→
-</span>
-
-</a>
-
-<a href="notes.html">
-
-Notes
-
-<span>
-→
-</span>
-
-</a>
-
-<a href="about.html">
-
-About
-
-<span>
-→
-</span>
-
-</a>
-
-</div>
-
-</div>
-
-<script>
-
-/* =========================
-ELEMENTS
-========================= */
-
-const menuToggle =
-document.getElementById(
-'menuToggle'
-);
-
-const slideMenu =
-document.getElementById(
-'slideMenu'
-);
-
-const menuOverlay =
-document.getElementById(
-'menuOverlay'
-);
-
-/* =========================
-TOGGLE MENU
-========================= */
-
-function toggleMenu(){
-
-menuToggle.classList.toggle(
-'active'
-);
-
-slideMenu.classList.toggle(
-'active'
-);
-
-menuOverlay.classList.toggle(
-'active'
-);
-
-}
-
-/* =========================
-OPEN/CLOSE
-========================= */
-
-menuToggle.addEventListener(
-'click',
-toggleMenu
-);
-
-menuOverlay.addEventListener(
-'click',
-toggleMenu
-);
-
-/* =========================
-CLOSE MENU ON LINK CLICK
-========================= */
-
-document.querySelectorAll(
-'.slide-links a'
-).forEach(link => {
-
-link.addEventListener(
-'click',
-() => {
-
-menuToggle.classList.remove(
-'active'
-);
-
-slideMenu.classList.remove(
-'active'
-);
-
-menuOverlay.classList.remove(
-'active'
-);
-
-});
-
-});
-
-/* =========================
-ACTIVE LINK
-========================= */
-
-const currentPage =
-window.location.pathname
-.split("/")
-.pop();
-
-document.querySelectorAll(
-'.nav-link'
-).forEach(link => {
-
-if(
-link.getAttribute('href')
-=== currentPage
-){
-
-link.classList.add(
-'active'
-);
-
-}
-
-});
-
-/* =========================
-HEADER SCROLL EFFECT
-========================= */
-
-const header =
-document.querySelector(
-'.site-header'
-);
-
-window.addEventListener(
-'scroll',
-() => {
-
-if(window.scrollY > 50){
-
-header.style.background =
-'rgba(7,6,5,0.92)';
-
-header.style.borderBottom =
-'1px solid rgba(255,255,255,0.06)';
-
-}
-
-else{
-
-header.style.background =
-'rgba(7,6,5,0.72)';
-
-header.style.borderBottom =
-'1px solid rgba(255,255,255,0.04)';
-
-}
-
-});
-
-</script>
+<div class="menu
