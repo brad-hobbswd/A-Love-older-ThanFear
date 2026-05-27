@@ -429,7 +429,7 @@ appearance:none;
 cursor:text;
 }
 
-  .prayer-form select{
+.prayer-form select{
 cursor:pointer;
 }
 
@@ -485,6 +485,37 @@ text-transform:uppercase;
 cursor:pointer;
 
 transition:0.4s ease;
+
+}
+
+.prayer-form-card{
+
+background:
+rgba(255,255,255,0.025);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+padding:70px 60px;
+
+backdrop-filter:blur(10px);
+
+-webkit-backdrop-filter:blur(10px);
+
+transition:0.4s ease;
+
+box-shadow:
+0 0 40px rgba(212,164,79,0.04);
+
+}
+
+.prayer-form-card:hover{
+
+border-color:
+rgba(212,164,79,0.18);
+
+box-shadow:
+0 0 45px rgba(212,164,79,0.08);
 
 }
 
@@ -868,7 +899,14 @@ padding:42px 32px;
 
 }
 
+.prayer-form-card{
+
+padding:50px 35px;
+
 }
+
+}
+
 
 @media(max-width:540px){
 
@@ -903,6 +941,12 @@ font-size:1.8rem;
 font-size:9px;
 
 letter-spacing:1.5px;
+
+}
+
+.prayer-form-card{
+
+padding:40px 24px;
 
 }
 
@@ -970,6 +1014,8 @@ Every prayer placed here matters.
 
 <div class="prayer-form-inner">
 
+<div class="prayer-form-card">
+
 <div class="section-label">
 
 PRAYER REQUEST
@@ -988,8 +1034,7 @@ Prayer requests may be shared publicly within the prayer wall unless privacy is 
 
 </p>
 
-<form
-class="prayer-form"
+<form class="prayer-form"
 action="https://docs.google.com/forms/d/e/1FAIpQLSfmb_jHm70XHghymkzeKVAZnxinKPjSs8mDeUUeqp7t3aRQ3w/formResponse"
 method="POST"
 target="hidden_iframe"
@@ -1091,6 +1136,8 @@ Every request is received prayerfully and reviewed with care.
 </p>
 
 </form>
+
+</div>
 
 </div>
 
@@ -1503,7 +1550,7 @@ window.addEventListener(
 
 const revealItems =
 document.querySelectorAll(
-'.archive-section, .quote-section, .archive-card'
+'.quote-section, .prayer-form-card, .prayer-card, .reflection, .chapter-nav-card'
 );
 
 revealItems.forEach(item => {
