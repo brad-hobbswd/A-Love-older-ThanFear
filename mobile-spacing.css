@@ -222,7 +222,9 @@
 
   /* Keep the first image visible directly beneath the compact fixed header. */
   .hero:has(.hero-banner) {
-    padding-top: 0 !important;
+    /* The header is fixed, so reserve its height in the document flow.
+       This prevents the top of the artwork from hiding underneath it. */
+    padding: 76px 0 0 !important;
     margin-top: 0 !important;
   }
 
