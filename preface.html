@@ -919,31 +919,7 @@ line-height:1.9;
 
 </div>
 
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="foreword.html">
-Foreword
-</a>
-
-<a href="introduction.html">
-Introduction
-</a>
-
-<a href="chapter1.html">
-Begin
-</a>
-
-</div>
-
-</nav>
+<div id="header-container"></div>
 
 <section class="page-hero">
 
@@ -1286,40 +1262,32 @@ Enter the first chapter and begin the larger journey through Scripture, history,
 <div id="footer-container"></div>
 
 <script>
+fetch('header.html')
+.then(response => {
+if (!response.ok) throw new Error('Header failed to load');
+return response.text();
+})
+.then(data => {
+document.getElementById('header-container').innerHTML = data;
+const scripts = document.getElementById('header-container').querySelectorAll('script');
+scripts.forEach(oldScript => {
+const newScript = document.createElement('script');
+if (oldScript.src) newScript.src = oldScript.src;
+else newScript.textContent = oldScript.textContent;
+document.body.appendChild(newScript);
+});
+})
+.catch(error => console.error('Header failed to load:', error));
 
 fetch('footer.html')
-
 .then(response => {
-
-if(!response.ok){
-
-throw new Error(
-'Footer failed to load'
-);
-
-}
-
+if (!response.ok) throw new Error('Footer failed to load');
 return response.text();
-
 })
-
 .then(data => {
-
-document.getElementById(
-'footer-container'
-).innerHTML = data;
-
+document.getElementById('footer-container').innerHTML = data;
 })
-
-.catch(error => {
-
-console.error(
-'Footer failed to load:',
-error
-);
-
-});
-
+.catch(error => console.error('Footer failed to load:', error));
 </script>
 
 </body>
