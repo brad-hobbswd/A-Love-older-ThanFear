@@ -265,3 +265,80 @@
     padding-bottom: 2px;
   }
 }
+
+
+/* Desktop and landscape spacing refinements. The mobile rules above remain unchanged. */
+@media (min-width: 901px) {
+  section:not(.hero):not(.chapter-hero):not(.part-hero):not(.archive-hero):not(.about-hero):not(.page-hero) {
+    padding-block: clamp(4.5rem, 7vw, 7.5rem);
+  }
+
+  .section, .chapters {
+    padding-block: clamp(4.5rem, 7vw, 7.5rem);
+  }
+
+  .massive-quote, .quote-section, .quote-block, .quote-divider {
+    padding-block: clamp(4.5rem, 8vw, 8rem);
+  }
+
+  .final {
+    padding-block: clamp(4.5rem, 7vw, 7rem);
+  }
+
+  .support {
+    padding-block: clamp(3.75rem, 6vw, 6rem);
+  }
+
+  .chapter-grid, .archive-grid, .resource-grid, .card-grid {
+    gap: clamp(1.25rem, 2vw, 2rem);
+  }
+
+  .chapter-card, .archive-card, .chapter-nav-card, .nav-card, .resource-card {
+    padding: clamp(1.4rem, 2.2vw, 2.4rem);
+  }
+
+  .chapter-manuscript, .manuscript, .manuscript-inner, .manuscript-text,
+  .section-content, .section-inner, .intro-inner, .chapter-inner, .part-inner,
+  .archive-inner, .guide-inner, .reflection-content, .references-inner,
+  .footnotes-inner {
+    margin-inline: auto;
+  }
+
+  .chapter-manuscript p, .manuscript p, .manuscript-text p,
+  .section-text, .intro-text, .archive-description {
+    margin-bottom: 1rem;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .section, .chapters, .final, .support, .massive-quote,
+  .quote-section, .quote-block, .quote-divider {
+    padding-block: clamp(3rem, 6vw, 4.75rem);
+  }
+
+  .chapter-grid, .archive-grid, .resource-grid, .card-grid {
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .chapter-card, .archive-card, .chapter-nav-card, .nav-card, .resource-card {
+    padding: clamp(1.1rem, 2.5vw, 1.8rem);
+  }
+}
+
+@media (orientation: landscape) and (min-width: 601px) and (max-height: 800px) {
+  .chapter-hero, .part-hero, .archive-hero, .about-hero, .page-hero {
+    min-height: auto !important;
+    padding-top: clamp(5.5rem, 12vh, 7rem) !important;
+    padding-bottom: clamp(2.5rem, 7vh, 4rem) !important;
+  }
+
+  .hero:not(:has(.hero-banner)) {
+    min-height: auto !important;
+    padding-top: clamp(5.5rem, 12vh, 7rem) !important;
+    padding-bottom: clamp(2.5rem, 7vh, 4rem) !important;
+  }
+}
