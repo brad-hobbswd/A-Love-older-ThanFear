@@ -1,282 +1,90 @@
 <style>
-/* Shared site navigation for desktop, tablet, and mobile */
-.site-header,
-.site-header * { box-sizing: border-box; }
-
-.site-header {
-  position: fixed;
-  inset: 0 0 auto;
-  width: 100%;
-  z-index: 9999;
-  min-height: 76px;
-  padding: 14px clamp(18px, 4vw, 64px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  background: rgba(7, 6, 5, .90);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(212,164,79,.22);
-  box-shadow: 0 8px 28px rgba(0,0,0,.16);
-}
-.site-logo {
-  flex: 0 1 auto;
-  min-width: 0;
-  max-width: 360px;
-  font-family: 'Cinzel', serif;
-  font-size: clamp(.72rem, .9vw, .95rem);
-  line-height: 1.45;
-  letter-spacing: clamp(1.2px, .18vw, 2.6px);
-  color: #f0cf8d;
-  text-decoration: none;
-  white-space: normal;
-}
-.desktop-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: clamp(10px, 1.25vw, 20px);
-  flex: 1 1 auto;
-}
-.desktop-nav a {
-  position: relative;
-  padding: 10px 0;
-  font-size: clamp(9px, .65vw, 11px);
-  letter-spacing: clamp(.6px, .08vw, 1.3px);
-  line-height: 1.3;
-  white-space: nowrap;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #d7c3a4;
-  transition: color .2s ease;
-}
-.desktop-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 3px;
-  width: 0;
-  height: 1px;
-  background: #d4a44f;
-  transition: width .2s ease;
-}
-.desktop-nav a:hover,
-.desktop-nav a.active { color: #f2d18b; }
-.desktop-nav a:hover::after,
-.desktop-nav a.active::after { width: 100%; }
-
-.menu-toggle {
-  display: none;
-  flex: 0 0 46px;
-  width: 46px;
-  height: 46px;
-  padding: 0;
-  border: 1px solid rgba(212,164,79,.45);
-  border-radius: 50%;
-  background: rgba(212,164,79,.08);
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #f2d18b;
-  transition: background .2s ease, border-color .2s ease;
-}
-.menu-toggle:hover,
-.menu-toggle:focus-visible {
-  background: rgba(212,164,79,.18);
-  border-color: rgba(242,209,139,.85);
-  outline: 2px solid rgba(242,209,139,.55);
-  outline-offset: 3px;
-}
-.menu-icon { display:flex; flex-direction:column; gap:5px; width:18px; }
-.menu-icon span {
-  display:block; height:2px; width:100%; border-radius:2px;
-  background:#f2d18b; transition:transform .2s ease, opacity .2s ease;
-}
-.menu-toggle.active .menu-icon span:first-child { transform:translateY(7px) rotate(45deg); }
-.menu-toggle.active .menu-icon span:nth-child(2) { opacity:0; }
-.menu-toggle.active .menu-icon span:last-child { transform:translateY(-7px) rotate(-45deg); }
-
-.menu-overlay {
-  position:fixed; inset:0; z-index:9997;
-  background:rgba(0,0,0,.62);
-  -webkit-backdrop-filter:blur(7px); backdrop-filter:blur(7px);
-  opacity:0; visibility:hidden; transition:opacity .25s ease,visibility .25s ease;
-}
-.menu-overlay.active { opacity:1; visibility:visible; }
-.slide-menu {
-  position:fixed; top:0; right:0; z-index:9998;
-  width:min(390px, 88vw); height:100vh; height:100dvh;
-  padding:calc(88px + env(safe-area-inset-top)) 28px calc(28px + env(safe-area-inset-bottom));
-  overflow-y:auto; overscroll-behavior:contain;
-  background:linear-gradient(180deg,rgba(10,8,7,.99),rgba(20,15,13,.99));
-  border-left:1px solid rgba(212,164,79,.25);
-  box-shadow:-18px 0 48px rgba(0,0,0,.3);
-  transform:translateX(105%); visibility:hidden;
-  transition:transform .28s ease,visibility .28s ease;
-}
-.slide-menu.active { transform:translateX(0); visibility:visible; }
-.slide-links { display:flex; flex-direction:column; gap:0; }
-.slide-links a {
-  display:flex; align-items:center; justify-content:space-between; gap:18px;
-  min-height:54px; padding:15px 2px;
-  border-bottom:1px solid rgba(255,255,255,.09);
-  font-family:'Cinzel',serif; font-size:1rem; line-height:1.4;
-  text-decoration:none; color:#f3e7d4;
-  transition:color .2s ease,padding .2s ease;
-}
-.slide-links a:hover,
-.slide-links a:focus-visible { color:#f2d18b; padding-left:6px; outline:none; }
-.slide-links a span { color:#d4a44f; }
-body.nav-open { overflow:hidden; }
-
-@media (max-width: 1100px) {
-  .site-header { min-height:68px; padding:10px max(18px, 4vw); gap:14px; }
-  .site-logo { max-width:calc(100% - 64px); font-size:clamp(.66rem, 2.1vw, .88rem); letter-spacing:clamp(1px, .25vw, 2px); }
-  .desktop-nav { display:none; }
-  .menu-toggle { display:flex; }
-}
-@media (max-width: 480px) {
-  .site-header {
-    min-height:64px;
-    padding:9px max(14px, 4vw);
-    gap:10px;
-  }
-  .site-logo {
-    max-width:calc(100% - 54px);
-    font-size:clamp(.61rem, 3vw, .76rem);
-    letter-spacing:1.1px;
-    line-height:1.35;
-  }
-  .menu-toggle { width:42px; height:42px; flex-basis:42px; }
-  .slide-menu { padding-left:22px; padding-right:22px; }
-  .slide-links a { min-height:50px; font-size:.96rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .site-header *, .menu-overlay, .slide-menu { transition:none !important; }
-}
+.site-header,.site-header *{box-sizing:border-box}
+.site-header{position:fixed;inset:0 0 auto;width:100%;z-index:9999;min-height:76px;padding:14px clamp(18px,4vw,64px);display:flex;align-items:center;justify-content:space-between;gap:28px;background:rgba(7,6,5,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(212,164,79,.22);box-shadow:0 8px 28px rgba(0,0,0,.16)}
+.site-logo{flex:0 1 auto;min-width:0;max-width:360px;font-family:'Cinzel',serif;font-size:clamp(.72rem,.9vw,.95rem);line-height:1.45;letter-spacing:clamp(1.2px,.18vw,2.6px);color:#f0cf8d;text-decoration:none;white-space:normal}
+.desktop-nav{display:flex;align-items:center;justify-content:flex-end;gap:clamp(12px,1.5vw,24px);flex:1 1 auto}
+.desktop-nav a,.nav-dropdown summary{position:relative;padding:10px 0;font-family:'Inter',sans-serif;font-size:clamp(10px,.72vw,12px);font-weight:500;letter-spacing:clamp(.5px,.06vw,1px);line-height:1.3;white-space:nowrap;text-transform:uppercase;text-decoration:none;color:#d7c3a4;cursor:pointer;list-style:none}
+.nav-dropdown summary::-webkit-details-marker{display:none}
+.nav-dropdown summary::after{content:"⌄";display:inline-block;margin-left:6px;color:#d4a44f;font-size:12px;transition:transform .2s ease}
+.nav-dropdown[open] summary::after{transform:rotate(180deg)}
+.desktop-nav a::after,.nav-dropdown summary::before{content:"";position:absolute;left:0;bottom:3px;width:0;height:1px;background:#d4a44f;transition:width .2s ease}
+.desktop-nav a:hover,.desktop-nav a.active,.nav-dropdown summary:hover,.nav-dropdown[open] summary{color:#f2d18b}
+.desktop-nav a:hover::after,.desktop-nav a.active::after,.nav-dropdown summary:hover::before,.nav-dropdown[open] summary::before{width:100%}
+.nav-dropdown{position:relative}
+.dropdown-panel{position:absolute;top:calc(100% + 16px);left:-18px;min-width:205px;padding:9px 16px;background:rgba(12,10,8,.98);border:1px solid rgba(212,164,79,.3);box-shadow:0 16px 38px rgba(0,0,0,.38);display:flex;flex-direction:column;gap:2px}
+.dropdown-panel a{display:block;padding:12px 4px;font-size:11px;letter-spacing:.8px;border-bottom:1px solid rgba(255,255,255,.07)}
+.dropdown-panel a:last-child{border-bottom:0}
+.menu-toggle{display:none;flex:0 0 46px;width:46px;height:46px;padding:0;border:1px solid rgba(212,164,79,.45);border-radius:50%;background:rgba(212,164,79,.08);align-items:center;justify-content:center;cursor:pointer;color:#f2d18b}
+.menu-toggle:hover,.menu-toggle:focus-visible{background:rgba(212,164,79,.18);border-color:rgba(242,209,139,.85);outline:2px solid rgba(242,209,139,.55);outline-offset:3px}
+.menu-icon{display:flex;flex-direction:column;gap:5px;width:18px}
+.menu-icon span{display:block;height:2px;width:100%;border-radius:2px;background:#f2d18b;transition:transform .2s ease,opacity .2s ease}
+.menu-toggle.active .menu-icon span:first-child{transform:translateY(7px) rotate(45deg)}
+.menu-toggle.active .menu-icon span:nth-child(2){opacity:0}
+.menu-toggle.active .menu-icon span:last-child{transform:translateY(-7px) rotate(-45deg)}
+.menu-overlay{position:fixed;inset:0;z-index:9997;background:rgba(0,0,0,.62);backdrop-filter:blur(7px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+.menu-overlay.active{opacity:1;visibility:visible}
+.slide-menu{position:fixed;top:0;right:0;z-index:9998;width:min(390px,88vw);height:100vh;height:100dvh;padding:calc(88px + env(safe-area-inset-top)) 28px calc(28px + env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;background:linear-gradient(180deg,rgba(10,8,7,.99),rgba(20,15,13,.99));border-left:1px solid rgba(212,164,79,.25);box-shadow:-18px 0 48px rgba(0,0,0,.3);transform:translateX(105%);visibility:hidden;transition:transform .28s ease,visibility .28s ease}
+.slide-menu.active{transform:translateX(0);visibility:visible}
+.slide-links{display:flex;flex-direction:column;gap:0}
+.slide-links>a,.mobile-group summary{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:54px;padding:15px 2px;border-bottom:1px solid rgba(255,255,255,.09);font-family:'Cinzel',serif;font-size:1rem;line-height:1.4;text-decoration:none;color:#f3e7d4;cursor:pointer;list-style:none}
+.mobile-group summary::-webkit-details-marker{display:none}
+.mobile-group summary::after{content:"+";color:#d4a44f;font-family:Inter,sans-serif;font-size:1.2rem}
+.mobile-group[open] summary::after{content:"−"}
+.slide-links>a:hover,.slide-links>a:focus-visible,.mobile-group summary:hover,.mobile-group summary:focus-visible{color:#f2d18b;outline:none}
+.mobile-submenu{padding:4px 0 10px 15px;border-bottom:1px solid rgba(255,255,255,.09)}
+.mobile-submenu a{display:block;padding:11px 4px;color:#c8bbab;text-decoration:none;font-size:.9rem;line-height:1.4}
+.mobile-submenu a:hover,.mobile-submenu a:focus-visible{color:#f2d18b;outline:none}
+body.nav-open{overflow:hidden}
+@media(max-width:1100px){.site-header{min-height:68px;padding:10px max(18px,4vw);gap:14px}.site-logo{max-width:calc(100% - 64px);font-size:clamp(.66rem,2.1vw,.88rem);letter-spacing:clamp(1px,.25vw,2px)}.desktop-nav{display:none}.menu-toggle{display:flex}}
+@media(max-width:480px){.site-header{min-height:64px;padding:9px max(14px,4vw);gap:10px}.site-logo{max-width:calc(100% - 54px);font-size:clamp(.61rem,3vw,.76rem);letter-spacing:1.1px;line-height:1.35}.menu-toggle{width:42px;height:42px;flex-basis:42px}.slide-menu{padding-left:22px;padding-right:22px}.slide-links>a,.mobile-group summary{min-height:50px;font-size:.96rem}}
+@media(prefers-reduced-motion:reduce){.site-header *, .menu-overlay,.slide-menu{transition:none!important}}
 </style>
 
 <header class="site-header">
-
-<a href="index.html" class="site-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<nav class="desktop-nav">
-
+<a href="index.html" class="site-logo">A LOVE OLDER THAN FEAR</a>
+<nav class="desktop-nav" aria-label="Main navigation">
 <a href="index.html" class="nav-link">Home</a>
-<a href="archive.html" class="nav-link">Archive</a>
-<a href="chapters.html" class="nav-link">Chapters</a>
-<a href="reading-paths.html" class="nav-link">Reading Paths</a>
-<a href="resources.html" class="nav-link">Resources</a>
-<a href="study-guide.html" class="nav-link">Study Guide</a>
-<a href="prayer-room.html" class="nav-link">Prayer Room</a>
-<a href="faq.html" class="nav-link">FAQ</a>
-<a href="notes.html" class="nav-link">Notes</a>
+<details class="nav-dropdown"><summary>Chapters</summary><div class="dropdown-panel">
+<a href="archive.html" class="nav-link">Archive</a><a href="chapters.html" class="nav-link">Chapters</a><a href="reading-paths.html" class="nav-link">Reading Paths</a>
+</div></details>
+<details class="nav-dropdown"><summary>Study</summary><div class="dropdown-panel">
+<a href="study-guide.html" class="nav-link">Study Guide</a><a href="prayer-room.html" class="nav-link">Prayer Room</a><a href="notes.html" class="nav-link">Notes</a>
+</div></details>
+<details class="nav-dropdown"><summary>Resources</summary><div class="dropdown-panel">
+<a href="resources.html" class="nav-link">Resources</a><a href="faq.html" class="nav-link">FAQ</a>
+</div></details>
 <a href="about.html" class="nav-link">About</a>
-
 </nav>
-
-<button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-controls="slideMenu" aria-expanded="false">
-  <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
-</button>
-
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-controls="slideMenu" aria-expanded="false"><span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></button>
 </header>
-
 <div class="menu-overlay" id="menuOverlay"></div>
-
-<div class="slide-menu" id="slideMenu">
-
+<nav class="slide-menu" id="slideMenu" aria-label="Mobile navigation">
 <div class="slide-links">
-
-<a href="index.html">
-Home
-<span>→</span>
-</a>
-
-<a href="archive.html">
-Archive
-<span>→</span>
-</a>
-
-<a href="chapters.html">
-Chapters
-<span>→</span>
-</a>
-
-<a href="reading-paths.html">
-Reading Paths
-<span>→</span>
-</a>
-
-<a href="resources.html">
-Resources
-<span>→</span>
-</a>
-
-<a href="study-guide.html">
-Study Guide
-<span>→</span>
-</a>
-
-<a href="prayer-room.html">
-Prayer Room
-<span>→</span>
-</a>
-
-<a href="faq.html">
-FAQ
-<span>→</span>
-</a>
-
-<a href="notes.html">
-Notes
-<span>→</span>
-</a>
-
-<a href="about.html">
-About
-<span>→</span>
-</a>
-
+<a href="index.html" class="mobile-link">Home <span>→</span></a>
+<details class="mobile-group"><summary>Chapters</summary><div class="mobile-submenu">
+<a href="archive.html">Archive</a><a href="chapters.html">Chapters</a><a href="reading-paths.html">Reading Paths</a>
+</div></details>
+<details class="mobile-group"><summary>Study</summary><div class="mobile-submenu">
+<a href="study-guide.html">Study Guide</a><a href="prayer-room.html">Prayer Room</a><a href="notes.html">Notes</a>
+</div></details>
+<details class="mobile-group"><summary>Resources</summary><div class="mobile-submenu">
+<a href="resources.html">Resources</a><a href="faq.html">FAQ</a>
+</div></details>
+<a href="about.html" class="mobile-link">About <span>→</span></a>
 </div>
-
-</div>
-
+</nav>
 <script>
 (() => {
-  const toggle = document.getElementById('menuToggle');
-  const menu = document.getElementById('slideMenu');
-  const overlay = document.getElementById('menuOverlay');
-  if (!toggle || !menu || !overlay) return;
-
-  const setOpen = (open) => {
-    toggle.classList.toggle('active', open);
-    menu.classList.toggle('active', open);
-    overlay.classList.toggle('active', open);
-    document.body.classList.toggle('nav-open', open);
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-  };
-  toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
-  overlay.addEventListener('click', () => setOpen(false));
-  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') setOpen(false);
-  });
-
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-link').forEach(link => {
-    if (link.getAttribute('href') === currentPage) link.classList.add('active');
-  });
-  menu.querySelectorAll('a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.setAttribute('aria-current', 'page');
-      link.style.color = '#f2d18b';
-    }
-  });
+ const toggle=document.getElementById('menuToggle'),menu=document.getElementById('slideMenu'),overlay=document.getElementById('menuOverlay');
+ if(!toggle||!menu||!overlay)return;
+ const setOpen=open=>{toggle.classList.toggle('active',open);menu.classList.toggle('active',open);overlay.classList.toggle('active',open);document.body.classList.toggle('nav-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu')};
+ toggle.addEventListener('click',()=>setOpen(toggle.getAttribute('aria-expanded')!=='true'));
+ overlay.addEventListener('click',()=>setOpen(false));
+ menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setOpen(false)));
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'){setOpen(false);document.querySelectorAll('.nav-dropdown[open]').forEach(item=>item.open=false)}});
+ const current=window.location.pathname.split('/').pop()||'index.html';
+ document.querySelectorAll('.nav-link').forEach(link=>{if(link.getAttribute('href')===current){link.classList.add('active');const parent=link.closest('.nav-dropdown');if(parent)parent.querySelector('summary').style.color='#f2d18b'}});
+ menu.querySelectorAll('a').forEach(link=>{if(link.getAttribute('href')===current){link.setAttribute('aria-current','page');link.style.color='#f2d18b';const parent=link.closest('.mobile-group');if(parent)parent.open=true}});
+ document.querySelectorAll('.nav-dropdown').forEach(drop=>drop.addEventListener('toggle',()=>{if(drop.open)document.querySelectorAll('.nav-dropdown').forEach(other=>{if(other!==drop)other.open=false})}));
 })();
 </script>
