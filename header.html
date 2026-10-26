@@ -38,6 +38,104 @@ body.nav-open{overflow:hidden}
 @media(max-width:1100px){.site-header{min-height:68px;padding:10px max(18px,4vw);gap:14px}.site-logo{max-width:calc(100% - 64px);font-size:clamp(.66rem,2.1vw,.88rem);letter-spacing:clamp(1px,.25vw,2px)}.desktop-nav{display:none}.menu-toggle{display:flex}}
 @media(max-width:480px){.site-header{min-height:64px;padding:9px max(14px,4vw);gap:10px}.site-logo{max-width:calc(100% - 54px);font-size:clamp(.61rem,3vw,.76rem);letter-spacing:1.1px;line-height:1.35}.menu-toggle{width:42px;height:42px;flex-basis:42px}.slide-menu{padding-left:22px;padding-right:22px}.slide-links>a,.mobile-group summary{min-height:50px;font-size:.96rem}}
 @media(prefers-reduced-motion:reduce){.site-header *, .menu-overlay,.slide-menu{transition:none!important}}
+
+/* Shared compact spacing for desktop, landscape tablets, and smaller laptops.
+   Keep the reading experience spacious enough to breathe without oversized gaps. */
+@media (min-width: 601px) {
+  main, .page-content, .content-wrapper, .content-container, .chapter-content,
+  .chapter-manuscript, .manuscript, .manuscript-inner, .manuscript-text,
+  .section-content, .section-inner, .intro-inner, .chapter-inner, .part-inner,
+  .archive-inner, .guide-inner, .reflection-content, .references-inner,
+  .footnotes-inner, .about-content, .resource-content, .reading-content {
+    min-width: 0;
+  }
+
+  p {
+    margin-bottom: 1.05em;
+  }
+
+  section:not(.hero):not(.chapter-hero):not(.part-hero):not(.archive-hero):not(.about-hero):not(.page-hero) {
+    scroll-margin-top: 90px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1100px) {
+  section:not(.hero):not(.chapter-hero):not(.part-hero):not(.archive-hero):not(.about-hero):not(.page-hero),
+  .section, .chapters, .final, .support, .massive-quote, .quote-section {
+    padding-top: clamp(3.25rem, 6vw, 5rem) !important;
+    padding-bottom: clamp(3.25rem, 6vw, 5rem) !important;
+  }
+
+  .chapter-grid, .archive-grid, .resource-grid, .card-grid {
+    gap: clamp(1rem, 2vw, 1.5rem) !important;
+  }
+
+  .chapter-card, .archive-card, .nav-card, .resource-card {
+    padding: clamp(1.2rem, 2.5vw, 2rem) !important;
+  }
+
+  .chapter-manuscript, .manuscript, .manuscript-inner, .manuscript-text,
+  .section-content, .section-inner, .intro-inner, .chapter-inner,
+  .part-inner, .archive-inner, .guide-inner, .reflection-content {
+    max-width: min(100%, 900px);
+    margin-inline: auto;
+  }
+
+  h1 { line-height: 1.16; }
+  h2 { line-height: 1.22; }
+}
+
+@media (min-width: 1101px) {
+  .section, .chapters {
+    padding-top: clamp(5rem, 7vw, 7.5rem) !important;
+    padding-bottom: clamp(5rem, 7vw, 7.5rem) !important;
+  }
+
+  .massive-quote, .quote-section, .quote-block {
+    padding-top: clamp(5rem, 8vw, 8rem) !important;
+    padding-bottom: clamp(5rem, 8vw, 8rem) !important;
+  }
+
+  .final {
+    padding-top: clamp(5rem, 7vw, 7rem) !important;
+    padding-bottom: clamp(5rem, 7vw, 7rem) !important;
+  }
+
+  .support {
+    padding-top: clamp(4rem, 6vw, 6rem) !important;
+    padding-bottom: clamp(4rem, 6vw, 6rem) !important;
+  }
+
+  .chapter-grid, .archive-grid, .resource-grid, .card-grid {
+    gap: clamp(1.25rem, 2vw, 2rem);
+  }
+
+  .chapter-card, .archive-card, .nav-card, .resource-card {
+    padding: clamp(1.5rem, 2.3vw, 2.5rem);
+  }
+
+  .chapter-manuscript, .manuscript, .manuscript-inner, .manuscript-text,
+  .section-content, .section-inner, .intro-inner, .chapter-inner,
+  .part-inner, .archive-inner, .guide-inner, .reflection-content {
+    max-width: min(100%, 980px);
+    margin-inline: auto;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 601px) and (max-height: 800px) {
+  .site-header { min-height: 64px; padding-top: 8px; padding-bottom: 8px; }
+  .chapter-hero, .part-hero, .archive-hero, .about-hero, .page-hero {
+    min-height: auto !important;
+    padding-top: clamp(5.5rem, 12vh, 7rem) !important;
+    padding-bottom: clamp(2.5rem, 7vh, 4rem) !important;
+  }
+  .hero:not(:has(.hero-banner)) {
+    min-height: auto;
+    padding-top: clamp(5.5rem, 12vh, 7rem);
+    padding-bottom: clamp(2.5rem, 7vh, 4rem);
+  }
+}
+
 </style>
 
 <header class="site-header">
