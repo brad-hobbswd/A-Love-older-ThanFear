@@ -186,3 +186,69 @@
     min-height: auto;
   }
 }
+
+
+/* Compact shared fixed navigation on phones. The header must not become a
+   tall opaque panel that hides the opening of the homepage artwork. */
+@media (max-width: 600px) {
+  .site-header {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 10px 5% !important;
+    gap: 12px !important;
+    align-items: center !important;
+    background: rgba(7, 6, 5, 0.88) !important;
+  }
+
+  .site-logo {
+    display: block;
+    max-width: calc(100% - 60px);
+    white-space: normal !important;
+    font-size: clamp(0.62rem, 3.15vw, 0.82rem) !important;
+    line-height: 1.35 !important;
+    letter-spacing: clamp(1.2px, 0.45vw, 2px) !important;
+  }
+
+  .menu-toggle {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+    flex: 0 0 46px !important;
+  }
+
+  .menu-toggle .arrow {
+    font-size: 1.15rem !important;
+  }
+
+  /* Keep the first image visible directly beneath the compact fixed header. */
+  .hero:has(.hero-banner) {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  .hero-banner {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
+  .hero-bottom {
+    bottom: 24px !important;
+    gap: 12px !important;
+    width: 100%;
+    padding-inline: 6%;
+  }
+
+  .enter-button {
+    max-width: 100%;
+    padding: 15px 28px !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 2.5px !important;
+  }
+
+  .scroll-indicator {
+    font-size: 0.62rem !important;
+    letter-spacing: 4px !important;
+  }
+}
