@@ -651,6 +651,12 @@ color:#c7b9a8;
 
 }
 
+
+/* Refined desktop and landscape spacing */
+@media (min-width:601px){.hero{min-height:auto;padding:clamp(145px,15vw,185px) 7% clamp(85px,9vw,120px)}.hero-label{margin-bottom:22px}.hero-content h1{margin-bottom:28px}.hero-content p{line-height:1.9}.quote-section{padding:clamp(70px,8vw,115px) 8%}.quote-section h2{line-height:1.4}.manuscript{padding:clamp(80px,8vw,120px) 8%}.manuscript-label{margin-bottom:20px}.manuscript-title{margin-bottom:42px;line-height:1.2}.manuscript-text{line-height:1.95}.manuscript-text p{margin-bottom:1.35em}.emphasis-line{margin-top:2.5rem;line-height:1.55}.reflection{padding:clamp(70px,7vw,105px) 8%}.reflection h2{margin-bottom:28px}.reflection p{line-height:1.9}.chapter-navigation{padding:clamp(55px,6vw,85px) 7%;gap:clamp(16px,2vw,28px)}.chapter-nav-card{padding:clamp(24px,2.5vw,36px)}.chapter-nav-label{margin-bottom:14px}.chapter-nav-card h3{margin-bottom:14px}.chapter-nav-card p{line-height:1.75}}
+@media (min-width:601px) and (max-width:1100px){.hero{padding-top:130px;padding-bottom:85px}.manuscript,.reflection,.quote-section{padding-top:65px;padding-bottom:65px}.chapter-navigation{padding-top:50px;padding-bottom:50px}}
+@media (orientation:landscape) and (min-width:601px) and (max-height:800px){.hero{padding-top:110px;padding-bottom:65px;min-height:auto}.hero-content h1{font-size:clamp(2.5rem,5vw,4.4rem)}.quote-section,.manuscript,.reflection{padding-top:55px;padding-bottom:55px}.chapter-navigation{padding-top:40px;padding-bottom:40px}}
+
 /* =========================
 RESPONSIVE
 ========================= */
@@ -770,52 +776,7 @@ font-size:1.8rem;
 
 </div>
 
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="reading-paths.html">
-Reading Paths
-</a>
-
-<a href="chapters.html">
-Chapters
-</a>
-
-<a href="resources.html">
-Resources
-</a>
-
-<a href="study-guide.html">
-Study Guide
-</a>
-
-<a href="prayer-room.html">
-Prayer Room
-</a>
-
-<a href="about.html">
-About
-</a>
-
-<a href="covenant.html" style="
-color:#f6ddb0;
-">
-Covenant
-</a>
-
-</div>
-</nav>
+<div id="header-container"></div>
 
 <section class="hero">
 
@@ -1101,6 +1062,10 @@ Return to the main archive and continue exploring A Love Older Than Fear.
 </section>
 
 <div id="footer-container"></div>
+
+<script>
+fetch('header.html').then(response=>{if(!response.ok)throw new Error('Header failed to load');return response.text()}).then(data=>{const container=document.getElementById('header-container');container.innerHTML=data;container.querySelectorAll('script').forEach(oldScript=>{const newScript=document.createElement('script');if(oldScript.src)newScript.src=oldScript.src;else newScript.textContent=oldScript.textContent;document.body.appendChild(newScript)})}).catch(error=>console.error(error));
+</script>
 
 <script>
 
