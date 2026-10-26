@@ -1,0 +1,188 @@
+/*
+  A Love Older Than Fear
+  Shared responsive spacing and section identification.
+  This file is loaded after each page's existing styles so mobile spacing
+  can be managed consistently without rewriting the manuscript content.
+*/
+
+:root {
+  --section-divider: rgba(212, 164, 79, 0.22);
+  --section-mobile-space: 2.5rem;
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 84px;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  /* Keep content sections visually distinct without turning every passage
+     into a separate card. */
+  section:not(.hero):not(.chapter-hero):not(.part-hero):not(.archive-hero):not(.about-hero):not(.page-hero) {
+    padding-block: var(--section-mobile-space) !important;
+    padding-inline: 6% !important;
+    margin-block: 0 !important;
+    border-top: 1px solid var(--section-divider);
+  }
+
+  /* Give the opening area enough room beneath the fixed site navigation,
+     while removing the oversized mobile padding that caused long blank gaps. */
+  .chapter-hero,
+  .part-hero,
+  .archive-hero,
+  .about-hero,
+  .page-hero {
+    min-height: auto !important;
+    padding: 112px 6% 48px !important;
+  }
+
+  .hero:not(:has(.hero-banner)) {
+    min-height: auto !important;
+    padding: 112px 6% 48px !important;
+  }
+
+  /* The home page uses an image banner, not a text hero. Remove empty
+     padding above and below the banner on small screens. */
+  .hero:has(.hero-banner) {
+    padding: 0 !important;
+    min-height: auto !important;
+  }
+
+  .hero-banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Tighten common reading areas and prevent oversized paragraph gaps. */
+  .chapter-manuscript,
+  .manuscript,
+  .manuscript-inner,
+  .manuscript-text,
+  .section-content,
+  .section-inner,
+  .intro-inner,
+  .chapter-inner,
+  .part-inner,
+  .archive-inner,
+  .guide-inner,
+  .reflection-content,
+  .references-inner,
+  .footnotes-inner {
+    max-width: 100%;
+  }
+
+  .chapter-manuscript p,
+  .manuscript p,
+  .manuscript-text p,
+  .section-text,
+  .intro-text,
+  .archive-description,
+  .hero-content p,
+  .chapter-hero-content p {
+    margin-bottom: 0.9rem !important;
+    line-height: 1.8 !important;
+  }
+
+  .chapter-manuscript p,
+  .manuscript-inner p {
+    line-height: 1.85 !important;
+  }
+
+  .chapter-manuscript h2,
+  .manuscript h2,
+  .guide-block h2,
+  .section-title,
+  .archive-title,
+  .intro-title,
+  .chapter-heading {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.9rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Section labels act as visual signposts between topics. */
+  .section-label,
+  .archive-label,
+  .intro-label,
+  .manuscript-label,
+  .guide-label,
+  .hero-label,
+  .chapter-number,
+  .part-number {
+    margin-bottom: 0.65rem !important;
+  }
+
+  /* Reduce very large cards and navigation blocks on mobile. */
+  .chapter-card,
+  .archive-card,
+  .chapter-nav-card,
+  .nav-card,
+  .prayer-card,
+  .prayer-form-card,
+  .source-item,
+  .footnote-item,
+  .question-item {
+    padding: 1.15rem !important;
+  }
+
+  .chapter-grid,
+  .archive-grid,
+  .support-buttons,
+  .chapter-navigation,
+  .page-navigation {
+    gap: 1rem !important;
+  }
+
+  .source-group {
+    margin-bottom: 2rem !important;
+  }
+
+  .chapter-navigation,
+  .page-navigation {
+    padding-block: 2.5rem !important;
+  }
+
+  .quote-section,
+  .massive-quote,
+  .quote-divider,
+  .quote-block {
+    padding-block: 2.75rem !important;
+  }
+
+  .quote-section h2,
+  .quote-divider h2,
+  .quote-block h2,
+  .massive-quote h2 {
+    line-height: 1.4 !important;
+  }
+
+  /* Avoid accidental horizontal overflow from large headings and long URLs. */
+  h1, h2, h3, p, a, li {
+    overflow-wrap: anywhere;
+  }
+
+  img, video, iframe {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  section:not(.hero):not(.chapter-hero):not(.part-hero):not(.archive-hero):not(.about-hero):not(.page-hero) {
+    padding-block: clamp(3rem, 7vw, 5rem);
+  }
+
+  .chapter-hero,
+  .part-hero,
+  .archive-hero,
+  .about-hero,
+  .page-hero {
+    padding-top: clamp(8rem, 15vw, 10rem);
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+    min-height: auto;
+  }
+}
