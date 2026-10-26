@@ -3,29 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Contact Bradley Hobbs about A Love Older Than Fear, the book, its research, and related study resources.">
-<title>Contact | A Love Older Than Fear</title>
+<meta name="description" content="Contact Bradley Hobbs about A Love Older Than Fear. Send reader messages, book questions, research suggestions, and respectful correspondence.">
+<title>Contact Brad Hobbs | A Love Older Than Fear</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#090807;--gold:#d4a44f;--gold-soft:#f2d18b;--text:#f8f2e8;--muted:#c8bbab}
-body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.8}
-.contact-hero{min-height:68vh;display:grid;place-items:center;padding:180px 7% 100px;text-align:center;background:radial-gradient(ellipse at top,rgba(212,164,79,.12),transparent 55%),linear-gradient(180deg,#090807,#17110e)}
-.contact-inner{max-width:850px;margin:auto}
-.eyebrow{color:var(--gold);font-size:.75rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:22px}
-h1{font-family:Cinzel,serif;font-weight:400;font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.15;margin-bottom:28px}
-.intro{max-width:720px;margin:0 auto;color:var(--muted);font-size:1.1rem;line-height:2}
-.contact-section{padding:80px 7% 120px;background:linear-gradient(180deg,#17110e,#090807)}
-.contact-card{max-width:850px;margin:auto;padding:clamp(28px,5vw,58px);border:1px solid rgba(212,164,79,.3);background:rgba(255,255,255,.025);box-shadow:0 22px 60px rgba(0,0,0,.25)}
-h2{font-family:Cinzel,serif;font-weight:400;font-size:clamp(1.7rem,3vw,2.6rem);margin-bottom:20px}
-.contact-card p{color:var(--muted);margin-bottom:20px}
-.contact-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.contact-links a{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border:1px solid rgba(212,164,79,.55);color:var(--gold-soft);text-decoration:none;text-transform:uppercase;letter-spacing:1.3px;font-size:.76rem;transition:background .2s ease}
-.contact-links a:hover,.contact-links a:focus-visible{background:rgba(212,164,79,.13);outline:2px solid rgba(242,209,139,.6);outline-offset:3px}
-.small-note{font-size:.92rem;color:#a99b8c!important;margin-top:26px}
-@media(max-width:600px){.contact-hero{min-height:auto;padding:150px 7% 75px}.contact-section{padding:55px 6% 80px}.contact-links{flex-direction:column}.contact-links a{width:100%}}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.8;overflow-x:hidden}
+.contact-hero{min-height:62vh;display:grid;place-items:center;padding:175px 7% 85px;text-align:center;background:radial-gradient(ellipse at top,rgba(212,164,79,.13),transparent 55%),linear-gradient(180deg,#090807,#17110e)}
+.contact-inner{max-width:880px;margin:auto}
+.eyebrow{color:var(--gold);font-size:.73rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:20px}
+h1{font-family:Cinzel,serif;font-weight:400;font-size:clamp(2.6rem,6vw,5rem);line-height:1.15;margin-bottom:26px}
+.intro{max-width:740px;margin:0 auto;color:var(--muted);font-size:1.1rem;line-height:2}
+.contact-section{padding:76px 7% 110px;background:linear-gradient(180deg,#17110e,#090807)}
+.contact-layout{width:min(1120px,100%);margin:auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(270px,.9fr);gap:28px;align-items:start}
+.contact-card,.topics-card{padding:clamp(26px,4vw,46px);border:1px solid rgba(212,164,79,.28);background:rgba(255,255,255,.025);box-shadow:0 22px 60px rgba(0,0,0,.24)}
+h2{font-family:Cinzel,serif;font-weight:400;font-size:clamp(1.65rem,3vw,2.4rem);line-height:1.3;margin-bottom:20px}
+.contact-card p,.topics-card p{color:var(--muted);margin-bottom:18px}
+.contact-option{padding:22px 0;border-top:1px solid rgba(255,255,255,.09)}
+.contact-option:first-of-type{margin-top:24px}
+.option-label{color:var(--gold);font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:5px}
+.contact-option h3{font-family:Cormorant Garamond,serif;font-size:1.65rem;font-weight:600;margin-bottom:6px}
+.contact-option p{font-size:.95rem;margin-bottom:12px}
+.text-link{color:var(--gold-soft);overflow-wrap:anywhere;text-underline-offset:4px}
+.text-link:hover,.text-link:focus-visible{color:#fff;outline-color:var(--gold-soft)}
+.topic-list{list-style:none;display:grid;gap:15px;margin-top:25px}
+.topic-list li{padding-left:18px;position:relative;color:var(--muted);line-height:1.7}
+.topic-list li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;background:var(--gold);border-radius:50%}
+.note{font-size:.9rem;color:#a99b8c!important;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)}
+.contact-bottom{width:min(1120px,100%);margin:36px auto 0;padding:30px clamp(24px,4vw,42px);border:1px solid rgba(212,164,79,.2);background:linear-gradient(120deg,rgba(212,164,79,.08),rgba(255,255,255,.015));display:flex;align-items:center;justify-content:space-between;gap:22px}
+.contact-bottom p{max-width:680px;color:var(--muted)}
+.button-link{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;padding:13px 20px;border:1px solid rgba(212,164,79,.55);color:var(--gold-soft);text-decoration:none;text-transform:uppercase;letter-spacing:1.2px;font-size:.73rem;transition:background .2s ease}
+.button-link:hover,.button-link:focus-visible{background:rgba(212,164,79,.13);outline:2px solid rgba(242,209,139,.55);outline-offset:3px}
+@media(max-width:800px){.contact-layout{grid-template-columns:1fr}.contact-bottom{align-items:flex-start;flex-direction:column}}
+@media(max-width:600px){.contact-hero{min-height:auto;padding:145px 7% 70px}.contact-section{padding:52px 6% 76px}.contact-card,.topics-card{padding:26px 22px}.contact-bottom{padding:24px 22px}.button-link{width:100%}.intro{font-size:1rem}}
 </style>
 </head>
 <body>
@@ -33,22 +47,53 @@ h2{font-family:Cinzel,serif;font-weight:400;font-size:clamp(1.7rem,3vw,2.6rem);m
 <main>
 <section class="contact-hero">
 <div class="contact-inner">
-<div class="eyebrow">A Love Older Than Fear</div>
-<h1>Let the Conversation Continue.</h1>
-<p class="intro">Thank you for spending time with this project. Questions, thoughtful responses, research suggestions, and respectful conversations about the book and its resources are welcome.</p>
+<div class="eyebrow">Get in Touch</div>
+<h1>Contact Brad Hobbs</h1>
+<p class="intro">Questions, reader messages, ministry inquiries, suggestions, and thoughtful correspondence about <em>A Love Older Than Fear</em> are welcome. I appreciate sincere questions and respectful conversations.</p>
 </div>
 </section>
 <section class="contact-section">
+<div class="contact-layout">
 <div class="contact-card">
-<div class="eyebrow">Get in Touch</div>
-<h2>Contact the Author</h2>
-<p>For questions about <em>A Love Older Than Fear</em>, its biblical and historical themes, or the resources shared on this site, please use the author’s main website to find the available contact options.</p>
-<p>This project values careful study, sincere questions, and conversations that treat people with dignity. Please allow reasonable time for a response.</p>
-<div class="contact-links">
-<a href="https://brad-hobbswd.github.io/brad-hobbswd/">Visit Brad Hobbs’s Website</a>
-<a href="about.html">About the Book</a>
+<div class="eyebrow">Let's Connect</div>
+<h2>I'd Be Glad to Hear From You</h2>
+<p>Whether you have a question about the book, want to share a reader response, or would like to suggest a subject for future study, you are welcome to reach out.</p>
+<p>Please include enough detail for me to understand what you are contacting me about. If your message concerns a particular passage or chapter, mentioning it will help me respond more meaningfully. I will reply as soon as I reasonably can.</p>
+<div class="contact-option">
+<div class="option-label">Email</div>
+<h3>Send a Message</h3>
+<p>For reader correspondence, book questions, research suggestions, and general messages about this project.</p>
+<a class="text-link" href="mailto:brad.hobbs13@icloud.com?subject=A%20Love%20Older%20Than%20Fear">brad.hobbs13@icloud.com</a>
 </div>
-<p class="small-note">Thank you for approaching this work with curiosity, care, and respect.</p>
+<div class="contact-option">
+<div class="option-label">Social</div>
+<h3>Facebook</h3>
+<p>Follow author updates, new projects, announcements, and other writing news.</p>
+<a class="text-link" href="https://www.facebook.com/profile.php?id=61580865290507" target="_blank" rel="noopener noreferrer">Visit Facebook</a>
+</div>
+<div class="contact-option">
+<div class="option-label">Creative Work</div>
+<h3>Web Portfolio</h3>
+<p>Explore websites, digital projects, educational resources, and other creative work.</p>
+<a class="text-link" href="https://brad-hobbswd.github.io/brad-hobbswd/" target="_blank" rel="noopener noreferrer">Visit Brad Hobbs Web Design</a>
+</div>
+</div>
+<aside class="topics-card">
+<div class="eyebrow">You Can Reach Out About</div>
+<h2>What Can I Help You With?</h2>
+<ul class="topic-list">
+<li><strong>Reader messages.</strong> Share how the book affected you or simply say hello.</li>
+<li><strong>Book questions.</strong> Ask about a chapter, a biblical passage, or a theme explored in the project.</li>
+<li><strong>Research suggestions.</strong> Recommend a source or a subject for further study.</li>
+<li><strong>Ministry and collaboration.</strong> Ask about related teaching, writing, or creative opportunities.</li>
+<li><strong>Future topics.</strong> Suggest a biblical question or subject you would like to see explored.</li>
+</ul>
+<p class="note">A helpful note: include “A Love Older Than Fear” in your email subject line and mention the chapter or topic when relevant. Clear, specific messages are appreciated.</p>
+</aside>
+</div>
+<div class="contact-bottom">
+<div><div class="eyebrow">Before You Go</div><h2>Continue Exploring the Book</h2><p>Return to the book’s overview, explore the chapters, or browse the reading and study resources at your own pace.</p></div>
+<a class="button-link" href="about.html">About the Book</a>
 </div>
 </section>
 </main>
