@@ -601,6 +601,18 @@ padding:80px 7%;
 
 }
 
+
+/* FEATURED BOOK COVER */
+.book-feature{display:grid;grid-template-columns:minmax(220px,360px) minmax(0,1fr);align-items:center;gap:clamp(36px,7vw,90px);max-width:1100px;margin:0 auto}
+.book-cover-frame{padding:14px;border:1px solid rgba(212,164,79,.48);background:linear-gradient(145deg,rgba(212,164,79,.14),rgba(255,255,255,.015));box-shadow:0 24px 70px rgba(0,0,0,.48)}
+.book-cover-frame img{display:block;width:100%;height:auto;object-fit:contain}
+.book-copy .section-title{margin-bottom:24px}
+.book-eyebrow{font-size:.75rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.book-copy p{font-size:1.08rem;line-height:2;color:var(--muted);margin-bottom:20px}
+.book-contact-link{display:inline-flex;margin-top:12px;padding:14px 22px;border:1px solid rgba(212,164,79,.55);color:var(--gold-soft);text-decoration:none;text-transform:uppercase;letter-spacing:1.5px;font-size:.78rem;transition:background .2s ease,border-color .2s ease}
+.book-contact-link:hover,.book-contact-link:focus-visible{background:rgba(212,164,79,.12);border-color:var(--gold-soft);outline:none}
+@media(max-width:760px){.book-feature{grid-template-columns:minmax(0,1fr);gap:36px;max-width:500px}.book-cover-frame{max-width:330px;margin:0 auto}.book-copy{text-align:left}}
+
 </style>
 
 
@@ -649,6 +661,19 @@ A Love Older Than Fear was never written to create division, provoke outrage, or
 </div>
 
 </section>
+
+<!-- FEATURED BOOK COVER AND ABOUT THE BOOK -->
+<section class="about-section" id="about-the-book">
+<div class="section-inner book-feature">
+<div class="book-cover-frame"><img src="38644A6D-2D72-47B7-979E-C62E3DBB63EF.png" alt="Cover of A Love Older Than Fear"></div>
+<div class="book-copy">
+<div class="book-eyebrow">A closer look at the book</div>
+<h2 class="section-title">About the Book</h2>
+<p><em>A Love Older Than Fear</em> explores the biblical story of David and Jonathan through the language of covenant, loyalty, grief, tenderness, and devotion. It invites readers to look closely at the words Scripture preserves and to consider how fear, tradition, and interpretation can shape the way a story is understood.</p>
+<p>Written for readers who value Scripture and are willing to ask thoughtful questions, this work makes room for careful study, honest reflection, and compassion for people whose experiences of faith have been shaped by silence or rejection.</p>
+<p>This is an invitation to read with care, examine the text honestly, and make room for conversations where truth and human dignity are treated seriously.</p>
+<a class="book-contact-link" href="contact.html">Contact the Author</a>
+</div></div></section>
 
 <!-- SECTION -->
 
