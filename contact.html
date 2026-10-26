@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact Bradley Hobbs about A Love Older Than Fear, the book, its research, and related study resources.">
+<title>Contact | A Love Older Than Fear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#090807;--gold:#d4a44f;--gold-soft:#f2d18b;--text:#f8f2e8;--muted:#c8bbab}
+body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.8}
+.contact-hero{min-height:68vh;display:grid;place-items:center;padding:180px 7% 100px;text-align:center;background:radial-gradient(ellipse at top,rgba(212,164,79,.12),transparent 55%),linear-gradient(180deg,#090807,#17110e)}
+.contact-inner{max-width:850px;margin:auto}
+.eyebrow{color:var(--gold);font-size:.75rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:22px}
+h1{font-family:Cinzel,serif;font-weight:400;font-size:clamp(2.6rem,6vw,5.2rem);line-height:1.15;margin-bottom:28px}
+.intro{max-width:720px;margin:0 auto;color:var(--muted);font-size:1.1rem;line-height:2}
+.contact-section{padding:80px 7% 120px;background:linear-gradient(180deg,#17110e,#090807)}
+.contact-card{max-width:850px;margin:auto;padding:clamp(28px,5vw,58px);border:1px solid rgba(212,164,79,.3);background:rgba(255,255,255,.025);box-shadow:0 22px 60px rgba(0,0,0,.25)}
+h2{font-family:Cinzel,serif;font-weight:400;font-size:clamp(1.7rem,3vw,2.6rem);margin-bottom:20px}
+.contact-card p{color:var(--muted);margin-bottom:20px}
+.contact-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.contact-links a{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border:1px solid rgba(212,164,79,.55);color:var(--gold-soft);text-decoration:none;text-transform:uppercase;letter-spacing:1.3px;font-size:.76rem;transition:background .2s ease}
+.contact-links a:hover,.contact-links a:focus-visible{background:rgba(212,164,79,.13);outline:2px solid rgba(242,209,139,.6);outline-offset:3px}
+.small-note{font-size:.92rem;color:#a99b8c!important;margin-top:26px}
+@media(max-width:600px){.contact-hero{min-height:auto;padding:150px 7% 75px}.contact-section{padding:55px 6% 80px}.contact-links{flex-direction:column}.contact-links a{width:100%}}
+</style>
+</head>
+<body>
+<div id="header-container"></div>
+<main>
+<section class="contact-hero">
+<div class="contact-inner">
+<div class="eyebrow">A Love Older Than Fear</div>
+<h1>Let the Conversation Continue.</h1>
+<p class="intro">Thank you for spending time with this project. Questions, thoughtful responses, research suggestions, and respectful conversations about the book and its resources are welcome.</p>
+</div>
+</section>
+<section class="contact-section">
+<div class="contact-card">
+<div class="eyebrow">Get in Touch</div>
+<h2>Contact the Author</h2>
+<p>For questions about <em>A Love Older Than Fear</em>, its biblical and historical themes, or the resources shared on this site, please use the author’s main website to find the available contact options.</p>
+<p>This project values careful study, sincere questions, and conversations that treat people with dignity. Please allow reasonable time for a response.</p>
+<div class="contact-links">
+<a href="https://brad-hobbswd.github.io/brad-hobbswd/">Visit Brad Hobbs’s Website</a>
+<a href="about.html">About the Book</a>
+</div>
+<p class="small-note">Thank you for approaching this work with curiosity, care, and respect.</p>
+</div>
+</section>
+</main>
+<div id="footer-container"></div>
+<script>
+(async()=>{
+async function loadPartial(file,targetId){
+try{
+const response=await fetch(file);
+if(!response.ok)throw new Error(file+' failed to load');
+const html=await response.text();
+const target=document.getElementById(targetId);
+target.innerHTML=html;
+target.querySelectorAll('script').forEach(oldScript=>{
+const script=document.createElement('script');
+Array.from(oldScript.attributes).forEach(attr=>script.setAttribute(attr.name,attr.value));
+script.textContent=oldScript.textContent;
+document.body.appendChild(script);
+});
+}catch(error){console.error(error);}
+}
+await loadPartial('header.html','header-container');
+await loadPartial('footer.html','footer-container');
+})();
+</script>
+</body>
+</html>
