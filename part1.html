@@ -991,33 +991,9 @@ letter-spacing:1.5px;
 
 </div>
 
-<!-- NAVIGATION -->
+<!-- SHARED SITE NAVIGATION -->
 
-<nav class="floating-nav">
-
-<a href="index.html" class="nav-logo">
-
-A LOVE OLDER THAN FEAR
-
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="chapters.html">
-Archive
-</a>
-
-<a href="#chapters">
-Chapters
-</a>
-
-</div>
-
-</nav>
+<div id="header-container"></div>
 
 <!-- HERO -->
 
@@ -1277,22 +1253,48 @@ Why certain emotional truths remained visible despite theological discomfort.
 
 <script>
 
-fetch('footer.html')
-.then(response => response.text())
+/* LOAD THE SAME PART I HEADER USED THROUGHOUT THE BOOK */
+
+fetch('manuscript-header-p1.html')
+.then(response => {
+if (!response.ok) {
+throw new Error('Part I header failed to load');
+}
+return response.text();
+})
 .then(data => {
+const headerContainer = document.getElementById('header-container');
+headerContainer.innerHTML = data;
 
-document.getElementById(
-'footer-container'
-).innerHTML = data;
-
+/* Scripts inserted with innerHTML must be recreated to run. */
+headerContainer.querySelectorAll('script').forEach(oldScript => {
+const newScript = document.createElement('script');
+if (oldScript.src) {
+newScript.src = oldScript.src;
+} else {
+newScript.textContent = oldScript.textContent;
+}
+document.body.appendChild(newScript);
+});
 })
 .catch(error => {
+console.error('Part I header failed to load:', error);
+});
 
-console.error(
-'Footer failed to load:',
-error
-);
+/* LOAD SHARED FOOTER */
 
+fetch('footer.html')
+.then(response => {
+if (!response.ok) {
+throw new Error('Footer failed to load');
+}
+return response.text();
+})
+.then(data => {
+document.getElementById('footer-container').innerHTML = data;
+})
+.catch(error => {
+console.error('Footer failed to load:', error);
 });
 
 </script>
