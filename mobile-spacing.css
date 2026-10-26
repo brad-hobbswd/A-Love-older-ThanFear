@@ -236,10 +236,16 @@
   }
 
   .hero-bottom {
-    bottom: 24px !important;
-    gap: 12px !important;
+    bottom: 42px !important;
+    gap: 16px !important;
     width: 100%;
     padding-inline: 6%;
+  }
+
+  /* Keep the scroll cue comfortably below the archive button. */
+  .scroll-indicator {
+    margin-top: 2px !important;
+    padding-bottom: 4px;
   }
 
   .enter-button {
