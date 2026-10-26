@@ -368,25 +368,7 @@ font-size:1.8rem;
 <div class="particle"></div>
 <div class="particle"></div>
 </div>
-<nav class="floating-nav">
-<a href="index.html" class="nav-logo">
-A LOVE OLDER THAN FEAR
-</a>
-<div class="nav-links">
-<a href="index.html">
-Home
-</a>
-<a href="resources.html">
-Resources
-</a>
-<a href="publication.html">
-Publication
-</a>
-<a href="about.html">
-About
-</a>
-</div>
-</nav>
+<div id="header-container"></div>
 <section class="hero">
 <div class="hero-content">
 <div class="hero-label">
@@ -473,13 +455,32 @@ Return to the main archive and continue exploring A Love Older Than Fear.
 </section>
 <div id="footer-container"></div>
 <script>
-fetch('footer.html')
-.then(response => response.text())
+fetch('header.html')
+.then(response => {
+if (!response.ok) throw new Error('Header failed to load');
+return response.text();
+})
 .then(data => {
-document.getElementById(
-'footer-container'
-).innerHTML = data;
+document.getElementById('header-container').innerHTML = data;
+const scripts = document.getElementById('header-container').querySelectorAll('script');
+scripts.forEach(oldScript => {
+const newScript = document.createElement('script');
+if (oldScript.src) newScript.src = oldScript.src;
+else newScript.textContent = oldScript.textContent;
+document.body.appendChild(newScript);
 });
+})
+.catch(error => console.error(error));
+
+fetch('footer.html')
+.then(response => {
+if (!response.ok) throw new Error('Footer failed to load');
+return response.text();
+})
+.then(data => {
+document.getElementById('footer-container').innerHTML = data;
+})
+.catch(error => console.error(error));
 </script>
 </body>
 </html>
